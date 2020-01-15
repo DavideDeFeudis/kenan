@@ -9,19 +9,22 @@ import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
 import Default from "./components/Default";
 import Navbar from "./components/Navbar";
+import Layout from './components/Layout';
 
 function App() {
   return (
     <React.Fragment>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/choreography" component={Choreography} />
-        <Route path="/workshops" component={Workshops} />
-        <Route path="/contact" component={Contact} />
-        <Route component={Default} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/choreography" component={Choreography} />
+          <Route path="/workshops" component={Workshops} />
+          <Route path="/contact" component={Contact} />
+          <Route component={Default} />
+        </Switch>
+      </Layout>
     </React.Fragment>
   );
 }
