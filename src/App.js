@@ -8,13 +8,15 @@ import Choreography from "./components/Choreography";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
 import Default from "./components/Default";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import Layout from './components/Layout';
+import NavigationBar from './components/NavigationBar';
 
 function App() {
   return (
     <React.Fragment>
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavigationBar />
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
