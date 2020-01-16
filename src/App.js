@@ -1,9 +1,5 @@
 import React from 'react';
-import 'bootstrap'
-import $ from 'jquery'
-import Popper from 'popper.js'
 import { Route, Switch } from "react-router-dom";
-import './sass/style.scss';
 import './App.css';
 
 import Home from "./components/Home";
@@ -18,7 +14,7 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <React.Fragment>
+    <div className="App">
       <Navbar />
       {/* <NavigationBar /> */}
       {/* <Layout> */}
@@ -31,7 +27,7 @@ function App() {
           <Route component={Default} />
         </Switch>
       {/* </Layout> */}
-    </React.Fragment>
+    </div>
   );
 }
 
