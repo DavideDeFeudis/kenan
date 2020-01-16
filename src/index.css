@@ -5,9 +5,47 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(57, 57, 57);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.Home, .About, .Choreography, .Workshops, .Contact {
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Home {
+  background-image: url("./images/kenan1.jpg");
+}
+
+.About {
+  background-image: url("./images/kenan2.jpg");
+}
+
+.Choreography {
+  background-image: url("./images/kenan3.jpg");
+}
+
+.Workshops {
+  background-image: url("./images/kenan4.jpg");
+}
+
+.Contact {
+  background-image: url("./images/kenan5.jpg");
+}
+
+.Contact form {
+  margin-top: 100vh;
+  margin-bottom: 10vh;
+  text-align: center; 
 }

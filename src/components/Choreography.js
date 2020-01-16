@@ -1,9 +1,11 @@
 import React from 'react'
+import '../index.css';
+import Navbar from './Navbar';
 
 export default function Choreography() {
     return (
-        <div>
-            Choreography
+        <div className='Choreography'>
+            <Navbar />
         </div>
     )
 }

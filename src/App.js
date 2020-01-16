@@ -15,7 +15,6 @@ import Layout from './components/Layout';
 function App() {
   return (
     <div className="App">
-      <Navbar />
       {/* <NavigationBar /> */}
       {/* <Layout> */}
         <Switch>
