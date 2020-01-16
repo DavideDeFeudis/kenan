@@ -1,9 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
+import '../Home.css';
 
 export default function Home() {
     return (
-        <div>
-            Home
+        <div className='Home'>
         </div>
     )
 }
