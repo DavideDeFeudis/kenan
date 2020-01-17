@@ -45,7 +45,11 @@ code {
 }
 
 .Contact form {
-  margin-top: 100vh;
+  margin-top: 110vh;
   margin-bottom: 10vh;
   text-align: center; 
+}
+
+footer {
+  background-color: rgb(28, 28, 28);
 }

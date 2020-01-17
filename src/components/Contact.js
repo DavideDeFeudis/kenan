@@ -1,6 +1,7 @@
 import React from 'react'
 import '../index.css';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default function Contact() {
     return (
@@ -20,6 +21,7 @@ export default function Contact() {
                     <button type="submit" className="btn btn-secondary mb-2">Send</button>
                 </form>
             </div>
+            <Footer />
         </div>
     )
 }
