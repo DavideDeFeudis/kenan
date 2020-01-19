@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(57, 57, 57);
+  background-color: rgb(21, 21, 21);
 }
 
 code {
@@ -18,7 +18,7 @@ code {
 }
 
 .Home, .About, .Choreography, .Workshops, .Contact {
-  height: 100vh;
+  height: 80vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,11 +45,26 @@ code {
 }
 
 .Contact form {
-  margin-top: 110vh;
+  margin-top: 80vh;
   margin-bottom: 10vh;
   text-align: center; 
 }
 
+.Contact textarea, 
+.Contact textarea:focus, 
+.Contact input, 
+.Contact input:focus {
+  background-color: rgb(21, 21, 21);
+  border-color: rgb(55, 55, 55);
+  color: #FFF;
+}
+
+.main-content {
+  margin-top: 80vh;
+  margin-bottom: 10vh;
+  color: rgb(199, 199, 199);
+}
+
 footer {
-  background-color: rgb(28, 28, 28);
+  background-color: rgb(21, 21, 21);
 }
