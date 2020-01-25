@@ -9,32 +9,16 @@ export default function Contact() {
     const [message, setMessage] = useState({
         name: '',
         email: '',
-        message: ''
+        text: ''
     })
 
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
     }
 
-    // const handleChange = (e) => {
-    //     setMessage(prev => ({
-    //         ...prev,
-    //         [e.target.name]: e.target.value
-    //     }), () => {
-    //         console.log(message)
-    //     })  
-    // }
-
-    // const [message, setMessage] = useState('')
-
-    // const handleChange = (e) => {
-    //     // console.log('e:', e)
-    //     setMessage(e.target.value)
-    // }
-
     const sendFormData = () => {
         // http://efe377bc.ngrok.io/
-        fetch('http://localhost:3001/contact', { method: "POST", body: JSON.stringify(message), headers: { "Content-Type": "application/json" } })
+        fetch('http://localhost:4000/contact', { method: "POST", body: JSON.stringify(message), headers: { "Content-Type": "application/json" } })
             .then(response => response.json())
             .then(json => console.log(json))
     }
@@ -44,7 +28,6 @@ export default function Contact() {
         sendFormData()
         console.log(message)
     }
-
 
     return (
         <div className='Contact'>
@@ -78,12 +61,12 @@ export default function Contact() {
                     </div>
                     <div className="form-group">
                         <textarea
-                            name="message"
+                            name="text"
                             className="form-control"
                             rows="3"
                             placeholder="Message"
                             onChange={handleChange}
-                            value={message.message}
+                            value={message.text}
                         >
                         </textarea>
                     </div>
