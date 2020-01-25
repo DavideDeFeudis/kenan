@@ -8,23 +8,28 @@ body {
   background-color: rgb(21, 21, 21);
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 .navbar {
   background: rgba(0, 0, 0, 0.3) !important;
 }
 
-.Home, .About, .Choreography, .Workshops, .Contact {
+/* .Home, .About, .Choreography, .Workshops, .Contact {
   height: 80vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+} */
+
+.Home img {
+  /* height: 80vh; */
+  width: 100%;
 }
 
-.Home {
+/* .Home {
   background-image: url("./images/kenan1.jpg");
 }
 
@@ -42,7 +47,7 @@ code {
 
 .Contact {
   background-image: url("./images/kenan5.jpg");
-}
+} */
 
 .Contact form {
   margin-top: 80vh;
@@ -60,8 +65,8 @@ code {
 }
 
 .main-content {
-  margin-top: 80vh;
-  margin-bottom: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   color: rgb(199, 199, 199);
 }
 
