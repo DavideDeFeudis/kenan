@@ -11,11 +11,12 @@ const auth = {
 
 const transporter = nodemailer.createTransport(mailGun(auth))
 
-const sendMail = (email, name, text, cb) => {
+const sendMail = (email, name, subject, text, cb) => {
     const mailOptions = {
         from: email,
         to: 'davidedefeudis@gmail.com',
         name,
+        subject,
         text
     }
 

@@ -9,6 +9,7 @@ export default function Contact() {
     const [message, setMessage] = useState({
         name: '',
         email: '',
+        subject: '',
         text: ''
     })
 
@@ -56,6 +57,18 @@ export default function Contact() {
                             placeholder="Email"
                             onChange={handleChange}
                             value={message.email}
+                            required
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="subject"
+                            type="text"
+                            className="form-control"
+                            placeholder="Subject"
+                            onChange={handleChange}
+                            value={message.subject}
                         >
                         </input>
                     </div>
@@ -67,6 +80,7 @@ export default function Contact() {
                             placeholder="Message"
                             onChange={handleChange}
                             value={message.text}
+                            required
                         >
                         </textarea>
                     </div>

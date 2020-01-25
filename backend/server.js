@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const sendMail = require('./mail')
 
-app.use(express.urlencoded({ extended: false }))
+// app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 app.use((req, res, next) => {
@@ -14,9 +14,9 @@ app.use((req, res, next) => {
 
 app.post("/contact", (req, res) => {
 
-    const { email, name, text } = req.body
+    const { email, name, subject, text } = req.body
 
-    sendMail(email, name, text, (err, data) => {
+    sendMail(email, name, subject, text, (err, data) => {
         if (err) {
             res.status(500).json({ message: 'Internal error' })
         }
