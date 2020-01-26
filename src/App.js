@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import PaymentButton from './PaymentButton';
+const CLIENT = {
+    sandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX,
+};
+const ENV = 'sandbox'
+class App extends React.Component {
+  render() {
+    const onSuccess = (payment) =>
+      console.log('Successful payment!', payment);
+    const onError = (error) =>
+      console.log('Erroneous payment OR failed to load script!', error);
+    const onCancel = (data) =>
+      console.log('Cancelled payment!', data);
+    return (
+      <div>
+        <PaymentButton
+          client={CLIENT}
+          env={ENV}
+          commit={true}
+          currency={'USD'}
+          total={100}
+          onSuccess={onSuccess}
+          onError={onError}
+          onCancel={onCancel}
+        />
+      </div>
+    );
+  }
 }
-
 export default App;
