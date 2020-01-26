@@ -8,16 +8,30 @@ body {
   background-color: rgb(21, 21, 21);
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+.main-content {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  color: rgb(199, 199, 199);
+}
 
 .navbar {
   position: absolute;
   width: 100%;
   background: rgba(0, 0, 0, 0.3) !important;
 }
+
+footer {
+  background-color: rgb(21, 21, 21);
+}
+
+/* hr {
+  color: #FFF;
+} */
+
+/* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
 
 /* .Home, .About, .Choreography, .Workshops, .Contact {
   height: 80vh;
@@ -51,6 +65,11 @@ body {
   background-image: url("./images/kenan5.jpg");
 } */
 
+.Workshop {
+  border-top: 1px solid #FFF;
+  /* margin-top: 5vh; */
+}
+
 .Contact form {
   margin-top: 5vh;
   margin-bottom: 5vh;
@@ -66,12 +85,3 @@ body {
   color: #FFF;
 }
 
-.main-content {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  color: rgb(199, 199, 199);
-}
-
-footer {
-  background-color: rgb(21, 21, 21);
-}

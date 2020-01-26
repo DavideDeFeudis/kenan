@@ -1,5 +1,4 @@
 import React from 'react'
-// import styled from 'styled-components'
 // import '../Home.css';
 import '../index.css';
 import backgroundLarge from "../images/home_1920.jpg";

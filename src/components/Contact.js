@@ -6,6 +6,7 @@ import backgroundLarge from "../images/contact_1920.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Background from './Background';
+import { ButtonContainer } from './Button'
 
 export default function Contact() {
 
@@ -110,7 +111,13 @@ export default function Contact() {
                         >
                         </textarea>
                     </div>
-                    <button type="submit" className="btn btn-secondary mb-2">Send</button>
+                    {/* <button type="submit" className="btn btn-secondary mb-2">Send</button> */}
+                    <ButtonContainer
+                        type="submit"
+                        className="btn btn-secondary mb-2"
+                    >
+                        Send
+                    </ButtonContainer>
                     <p>{feedback}</p>
                 </form>
             </div>
