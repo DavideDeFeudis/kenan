@@ -16,12 +16,12 @@ export default function Contact() {
         text: ''
     })
 
-    const [status, setStatus] = useState('')
+    const [feedback, setFeedback] = useState('')
 
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
-        // remove p when typing a second message
-        if (status) setStatus('') 
+        // remove feedback when typing a second message
+        if (feedback) setFeedback('')
     }
 
     const handleSubmit = (e) => {
@@ -32,10 +32,16 @@ export default function Contact() {
 
     const sendFormData = () => {
         // http://efe377bc.ngrok.io/
-        fetch('http://localhost:4000/contact', { method: "POST", body: JSON.stringify(message), headers: { "Content-Type": "application/json" } })
+        fetch('http://localhost:4000/contact', {
+            method: "POST",
+            body: JSON.stringify(message),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
             .then(response => response.json())
             .then(json => {
-                setStatus(json.message)
+                setFeedback(json.message)
                 setMessage({
                     name: '',
                     email: '',
@@ -105,7 +111,7 @@ export default function Contact() {
                         </textarea>
                     </div>
                     <button type="submit" className="btn btn-secondary mb-2">Send</button>
-                    <p>{status}</p>
+                    <p>{feedback}</p>
                 </form>
             </div>
             <Footer />
