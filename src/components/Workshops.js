@@ -1,12 +1,19 @@
 import React from 'react'
 import '../index.css';
+import backgroundLarge from "../images/workshops_1920.jpg";
+// import backgroundSmall from "../images/workshops_500.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Background from './Background';
 
 export default function Workshops() {
     return (
         <div className='Workshops'>
             <Navbar />
+            <Background
+                // small={backgroundSmall}
+                large={backgroundLarge}
+            />
             <div className="container main-content text-center">
                 <p>
                     Drawing inspirations from martial arts and yoga, the warm up has the purpose to tune the dancers into a clear and subtle state of body and mind before their practice and execution. Challenging postures alongside movement flow with circular motions and spirals will be introduced in order to provide better awareness of the body, especially for wrists and legs.

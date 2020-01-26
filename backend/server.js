@@ -18,10 +18,11 @@ app.post("/contact", (req, res) => {
 
     sendMail(email, name, subject, text, (err, data) => {
         if (err) {
-            res.status(500).json({ message: 'Internal error' })
+            res.status(500).json({ message: 'Error sending message. Try again later.' })
         }
         else {
-            res.json({ message: 'message received' })
+            // need to set status?
+            res.json({ message: 'Your message has been successfully sent!' })
         }
     })
 })

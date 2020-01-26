@@ -6,16 +6,16 @@ import backgroundLarge from "../images/home_1920.jpg";
 import backgroundSmall from "../images/home_500.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
-// import { useState } from 'react';
+import Background from './Background';
 
 export default function Home() {
 
     return (
         <div className='Home'>
             <Navbar />
-            <img
-                src={backgroundLarge}
-                srcSet={`${backgroundSmall} 1000w, ${backgroundLarge} 1920w`}
+            <Background
+                small={backgroundSmall}
+                large={backgroundLarge}
             />
             <div className="container main-content text-center">
                 <p>

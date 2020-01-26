@@ -1,8 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import '../index.css';
+import backgroundLarge from "../images/contact_1920.jpg";
+// import backgroundSmall from "../images/contact_500.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Background from './Background';
 
 export default function Contact() {
 
@@ -13,15 +16,12 @@ export default function Contact() {
         text: ''
     })
 
+    const [status, setStatus] = useState('')
+
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
-    }
-
-    const sendFormData = () => {
-        // http://efe377bc.ngrok.io/
-        fetch('http://localhost:4000/contact', { method: "POST", body: JSON.stringify(message), headers: { "Content-Type": "application/json" } })
-            .then(response => response.json())
-            .then(json => console.log(json))
+        // remove p when typing a second message
+        if (status) setStatus('') 
     }
 
     const handleSubmit = (e) => {
@@ -30,9 +30,29 @@ export default function Contact() {
         console.log(message)
     }
 
+    const sendFormData = () => {
+        // http://efe377bc.ngrok.io/
+        fetch('http://localhost:4000/contact', { method: "POST", body: JSON.stringify(message), headers: { "Content-Type": "application/json" } })
+            .then(response => response.json())
+            .then(json => {
+                setStatus(json.message)
+                setMessage({
+                    name: '',
+                    email: '',
+                    subject: '',
+                    text: ''
+                })
+                console.log(json)
+            })
+    }
+
     return (
         <div className='Contact'>
             <Navbar />
+            <Background
+                // small={backgroundSmall}
+                large={backgroundLarge}
+            />
             <div className="container">
                 <form
                     action=""
@@ -85,6 +105,7 @@ export default function Contact() {
                         </textarea>
                     </div>
                     <button type="submit" className="btn btn-secondary mb-2">Send</button>
+                    <p>{status}</p>
                 </form>
             </div>
             <Footer />
