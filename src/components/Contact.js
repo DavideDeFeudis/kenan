@@ -32,7 +32,6 @@ export default function Contact() {
     }
 
     const sendFormData = () => {
-        // http://efe377bc.ngrok.io/
         fetch('http://localhost:4000/contact', {
             method: "POST",
             body: JSON.stringify(message),
@@ -114,7 +113,7 @@ export default function Contact() {
                     {/* <button type="submit" className="btn btn-secondary mb-2">Send</button> */}
                     <ButtonContainer
                         type="submit"
-                        className="btn btn-secondary mb-2"
+                        className="mb-2"
                     >
                         Send
                     </ButtonContainer>

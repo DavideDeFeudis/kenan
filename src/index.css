@@ -20,6 +20,10 @@ body {
   background: rgba(0, 0, 0, 0.3) !important;
 }
 
+.navbar-brand {
+  color: rgb(198, 198, 198) !important;
+}
+
 footer {
   background-color: rgb(21, 21, 21);
 }
