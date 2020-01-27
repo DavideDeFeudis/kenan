@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import '../index.css';
 import backgroundLarge from "../images/workshops_1920.jpg";
 // import backgroundSmall from "../images/workshops_500.jpg";
@@ -8,14 +8,10 @@ import Footer from './Footer';
 import Background from './Background';
 import Workshop from './Workshop';
 import Modal from './Modal';
+// import { Consumer } from "../context";
 
 export default function Workshops() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-
-    const openModal = id => {
-        setIsModalOpen(true)
-
-    } 
+    // const { openModal } = useContext(Consumer)
 
     return (
         <div className='Workshops'>
@@ -41,16 +37,12 @@ export default function Workshops() {
                             date={date}
                             title={title}
                             info={info}
-                            // isModalOpen={isModalOpen}
-                            openModal={openModal}
                         />
                     })
                 }
             </div>
             <Footer />
-            <Modal
-                isModalOpen={isModalOpen}
-            />
+            <Modal />
         </div>
     )
 }

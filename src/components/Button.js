@@ -12,12 +12,12 @@ export const ButtonContainer = styled.button`
      color:#FFFFFF;
      text-align:center;
      transition: all 0.15s;
-    &:hover {
-        color:#DDDDDD;
-        border-color:#DDDDDD;
-    }
-    &:active{
-         color:#BBBBBB;
-         border-color:#BBBBBB;
-    }
+    // &:hover {
+    //     color:#DDDDDD;
+    //     border-color:#DDDDDD;
+    // }
+    // &:active{
+    //      color:#BBBBBB;
+    //      border-color:#BBBBBB;
+    // }
 `   

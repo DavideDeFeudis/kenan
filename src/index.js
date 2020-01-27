@@ -8,11 +8,14 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
+import { Provider } from './context';
 
 ReactDOM.render(
-    <Router>
-        <App />
-    </Router>,
+    <Provider>
+        <Router>
+            <App />
+        </Router>
+    </Provider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
