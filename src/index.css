@@ -73,19 +73,3 @@ footer {
   border-top: 1px solid #FFF;
   /* margin-top: 5vh; */
 }
-
-.Contact form {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  text-align: center; 
-}
-
-.Contact textarea, 
-.Contact textarea:focus, 
-.Contact input, 
-.Contact input:focus {
-  background-color: rgb(21, 21, 21);
-  border-color: rgb(55, 55, 55);
-  color: #FFF;
-}
-
