@@ -14,7 +14,7 @@ export default function Workshop(props) {
             <Link to="/workshops">
                 <ButtonContainer
                     type="button"
-                    className="btn btn-secondary mt-4"
+                    className="mt-4"
                     onClick={() => openModal(id)}
                 >
                     Sign up

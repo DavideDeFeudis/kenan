@@ -5,7 +5,8 @@ import { Consumer } from "../context";
 import { ButtonContainer } from "./Button";
 
 export default function Modal() {
-    const { isModalOpen, closeModal } = useContext(Consumer)
+    const { modalItem, isModalOpen, closeModal } = useContext(Consumer)
+    const { id, date, title } = modalItem
 
     if (!isModalOpen) {
         return null;
@@ -18,7 +19,8 @@ export default function Modal() {
                             className="col-8 mx-auto col-md-6 col-lg-4 p-5 text-center"
                             id="modal"
                         >
-                            <h5>Confirm sign up for</h5>
+                            <h5>{date} | {title}</h5>
+                            <p>Enter your data to sign up.<br/>You will receive payment details via email.</p>
                             <input type="text" />
                             <ButtonContainer
                                 onClick={() => {
@@ -51,10 +53,11 @@ const ModalContainer = styled.div`
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
+  color: #C7C7C7;
   display: flex;
   align-items: center;
   justify-content: center;
   #modal {
-    background: #FFF;
+    background: #202020;
   }
 `;
