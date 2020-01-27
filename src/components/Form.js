@@ -42,6 +42,10 @@ export default function Form() {
                 })
                 console.log(json)
             })
+            .catch(err => {
+                setFeedback('Error sending message. Try again later.')
+                console.log(err)
+            })
     }
 
     return (
