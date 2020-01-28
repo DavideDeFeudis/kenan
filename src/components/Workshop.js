@@ -5,7 +5,7 @@ import { ButtonContainer } from './Button'
 
 export default function Workshop(props) {
     const { openModal } = useContext(Consumer)
-    const { id, date, title, time, address, target, price } = props
+    const { id, date, title, time, address, target, price } = props.workshop
 
     return (
         <div className='Workshop mt-5'>
