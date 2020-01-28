@@ -6,12 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(21, 21, 21);
+  color: rgb(199, 199, 199);
 }
 
 .main-content {
   margin-top: 5vh;
   margin-bottom: 5vh;
-  color: rgb(199, 199, 199);
 }
 
 .navbar {

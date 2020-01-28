@@ -5,12 +5,12 @@ import { ButtonContainer } from './Button'
 
 export default function Workshop(props) {
     const { openModal } = useContext(Consumer)
-    const { id, date, title, info } = props
+    const { id, date, title, time, address, target, price } = props
 
     return (
         <div className='Workshop mt-5'>
-            <h3 className='mt-5'>{date} | {title}</h3>
-            <p>{info}</p>
+            <h3 className='mt-5'>{title}</h3>
+            <p>{date} // {time}<br/>{address}<br/>{target}<br/>{price}</p>
             <Link to="/workshops">
                 <ButtonContainer
                     type="button"

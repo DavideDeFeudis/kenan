@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import styled from "styled-components";
 import { ButtonContainer } from './Button'
 
-export default function Form() {
+export default function Form(props) {
+    const { subject, textarea, buttonText } = props
+
     const [message, setMessage] = useState({
         name: '',
         email: '',
@@ -78,34 +80,39 @@ export default function Form() {
                         >
                         </input>
                     </div>
-                    <div className="form-group">
-                        <input
-                            name="subject"
-                            type="text"
-                            className="form-control"
-                            placeholder="Subject"
-                            onChange={handleChange}
-                            value={message.subject}
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <textarea
-                            name="text"
-                            className="form-control"
-                            rows="3"
-                            placeholder="Message"
-                            onChange={handleChange}
-                            value={message.text}
-                            required
-                        >
-                        </textarea>
-                    </div>
+                    {
+                        subject &&
+                        <div className="form-group">
+                            <input
+                                name="subject"
+                                type="text"
+                                className="form-control"
+                                placeholder="Subject"
+                                onChange={handleChange}
+                                value={message.subject}
+                            >
+                            </input>
+                        </div>
+                    }
+                    {
+                        textarea &&
+                        <div className="form-group">
+                            <textarea
+                                name="text"
+                                className="form-control"
+                                rows="3"
+                                placeholder="Message"
+                                onChange={handleChange}
+                                value={message.text}
+                            >
+                            </textarea>
+                        </div>
+                    }
                     <ButtonContainer
                         type="submit"
                         className="mb-2"
                     >
-                        Send
+                        {buttonText}
                     </ButtonContainer>
                     <p>{feedback}</p>
                 </form>
@@ -116,7 +123,7 @@ export default function Form() {
 
 const FormContainer = styled.div`
     margin-top: 5vh;
-    margin-bottom: 5vh;
+    // margin-bottom: 5vh;
     text-align: center; 
   
     textarea, 
@@ -128,3 +135,5 @@ const FormContainer = styled.div`
         color: #FFF;
     }
 `;
+
+// background input turns white when using autofill

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Consumer } from "../context";
 import { ButtonContainer } from "./Button";
+import Form from "./Form";
 
 export default function Modal() {
     const { modalItem, isModalOpen, closeModal } = useContext(Consumer)
@@ -19,24 +20,12 @@ export default function Modal() {
                             className="col-8 mx-auto col-md-6 col-lg-4 p-5 text-center"
                             id="modal"
                         >
-                            <h5>{date} | {title}</h5>
-                            <p>Enter your data to sign up.<br/>You will receive payment details via email.</p>
-                            <input type="text" />
-                            <ButtonContainer
-                                onClick={() => {
-                                    // closeModal();
-                                }}
-                            >
-                                Sign up
-                            </ButtonContainer>
+                            <h2>{title}</h2>
+                            <h4>{date}</h4>
+                            <p>Enter your data to sign up.<br />You will receive payment details via email.</p>
+                            <Form subject={false} textarea={false} buttonText='Sign up' />
                             <Link to="/workshops">
-                                <ButtonContainer
-                                    onClick={() => {
-                                        closeModal();
-                                    }}
-                                >
-                                    Cancel
-                            </ButtonContainer>
+                                <i class="fas fa-times fa-2x" onClick={closeModal}></i>
                             </Link>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ export default function Contact() {
                 // small={backgroundSmall}
                 large={backgroundLarge}
             />
-            <Form />
+            <Form subject textarea buttonText='Send' />
             <Footer />
         </div>
     )
