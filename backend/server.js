@@ -13,11 +13,12 @@ app.use((req, res, next) => {
 })
 
 app.post("/contact", (req, res) => {
-
+    console.log(req.body)
     const { email, name, subject, text } = req.body
 
     sendMail(email, name, subject, text, (err, data) => {
         if (err) {
+            console.log('err:', err)
             res.status(500).json({ message: 'Error sending message. Try again later.' })
         }
         else {

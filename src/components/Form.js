@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { ButtonContainer } from './Button'
 
 export default function Form(props) {
-    const { subject, textarea, buttonText } = props
+    const { textareaText, page, subjectInput, textarea, buttonText, subjectText } = props
 
     const [message, setMessage] = useState({
         name: '',
         email: '',
-        subject: '',
-        text: ''
+        subject: subjectText,
+        text: textareaText
     })
 
     const [feedback, setFeedback] = useState('')
@@ -26,7 +26,7 @@ export default function Form(props) {
     }
 
     const sendFormData = () => {
-        fetch('http://localhost:4000/contact', {
+        fetch('http://localhost:4000/contact', { // can i use /contact for workshops too?
             method: "POST",
             body: JSON.stringify(message),
             headers: {
@@ -81,7 +81,7 @@ export default function Form(props) {
                         </input>
                     </div>
                     {
-                        subject &&
+                        subjectInput &&
                         <div className="form-group">
                             <input
                                 name="subject"
@@ -104,6 +104,7 @@ export default function Form(props) {
                                 placeholder="Message"
                                 onChange={handleChange}
                                 value={message.text}
+                                required
                             >
                             </textarea>
                         </div>

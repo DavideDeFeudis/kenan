@@ -11,11 +11,16 @@ export default function Contact() {
     return (
         <div className='Contact'>
             <Navbar />
-            <Background
+            {/* <Background
                 // small={backgroundSmall}
                 large={backgroundLarge}
+            /> */}
+            <Form
+                subjectInput
+                textarea
+                buttonText='Send'
+                subjectText=''
             />
-            <Form subject textarea buttonText='Send' />
             <Footer />
         </div>
     )
