@@ -54,7 +54,6 @@ export default function Form(props) {
         <FormContainer>
             <div className="container">
                 <form
-                    action=""
                     onSubmit={handleSubmit}
                 >
                     <div className="form-group">
