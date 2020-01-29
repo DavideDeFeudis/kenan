@@ -32,7 +32,6 @@ footer {
   border-top: 1px solid rgb(55, 55, 55);
 }
 
-.About img {
-  display: block;
-  margin: 0 auto;
+.About .navbar {
+  position: static;  
 }
