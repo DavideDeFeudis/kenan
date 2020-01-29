@@ -16,6 +16,7 @@ export default function Contact() {
                 large={backgroundLarge}
             />
             <Form
+                route={'contact'}
                 subjectInput
                 textarea
                 buttonText='Send'

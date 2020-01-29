@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.post("/contact", (req, res) => {
+const cb = (req, res) => {
     console.log(req.body)
     const { email, name, subject, text } = req.body
 
@@ -22,26 +22,12 @@ app.post("/contact", (req, res) => {
             res.status(500).json({ message: 'Error sending message. Try again later.' })
         }
         else {
-            // need to set status?
             res.json({ message: 'Your message has been successfully sent!' })
         }
     })
-})
+}
 
-// app.post("/workshops", (req, res) => {
-//     console.log(req.body)
-//     const { email, name, subject, text } = req.body
-
-//     sendMail(email, name, subject, text, (err, data) => {
-//         if (err) {
-//             console.log('err:', err)
-//             res.status(500).json({ message: 'Error sending message. Try again later.' })
-//         }
-//         else {
-//             // need to set status?
-//             res.json({ message: 'Your message has been successfully sent!' })
-//         }
-//     })
-// })
+app.post("/contact", cb)
+app.post("/workshops", cb)
 
 app.listen(4000, () => console.log(`Listening on port 4000`))

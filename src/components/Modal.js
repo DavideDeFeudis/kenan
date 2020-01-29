@@ -24,6 +24,7 @@ export default function Modal() {
                             <h4>{date}</h4>
                             <p>Enter your data to sign up.<br />You will receive payment details via email.</p>
                             <Form
+                                route={'workshops'}
                                 subjectInput={false}
                                 textarea={false}
                                 buttonText='Sign up'

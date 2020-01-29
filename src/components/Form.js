@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ButtonContainer } from './Button'
 
 export default function Form(props) {
-    const { subjectInput, textarea, buttonText, subjectText } = props
+    const { route, subjectInput, textarea, buttonText, subjectText } = props
 
     const [message, setMessage] = useState({
         name: '',
@@ -26,7 +26,7 @@ export default function Form(props) {
     }
 
     const sendFormData = () => {
-        fetch('http://localhost:4000/contact', { // can i use /contact for workshops too?
+        fetch(`http://localhost:4000/${route}`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {
