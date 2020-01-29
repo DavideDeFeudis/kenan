@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { ButtonContainer } from './Button'
 
 export default function Form(props) {
-    const { textareaText, subjectInput, textarea, buttonText, subjectText } = props
+    const { subjectInput, textarea, buttonText, subjectText } = props
 
     const [message, setMessage] = useState({
         name: '',
         email: '',
         subject: subjectText,
-        text: textareaText
+        text: ''
     })
 
     const [feedback, setFeedback] = useState('')

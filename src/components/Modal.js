@@ -28,7 +28,6 @@ export default function Modal() {
                                 textarea={false}
                                 buttonText='Sign up'
                                 subjectText={`Sign up for ${title} // ${date}`}
-                                textareaText='why do i have to define this? / why cant this be an empty string?'
                             />
                             <Link to="/workshops">
                                 <i class="fas fa-times fa-2x" onClick={closeModal}></i>

@@ -17,7 +17,7 @@ const sendMail = (email, name, subject, text, cb) => {
         to: 'davidedefeudis@gmail.com',
         name,
         subject,
-        text
+        text: text || email // does not accept empty text
     }
 
     transporter.sendMail(mailOptions, (err, data) => {
