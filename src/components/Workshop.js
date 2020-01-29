@@ -8,7 +8,7 @@ export default function Workshop(props) {
     const { id, date, title, time, address, target, price1, price2 } = props.workshop
     
     return (
-        <div className='Workshop mt-5'>
+        <div className='Workshop mt-5 pb-5'>
             <h3 className='mt-5'>{title}</h3>
             <p>{date} // {time}<br/>{address}<br/>{target}<br/>{price1}<br/>{price2}</p>
             <Link to="/workshops">

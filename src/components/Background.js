@@ -7,6 +7,7 @@ export default function Background(props) {
         <img
             src={large}
             srcSet={`${small} 1000w, ${large} 1920w`}
+            alt='contemporary-dancers'
         />
     )
 }
