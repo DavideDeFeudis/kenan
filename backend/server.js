@@ -33,12 +33,18 @@ const Workshop = mongoose.model('Workshop', new mongoose.Schema({
     address: { type: String, required: true },
     info: { type: String },
     price: {
-        // better to have several unnamed price options?
-        // priceOption1: { type: Number, required: true }, 
-        twoDayFull: { type: Number, required: true },
-        oneDayFull: Number,
-        twoDayReduced: Number,
-        oneDayReduced: Number,
+        priceLabel1: { type: String, required: true },
+        priceLabel2: String,
+        priceLabel3: String,
+        priceLabel4: String,
+        priceLabel5: String,
+        priceLabel6: String,
+        price1: { type: Number, required: true },
+        price2: Number,
+        price3: Number,
+        price4: Number,
+        price5: Number,
+        price6: Number
     },
     customers: [{
         type: mongoose.Schema.Types.ObjectId,
