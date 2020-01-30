@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import '../index.css';
 import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 // import backgroundSmall from "../images/workshops_500.jpg";
@@ -8,18 +8,15 @@ import Footer from './Footer';
 import Background from './Background';
 import Workshop from './Workshop';
 import Modal from './Modal';
-// import { Consumer } from "../context";
 
 export default function Workshops() {
-    // const { openModal } = useContext(Consumer)
-
     return (
         <div className='Workshops'>
             <Navbar />
-            {/* <Background
+            <Background
                 // small={backgroundSmall}
                 large={backgroundLarge}
-            /> */}
+            />
             <div className="container main-content text-center">
                 <p className="main-paragraph pb-5">
                     Drawing inspirations from martial arts and yoga, the warm up has the purpose to tune the dancers into a clear and subtle state of body and mind before their practice and execution. Challenging postures alongside movement flow with circular motions and spirals will be introduced in order to provide better awareness of the body, especially for wrists and legs.<br/><br/>

@@ -5,7 +5,7 @@ import backgroundLarge from "../images/contact_1920.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Background from './Background';
-import Form from './Form';
+import ContactForm from './ContactForm';
 
 export default function Contact() {
     return (
@@ -15,7 +15,7 @@ export default function Contact() {
                 // small={backgroundSmall}
                 large={backgroundLarge}
             />
-            <Form
+            <ContactForm
                 route={'contact'}
                 subjectInput
                 textarea

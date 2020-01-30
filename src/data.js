@@ -6,12 +6,46 @@ export const workshops = [
         address: 'Dresdener Str. 24, 10445 Dresden',
         info: 'For professional dancers',
         price: {
-            oneDayFull: 60,
-            oneDayReduced: 50,
-            twoDayFull: 100,
-            twoDayReduced: 80
+            priceLabel1: 'Early bird until 04.04.2020: two days €',
+            priceLabel2: '/ one day: €',
+            priceLabel3: 'Normal price: two days €',
+            priceLabel4: '/ one day: €',
+            price1: 80,
+            price2: 50,
+            price3: 100,
+            price4: 60,
+        }
+    },
+    {
+        id: 2,
+        title: 'Flow Acrobatics Hamburg',
+        date: '11-12.05.2020 11:00-15:00',
+        address: 'Dresdener Str. 24, 10445 Hamburg',
+        info: 'For professional dancers',
+        price: {
+            priceLabel1: 'Early bird until 04.05.2020: two days €',
+            priceLabel2: '/ one day: €',
+            priceLabel3: 'Normal price: two days €',
+            priceLabel4: '/ one day: €',
+            price1: 80,
+            price2: 50,
+            price3: 100,
+            price4: 60,
         }
     }
+    // {
+    //     id: 2,
+    //     title: 'Flow Acrobatics Hamburg',
+    //     date: '11-12.05.2020 11:00-15:00',
+    //     address: 'Dresdener Str. 24, 10445 Hamburg',
+    //     info: 'For professional dancers',
+    //     price: {
+    //         oneDayFull: 60,
+    //         oneDayReduced: 50,
+    //         twoDayFull: 100,
+    //         twoDayReduced: 80
+    //     }
+    // }
     // {
     //     id: 2,
     //     title: 'Flow Acrobatics // Hamburg',

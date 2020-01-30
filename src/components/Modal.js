@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Consumer } from "../context";
-import { ButtonContainer } from "./Button";
-import Form from "./Form";
+import SignUpForm from "./SignUpForm";
 
 export default function Modal() {
     const { modalItem, isModalOpen, closeModal } = useContext(Consumer)
-    const { id, date, title } = modalItem
+    const { date, title } = modalItem
 
     if (!isModalOpen) {
         return null;
@@ -17,21 +16,17 @@ export default function Modal() {
                 <div className="container">
                     <div className="row">
                         <div
-                            className="col-8 mx-auto col-md-6 col-lg-4 p-5 text-center"
+                            className="mx-auto p-5 text-center"
                             id="modal"
                         >
                             <h2>{title}</h2>
                             <h4>{date}</h4>
-                            <p>Enter your data to sign up.<br />You will receive payment details via email.</p>
-                            <Form
-                                route={'workshops'}
-                                subjectInput={false}
-                                textarea={false}
-                                buttonText='Sign up'
-                                subjectText={`Sign up for ${title} // ${date}`}
+                            <p className='my-4'>Enter your data to sign up.<br />You will receive payment details via email.</p>
+                            <SignUpForm
+                                subjectContent={`Sign up - ${title} ${date}`}
                             />
                             <Link to="/workshops">
-                                <i class="fas fa-times fa-2x" onClick={closeModal}></i>
+                                <i className="fas fa-times fa-2x" onClick={closeModal}></i>
                             </Link>
                         </div>
                     </div>
