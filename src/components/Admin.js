@@ -2,33 +2,30 @@ import React, { useState } from 'react'
 import styled from "styled-components";
 import { ButtonContainer } from './Button'
 
-export default function Form(props) {
-    const { route, subjectInput, textarea, buttonText, subjectText } = props
-
-    const [message, setMessage] = useState({
+export default function Admin() {
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
-        subject: subjectText,
-        text: ''
+        password: ''
     })
 
     const [feedback, setFeedback] = useState('')
 
     const handleChange = (e) => {
-        setMessage({ ...message, [e.target.name]: e.target.value })
+        setFormData({ ...formData, [e.target.name]: e.target.value })
         if (feedback) setFeedback('')
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         sendFormData()
-        console.log(message)
+        console.log('formData:', formData)
     }
 
     const sendFormData = () => {
-        fetch(`http://localhost:4000/${route}`, {
+        fetch('http://localhost:4000/admin', {
             method: "POST",
-            body: JSON.stringify(message),
+            body: JSON.stringify(formData),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -36,23 +33,23 @@ export default function Form(props) {
             .then(response => response.json())
             .then(json => {
                 setFeedback(json.message)
-                setMessage({
+                setFormData({
                     name: '',
                     email: '',
-                    subject: '',
-                    text: ''
+                    password: ''
                 })
-                console.log(json)
+                console.log('json:', json)
             })
             .catch(err => {
-                setFeedback('Error sending message. Try again later.')
-                console.log(err)
+                setFeedback('Error sending form data to the server.')
+                console.log('err:', err)
             })
     }
 
     return (
         <FormContainer>
             <div className="container">
+                <h1>Login to the admin area</h1>
                 <form
                     onSubmit={handleSubmit}
                 >
@@ -63,7 +60,7 @@ export default function Form(props) {
                             className="form-control"
                             placeholder="Name"
                             onChange={handleChange}
-                            value={message.name}
+                            value={formData.name}
                             required
                         >
                         </input>
@@ -75,45 +72,28 @@ export default function Form(props) {
                             className="form-control"
                             placeholder="Email"
                             onChange={handleChange}
-                            value={message.email}
+                            value={formData.email}
                             required
                         >
                         </input>
                     </div>
-                    {
-                        subjectInput &&
-                        <div className="form-group">
-                            <input
-                                name="subject"
-                                type="text"
-                                className="form-control"
-                                placeholder="Subject"
-                                onChange={handleChange}
-                                value={message.subject}
-                            >
-                            </input>
-                        </div>
-                    }
-                    {
-                        textarea &&
-                        <div className="form-group">
-                            <textarea
-                                name="text"
-                                className="form-control"
-                                rows="3"
-                                placeholder="Message"
-                                onChange={handleChange}
-                                value={message.text}
-                                required
-                            >
-                            </textarea>
-                        </div>
-                    }
+                    <div className="form-group">
+                        <input
+                            name="password"
+                            type="password"
+                            className="form-control"
+                            placeholder="Password"
+                            onChange={handleChange}
+                            value={formData.password}
+                            required
+                        >
+                        </input>
+                    </div>
                     <ButtonContainer
                         type="submit"
                         className="mb-2"
                     >
-                        {buttonText}
+                        Login
                     </ButtonContainer>
                     <p>{feedback}</p>
                 </form>
@@ -136,5 +116,3 @@ const FormContainer = styled.div`
         color: #FFF;
     }
 `;
-
-// background input turns white when using autofill

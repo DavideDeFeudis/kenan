@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
+import Admin from "./components/Admin";
 import About from "./components/About";
 import Choreography from "./components/Choreography";
 import Workshops from "./components/Workshops";
@@ -14,6 +15,7 @@ function App() {
       {/* <Layout> */}
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/admin" component={Admin} />
           <Route path="/about" component={About} />
           <Route path="/choreography" component={Choreography} />
           <Route path="/workshops" component={Workshops} />

@@ -16,10 +16,10 @@ export default function Workshops() {
     return (
         <div className='Workshops'>
             <Navbar />
-            <Background
+            {/* <Background
                 // small={backgroundSmall}
                 large={backgroundLarge}
-            />
+            /> */}
             <div className="container main-content text-center">
                 <p className="main-paragraph pb-5">
                     Drawing inspirations from martial arts and yoga, the warm up has the purpose to tune the dancers into a clear and subtle state of body and mind before their practice and execution. Challenging postures alongside movement flow with circular motions and spirals will be introduced in order to provide better awareness of the body, especially for wrists and legs.<br/><br/>
