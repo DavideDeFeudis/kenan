@@ -15,19 +15,15 @@ class Provider extends Component {
     };
 
     openModal = id => {
-        console.log('openModal')
         const item = this.getItem(id);
         this.setState(() => {
-            console.log(this.state)
             return { modalItem: item, isModalOpen: true };
         });
     };
 
     closeModal = () => {
-        console.log('closeModal')
         this.setState(() => {
-            console.log(this.state)
-            return { isModalOpen: false };
+            return { isModalOpen: false, modalType: '' };
         });
     };
 
@@ -45,5 +41,4 @@ class Provider extends Component {
 }
 
 const Consumer = Context.Consumer
-
-export { Provider, Consumer }
+export { Context, Provider, Consumer }

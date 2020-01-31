@@ -1,5 +1,5 @@
 export const workshops = [
-    {
+    {               
         id: 1,
         title: 'Flow Acrobatics Dresden',
         date: '11-12.04.2020 11:00-15:00',

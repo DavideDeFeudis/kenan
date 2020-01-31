@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
-import { ButtonContainer } from './Button'
+import { Button } from './Button'
 
 export default function Admin() {
     const [formData, setFormData] = useState({
@@ -89,12 +89,12 @@ export default function Admin() {
                         >
                         </input>
                     </div>
-                    <ButtonContainer
+                    <Button
                         type="submit"
                         className="mb-2"
                     >
                         Login
-                    </ButtonContainer>
+                    </Button>
                     <p>{feedback}</p>
                 </form>
             </div>

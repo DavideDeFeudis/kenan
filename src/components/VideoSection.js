@@ -8,7 +8,7 @@ export default function VideoSection(props) {
         <div className='VideoSection'>
             <div className="container my-5 embed-responsive embed-responsive-16by9">
                 <iframe title="embedsPage" className="embed-responsive-item" src={videoUrl}
-                    allowfullscreen>
+                    allowFullScreen>
                 </iframe>
             </div>
             <div className="container main-content text-center">

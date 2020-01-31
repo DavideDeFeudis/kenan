@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
-import { ButtonContainer } from './Button'
+import { Button } from './Button'
 
-export default function Form(props) {
-    const { subjectContent } = props
+export default function SignUpForm(props) {
+    const { setFeedback, subjectContent } = props
 
     const [message, setMessage] = useState({
         firstName: '',
@@ -13,11 +13,8 @@ export default function Form(props) {
         text: ''
     })
 
-    const [feedback, setFeedback] = useState('')
-
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
-        if (feedback) setFeedback('')
     }
 
     const handleSubmit = (e) => {
@@ -44,77 +41,70 @@ export default function Form(props) {
                     subject: '',
                     text: ''
                 })
-                console.log(json)
+                // console.log(json)
             })
             .catch(err => {
-                // Error signing up. Try again later.
-                setFeedback('error fetching')
+                setFeedback('Error signing up. Try again later.')
                 console.log(err)
             })
     }
 
     return (
-        <FormContainer>
-            <div className="container">
-                <form
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-group">
-                        <input
-                            name="firstName"
-                            type="text"
-                            className="form-control"
-                            placeholder="First name"
-                            onChange={handleChange}
-                            value={message.firstName}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="lastName"
-                            type="text"
-                            className="form-control"
-                            placeholder="Last name"
-                            onChange={handleChange}
-                            value={message.lastName}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="email"
-                            type="email"
-                            className="form-control"
-                            placeholder="Email"
-                            onChange={handleChange}
-                            value={message.email}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <textarea
-                            name="text"
-                            className="form-control"
-                            rows="3"
-                            placeholder="Anything else you want to tell us?"
-                            onChange={handleChange}
-                            value={message.text}
-                        >
-                        </textarea>
-                    </div>
-                    <ButtonContainer
-                        type="submit"
-                        className="mb-2"
+        <FormContainer className="container">
+            <form
+                onSubmit={handleSubmit}
+            >
+                <div className="form-group">
+                    <input
+                        name="firstName"
+                        type="text"
+                        className="form-control"
+                        placeholder="First name"
+                        onChange={handleChange}
+                        value={message.firstName}
+                        required
                     >
-                        Sign up
-                    </ButtonContainer>
-                    <p>{feedback}</p>
-                </form>
-            </div>
+                    </input>
+                </div>
+                <div className="form-group">
+                    <input
+                        name="lastName"
+                        type="text"
+                        className="form-control"
+                        placeholder="Last name"
+                        onChange={handleChange}
+                        value={message.lastName}
+                        required
+                    >
+                    </input>
+                </div>
+                <div className="form-group">
+                    <input
+                        name="email"
+                        type="email"
+                        className="form-control"
+                        placeholder="Email"
+                        onChange={handleChange}
+                        value={message.email}
+                        required
+                    >
+                    </input>
+                </div>
+                <div className="form-group">
+                    <textarea
+                        name="text"
+                        className="form-control"
+                        rows="3"
+                        placeholder="Anything else you want to tell us?"
+                        onChange={handleChange}
+                        value={message.text}
+                    >
+                    </textarea>
+                </div>
+                <Button type="submit" className="mb-2">
+                    Sign up
+                </Button>
+            </form>
         </FormContainer>
     )
 }

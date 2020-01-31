@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap'
-import $ from 'jquery'
-import Popper from 'popper.js'
+// import $ from 'jquery'
+// import Popper from 'popper.js'
 import './sass/style.scss';
 import './index.css';
 import App from './App';

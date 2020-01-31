@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
-import { ButtonContainer } from './Button'
+import { Button } from './Button'
 
-export default function Form(props) {
+export default function ContactForm(props) {
     const { route, subjectInput, textarea, buttonText, subjectText } = props
 
     const [message, setMessage] = useState({
@@ -109,12 +109,12 @@ export default function Form(props) {
                             </textarea>
                         </div>
                     }
-                    <ButtonContainer
+                    <Button
                         type="submit"
                         className="mb-2"
                     >
                         {buttonText}
-                    </ButtonContainer>
+                    </Button>
                     <p>{feedback}</p>
                 </form>
             </div>

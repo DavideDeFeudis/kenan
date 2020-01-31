@@ -3,24 +3,24 @@ const app = express()
 const sendMail = require('./mail')
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/kenan', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-}, (err) => {
-    if (!err) {
-        console.log('MongoDB Connection succeeded')
-    } else {
-        console.log('Error on DB connection: ' + err)
-    }
-});
+// mongoose.connect('mongodb://localhost/kenan', {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//     useUnifiedTopology: true
+// }, (err) => {
+//     if (!err) {
+//         console.log('MongoDB Connection succeeded')
+//     } else {
+//         console.log('Error on DB connection: ' + err)
+//     }
+// });
 
 const Customer = mongoose.model('Customer', new mongoose.Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: { type: String, required: true },
-    messages: [{ subject: String, text: String }], // need separate schema?
+    messages: [{ subject: String, text: String }],
     workshops: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Workshop'

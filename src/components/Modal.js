@@ -1,15 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Consumer } from "../context";
+import { Context } from "../context";
 import SignUpForm from "./SignUpForm";
+import closeWindowIcon from "../images/close-window.png";
 
 export default function Modal() {
-    const { modalItem, isModalOpen, closeModal } = useContext(Consumer)
+    const { modalItem, isModalOpen, closeModal } = useContext(Context)
     const { date, title } = modalItem
+    const [modalMessage, setModalMessage] = useState('')
+
+    const setFeedback = (feedback) => {
+        setModalMessage(feedback) // Warning: Can't perform a React state update on an unmounted component.
+    }
+
+    const handleClick = () => {
+        closeModal()
+        setModalMessage('')
+    }
 
     if (!isModalOpen) {
         return null;
+    } else if (modalMessage) {
+        return (
+            <ModalContainer>
+                <div className="container">
+                    <div className="row">
+                        <div
+                            className="mx-auto p-5 text-center"
+                            id="modal"
+                        >
+                            <h2>{modalMessage}</h2>
+                            <Link to="/workshops">
+                                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </ModalContainer>
+        );
     } else {
         return (
             <ModalContainer>
@@ -19,15 +48,18 @@ export default function Modal() {
                             className="mx-auto p-5 text-center"
                             id="modal"
                         >
+                            <Link to="/workshops">
+                                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                            </Link>
                             <h2>{title}</h2>
                             <h4>{date}</h4>
-                            <p className='my-4'>Enter your data to sign up.<br />You will receive payment details via email.</p>
+                            <p className='my-4'>
+                                Enter your data to sign up.<br />You will receive payment details via email.
+                            </p>
                             <SignUpForm
+                                setFeedback={setFeedback}
                                 subjectContent={`Sign up - ${title} ${date}`}
                             />
-                            <Link to="/workshops">
-                                <i className="fas fa-times fa-2x" onClick={closeModal}></i>
-                            </Link>
                         </div>
                     </div>
                 </div>
@@ -49,5 +81,11 @@ const ModalContainer = styled.div`
   justify-content: center;
   #modal {
     background: #202020;
+    position: relative;
+  }
+  .closeModal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
   }
 `;
