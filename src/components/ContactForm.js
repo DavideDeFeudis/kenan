@@ -26,7 +26,7 @@ export default function ContactForm(props) {
     }
 
     const sendFormData = () => {
-        fetch(`http://localhost:4000/${route}`, {
+        fetch('http://localhost:4000/contact', {
             method: "POST",
             body: JSON.stringify(message),
             headers: {

@@ -14,13 +14,13 @@ function App() {
     <div className="App">
       {/* <Layout> */}
         <Switch>
-          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/" component={Home} /> */}
           <Route path="/admin" component={Admin} />
           <Route path="/about" component={About} />
           <Route path="/choreography" component={Choreography} />
           <Route path="/workshops" component={Workshops} />
           <Route path="/contact" component={Contact} />
-          <Route component={Default} />
+          <Route component={Home} />
         </Switch>
       {/* </Layout> */}
     </div>
