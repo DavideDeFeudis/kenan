@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
+import loadingGif from '../images/load.gif'
 
-export default function ContactForm(props) {
-    const { route, subjectInput, textarea, buttonText, subjectText } = props
+export default function ContactForm() {
 
     const [message, setMessage] = useState({
         name: '',
         email: '',
-        subject: subjectText,
+        subject: '',
         text: ''
     })
 
     const [feedback, setFeedback] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
@@ -21,6 +22,7 @@ export default function ContactForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
         sendFormData()
         console.log(message)
     }
@@ -35,6 +37,7 @@ export default function ContactForm(props) {
         })
             .then(response => response.json())
             .then(json => {
+                setLoading(false)
                 setFeedback(json.message)
                 setMessage({
                     name: '',
@@ -45,6 +48,7 @@ export default function ContactForm(props) {
                 console.log(json)
             })
             .catch(err => {
+                setLoading(false)
                 setFeedback('Error sending message. Try again later.')
                 console.log(err)
             })
@@ -80,42 +84,39 @@ export default function ContactForm(props) {
                         >
                         </input>
                     </div>
+                    <div className="form-group">
+                        <input
+                            name="subject"
+                            type="text"
+                            className="form-control"
+                            placeholder="Subject"
+                            onChange={handleChange}
+                            value={message.subject}
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="text"
+                            className="form-control"
+                            rows="3"
+                            placeholder="Message"
+                            onChange={handleChange}
+                            value={message.text}
+                            required
+                        >
+                        </textarea>
+                    </div>
                     {
-                        subjectInput &&
-                        <div className="form-group">
-                            <input
-                                name="subject"
-                                type="text"
-                                className="form-control"
-                                placeholder="Subject"
-                                onChange={handleChange}
-                                value={message.subject}
-                            >
-                            </input>
-                        </div>
+                        loading ?
+                            <div className='mt-4'>
+                                <img src={loadingGif} width='25' height='25' alt="sending message..." />
+                            </div> :
+                            <div>
+                                <Button type="submit" className="mb-2">Send</Button>
+                                <p>{feedback}</p>
+                            </div>
                     }
-                    {
-                        textarea &&
-                        <div className="form-group">
-                            <textarea
-                                name="text"
-                                className="form-control"
-                                rows="3"
-                                placeholder="Message"
-                                onChange={handleChange}
-                                value={message.text}
-                                required
-                            >
-                            </textarea>
-                        </div>
-                    }
-                    <Button
-                        type="submit"
-                        className="mb-2"
-                    >
-                        {buttonText}
-                    </Button>
-                    <p>{feedback}</p>
                 </form>
             </div>
         </FormContainer>
@@ -123,10 +124,9 @@ export default function ContactForm(props) {
 }
 
 const FormContainer = styled.div`
+    height: 45vh;
     margin-top: 5vh;
-    // margin-bottom: 5vh;
     text-align: center; 
-  
     textarea, 
     textarea:focus, 
     input, 

@@ -23,13 +23,10 @@ export default function Modal() {
         return null;
     } else if (modalMessage) {
         return (
-            <ModalContainer>
+            <FeedbackModal>
                 <div className="container">
                     <div className="row">
-                        <div
-                            className="mx-auto p-5 text-center"
-                            id="modal"
-                        >
+                        <div className="mx-auto p-5 text-center" id="modal">
                             <h2>{modalMessage}</h2>
                             <Link to="/workshops">
                                 <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
@@ -37,17 +34,14 @@ export default function Modal() {
                         </div>
                     </div>
                 </div>
-            </ModalContainer>
+            </FeedbackModal>
         );
     } else {
         return (
-            <ModalContainer>
+            <FormModal>
                 <div className="container">
                     <div className="row">
-                        <div
-                            className="mx-auto p-5 text-center"
-                            id="modal"
-                        >
+                        <div className="mx-auto p-5 text-center" id="modal">
                             <Link to="/workshops">
                                 <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
                             </Link>
@@ -63,12 +57,35 @@ export default function Modal() {
                         </div>
                     </div>
                 </div>
-            </ModalContainer>
+            </FormModal>
         );
     }
 }
 
-const ModalContainer = styled.div`
+const FormModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: #C7C7C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  #modal {
+    height: 73vh;
+    background: #202020;
+    position: relative;
+  }
+  .closeModal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+  }
+`;
+
+const FeedbackModal = styled.div`
   position: fixed;
   top: 0;
   left: 0;

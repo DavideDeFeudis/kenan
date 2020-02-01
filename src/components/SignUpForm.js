@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
+import loadingGif from '../images/load.gif'
 
 export default function SignUpForm(props) {
     const { setFeedback, subjectContent } = props
@@ -13,12 +14,15 @@ export default function SignUpForm(props) {
         text: ''
     })
 
+    const [loading, setLoading] = useState(false)
+
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
         sendFormData()
         console.log(message)
     }
@@ -33,6 +37,7 @@ export default function SignUpForm(props) {
         })
             .then(response => response.json())
             .then(json => {
+                setLoading(false)
                 setFeedback(json.message)
                 setMessage({
                     firstName: '',
@@ -44,6 +49,7 @@ export default function SignUpForm(props) {
                 // console.log(json)
             })
             .catch(err => {
+                setLoading(false)
                 setFeedback('Error signing up. Try again later.')
                 console.log(err)
             })
@@ -101,9 +107,13 @@ export default function SignUpForm(props) {
                     >
                     </textarea>
                 </div>
-                <Button type="submit" className="mb-2">
-                    Sign up
-                </Button>
+                {
+                    loading ?
+                        <div className='mt-4'>
+                            <img src={loadingGif} width='25' height='25' alt="sending message..." />
+                        </div> :
+                        <Button type="submit" className="mb-2">Sign up</Button>
+                }
             </form>
         </FormContainer>
     )

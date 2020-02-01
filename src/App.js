@@ -6,7 +6,7 @@ import About from "./components/About";
 import Choreography from "./components/Choreography";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
-import Default from "./components/Default";
+// import Default from "./components/Default";
 // import Layout from './components/Layout';
 
 function App() {
