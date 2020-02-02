@@ -22,7 +22,7 @@ export default function ContactForm() {
         setMessage({ ...message, [e.target.name]: e.target.value })
         if (feedback) setFeedback('')
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
