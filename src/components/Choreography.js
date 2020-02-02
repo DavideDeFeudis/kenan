@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import VideoSection from './VideoSection';
 // import Background from './Background';
+import backgroundSmall from "../images/home_500.jpg";
 
 export default function Choreography() {
     return (
@@ -21,6 +22,7 @@ export default function Choreography() {
                     return <VideoSection
                         key={video.id}
                         video={video}
+                        // background={backgroundSmall}
                     />
                 })
             }
