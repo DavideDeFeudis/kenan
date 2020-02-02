@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
+require('dotenv').config()
 
 export default function ContactForm() {
+
+    console.log('process.env', process.env)
 
     const [message, setMessage] = useState({
         name: '',
@@ -28,7 +31,8 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
-        fetch('http://localhost:4000/contact', {
+        console.log(`${process.env.BACKEND_HOST}/contact`)
+        fetch(`https://murmuring-refuge-58796.herokuapp.com/contact`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {

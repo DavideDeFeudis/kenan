@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { workshops } from "./data";
+require('dotenv').config()
 
 const Context = React.createContext();
 
@@ -23,8 +24,9 @@ class Provider extends Component {
 
     getData = async () => {
         console.log("context: getData")
+        console.log('process.env', process.env)
         try {
-            const req = await fetch('http://localhost:4000/admin', {
+            const req = await fetch(`${process.env.BACKEND_HOST}/admin`, {
                 headers: { "Content-Type": "application/json" } // need?
             })
             const workshops = await req.json()
