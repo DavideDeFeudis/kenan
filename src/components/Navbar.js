@@ -14,6 +14,11 @@ export default function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
+                        <Link to="/admin" className="nav-link">
+                            Admin
+                        </Link>
+                    </li>
+                    <li className="nav-item">
                         <Link to="/about" className="nav-link">
                             About
                         </Link>

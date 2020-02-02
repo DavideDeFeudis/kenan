@@ -6,7 +6,7 @@ import { Button } from './Button'
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
     const {
-        id,
+        _id,
         date,
         title,
         address,
@@ -28,15 +28,32 @@ export default function Workshop(props) {
         <div className='Workshop mt-5 pb-5'>
             <h3 className='mt-5'>{title}</h3>
             <p>{date}<br />{address}<br />{info}<br />{priceLabel1}{price1} {priceLabel2}{price2}<br />{priceLabel3}{price3} {priceLabel4}{price4}</p>
-            <Link to="/workshops">
-                <Button
-                    type="button"
-                    className="mt-4"
-                    onClick={() => openModal(id)}
-                >
-                    Sign up
-                </Button>
-            </Link>
+            {
+                props.admin ?
+                    <div>
+                        <Link to="/admin">
+                            <Button
+                                type="button"
+                                className="mt-4"
+                                onClick={() => openModal(_id)}
+                            >Edit</Button>
+                        </Link>
+                        <Link to="/admin">
+                            <Button
+                                type="button"
+                                className="mt-4"
+                                onClick={() => openModal(_id)}
+                            >Delete</Button>
+                        </Link>
+                    </div> :
+                    <Link to="/workshops">
+                        <Button
+                            type="button"
+                            className="mt-4"
+                            onClick={() => openModal(_id)}
+                        >Sign up</Button>
+                    </Link>
+            }
         </div>
     )
 }

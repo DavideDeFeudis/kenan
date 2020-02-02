@@ -3,18 +3,18 @@ const app = express()
 const sendMail = require('./mail')
 const mongoose = require('mongoose')
 
-// mongoose.connect('mongodb://localhost/kenan', {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//     useUnifiedTopology: true
-// }, (err) => {
-//     if (!err) {
-//         console.log('MongoDB Connection succeeded')
-//     } else {
-//         console.log('Error on DB connection: ' + err)
-//     }
-// });
+mongoose.connect('mongodb://localhost/kenan', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+}, (err) => {
+    if (!err) {
+        console.log('MongoDB Connection succeeded')
+    } else {
+        console.log('Error on DB connection: ' + err)
+    }
+});
 
 const Customer = mongoose.model('Customer', new mongoose.Schema({
     firstName: { type: String, required: true },
@@ -29,7 +29,8 @@ const Customer = mongoose.model('Customer', new mongoose.Schema({
 
 const Workshop = mongoose.model('Workshop', new mongoose.Schema({
     title: { type: String, required: true },
-    date: { type: Date, required: true },
+    // date: { type: Date, required: true },
+    date: { type: String, required: true },
     address: { type: String, required: true },
     info: { type: String },
     price: {
@@ -100,10 +101,57 @@ app.post('/workshops', (req, res) => {
     })
 })
 
-app.post('/admin', (req, res) => {
-    console.log(req.body)
-    const { email, name, password } = req.body
-    res.json({ message: 'You logged in.' })
+app.get('/seed', (req, res) => {
+    for (let i = 0; i < 3; i++) {
+        let workshop = new Workshop({
+            title: 'Flow Acrobatics Dresden',
+            date: '11-12.04.2020 11:00-15:00',
+            address: 'Dresdener Str. 24, 10445 Dresden',
+            info: 'For professional dancers',
+            price: {
+                priceLabel1: 'Early bird until 04.04.2020: two days €',
+                priceLabel2: '/ one day: €',
+                priceLabel3: 'Normal price: two days €',
+                priceLabel4: '/ one day: €',
+                price1: 80,
+                price2: 50,
+                price3: 100,
+                price4: 60,
+            }
+        })
+        workshop.save()
+        .then(() => res.send('Workshops seeded'))
+        .catch(err => console.log(err))
+    }
 })
+
+// ADMIN
+
+app.get('/admin', (req, res) => {
+    res.send([{
+        id: 1,
+        title: 'Flow Acrobatics Dresden',
+        date: '11-12.04.2020 11:00-15:00',
+        address: 'Dresdener Str. 24, 10445 Dresden',
+        info: 'For professional dancers',
+        price: {
+            priceLabel1: 'Early bird until 04.04.2020: two days €',
+            priceLabel2: '/ one day: €',
+            priceLabel3: 'Normal price: two days €',
+            priceLabel4: '/ one day: €',
+            price1: 80,
+            price2: 50,
+            price3: 100,
+            price4: 60,
+        }
+    }])
+    // Workshop.find().then(workshops => res.send(workshops))
+})
+
+// app.post('/admin/workshops', (req, res) => {
+// console.log(req.body)
+// const { email, name, password } = req.body
+// res.json({ message: 'You logged in.' })
+// })
 
 app.listen(4000, () => console.log(`Listening on port 4000`))

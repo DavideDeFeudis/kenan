@@ -1,17 +1,50 @@
 import React, { Component } from 'react'
-import { workshops } from "./data";
+// import { workshops } from "./data";
 
 const Context = React.createContext();
 
 class Provider extends Component {
     state = {
-        workshops,
+        workshops: [],
+        loading: true, // need?
         isModalOpen: false,
-        modalItem: workshops[0]
+        modalItem: {}
+        // modalItem: workshops[0]
+    }
+
+    componentDidMount() {
+        console.log("context: componentDidMount")
+        this.getData()
+    }
+
+    componentDidUpdate() {
+        console.log("context: componentDidUpdate")
+    }
+
+    getData = async () => {
+        console.log("context: getData")
+        try {
+            const req = await fetch('http://localhost:4000/admin', {
+                headers: { "Content-Type": "application/json" } // need?
+            })
+            const workshops = await req.json()
+
+            this.setState({
+                workshops,
+                loading: false
+            }, () => console.log('context state: ', this.state))
+        }
+        catch (error) {
+            console.log("context: error fetching data", error)
+            // this.setState({
+            //     error: true,
+            //     message: "error"
+            // }, () => console.log(this.state))
+        }
     }
 
     getItem = id => {
-        return this.state.workshops.find(item => item.id === id);
+        return this.state.workshops.find(item => item._id === id);
     };
 
     openModal = id => {

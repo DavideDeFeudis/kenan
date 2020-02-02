@@ -1,118 +1,36 @@
-import React, { useState } from 'react'
-import styled from "styled-components";
+import React, { useContext } from 'react'
+import '../index.css';
+import { Context } from "../context";
+// import { Link } from "react-router-dom";
+// import { workshops } from '../data'
+import Navbar from './Navbar';
+import Workshop from './Workshop';
 import { Button } from './Button'
+import AdminModal from './AdminModal';
 
 export default function Admin() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: ''
-    })
-
-    const [feedback, setFeedback] = useState('')
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-        if (feedback) setFeedback('')
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        sendFormData()
-        console.log('formData:', formData)
-    }
-
-    const sendFormData = () => {
-        fetch('http://localhost:4000/admin', {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(response => response.json())
-            .then(json => {
-                setFeedback(json.message)
-                setFormData({
-                    name: '',
-                    email: '',
-                    password: ''
-                })
-                console.log('json:', json)
-            })
-            .catch(err => {
-                setFeedback('Error sending form data to the server.')
-                console.log('err:', err)
-            })
-    }
+    const { workshops, openModal } = useContext(Context)
 
     return (
-        <FormContainer>
-            <div className="container">
-                <h1>Login to the admin area</h1>
-                <form
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-group">
-                        <input
-                            name="name"
-                            type="text"
-                            className="form-control"
-                            placeholder="Name"
-                            onChange={handleChange}
-                            value={formData.name}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="email"
-                            type="email"
-                            className="form-control"
-                            placeholder="Email"
-                            onChange={handleChange}
-                            value={formData.email}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="password"
-                            type="password"
-                            className="form-control"
-                            placeholder="Password"
-                            onChange={handleChange}
-                            value={formData.password}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <Button
-                        type="submit"
-                        className="mb-2"
-                    >
-                        Login
-                    </Button>
-                    <p>{feedback}</p>
-                </form>
+        <div className="Admin">
+            <Navbar />
+            <div className="pt-5 container main-content text-center">
+                <Button
+                    type="button"
+                    className="mt-4"
+                    onClick={() => openModal()}
+                >Create workshop</Button>
+                {
+                    workshops.map(workshop => {
+                        return <Workshop
+                            admin
+                            key={workshop._id}
+                            workshop={workshop}
+                        />
+                    })
+                }
             </div>
-        </FormContainer>
+            <AdminModal />
+        </div>
     )
 }
-
-const FormContainer = styled.div`
-    margin-top: 5vh;
-    // margin-bottom: 5vh;
-    text-align: center; 
-  
-    textarea, 
-    textarea:focus, 
-    input, 
-    input:focus {
-        background-color: rgb(21, 21, 21);
-        border-color: rgb(55, 55, 55);
-        color: #FFF;
-    }
-`;
