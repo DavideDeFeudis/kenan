@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import '../index.css';
 import { Context } from "../context";
-import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
-// import backgroundSmall from "../images/workshops_500.jpg";
+import backgroundLarge from "../images/workshops_1920.jpg";
+import backgroundSmall from "../images/workshops_500.jpg";
+// import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 import Background from './Background';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -16,7 +17,7 @@ export default function Workshops() {
         <div className='Workshops'>
             <Navbar />
             <Background
-                // small={backgroundSmall}
+                small={backgroundSmall}
                 large={backgroundLarge}
             />
             <div className="container main-content text-center">
