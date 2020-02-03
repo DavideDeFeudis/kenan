@@ -8,7 +8,7 @@ export default function Background(props) {
             style={{width: '100vw'}}
             src={large}
             srcSet={`${small} 1000w, ${large} 1920w`}
-            alt='contemporary-dancers'
+            alt='Contemporary dancers'
         />
     )
 }

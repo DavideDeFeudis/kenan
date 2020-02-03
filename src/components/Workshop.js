@@ -6,7 +6,7 @@ import { Button } from './Button'
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
     const {
-        _id,
+        id,
         date,
         title,
         address,
@@ -35,14 +35,14 @@ export default function Workshop(props) {
                             <Button
                                 type="button"
                                 className="mt-4"
-                                onClick={() => openModal(_id)}
+                                onClick={() => openModal(id)}
                             >Edit</Button>
                         </Link>
                         <Link to="/admin">
                             <Button
                                 type="button"
                                 className="mt-4"
-                                onClick={() => openModal(_id)}
+                                onClick={() => openModal(id)}
                             >Delete</Button>
                         </Link>
                     </div> :
@@ -50,7 +50,7 @@ export default function Workshop(props) {
                         <Button
                             type="button"
                             className="mt-4"
-                            onClick={() => openModal(_id)}
+                            onClick={() => openModal(id)}
                         >Sign up</Button>
                     </Link>
             }

@@ -6,16 +6,10 @@ import About from "./components/About";
 import Choreography from "./components/Choreography";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
-// import Default from "./components/Default";
-// import Layout from './components/Layout';
-// require('dotenv').config()
 
 function App() {
-  // console.log('app, process.env', process.env)
-
   return (
     <div className="App">
-      {/* <Layout> */}
       <Switch>
         {/* <Route exact path="/" component={Home} /> */}
         <Route path="/admin" component={Admin} />
@@ -25,7 +19,6 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route component={Home} />
       </Switch>
-      {/* </Layout> */}
     </div>
   );
 }

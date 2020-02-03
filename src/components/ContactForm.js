@@ -23,7 +23,7 @@ export default function ContactForm() {
         e.preventDefault()
         setLoading(true)
         sendFormData()
-        console.log(message)
+        // console.log(message)
     }
 
     const sendFormData = () => {
@@ -44,7 +44,7 @@ export default function ContactForm() {
                     subject: '',
                     text: ''
                 })
-                console.log(json)
+                // console.log(json)
             })
             .catch(err => {
                 setLoading(false)

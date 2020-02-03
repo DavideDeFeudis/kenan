@@ -24,7 +24,7 @@ export default function SignUpForm(props) {
         e.preventDefault()
         setLoading(true)
         sendFormData()
-        console.log(message)
+        // console.log(message)
     }
 
     const sendFormData = () => {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
-// require('dotenv').config()
 
 export default function Login() {
     const [formData, setFormData] = useState({

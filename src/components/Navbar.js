@@ -23,11 +23,11 @@ export default function Navbar() {
                             About
                         </Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to="/choreography" className="nav-link">
                             Choreography
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link to="/workshops" className="nav-link">
                             Workshops

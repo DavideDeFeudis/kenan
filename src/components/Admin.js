@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import '../index.css';
 import { Context } from "../context";
 // import { Link } from "react-router-dom";
-// import { workshops } from '../data'
 import Navbar from './Navbar';
 import Workshop from './Workshop';
 import { Button } from './Button'
