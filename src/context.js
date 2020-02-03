@@ -20,6 +20,7 @@ class Provider extends Component {
     getLocalData = async () => {
         this.setState({
             workshops: localWorkshops,
+            // modalItem: localWorkshops[0],
             videos: localVideos,
             loading: false
         }, () => console.log('context state: ', this.state))
@@ -53,7 +54,7 @@ class Provider extends Component {
     }
 
     getItem = id => {
-        return this.state.workshops.find(item => item._id === id);
+        return this.state.workshops.find(item => item.id === id);
     };
 
     openModal = id => {

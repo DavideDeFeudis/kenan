@@ -6,6 +6,7 @@ import SignUpForm from "./SignUpForm";
 import closeWindowIcon from "../images/close-window.png";
 
 export default function Modal() {
+  console.log(useContext(Context))
   const { modalItem: { date, title }, isModalOpen, closeModal } = useContext(Context)
   const [modalMessage, setModalMessage] = useState('')
 
@@ -73,7 +74,7 @@ const FormModal = styled.div`
   align-items: center;
   justify-content: center;
   #modal {
-    height: 73vh;
+    // height: 73vh;
     background: #202020;
     position: relative;
   }

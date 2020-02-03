@@ -112,7 +112,7 @@ export default function ContactForm() {
                                 <img src={loadingGif} width='25' height='25' alt="sending message..." />
                             </div> :
                             <div>
-                                <Button type="submit" className="mb-2">Send</Button>
+                                <Button type="submit" className="my-4">Send</Button>
                                 <p>{feedback}</p>
                             </div>
                     }

@@ -23,7 +23,7 @@ export default function Admin() {
                     workshops.map(workshop => {
                         return <Workshop
                             admin
-                            key={workshop._id}
+                            key={workshop.id}
                             workshop={workshop}
                         />
                     })
