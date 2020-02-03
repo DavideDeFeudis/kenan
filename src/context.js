@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
-// import { workshops } from "./data";
+import { localWorkshops, localVideos } from "./data";
 
 const Context = React.createContext();
 
 class Provider extends Component {
     state = {
         workshops: [],
+        videos: [],
         loading: true, // need?
         isModalOpen: false,
         modalItem: {}
-        // modalItem: workshops[0]
     }
 
     componentDidMount() {
-        console.log("context: componentDidMount")
-        this.getData()
+        this.getLocalData()
+        // this.getData()
+    }
+
+    getLocalData = async () => {
+        this.setState({
+            workshops: localWorkshops,
+            videos: localVideos,
+            loading: false
+        }, () => console.log('context state: ', this.state))
     }
 
     getData = async () => {

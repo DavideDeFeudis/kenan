@@ -14,9 +14,6 @@ export default function VideoSection(props) {
                     allowFullScreen
                     title='video'
                 />
-                {/* <iframe title="embedsPage" className="embed-responsive-item" src={videoUrl}
-                    allowFullScreen>
-                </iframe> */}
             </div>
             <div className="container main-content text-center">
                 <p className='my-5' >
