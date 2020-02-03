@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
-require('dotenv').config()
 
 export default function SignUpForm(props) {
     const { setFeedback, subjectContent } = props
@@ -29,7 +28,7 @@ export default function SignUpForm(props) {
     }
 
     const sendFormData = () => {
-        fetch(`${process.env.BACKEND_HOST}/workshops`, {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/workshops`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {

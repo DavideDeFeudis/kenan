@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from "styled-components";
 import { Button } from './Button'
-require('dotenv').config()
+// require('dotenv').config()
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export default function Login() {
     }
 
     const sendFormData = () => {
-        fetch(`${process.env.BACKEND_HOST}/login`, {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/login`, {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {

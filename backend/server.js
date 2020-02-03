@@ -125,12 +125,10 @@ app.get('/seed', (req, res) => {
     }
 })
 
-// ADMIN
-
-app.get('/admin', (req, res) => {
+app.get('/workshops', (req, res) => {
     res.send([{
         id: 1,
-        title: 'Flow Acrobatics Dresden',
+        title: 'from server - Flow Acrobatics Dresden',
         date: '11-12.04.2020 11:00-15:00',
         address: 'Dresdener Str. 24, 10445 Dresden',
         info: 'For professional dancers',

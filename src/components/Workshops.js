@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from "react";
 import '../index.css';
+import { Context } from "../context";
 import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 // import backgroundSmall from "../images/workshops_500.jpg";
-import { workshops } from '../data'
+// import { workshops } from '../data'
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Background from './Background';
@@ -10,6 +11,10 @@ import Workshop from './Workshop';
 import Modal from './Modal';
 
 export default function Workshops() {
+    const { workshops } = useContext(Context)
+    console.log('Workshops comp: workshops:', workshops)
+    // const { modalItem: { date, title }, isModalOpen, closeModal } = useContext(Context)
+
     return (
         <div className='Workshops'>
             <Navbar />
