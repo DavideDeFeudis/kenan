@@ -47,6 +47,7 @@ export default function Modal() {
               </Link>
               <h2>{title}</h2>
               <h4>{date}</h4>
+              <div id='underline'></div>
               <p>
                 Enter your data to sign up.<br />You will receive payment details via email.
               </p>

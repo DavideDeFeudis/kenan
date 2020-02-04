@@ -17,7 +17,7 @@ export default function Background(props) {
                 }}
                 src={large}
                 srcSet={`${small} 480w, ${large} 1920w`}
-                alt='Contemporary dancers'
+                alt='Contemporary dance'
             />
         </>
 

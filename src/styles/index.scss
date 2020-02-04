@@ -23,7 +23,7 @@ p {
 .navbar {
     position: absolute;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3) !important;
+    background: rgba(0, 0, 0, 0) !important;
 }
   
 .navbar-brand {
@@ -86,6 +86,12 @@ footer {
 }
 // background input turns white when using autofill
 
+#underline {
+    border-bottom: 1px solid rgb(55, 55, 55);
+    width: 60%;
+    margin: 1em auto 0;
+}
+
 @media screen and (max-width: 445px) {
     .form-group {
         margin-bottom: 7px; // between inputs
@@ -99,8 +105,5 @@ footer {
         h4 {
             font-size: 1em;
         }
-    } 
-    p {
-        margin: 0.7em;
     }
 }
