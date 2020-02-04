@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from "styled-components";
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 
@@ -54,7 +53,7 @@ export default function ContactForm() {
     }
 
     return (
-        <FormContainer>
+        <div className='ContactForm py-5'>
             <div className="container">
                 <form
                     onSubmit={handleSubmit}
@@ -113,27 +112,11 @@ export default function ContactForm() {
                             </div> :
                             <div>
                                 <Button type="submit">Send</Button>
-                                <p>{feedback}</p>
+                                <p className='my-3'>{feedback}</p>
                             </div>
                     }
                 </form>
             </div>
-        </FormContainer>
+        </div>
     )
 }
-
-const FormContainer = styled.div`
-    height: 45vh;
-    margin-top: 5vh;
-    text-align: center; 
-    textarea, 
-    textarea:focus, 
-    input, 
-    input:focus {
-        background-color: rgb(21, 21, 21);
-        border-color: rgb(55, 55, 55);
-        color: #FFF;
-    }
-`;
-
-// background input turns white when using autofill

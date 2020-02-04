@@ -26,10 +26,10 @@ export default function Modal() {
       <div className="modal-container">
         <div className="container">
           <div className="row">
-            <div className="mx-auto p-5 text-center" id="modal">
+            <div className="mx-auto p-5 text-center" id="feedback-modal">
               <h2>{modalMessage}</h2>
               <Link to="/workshops">
-                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
               </Link>
             </div>
           </div>
@@ -41,13 +41,13 @@ export default function Modal() {
       <div className="modal-container">
         <div className="container">
           <div className="row">
-            <div className="mx-auto p-5 text-center" id="modal">
+            <div className="mx-auto text-center" id="form-modal">
               <Link to="/workshops">
-                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
               </Link>
               <h2>{title}</h2>
               <h4>{date}</h4>
-              <p className='my-4'>
+              <p>
                 Enter your data to sign up.<br />You will receive payment details via email.
               </p>
               <SignUpForm

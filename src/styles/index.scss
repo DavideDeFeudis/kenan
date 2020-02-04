@@ -11,11 +11,15 @@ body {
     color: rgb(199, 199, 199);
 }
 
-// .main-content {
-//     margin-top: 5vh;
-//     margin-bottom: 5vh;
-// }
-  
+p {
+    margin: 0;
+}
+
+.main-content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
 .navbar {
     position: absolute;
     width: 100%;
@@ -27,14 +31,14 @@ body {
 }
   
 footer {
-    background-color: rgb(21, 21, 21);
+    background-color: rgb(12, 12, 12);
 }
 
 .Workshop {
-    border-bottom: 1px solid rgb(55, 55, 55);
+    border-top: 1px solid rgb(55, 55, 55);
 }
 
-.Workshops .main-content, .VideoSection .main-content {
+.VideoSection .main-content {
     border-bottom: 1px solid rgb(55, 55, 55);
 }
   
@@ -53,20 +57,47 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    #modal {
+    #form-modal, #feedback-modal{
         background: #202020;
         position: relative;
+        padding: 2.5em;
+        p {
+            margin: 1em;
+        }
     }
-    .closeModal {
+    #close-modal-icon {
         position: absolute;
         top: 10px;
         right: 10px;
     }
 }
 
+.ContactForm {
+    // height: 50vh;
+    text-align: center; 
+    textarea, 
+    textarea:focus, 
+    input, 
+    input:focus {
+        background-color: rgb(21, 21, 21);
+        border-color: rgb(55, 55, 55);
+        color: #FFF;
+    }
+}
+// background input turns white when using autofill
 
-// @media screen and (min-width: 776px) {
-//     .filter-form {
-//       width: 70vw;
-//     }
-// }
+@media screen and (max-width: 445px) {
+    .form-group {
+        margin-bottom: 5px; // between inputs
+    }
+    #form-modal {
+        width: 100%;
+        padding: 2em 0 !important;
+        h2, h4 {
+            font-size: 1.2em;
+        }
+    } 
+    p {
+        margin: 0.7em;
+    }
+}
