@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/index.scss'
-import profilePic from "../images/kenan_profile_300.jpg";
+import profilePic from "../images/kenan_profile_500.jpg";
 import backgroundLarge from "../images/about_1920.jpg";
 import Navbar from './Navbar';
 import Footer from './Footer';
