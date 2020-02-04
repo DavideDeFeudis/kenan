@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/style.scss'
+import '../styles/index.scss'
 import profilePic from "../images/kenan_profile_300.jpg";
 import backgroundLarge from "../images/about_1920.jpg";
 import Navbar from './Navbar';

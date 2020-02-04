@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'bootstrap'
 // import $ from 'jquery'
 // import Popper from 'popper.js'
-import './styles/style.scss';
+import './styles/index.scss';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';

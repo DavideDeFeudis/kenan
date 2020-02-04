@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import '../styles/style.scss';
+import '../styles/index.scss';
 
 export default function VideoSection(props) {
     const { videoUrl, description, background } = props.video
