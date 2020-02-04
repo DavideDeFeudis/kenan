@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css';
+import '../styles/style.scss';
 import { SocialIcon } from 'react-social-icons';
 
 

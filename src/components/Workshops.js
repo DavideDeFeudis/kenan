@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import '../index.css';
+import '../styles/style.scss';
 import { Context } from "../context";
 // import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 import backgroundLarge from "../images/workshops_1920.jpg";

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import '../index.css';
+import '../styles/style.scss';
 import { Context } from "../context";
 import Navbar from './Navbar';
 import Footer from './Footer';

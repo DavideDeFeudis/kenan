@@ -1,5 +1,5 @@
 import React from 'react'
-import '../index.css';
+import '../styles/style.scss';
 import backgroundLarge from "../images/contact_1920.jpg";
 import backgroundSmall from "../images/contact_500.jpg";
 import Navbar from './Navbar';

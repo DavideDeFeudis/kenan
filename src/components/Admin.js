@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import '../index.css';
+import '../styles/style.scss';
 import { Context } from "../context";
 // import { Link } from "react-router-dom";
 import Navbar from './Navbar';
