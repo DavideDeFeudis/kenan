@@ -23,34 +23,38 @@ export default function Modal() {
     return null;
   } else if (modalMessage) {
     return (
-      <div className="container modal" id="feedback-modal">
-        <div className="row">
-          <div className="mx-auto p-5 text-center" id="modal">
-            <h2>{modalMessage}</h2>
-            <Link to="/workshops">
-              <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
-            </Link>
+      <div className="modal-container">
+        <div className="container">
+          <div className="row">
+            <div className="mx-auto p-5 text-center" id="modal">
+              <h2>{modalMessage}</h2>
+              <Link to="/workshops">
+                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     );
   } else {
     return (
-      <div className="container modal" id="form-modal">
-        <div className="row">
-          <div className="mx-auto p-5 text-center" id="modal">
-            <Link to="/workshops">
-              <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
-            </Link>
-            <h2>{title}</h2>
-            <h4>{date}</h4>
-            <p className='my-4'>
-              Enter your data to sign up.<br />You will receive payment details via email.
+      <div className="modal-container">
+        <div className="container">
+          <div className="row">
+            <div className="mx-auto p-5 text-center" id="modal">
+              <Link to="/workshops">
+                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+              </Link>
+              <h2>{title}</h2>
+              <h4>{date}</h4>
+              <p className='my-4'>
+                Enter your data to sign up.<br />You will receive payment details via email.
               </p>
-            <SignUpForm
-              setFeedback={setFeedback}
-              subjectContent={`Sign up - ${title} ${date}`}
-            />
+              <SignUpForm
+                setFeedback={setFeedback}
+                subjectContent={`Sign up - ${title} ${date}`}
+              />
+            </div>
           </div>
         </div>
       </div>
