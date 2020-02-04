@@ -88,13 +88,16 @@ footer {
 
 @media screen and (max-width: 445px) {
     .form-group {
-        margin-bottom: 5px; // between inputs
+        margin-bottom: 7px; // between inputs
     }
     #form-modal {
         width: 100%;
-        padding: 2em 0 !important;
-        h2, h4 {
-            font-size: 1.2em;
+        padding: 2.2em 0 !important;
+        h2 {
+            font-size: 1.5em;
+        }
+        h4 {
+            font-size: 1em;
         }
     } 
     p {
