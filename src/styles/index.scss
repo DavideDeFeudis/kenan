@@ -11,10 +11,10 @@ body {
     color: rgb(199, 199, 199);
 }
 
-.main-content {
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-}
+// .main-content {
+//     margin-top: 5vh;
+//     margin-bottom: 5vh;
+// }
   
 .navbar {
     position: absolute;
@@ -29,12 +29,12 @@ body {
 footer {
     background-color: rgb(21, 21, 21);
 }
-  
+
 .Workshop {
     border-bottom: 1px solid rgb(55, 55, 55);
 }
-  
-.Workshops .main-paragraph, .VideoSection .main-content {
+
+.Workshops .main-content, .VideoSection .main-content {
     border-bottom: 1px solid rgb(55, 55, 55);
 }
   
@@ -48,7 +48,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    // background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     color: #C7C7C7;
     display: flex;
     align-items: center;
