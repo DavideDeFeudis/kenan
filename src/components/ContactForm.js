@@ -108,11 +108,11 @@ export default function ContactForm() {
                     </div>
                     {
                         loading ?
-                            <div className='mt-4'>
+                            <div>
                                 <img src={loadingGif} width='25' height='25' alt="sending message..." />
                             </div> :
                             <div>
-                                <Button type="submit" className="my-4">Send</Button>
+                                <Button type="submit">Send</Button>
                                 <p>{feedback}</p>
                             </div>
                     }

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
+import '../styles/index.scss';
 import { Link } from "react-router-dom";
 import { Context } from "../context";
 import SignUpForm from "./SignUpForm";
@@ -23,86 +23,37 @@ export default function Modal() {
     return null;
   } else if (modalMessage) {
     return (
-      <FeedbackModal>
-        <div className="container">
-          <div className="row">
-            <div className="mx-auto p-5 text-center" id="modal">
-              <h2>{modalMessage}</h2>
-              <Link to="/workshops">
-                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
-              </Link>
-            </div>
+      <div className="container modal" id="feedback-modal">
+        <div className="row">
+          <div className="mx-auto p-5 text-center" id="modal">
+            <h2>{modalMessage}</h2>
+            <Link to="/workshops">
+              <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+            </Link>
           </div>
         </div>
-      </FeedbackModal>
+      </div>
     );
   } else {
     return (
-      <FormModal>
-        <div className="container">
-          <div className="row">
-            <div className="mx-auto p-5 text-center" id="modal">
-              <Link to="/workshops">
-                <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
-              </Link>
-              <h2>{title}</h2>
-              <h4>{date}</h4>
-              <p className='my-4'>
-                Enter your data to sign up.<br />You will receive payment details via email.
+      <div className="container modal" id="form-modal">
+        <div className="row">
+          <div className="mx-auto p-5 text-center" id="modal">
+            <Link to="/workshops">
+              <img className="closeModal" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+            </Link>
+            <h2>{title}</h2>
+            <h4>{date}</h4>
+            <p className='my-4'>
+              Enter your data to sign up.<br />You will receive payment details via email.
               </p>
-              <SignUpForm
-                setFeedback={setFeedback}
-                subjectContent={`Sign up - ${title} ${date}`}
-              />
-            </div>
+            <SignUpForm
+              setFeedback={setFeedback}
+              subjectContent={`Sign up - ${title} ${date}`}
+            />
           </div>
         </div>
-      </FormModal>
+      </div>
     );
   }
 }
-
-const FormModal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  color: #C7C7C7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  #modal {
-    // height: 73vh;
-    background: #202020;
-    position: relative;
-  }
-  .closeModal {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-  }
-`;
-
-const FeedbackModal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  color: #C7C7C7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  #modal {
-    background: #202020;
-    position: relative;
-  }
-  .closeModal {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-  }
-`;

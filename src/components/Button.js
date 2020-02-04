@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-     display: inline-block;
+    display: inline-block;
      padding: 0.4em 2em;
      border: 0.16em solid #3A3A3A;
-     margin: 0 0.3em 0.3em 0;
+    //  margin: 0 0.3em 0.3em 0;
      box-sizing: border-box;
      text-decoration: none;
      font-family: 'Roboto',sans-serif;
@@ -21,4 +21,7 @@ export const Button = styled.button`
     //      color: #BBBBBB;
     //      border-color: #BBBBBB;
     // }
+    &:focus {
+        outline: none;
+    }
 `   

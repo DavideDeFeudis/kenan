@@ -25,8 +25,8 @@ export default function Workshop(props) {
     } = props.workshop.price
 
     return (
-        <div className='Workshop mt-5 pb-5'>
-            <h3 className='mt-5'>{title}</h3>
+        <div className='Workshop py-5'>
+            <h3>{title}</h3>
             <p>{date}<br />{address}<br />{info}<br />{priceLabel1}{price1} {priceLabel2}{price2}<br />{priceLabel3}{price3} {priceLabel4}{price4}</p>
             {
                 props.admin ?
