@@ -2,20 +2,7 @@ import React, { useState } from 'react'
 
 export default function Background(props) {
     const { small, large } = props
-
     const [loading, setLoading] = useState(true)
-    const [imgStyle, setImgStyle] = useState({
-        width: '100vw',
-        display: 'none'
-    })
-
-    const handleLoad = () => {
-        setImgStyle({
-            ...imgStyle,
-            display: 'inline'
-        })
-        setLoading(false)
-    }
 
     return (
         <>
@@ -23,8 +10,11 @@ export default function Background(props) {
                 loading && <div style={{ height: '100vw' }}></div>
             }
             <img
-                onLoad={handleLoad}
-                style={imgStyle}
+                onLoad={() => setLoading(false)}
+                style={{
+                    width: '100vw',
+                    display: loading ? 'none' : 'inline'
+                }}
                 src={large}
                 srcSet={`${small} 480w, ${large} 1920w`}
                 alt='Contemporary dancers'
