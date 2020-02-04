@@ -1,1 +1,1 @@
-View website [here](https://dev-kenandinkelmanndance.netlify.com/).
+View dev site [here](https://dev-kenandinkelmanndance.netlify.com/).
