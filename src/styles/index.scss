@@ -72,8 +72,7 @@ footer {
     }
 }
 
-.ContactForm {
-    // height: 50vh;
+.form {
     text-align: center; 
     textarea, 
     textarea:focus, 
@@ -92,7 +91,7 @@ footer {
     margin: 1em auto 0;
 }
 
-@media screen and (max-width: 445px) {
+@media screen and (max-width: 480px) {
     .form-group {
         margin-bottom: 7px; // between inputs
     }

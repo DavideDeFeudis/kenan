@@ -53,7 +53,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div className='ContactForm py-5'>
+        <div className='form py-5'>
             <div className="container">
                 <form
                     onSubmit={handleSubmit}

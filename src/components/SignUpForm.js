@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from "styled-components";
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 
@@ -56,79 +55,67 @@ export default function SignUpForm(props) {
     }
 
     return (
-        <FormContainer className="container">
-            <form
-                onSubmit={handleSubmit}
-            >
-                <div className="form-group">
-                    <input
-                        name="firstName"
-                        type="text"
-                        className="form-control"
-                        placeholder="First name"
-                        onChange={handleChange}
-                        value={message.firstName}
-                        required
-                    >
-                    </input>
-                </div>
-                <div className="form-group">
-                    <input
-                        name="lastName"
-                        type="text"
-                        className="form-control"
-                        placeholder="Last name"
-                        onChange={handleChange}
-                        value={message.lastName}
-                        required
-                    >
-                    </input>
-                </div>
-                <div className="form-group">
-                    <input
-                        name="email"
-                        type="email"
-                        className="form-control"
-                        placeholder="Email"
-                        onChange={handleChange}
-                        value={message.email}
-                        required
-                    >
-                    </input>
-                </div>
-                <div className="form-group">
-                    <textarea
-                        name="text"
-                        className="form-control"
-                        rows="3"
-                        placeholder="Anything else you want to tell us?"
-                        onChange={handleChange}
-                        value={message.text}
-                    >
-                    </textarea>
-                </div>
-                {
-                    loading ?
-                        <div className='mt-4'>
-                            <img src={loadingGif} width='25' height='25' alt="sending message..." />
-                        </div> :
-                        <Button type="submit" className="mb-2">Sign up</Button>
-                }
-            </form>
-        </FormContainer>
+        <div className='form'>
+            <div className="container">
+                <form
+                    onSubmit={handleSubmit}
+                >
+                    <div className="form-group">
+                        <input
+                            name="firstName"
+                            type="text"
+                            className="form-control"
+                            placeholder="First name"
+                            onChange={handleChange}
+                            value={message.firstName}
+                            required
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="lastName"
+                            type="text"
+                            className="form-control"
+                            placeholder="Last name"
+                            onChange={handleChange}
+                            value={message.lastName}
+                            required
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="email"
+                            type="email"
+                            className="form-control"
+                            placeholder="Email"
+                            onChange={handleChange}
+                            value={message.email}
+                            required
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <textarea
+                            name="text"
+                            className="form-control"
+                            rows="3"
+                            placeholder="Anything else you want to tell us?"
+                            onChange={handleChange}
+                            value={message.text}
+                        >
+                        </textarea>
+                    </div>
+                    {
+                        loading ?
+                            <div className='mt-4'>
+                                <img src={loadingGif} width='25' height='25' alt="sending message..." />
+                            </div> :
+                            <Button type="submit" className="mb-2">Sign up</Button>
+                    }
+                </form>
+            </div>
+        </div>
     )
 }
-
-const FormContainer = styled.div`
-    text-align: center; 
-    textarea, 
-    textarea:focus, 
-    input, 
-    input:focus {
-        background-color: rgb(21, 21, 21);
-        border-color: rgb(55, 55, 55);
-        color: #FFF;
-    }
-`;
-
-// background input turns white when using autofill
