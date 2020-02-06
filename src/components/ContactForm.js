@@ -3,12 +3,13 @@ import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 
 export default function ContactForm() {
-    const [message, setMessage] = useState({
+    const initialState = {
         name: '',
         email: '',
         subject: '',
         text: ''
-    })
+    }
+    const [message, setMessage] = useState(initialState)
 
     const [feedback, setFeedback] = useState('')
     const [loading, setLoading] = useState(false)
@@ -25,6 +26,7 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
+        // fetch(`http://localhost:4000/contact`, {
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`, {
             method: "POST",
             body: JSON.stringify(message),
@@ -36,12 +38,7 @@ export default function ContactForm() {
             .then(json => {
                 setLoading(false)
                 setFeedback(json.message)
-                setMessage({
-                    name: '',
-                    email: '',
-                    subject: '',
-                    text: ''
-                })
+                setMessage(initialState)
             })
             .catch(err => {
                 setLoading(false)

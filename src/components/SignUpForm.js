@@ -27,6 +27,7 @@ export default function SignUpForm(props) {
     }
 
     const sendFormData = () => {
+        // fetch(`http://localhost:4000/workshops`, {
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/workshops`, {
             method: "POST",
             body: JSON.stringify(message),
@@ -38,13 +39,6 @@ export default function SignUpForm(props) {
             .then(json => {
                 setLoading(false)
                 setFeedback(json.message)
-                setMessage({
-                    firstName: '',
-                    lastName: '',
-                    email: '',
-                    subject: '',
-                    text: ''
-                })
                 // console.log(json)
             })
             .catch(err => {

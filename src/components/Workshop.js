@@ -6,14 +6,11 @@ import { Button } from './Button'
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
     const {
-        id,
+        _id,
         date,
         title,
         address,
-        info
-    } = props.workshop
-
-    const {
+        info,
         priceLabel1,
         priceLabel2,
         priceLabel3,
@@ -22,7 +19,7 @@ export default function Workshop(props) {
         price2,
         price3,
         price4
-    } = props.workshop.price
+    } = props.workshop
 
     return (
         <div className='Workshop py-5'>
@@ -35,14 +32,14 @@ export default function Workshop(props) {
                             <Button
                                 type="button"
                                 className="mt-4"
-                                onClick={() => openModal(id)}
+                                onClick={() => openModal(_id)}
                             >Edit</Button>
                         </Link>
                         <Link to="/admin">
                             <Button
                                 type="button"
                                 className="mt-4"
-                                onClick={() => openModal(id)}
+                                onClick={() => openModal(_id)}
                             >Delete</Button>
                         </Link>
                     </div> :
@@ -50,7 +47,7 @@ export default function Workshop(props) {
                         <Button
                             type="button"
                             className="mt-4"
-                            onClick={() => openModal(id)}
+                            onClick={() => openModal(_id)}
                         >Sign up</Button>
                     </Link>
             }

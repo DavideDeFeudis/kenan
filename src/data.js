@@ -3,8 +3,8 @@ import sunsonThumbnail from "./images/sunson_thumbnail.jpg";
 
 export const localWorkshops = [
     {               
-        id: 1,
-        title: 'Flow Acrobatics Dresden',
+        _id: 1,
+        title: 'Default modal item',
         date: '11-12.04.2020 11:00-15:00',
         address: 'Dresdener Str. 24, 10445 Dresden',
         info: 'For professional dancers',
@@ -16,11 +16,11 @@ export const localWorkshops = [
             price1: 80,
             price2: 50,
             price3: 100,
-            price4: 60,
+            price4: 60
         }
     },
     {
-        id: 2,
+        _id: 2,
         title: 'Flow Acrobatics Hamburg',
         date: '11-12.05.2020 11:00-15:00',
         address: 'Hamburger Str. 54, 10345 Hamburg',
@@ -33,7 +33,7 @@ export const localWorkshops = [
             price1: 80,
             price2: 50,
             price3: 100,
-            price4: 60,
+            price4: 60
         }
     }
 ]

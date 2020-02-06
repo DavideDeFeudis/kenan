@@ -4,32 +4,33 @@ import { Context } from "../context";
 // import { Link } from "react-router-dom";
 import Navbar from './Navbar';
 import Workshop from './Workshop';
-import { Button } from './Button'
-import AdminModal from './AdminModal';
+// import { Button } from './Button'
+import CreateForm from './CreateForm';
 
 export default function Admin() {
-    const { workshops, openModal } = useContext(Context)
+    const { workshops } = useContext(Context)
+    console.log('workshops:', workshops)
 
     return (
         <div className="Admin">
             <Navbar />
             <div className="pt-5 container main-content text-center">
-                <Button
+                <CreateForm />
+                {/* <Button
                     type="button"
                     className="mt-4"
-                    onClick={() => openModal()}
-                >Create workshop</Button>
+                    // onClick={() => openModal()}
+                >Create workshop</Button> */}
                 {
                     workshops.map(workshop => {
                         return <Workshop
                             admin
-                            key={workshop.id}
+                            key={workshop._id}
                             workshop={workshop}
                         />
                     })
                 }
             </div>
-            <AdminModal />
         </div>
     )
 }

@@ -31,7 +31,7 @@ export default function Workshops() {
                 {
                     workshops.map(workshop => {
                         return <Workshop
-                            key={workshop.id}
+                            key={workshop._id}
                             workshop={workshop}
                         />
                     })

@@ -9,12 +9,26 @@ class Provider extends Component {
         videos: [],
         loading: true, // need?
         isModalOpen: false,
-        modalItem: {}
+        modalItem: {
+            _id: 1,
+            title: 'Default modal item',
+            date: '11-12.04.2020 11:00-15:00',
+            address: 'Dresdener Str. 24, 10445 Dresden',
+            info: 'For professional dancers',
+            priceLabel1: 'Early bird until 04.04.2020: two days €',
+            priceLabel2: '/ one day: €',
+            priceLabel3: 'Normal price: two days €',
+            priceLabel4: '/ one day: €',
+            price1: 80,
+            price2: 50,
+            price3: 100,
+            price4: 60
+        }
     }
 
     componentDidMount() {
-        this.getLocalData()
-        // this.getData()
+        // this.getLocalData()
+        this.getData()
     }
 
     getLocalData = async () => {
@@ -28,7 +42,6 @@ class Provider extends Component {
 
     getData = async () => {
         // console.log("context: getData")
-        // console.log('context: process.env.REACT_APP_BACKEND_HOST', process.env.REACT_APP_BACKEND_HOST)
 
         // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
         const baseUrl = 'http://localhost:4000'
@@ -54,14 +67,14 @@ class Provider extends Component {
     }
 
     getItem = id => {
-        return this.state.workshops.find(item => item.id === id);
+        return this.state.workshops.find(item => item._id === id);
     };
 
     openModal = id => {
         const item = this.getItem(id);
         this.setState(() => {
             return { modalItem: item, isModalOpen: true };
-        });
+        }, console.log(this.state));
     };
 
     closeModal = () => {
