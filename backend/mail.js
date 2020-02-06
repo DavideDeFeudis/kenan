@@ -11,23 +11,23 @@ const auth = {
 
 const transporter = nodemailer.createTransport(mailGun(auth))
 
-const sendMail = (email, name, subject, text, cb) => {
-    const mailOptions = {
-        from: email,
-        to: 'davidedefeudis@gmail.com',
-        name,
-        subject,
-        text // does not accept empty text
-    }
+// const sendMail = (email, name, subject, text, cb) => {
+//     const mailOptions = {
+//         from: email,
+//         to: 'davidedefeudis@gmail.com',
+//         name,
+//         subject,
+//         text // does not accept empty text
+//     }
 
-    transporter.sendMail(mailOptions, (err, data) => {
-        if (err) {
-            cb(err, null)
-        }
-        else {
-            cb(null, data)
-        }
-    })
-}
+//     transporter.sendMail(mailOptions, (err, data) => {
+//         if (err) {
+//             cb(err, null)
+//         }
+//         else {
+//             cb(null, data)
+//         }
+//     })
+// }
 
 module.exports = sendMail

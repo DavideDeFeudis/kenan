@@ -5,9 +5,7 @@ import { Context } from "../context";
 import SignUpForm from "./SignUpForm";
 import closeWindowIcon from "../images/close-window.png";
 
-export default function Modal() {
-  console.log(useContext(Context))
-  const { modalItem: { date, title }, isModalOpen, closeModal } = useContext(Context)
+export function Modal({ date, title, isModalOpen, closeModal }) {
   const [modalMessage, setModalMessage] = useState('')
 
   const setFeedback = (feedback) => {
@@ -65,4 +63,10 @@ export default function Modal() {
       </div>
     );
   }
+}
+
+export default () => {
+  const { modalItem: { date, title }, isModalOpen, closeModal } = useContext(Context)
+
+  return <Modal date={date} title={title} isModalOpen={isModalOpen} closeModal={closeModal} />
 }
