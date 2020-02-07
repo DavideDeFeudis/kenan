@@ -56,7 +56,7 @@ export default function CreateForm() {
             })
             .catch(err => {
                 setLoading(false)
-                setFeedback('Fetch error. Try again later.')
+                setFeedback('Error. Try again later.')
                 console.log(err)
             })
     }

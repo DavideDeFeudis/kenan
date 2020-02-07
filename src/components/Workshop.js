@@ -21,6 +21,23 @@ export default function Workshop(props) {
         price4
     } = props.workshop
 
+    const deleteData = (item, url) => {
+        return fetch(url + '/' + item, {
+            method: 'delete'
+        })
+            .then(response => response.json())
+            .catch(err => {
+                // setLoading(false)
+                // setFeedback('Error deleting ws. Try again later.')
+                console.log(err)
+            })
+    }
+
+    const handleDelete = () => {
+        deleteData(_id, 'http://localhost:4000/admin/workshop')
+        // reload
+    }
+
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
@@ -39,7 +56,8 @@ export default function Workshop(props) {
                             <Button
                                 type="button"
                                 className="mt-4"
-                                onClick={() => openModal(_id)}
+                                onClick={handleDelete}
+                            // onClick={() => openModal(_id)}
                             >Delete</Button>
                         </Link>
                     </div> :
