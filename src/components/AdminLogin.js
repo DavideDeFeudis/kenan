@@ -3,7 +3,7 @@ import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 import Input from './form/Input'
 
-export default function AdminSignup() {
+export default function AdminLogin() {
     const initialState = {
         email: '',
         password: ''
@@ -27,7 +27,7 @@ export default function AdminSignup() {
         // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
         const baseUrl = 'http://localhost:4000'
 
-        fetch(`${baseUrl}/admin/signup`, {
+        fetch(`${baseUrl}/admin/login`, {
             method: "POST",
             body: JSON.stringify(formData),
             headers: {
@@ -51,7 +51,7 @@ export default function AdminSignup() {
     return (
         <div className='form py-5'>
             <div className="container">
-                <h1>Sign up</h1>
+                <h1>Login</h1>
                 <form
                     onSubmit={handleSubmit}
                 >
@@ -75,7 +75,7 @@ export default function AdminSignup() {
                                 <img src={loadingGif} width='25' height='25' alt="in progress..." />
                             </div> :
                             <div>
-                                <Button type="submit">Sign up</Button>
+                                <Button type="submit">Login</Button>
                                 <p className='my-3'>{feedback}</p>
                             </div>
                     }
