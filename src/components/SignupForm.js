@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 
-export default function SignUpForm(props) {
+export default function SignupForm(props) {
     const { setFeedback, subjectContent } = props
 
     const [message, setMessage] = useState({

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Context } from "../context";
-import SignUpForm from "./SignUpForm";
+import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
 
 export default function AdminModal() {
@@ -49,7 +49,7 @@ export default function AdminModal() {
                             <p className='my-4'>
                                 Enter your data to sign up.<br />You will receive payment details via email.
                             </p>
-                            <SignUpForm
+                            <SignupForm
                                 // setFeedback={setFeedback}
                                 subjectContent={`Sign up - ${title} ${date}`}
                             />
