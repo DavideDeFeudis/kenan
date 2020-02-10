@@ -7,7 +7,6 @@ import CreateForm from './CreateForm';
 
 export default function Admin() {
     const { workshops } = useContext(Context)
-
     const initialState = {
         title: '',
         date: '',
@@ -22,15 +21,15 @@ export default function Admin() {
         price3: '',
         price4: ''
     }
-
     const [formData, setFormData] = useState(initialState)
+    const [loading, setLoading] = useState(false)
 
     return (
         <div className="Admin">
             <Navbar />
             <div className="container main-content text-center">
                 <h1>Create workshop</h1>
-                <CreateForm formData={formData} setFormData={setFormData} />
+                <CreateForm formData={formData} setFormData={setFormData} loading={loading} setLoading={setLoading} />
                 <section className="preview">
                     <h2>Preview</h2>
                     <Workshop preview workshop={formData} />

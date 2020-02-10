@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 import Input from './form/Input'
 
 export default function CreateForm(props) {
-    const { setFormData, formData } = props
-    const [feedback, setFeedback] = useState('') // move to admin
-    const [loading, setLoading] = useState(false) // move to admin
+    const { formData, setFormData, loading, setLoading } = props
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
@@ -14,10 +12,10 @@ export default function CreateForm(props) {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
-        if (feedback) setFeedback('')
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         setLoading(true)
         sendFormData()
     }
@@ -37,13 +35,12 @@ export default function CreateForm(props) {
             .then(json => {
                 console.log('json:', json)
                 setLoading(false)
-                setFeedback(json.message)
-                // setFormData(initialState) // clear inputs, move to admin
+                // setFeedback(json.message)
             })
             .catch(err => {
                 setLoading(false)
-                setFeedback('Error. Try again later.')
                 console.log(err)
+                // setFeedback('Error. Try again later.')
             })
     }
 
@@ -111,7 +108,7 @@ export default function CreateForm(props) {
                             </div> :
                             <div>
                                 <Button type="submit">Publish</Button>
-                                <p className='my-3'>{feedback}</p>
+                                {/* <p className='my-3'>{feedback}</p> */}
                             </div>
                     }
                 </div>
