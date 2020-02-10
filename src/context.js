@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { localWorkshops, localVideos } from "./data";
+import { localWorkshops, localVideos } from "./data"
 
-const Context = React.createContext();
+const Context = React.createContext()
 
 class Provider extends Component {
     state = {
@@ -27,8 +27,6 @@ class Provider extends Component {
     }
 
     getData = async () => {
-        // console.log("context: getData")
-
         // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
         const baseUrl = 'http://localhost:4000'
 

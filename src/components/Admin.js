@@ -8,20 +8,32 @@ import CreateForm from './CreateForm';
 export default function Admin() {
     const { workshops } = useContext(Context)
 
-    const [previewData, setPreviewData] = useState({})
+    const initialState = {
+        title: '',
+        date: '',
+        address: '',
+        info: '',
+        priceLabel1: '',
+        priceLabel2: '',
+        priceLabel3: '',
+        priceLabel4: '',
+        price1: '',
+        price2: '',
+        price3: '',
+        price4: ''
+    }
 
-    // const passPreviewData = (data) => {
-    //     setPreviewData(data)
-    // }
+    const [formData, setFormData] = useState(initialState)
 
     return (
         <div className="Admin">
             <Navbar />
-            <div className="pt-5 container main-content text-center">
-                <CreateForm passPreviewData={setPreviewData} />
+            <div className="container main-content text-center">
+                <h1>Create workshop</h1>
+                <CreateForm formData={formData} setFormData={setFormData} />
                 <section className="preview">
                     <h2>Preview</h2>
-                    <Workshop preview workshop={previewData} />
+                    <Workshop preview workshop={formData} />
                 </section>
                 <h2>Published</h2>
                 {

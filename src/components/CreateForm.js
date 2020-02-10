@@ -1,35 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
 import Input from './form/Input'
 
 export default function CreateForm(props) {
-    // useEffect to update preview after state update? otherwise one step too late
-    useEffect(() => {
-        props.passPreviewData(formData)
-    })
-
-    const initialState = {
-        title: '',
-        date: '',
-        address: '',
-        info: '',
-        priceLabel1: '',
-        priceLabel2: '',
-        priceLabel3: '',
-        priceLabel4: '',
-        price1: '',
-        price2: '',
-        price3: '',
-        price4: ''
-    }
-    const [formData, setFormData] = useState(initialState)
-    const [feedback, setFeedback] = useState('')
-    const [loading, setLoading] = useState(false)
-
+    const { setFormData, formData } = props
+    const [feedback, setFeedback] = useState('') // move to admin
+    const [loading, setLoading] = useState(false) // move to admin
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
-    
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 
@@ -39,7 +18,6 @@ export default function CreateForm(props) {
     }
 
     const handleSubmit = (e) => {
-        // e.preventDefault()
         setLoading(true)
         sendFormData()
     }
@@ -60,7 +38,7 @@ export default function CreateForm(props) {
                 console.log('json:', json)
                 setLoading(false)
                 setFeedback(json.message)
-                setFormData(initialState)
+                // setFormData(initialState) // clear inputs, move to admin
             })
             .catch(err => {
                 setLoading(false)
