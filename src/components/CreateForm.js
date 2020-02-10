@@ -29,6 +29,7 @@ export default function CreateForm(props) {
 
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
+    
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 

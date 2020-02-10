@@ -10,15 +10,15 @@ export default function Admin() {
 
     const [previewData, setPreviewData] = useState({})
 
-    const passPreviewData = (data) => {
-        setPreviewData(data)
-    }
+    // const passPreviewData = (data) => {
+    //     setPreviewData(data)
+    // }
 
     return (
         <div className="Admin">
             <Navbar />
             <div className="pt-5 container main-content text-center">
-                <CreateForm passPreviewData={passPreviewData} />
+                <CreateForm passPreviewData={setPreviewData} />
                 <section className="preview">
                     <h2>Preview</h2>
                     <Workshop preview workshop={previewData} />
