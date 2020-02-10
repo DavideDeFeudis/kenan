@@ -70,7 +70,7 @@ export default function CreateForm(props) {
 
     return (
         <>
-            <form className="form py-5" onSubmit={handleSubmit}>
+            <form className="form pt-3" onSubmit={handleSubmit}>
                 <div className="form-row">
                     <div className="col-sm-6">
                         {
@@ -131,7 +131,7 @@ export default function CreateForm(props) {
                                 <img src={loadingGif} width='25' height='25' alt="in progress..." />
                             </div> :
                             <div>
-                                <Button type="submit">Create</Button>
+                                <Button type="submit">Publish</Button>
                                 <p className='my-3'>{feedback}</p>
                             </div>
                     }

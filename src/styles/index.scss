@@ -91,6 +91,13 @@ footer {
     margin: 1em auto 0;
 }
 
+.preview {
+    background-color: rgb(38, 38, 38);
+    border: 2px solid rgb(164, 0, 0);
+    padding: 1.3em 0 0;
+    margin: 3em 0;
+}
+
 @media screen and (max-width: 480px) {
     .form-group {
         margin-bottom: 7px; // between inputs

@@ -54,7 +54,6 @@ export default function Workshop(props) {
         >Sign up</Button>
     </Link>
 
-
     const adminButtons = loading ?
         <div>
             <img src={loadingGif} width='25' height='25' alt="in progress..." />
@@ -79,11 +78,13 @@ export default function Workshop(props) {
             <p className='my-3'>{feedback}</p>
         </div>
 
+    const buttons = props.admin ? adminButtons : userButtons 
+
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
             <p>{date}<br />{address}<br />{info}<br />{priceLabel1}{price1} {priceLabel2}{price2}<br />{priceLabel3}{price3} {priceLabel4}{price4}</p>
-            {props.admin ? adminButtons : userButtons}
+            {props.preview ? null : buttons}
         </div>
     )
 }

@@ -19,9 +19,11 @@ export default function Admin() {
             <Navbar />
             <div className="pt-5 container main-content text-center">
                 <CreateForm passPreviewData={passPreviewData} />
-                <h1>Preview</h1>
-                <Workshop workshop={previewData} />
-                <h1>Published</h1>
+                <section className="preview">
+                    <h2>Preview</h2>
+                    <Workshop preview workshop={previewData} />
+                </section>
+                <h2>Published</h2>
                 {
                     workshops.map(workshop => {
                         return <Workshop
