@@ -16,11 +16,7 @@ export default function Admin() {
             <Navbar />
             <div className="pt-5 container main-content text-center">
                 <CreateForm />
-                {/* <Button
-                    type="button"
-                    className="mt-4"
-                    // onClick={() => openModal()}
-                >Create workshop</Button> */}
+                {/* ws preview */}
                 {
                     workshops.map(workshop => {
                         return <Workshop

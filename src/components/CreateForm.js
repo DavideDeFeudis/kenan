@@ -22,8 +22,10 @@ export default function CreateForm() {
     const [feedback, setFeedback] = useState('')
     const [loading, setLoading] = useState(false)
 
-    const textInputNames = ['title', 'date', 'address', 'info', 'priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
-    const numberInputNames = ['price1', 'price2', 'price3', 'price4']
+    const inputNamesCol1 = ['title', 'date']
+    const inputNamesCol2 = ['address', 'info']
+    const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
+    const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -62,46 +64,72 @@ export default function CreateForm() {
     }
 
     return (
-        <div className='form py-5'>
-            <div className="container">
-                <form
-                    onSubmit={handleSubmit}
-                >
+        <form className="form py-5" onSubmit={handleSubmit}>
+            <div className="form-row">
+                <div className="col-sm-6">
                     {
-                        textInputNames.map((inputName, i) => (
+                        inputNamesCol1.map((inputName, i) => (
                             <Input
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
                                 formData={formData}
-                            // required
                             />
                         ))
                     }
+                </div>
+                <div className="col-sm-6">
                     {
-                        numberInputNames.map((inputName, i) => (
+                        inputNamesCol2.map((inputName, i) => (
                             <Input
                                 key={i}
                                 name={inputName}
-                                type="number"
                                 onChange={handleChange}
                                 formData={formData}
-                            // required
                             />
                         ))
                     }
-                    {
-                        loading ?
-                            <div>
-                                <img src={loadingGif} width='25' height='25' alt="creating..." />
-                            </div> :
-                            <div>
-                                <Button type="submit">Create</Button>
-                                <p className='my-3'>{feedback}</p>
-                            </div>
-                    }
-                </form>
+                </div>
             </div>
-        </div>
+            <div className="form-row">
+                <div className="col-sm-6">
+                    {
+                        inputNamesCol3.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
+                    }
+                </div>
+                <div className="col-sm-6">
+                    {
+                        inputNamesCol4.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                type = "number"
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+            <div className="my-4">
+                {
+                    loading ?
+                        <div>
+                            <img src={loadingGif} width='25' height='25' alt="creating..." />
+                        </div> :
+                        <div>
+                            <Button type="submit">Create</Button>
+                            <p className='my-3'>{feedback}</p>
+                        </div>
+                }
+            </div>
+        </form>
     )
 }
