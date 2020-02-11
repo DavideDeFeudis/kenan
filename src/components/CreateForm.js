@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button } from './Button'
-import loadingGif from '../images/load.gif'
+// import loadingGif from '../images/load.gif'
 import Input from './form/Input'
 
-export default function CreateForm(props) {
-    const { formData, setFormData, loading, setLoading } = props
+export default function CreateForm({ formData, setFormData, loading, setLoading, addWorkshopToTempWS }) {
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
@@ -16,13 +15,13 @@ export default function CreateForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
-        sendFormData()
+        // setLoading(true)
+        addWorkshopToTempWS() // _id as arg
+        createWorkshopInDB()
     }
 
-    const sendFormData = () => {
-        // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
-        const baseUrl = 'http://localhost:4000'
+    const createWorkshopInDB = () => {
+        const baseUrl = process.env.REACT_APP_BACKEND_HOST
 
         fetch(`${baseUrl}/admin/workshop`, {
             method: "POST",
@@ -34,85 +33,77 @@ export default function CreateForm(props) {
             .then(response => response.json())
             .then(json => {
                 console.log('json:', json)
-                setLoading(false)
+                // setLoading(false)
                 // setFeedback(json.message)
             })
             .catch(err => {
-                setLoading(false)
+                // setLoading(false)
                 console.log(err)
                 // setFeedback('Error. Try again later.')
             })
     }
 
     return (
-        <>
-            <form className="form pt-3" onSubmit={handleSubmit}>
-                <div className="form-row">
-                    <div className="col-sm-6">
-                        {
-                            inputNamesCol1.map((inputName, i) => (
-                                <Input
-                                    key={i}
-                                    name={inputName}
-                                    onChange={handleChange}
-                                    formData={formData}
-                                />
-                            ))
-                        }
-                    </div>
-                    <div className="col-sm-6">
-                        {
-                            inputNamesCol2.map((inputName, i) => (
-                                <Input
-                                    key={i}
-                                    name={inputName}
-                                    onChange={handleChange}
-                                    formData={formData}
-                                />
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className="form-row">
-                    <div className="col-sm-6">
-                        {
-                            inputNamesCol3.map((inputName, i) => (
-                                <Input
-                                    key={i}
-                                    name={inputName}
-                                    onChange={handleChange}
-                                    formData={formData}
-                                />
-                            ))
-                        }
-                    </div>
-                    <div className="col-sm-6">
-                        {
-                            inputNamesCol4.map((inputName, i) => (
-                                <Input
-                                    key={i}
-                                    name={inputName}
-                                    type="number"
-                                    onChange={handleChange}
-                                    formData={formData}
-                                />
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className="my-4">
+        <form className="form pt-3" onSubmit={handleSubmit}>
+            <div className="form-row">
+                <div className="col-sm-6">
                     {
-                        loading ?
-                            <div>
-                                <img src={loadingGif} width='25' height='25' alt="in progress..." />
-                            </div> :
-                            <div>
-                                <Button type="submit">Publish</Button>
-                                {/* <p className='my-3'>{feedback}</p> */}
-                            </div>
+                        inputNamesCol1.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
                     }
                 </div>
-            </form>
-        </>
+                <div className="col-sm-6">
+                    {
+                        inputNamesCol2.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+            <div className="form-row">
+                <div className="col-sm-6">
+                    {
+                        inputNamesCol3.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
+                    }
+                </div>
+                <div className="col-sm-6">
+                    {
+                        inputNamesCol4.map((inputName, i) => (
+                            <Input
+                                key={i}
+                                name={inputName}
+                                type="number"
+                                onChange={handleChange}
+                                formData={formData}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+            <div className="my-4">
+                <div>
+                    <Button type="submit">Publish</Button>
+                    {/* <p className='my-3'>{feedback}</p> */}
+                </div>
+            </div>
+        </form>
     )
 }

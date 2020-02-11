@@ -1,12 +1,23 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import '../styles/index.scss';
 import { Context } from "../context";
 import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
+// import SpinnerModal from './SpinnerModal';
 
 export default function Admin() {
     const { workshops } = useContext(Context)
+    console.log('workshops:', workshops)
+
+    const [tempWorkshops, setTempWorkshops] = useState([])
+    console.log('tempWorkshops:', tempWorkshops)
+
+    useEffect(() => {
+        console.log('useEffect setTempWorkshops')
+        setTempWorkshops([...workshops])
+    }, [workshops])
+
     const initialState = {
         title: '',
         date: '',
@@ -21,30 +32,41 @@ export default function Admin() {
         price3: '',
         price4: ''
     }
-    const [formData, setFormData] = useState(initialState)
-    const [loading, setLoading] = useState(false)
+    const [newWorkshop, setNewWorkshop] = useState(initialState)
+
+    const addWorkshopToTempWS = () => {
+        setTempWorkshops([...tempWorkshops, newWorkshop])
+    }
 
     return (
         <div className="Admin">
+            {console.log('render')}
             <Navbar />
             <div className="container main-content text-center">
                 <h1>Create workshop</h1>
-                <CreateForm formData={formData} setFormData={setFormData} loading={loading} setLoading={setLoading} />
+                <CreateForm
+                    formData={newWorkshop}
+                    setFormData={setNewWorkshop}
+                    // loading={loading}
+                    // setLoading={setLoading}
+                    addWorkshopToTempWS={addWorkshopToTempWS}
+                />
                 <section className="preview">
                     <h2>Preview</h2>
-                    <Workshop preview workshop={formData} />
+                    <Workshop preview workshop={newWorkshop} />
                 </section>
                 <h2>Published</h2>
                 {
-                    workshops.map(workshop => {
+                    tempWorkshops.map((workshop, i) => {
                         return <Workshop
                             admin
-                            key={workshop._id}
+                            key={i}
                             workshop={workshop}
                         />
                     })
                 }
             </div>
+            {/* <SpinnerModal loading={loading} /> */}
         </div>
     )
 }
