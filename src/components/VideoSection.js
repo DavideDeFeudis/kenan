@@ -1,26 +1,21 @@
-import React from 'react'
-import styled from "styled-components";
-import '../styles/index.scss';
+import React from "react";
+import YoutubeEmbedVideo from "youtube-embed-video";
+import styled from "styled-components"
+import '../styles/index.scss'
 
-export default function VideoSection(props) {
-    const { videoUrl, description, background } = props.video
+export default function VideoSection() {
 
     return (
-        <VideoContainer background={background} className='VideoSection'>
-            <div className="video-container container my-5 embed-responsive embed-responsive-16by9">
-                <iframe src={videoUrl}
-                    frameBorder='0'
-                    allow='autoplay; encrypted-media'
-                    allowFullScreen
-                    title='video'
-                />
-            </div>
-            <div className="container main-content text-center">
-                <p className='my-5' >
-                    {description}
-                </p>
-            </div>
-        </VideoContainer>
+        // <VideoContainer className='VideoSection'>
+        // <div className="video-container container my-5 embed-responsive embed-responsive-16by9">
+        <YoutubeEmbedVideo videoId="RnDC9MXSqCY" suggestions={false} />
+        // </div>
+        // <div className="container main-content text-center">
+        //     <p className='my-5' >
+        //         {/* {description} */}
+        //     </p>
+        // </div>
+        // </VideoContainer>
     )
 }
 

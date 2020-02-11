@@ -14,6 +14,7 @@ export default function Workshop(props) {
     const { openModal } = useContext(Context)
     const { admin, user, handleDelete } = props
     const {
+        secondaryID,
         _id,
         date,
         title,
@@ -50,7 +51,7 @@ export default function Workshop(props) {
                 <Button
                     type="button"
                     className="mt-4"
-                    onClick={() => handleDelete(_id)}
+                    onClick={() => handleDelete(secondaryID) }
                 >Delete</Button>
             </Link>
         </div>
@@ -63,7 +64,7 @@ export default function Workshop(props) {
     } else if (user) {
         buttons = userButtons
     } else {
-        buttons = null
+        buttons = null // skip?
     }
 
     return (

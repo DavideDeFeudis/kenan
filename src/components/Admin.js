@@ -5,16 +5,18 @@ import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 // import SpinnerModal from './SpinnerModal';
+import { deleteWorkshop } from '../databaseService'
+import uuidv1 from 'uuid/v1'
 
 export default function Admin() {
     const { workshops } = useContext(Context)
-    console.log('workshops:', workshops)
+    // console.log('workshops:', workshops)
 
-    const [tempWorkshops, setTempWorkshops] = useState([])
-    console.log('tempWorkshops:', tempWorkshops)
+    let [tempWorkshops, setTempWorkshops] = useState([])
+    // console.log('tempWorkshops:', tempWorkshops)
 
     useEffect(() => {
-        console.log('useEffect setTempWorkshops')
+        // console.log('useEffect setTempWorkshops')
         setTempWorkshops([...workshops])
     }, [workshops])
 
@@ -40,38 +42,29 @@ export default function Admin() {
         setNewWorkshop(initialState) // clear preview and inputs
     }
 
-    const deleteData = (item, url) => {
-        return fetch(url + '/' + item, {
-            method: 'delete'
-        })
-            .then(response => {
-                response.json()
-                // setLoading(false)
-                // if set to true, the browser will do a complete page refresh from the server and not from the cached version of the page
-                window.location.reload(false);
-            })
-            .catch(err => {
-                // setFeedback('Error deleting ws. Try again later.')
-                console.log(err)
-            })
-    }
+    const handleDelete = (secondaryID) => {
+        const deletedWS = tempWorkshops.filter(item => item.secondaryID === secondaryID)
+        console.log('deletedWS:', deletedWS)
 
-    const handleDelete = (_id) => {
-        deleteData(_id, 'http://localhost:4000/admin/workshop')
+        setTempWorkshops(tempWorkshops.filter(item => {
+            return item.secondaryID !== secondaryID
+        }))
+
+        deleteWorkshop(secondaryID, 'http://localhost:4000/admin/workshop') // use env url
     }
 
     return (
         <div className="Admin">
-            {console.log('render')}
             <Navbar />
             <div className="container main-content text-center">
-                <h1>Create workshop</h1>
+                <h1 className='mt-5'>Create workshop</h1>
                 <CreateForm
                     formData={newWorkshop}
                     setFormData={setNewWorkshop}
                     // loading={loading}
                     // setLoading={setLoading}
                     addWorkshopToTempWS={addWorkshopToTempWS}
+                    secondaryID={uuidv1()}
                 />
                 <section className="preview">
                     <h2>Preview</h2>
@@ -82,7 +75,7 @@ export default function Admin() {
                     tempWorkshops.map((workshop, i) => {
                         return <Workshop
                             admin
-                            key={i}
+                            key={workshop.secondaryID}
                             workshop={workshop}
                             handleDelete={handleDelete}
                         />
