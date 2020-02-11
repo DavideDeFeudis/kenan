@@ -1,9 +1,10 @@
 # Kenan Dinkelmann Dance
 
 Contemporary dance school web app created with React.js, Node.js and MongoDB.
-This application uses create-react-app.
+This app uses create-react-app.
 
-[Visit site](https://dev-kenandinkelmanndance.netlify.com/)
+[View site](https://dev-kenandinkelmanndance.netlify.com/)
+[View backend repo](https://github.com/DavideDeFeudis/kenan-backend)
 
 ## Installation
 
