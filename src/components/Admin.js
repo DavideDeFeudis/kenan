@@ -18,6 +18,7 @@ export default function Admin() {
         setTempWorkshops([...workshops])
     }, [workshops])
 
+    // set preview
     const initialState = {
         title: '',
         date: '',
@@ -36,6 +37,27 @@ export default function Admin() {
 
     const addWorkshopToTempWS = () => {
         setTempWorkshops([...tempWorkshops, newWorkshop])
+        setNewWorkshop(initialState) // clear preview and inputs
+    }
+
+    const deleteData = (item, url) => {
+        return fetch(url + '/' + item, {
+            method: 'delete'
+        })
+            .then(response => {
+                response.json()
+                // setLoading(false)
+                // if set to true, the browser will do a complete page refresh from the server and not from the cached version of the page
+                window.location.reload(false);
+            })
+            .catch(err => {
+                // setFeedback('Error deleting ws. Try again later.')
+                console.log(err)
+            })
+    }
+
+    const handleDelete = (_id) => {
+        deleteData(_id, 'http://localhost:4000/admin/workshop')
     }
 
     return (
@@ -53,7 +75,7 @@ export default function Admin() {
                 />
                 <section className="preview">
                     <h2>Preview</h2>
-                    <Workshop preview workshop={newWorkshop} />
+                    <Workshop workshop={newWorkshop} />
                 </section>
                 <h2>Published</h2>
                 {
@@ -62,6 +84,7 @@ export default function Admin() {
                             admin
                             key={i}
                             workshop={workshop}
+                            handleDelete={handleDelete}
                         />
                     })
                 }

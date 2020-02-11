@@ -16,7 +16,7 @@ export default function CreateForm({ formData, setFormData, loading, setLoading,
     const handleSubmit = (e) => {
         e.preventDefault()
         // setLoading(true)
-        addWorkshopToTempWS() // _id as arg
+        addWorkshopToTempWS()
         createWorkshopInDB()
     }
 

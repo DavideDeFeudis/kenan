@@ -31,6 +31,7 @@ export default function Workshops() {
                 {
                     workshops.map(workshop => {
                         return <Workshop
+                            user
                             key={workshop._id}
                             workshop={workshop}
                         />
