@@ -27,8 +27,7 @@ class Provider extends Component {
     }
 
     getData = async () => {
-        // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
-        const baseUrl = 'http://localhost:4000'
+        const baseUrl = process.env.REACT_APP_BACKEND_HOST 
 
         try {
             const req = await fetch(`${baseUrl}/workshops`, {

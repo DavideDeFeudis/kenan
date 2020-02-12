@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
-import loadingGif from '../images/load.gif'
+import SpinnerModal from './SpinnerModal'
 
 export default function ContactForm() {
     const initialState = {
@@ -26,7 +26,6 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
-        // fetch(`http://localhost:4000/contact`, {
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`, {
             method: "POST",
             body: JSON.stringify(message),
@@ -100,18 +99,13 @@ export default function ContactForm() {
                         >
                         </textarea>
                     </div>
-                    {
-                        loading ?
-                            <div>
-                                <img src={loadingGif} width='25' height='25' alt="sending message..." />
-                            </div> :
-                            <div>
-                                <Button type="submit">Send</Button>
-                                <p className='my-3'>{feedback}</p>
-                            </div>
-                    }
+                    <div>
+                        <Button type="submit">Send</Button>
+                        <p className='my-3'>{feedback}</p>
+                    </div>
                 </form>
             </div>
+            <SpinnerModal loading={loading} />
         </div>
     )
 }

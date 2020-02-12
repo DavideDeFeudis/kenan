@@ -4,7 +4,7 @@ import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
 
 export default function CreateForm(props) {
-    const { formData, setFormData, loading, setLoading, addWorkshopToTempWS, secondaryID } = props
+    const { formData, setFormData, addWorkshopToTempWS, secondaryID } = props
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']

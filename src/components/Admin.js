@@ -50,37 +50,45 @@ export default function Admin() {
             return item.secondaryID !== secondaryID
         }))
 
-        deleteWorkshop(secondaryID, 'http://localhost:4000/admin/workshop') // use env url
+        deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`) // use env url
     }
 
     return (
         <div className="Admin">
             <Navbar />
             <div className="container main-content text-center">
-                <h1 className='mt-5'>Create workshop</h1>
-                <CreateForm
-                    formData={newWorkshop}
-                    setFormData={setNewWorkshop}
-                    // loading={loading}
-                    // setLoading={setLoading}
-                    addWorkshopToTempWS={addWorkshopToTempWS}
-                    secondaryID={uuidv1()}
-                />
+                <section className='admin-headline'>
+                    <h1>Admin area</h1>
+                    <p className='mt-4'>In this development version the admin area is accessible. Feel free to create and delete workshops.</p>
+                </section>
+                <section className='create-area'>
+                    <h2>Create workshop</h2>
+                    <CreateForm
+                        formData={newWorkshop}
+                        setFormData={setNewWorkshop}
+                        // loading={loading}
+                        // setLoading={setLoading}
+                        addWorkshopToTempWS={addWorkshopToTempWS}
+                        secondaryID={uuidv1()}
+                    />
+                </section>
                 <section className="preview">
                     <h2>Preview</h2>
                     <Workshop workshop={newWorkshop} />
                 </section>
-                <h2>Published</h2>
-                {
-                    tempWorkshops.map((workshop, i) => {
-                        return <Workshop
-                            admin
-                            key={workshop.secondaryID}
-                            workshop={workshop}
-                            handleDelete={handleDelete}
-                        />
-                    })
-                }
+                <section className="published">
+                    <h2>Published</h2>
+                    {
+                        tempWorkshops.map((workshop, i) => {
+                            return <Workshop
+                                admin
+                                key={workshop.secondaryID}
+                                workshop={workshop}
+                                handleDelete={handleDelete}
+                            />
+                        })
+                    }
+                </section>
             </div>
             {/* <SpinnerModal loading={loading} /> */}
         </div>

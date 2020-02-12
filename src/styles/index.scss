@@ -99,6 +99,20 @@ footer {
     }
 }
 
+// use same as .modal-container?
+.spinner-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    color: #C7C7C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form {
     text-align: center; 
     textarea, 
@@ -118,11 +132,30 @@ footer {
     margin: 1em auto 0;
 }
 
-.preview {
-    background-color: rgb(28, 28, 28);
-    border: 2px solid rgb(164, 0, 0);
-    padding: 1.3em 0 0;
-    margin: 3em 0;
+.Admin {
+    section {
+        padding: 1.8em 0 0;
+        margin: 3em 0;
+    }
+    h2 {
+        margin-bottom: 1em;
+    }
+    .admin-headline {
+        padding: 4em 6em 2em;
+        border-bottom: 1px solid rgb(55, 55, 55);
+    }
+    .preview {
+        background-color: rgb(28, 28, 28);
+        border: 2px solid rgb(160, 141, 0);
+    }
+    .published {
+        border: 2px solid rgb(15, 109, 0);
+    }
+}
+
+.form-control:focus {
+    border-color: black;
+    box-shadow: none;
 }
 
 @media screen and (max-width: 480px) {

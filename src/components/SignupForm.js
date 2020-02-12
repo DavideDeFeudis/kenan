@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
-import loadingGif from '../images/load.gif'
+import SpinnerModal from './SpinnerModal'
 
 export default function SignupForm(props) {
     const { setFeedback, subjectContent } = props
@@ -27,7 +27,6 @@ export default function SignupForm(props) {
     }
 
     const sendFormData = () => {
-        // fetch(`http://localhost:4000/workshops`, {
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/workshops`, {
             method: "POST",
             body: JSON.stringify(message),
@@ -101,15 +100,10 @@ export default function SignupForm(props) {
                         >
                         </textarea>
                     </div>
-                    {
-                        loading ?
-                            <div className='mt-4'>
-                                <img src={loadingGif} width='25' height='25' alt="sending message..." />
-                            </div> :
-                            <Button type="submit" className="mb-2">Sign up</Button>
-                    }
+                    <Button type="submit" className="mb-2">Sign up</Button>
                 </form>
             </div>
+            <SpinnerModal loading={loading} />
         </div>
     )
 }

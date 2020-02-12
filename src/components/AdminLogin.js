@@ -24,8 +24,7 @@ export default function AdminLogin() {
     }
 
     const sendFormData = () => {
-        // const baseUrl = process.env.REACT_APP_BACKEND_HOST 
-        const baseUrl = 'http://localhost:4000'
+        const baseUrl = process.env.REACT_APP_BACKEND_HOST 
 
         fetch(`${baseUrl}/admin/login`, {
             method: "POST",
