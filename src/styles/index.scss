@@ -24,14 +24,23 @@ p {
     position: absolute;
     width: 100%;
     background: rgba(0, 0, 0, 0) !important;
+    .navbar-brand {
+        color: rgb(198, 198, 198) !important;
+    }
+    .nav-link {
+        transition: .3s;
+    }
 }
-  
-.navbar-brand {
-    color: rgb(198, 198, 198) !important;
-}
-  
+
 footer {
     background-color: rgb(12, 12, 12);
+    .social-icon {
+        opacity: 55%;
+        transition: .4s;
+        &:hover {
+            opacity: 100%;
+        }
+    }
 }
 
 .Workshop {
