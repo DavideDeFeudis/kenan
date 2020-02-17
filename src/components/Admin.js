@@ -8,6 +8,7 @@ import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
 import app from "../base";
+import { Button } from './Button'
 
 export default function Admin() {
     const { workshops } = useContext(Context)
@@ -60,8 +61,7 @@ export default function Admin() {
             <div className="container main-content text-center">
                 <section className='admin-headline'>
                     <h1>Admin area</h1>
-                    <p className='mt-4'>In this development version the admin area is accessible. Feel free to create and delete workshops.</p>
-                    <button className='mt-4' onClick={() => app.auth().signOut()}>Sign out</button>
+                    <Button className='mt-4' onClick={() => app.auth().signOut()}>Sign out</Button>
                 </section>
                 <section className='create-area'>
                     <h2>Create workshop</h2>
