@@ -1,6 +1,3 @@
-import astralThumbnail from "./images/astral_thumbnail.jpg";
-import sunsonThumbnail from "./images/sunson_thumbnail.jpg";
-
 export const localWorkshops = [
     {
         _id: 1,
@@ -37,14 +34,14 @@ export const localWorkshops = [
 export const localVideos = [
     {
         id: 1,
-        videoUrl: 'https://player.vimeo.com/video/368775262',
-        background: astralThumbnail,
-        description: 'ASTRAL is set in a fictional world where humankind, through its behavior, has made survival on planet Earth impossible. Climate change has progressed so drastically that no human being can survive on Earth in 10 years. Scientists travel to Mars to build up a new society. How do they react to suddenly being pulled out of their normal living environment? Humanity is forced to question past patterns of behavior and create new concepts to secure the long-term future of society on a new planet. How does the individual deal with severe changes on a psychological level? ASTRAL is an attempt to display the process of dealing with changes with and within the body. Direction and choreography: Kenan Dinkelmann. Performers: Nitzan Moshe, Miriam Kaya, Joshua Smith, Max Makowski. Supported by Derida Dance Centre, Sofia, Bulgaria'
+        title: 'Astral',
+        url: 'https://www.youtube.com/watch?v=dYEsi-ORb44',
+        info: 'ASTRAL is set in a fictional world where humankind, through its behavior, has made survival on planet Earth impossible. Climate change has progressed so drastically that no human being can survive on Earth in 10 years. Scientists travel to Mars to build up a new society. How do they react to suddenly being pulled out of their normal living environment? Humanity is forced to question past patterns of behavior and create new concepts to secure the long-term future of society on a new planet. How does the individual deal with severe changes on a psychological level? ASTRAL is an attempt to display the process of dealing with changes with and within the body. Direction and choreography: Kenan Dinkelmann. Performers: Nitzan Moshe, Miriam Kaya, Joshua Smith, Max Makowski. Supported by Derida Dance Centre, Sofia, Bulgaria'
     },
     {
         id: 2,
-        videoUrl: 'https://player.vimeo.com/video/336667772',
-        background: sunsonThumbnail,
-        description: 'SUNSON description. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab maxime animi porro doloribus quod assumenda recusandae, reprehenderit sit voluptatibus sequi repudiandae soluta voluptatem consequuntur doloremque nulla ad distinctio earum alias modi ullam repellat? Optio quae laudantium aperiam atque consequatur aut?'
+        title: 'Sunson',
+        url: 'https://www.youtube.com/watch?v=FenzrFVlvx4',
+        info: 'SUNSON description. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab maxime animi porro doloribus quod assumenda recusandae, reprehenderit sit voluptatibus sequi repudiandae soluta voluptatem consequuntur doloremque nulla ad distinctio earum alias modi ullam repellat? Optio quae laudantium aperiam atque consequatur aut?'
     }
 ]

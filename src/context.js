@@ -14,21 +14,31 @@ class Provider extends Component {
 
     componentDidMount() {
         // this.getLocalData()
+        this.getLocalVideos()
         this.getData()
     }
 
-    getLocalData = async () => {
+    getLocalVideos = async () => {
         this.setState({
-            workshops: localWorkshops,
+            // workshops: localWorkshops,
             // modalItem: localWorkshops[0],
             videos: localVideos,
             loading: false
         }, () => console.log('getLocalData context state: ', this.state))
     }
 
+    getLocalData = async () => {
+        this.setState({
+            workshops: localWorkshops,
+            // modalItem: localWorkshops[0],
+            // videos: localVideos,
+            loading: false
+        }, () => console.log('getLocalData context state: ', this.state))
+    }
+
     getData = async () => {
         const baseUrl = process.env.REACT_APP_BACKEND_HOST 
-        console.log('baseUrl:', baseUrl)
+        // console.log('baseUrl:', baseUrl)
 
         try {
             const req = await fetch(`${baseUrl}/workshops`, {

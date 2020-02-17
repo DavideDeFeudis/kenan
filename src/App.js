@@ -4,7 +4,9 @@ import Home from "./components/Home";
 import Admin from "./components/Admin";
 import AdminLogin from './components/AdminLogin';
 import About from "./components/About";
-import Choreography from "./components/Choreography";
+import VideoAstral from "./components/VideoAstral";
+import VideoSunson from "./components/VideoSunson";
+// import VideoSection from "./components/VideoSection";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
 
@@ -15,7 +17,9 @@ function App() {
         <Route exact path="/admin" component={Admin} />
         <Route path="/admin/login" component={AdminLogin} />
         <Route path="/about" component={About} />
-        <Route path="/choreography" component={Choreography} />
+        {/* <Route path="/videoSection" component={VideoSection} /> */}
+        <Route path="/astral" component={VideoAstral} />
+        <Route path="/sunson" component={VideoSunson} />
         <Route path="/workshops" component={Workshops} />
         <Route path="/contact" component={Contact} />
         <Route component={Home} />

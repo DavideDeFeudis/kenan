@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import '../styles/index.scss';
+import { Context } from "../context";
 
 export default function Navbar() {
+    const { videos } = useContext(Context)
+
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-light">
             <Link to="/" className="navbar-brand">
@@ -23,11 +26,16 @@ export default function Navbar() {
                             About
                         </Link>
                     </li>
-                    {/* <li className="nav-item">
-                        <Link to="/choreography" className="nav-link">
+                    <li className="nav-item dropdown">
+                        <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Choreography
                         </Link>
-                    </li> */}
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {
+                                videos.map(video => <Link key={video.id} url={video.url} info={video.info} className="dropdown-item" to={'/' + video.title.toLowerCase()}>{video.title}</Link>)
+                            }
+                        </div>
+                    </li>
                     <li className="nav-item">
                         <Link to="/workshops" className="nav-link">
                             Workshops
