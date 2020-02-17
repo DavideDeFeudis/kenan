@@ -12,6 +12,20 @@ import Modal from './Modal';
 
 export default function Workshops() {
     const { workshops } = useContext(Context)
+    console.log('workshops:', workshops)
+
+    let workshopSection = <p>There was a problem loading the workshops</p>
+    if (workshops.length === 0) {
+        workshopSection = <p className='my-5'>There are no workshops at the moment</p>
+    } else {
+        workshopSection = workshops.map(workshop => {
+            return <Workshop
+                user
+                key={workshop._id}
+                workshop={workshop}
+            />
+        })
+    }
 
     return (
         <div className='Workshops'>
@@ -29,13 +43,7 @@ export default function Workshops() {
             </div>
             <div className="container text-center">
                 {
-                    workshops.map(workshop => {
-                        return <Workshop
-                            user
-                            key={workshop._id}
-                            workshop={workshop}
-                        />
-                    })
+                    workshopSection
                 }
             </div>
             <Footer />

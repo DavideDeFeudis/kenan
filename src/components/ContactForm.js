@@ -26,6 +26,7 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
+        console.log(process.env.REACT_APP_BACKEND_HOST)
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`, {
             method: "POST",
             body: JSON.stringify(message),

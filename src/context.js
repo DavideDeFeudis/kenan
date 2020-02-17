@@ -23,11 +23,12 @@ class Provider extends Component {
             // modalItem: localWorkshops[0],
             videos: localVideos,
             loading: false
-        }, () => console.log('context state: ', this.state))
+        }, () => console.log('getLocalData context state: ', this.state))
     }
 
     getData = async () => {
         const baseUrl = process.env.REACT_APP_BACKEND_HOST 
+        console.log('baseUrl:', baseUrl)
 
         try {
             const req = await fetch(`${baseUrl}/workshops`, {
@@ -38,14 +39,10 @@ class Provider extends Component {
             this.setState({
                 workshops,
                 loading: false
-            }, () => console.log('context state: ', this.state))
+            }, () => console.log('getData context state: ', this.state))
         }
         catch (error) {
             console.log("context: error fetching data", error)
-            // this.setState({
-            //     error: true,
-            //     message: "error"
-            // }, () => console.log(this.state))
         }
     }
 
