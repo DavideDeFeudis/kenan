@@ -7,6 +7,7 @@ import CreateForm from './CreateForm';
 // import SpinnerModal from './SpinnerModal';
 import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
+import app from "../base";
 
 export default function Admin() {
     const { workshops } = useContext(Context)
@@ -60,6 +61,7 @@ export default function Admin() {
                 <section className='admin-headline'>
                     <h1>Admin area</h1>
                     <p className='mt-4'>In this development version the admin area is accessible. Feel free to create and delete workshops.</p>
+                    <button className='mt-4' onClick={() => app.auth().signOut()}>Sign out</button>
                 </section>
                 <section className='create-area'>
                     <h2>Create workshop</h2>
