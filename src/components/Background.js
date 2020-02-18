@@ -6,7 +6,7 @@ export default function Background(props) {
 
     return (
         <>
-            {
+            { // empty div to avoid paragraph appearing on top before bg loads
                 loading && <div style={{ height: '100vw' }}></div>
             }
             <img

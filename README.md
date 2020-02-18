@@ -31,5 +31,14 @@ REACT_APP_FIREBASE_STORAGE_BUCKET=<VALUE>
 REACT_APP_FIREBASE_SENDER_ID=<VALUE>
 ```
 
+## Admin route
+
+Access the admin route to edit upcoming workshops:
+
+```bash
+email: admin@example.com
+password: admin1
+```
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

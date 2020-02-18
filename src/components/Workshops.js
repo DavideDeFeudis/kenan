@@ -12,7 +12,6 @@ import Modal from './Modal';
 
 export default function Workshops() {
     const { workshops } = useContext(Context)
-    console.log('workshops:', workshops)
 
     let workshopSection = <p>There was a problem loading the workshops</p>
     if (workshops.length === 0) {
