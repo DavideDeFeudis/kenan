@@ -76,7 +76,7 @@ export default function Admin() {
                 </section>
                 <section className="preview">
                     <h2>Preview</h2>
-                    <Workshop workshop={newWorkshop} />
+                    <Workshop preview workshop={newWorkshop} />
                 </section>
                 <section className="published">
                     <h2>Published</h2>

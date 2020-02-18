@@ -65,9 +65,6 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
                 <div id='underline'></div>
                 <p>{priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
                   {priceLabel3}{price3}<br />{priceLabel4}{price4}<br />
-                  {/* until 4.4.20: two days €80 / one day: €50<br />
-                  Normal price: two days €100 / one day: €60 */}
-                  {/* Enter your data to sign up.<br />You will receive payment details via email. */}
                 </p>
                 <SignupForm
                   setFeedback={setFeedback}
