@@ -6,6 +6,7 @@ const Context = React.createContext()
 class Provider extends Component {
     state = {
         workshops: [],
+        customers: [],
         videos: [],
         loading: true, // need?
         isModalOpen: false,
@@ -15,7 +16,8 @@ class Provider extends Component {
     componentDidMount() {
         // this.getLocalData()
         this.getLocalVideos()
-        this.getData()
+        this.getWorkshops()
+        // this.getCustomers()
     }
 
     getLocalVideos = async () => {
@@ -36,7 +38,7 @@ class Provider extends Component {
         }, () => console.log('getLocalData context state: ', this.state))
     }
 
-    getData = async () => {
+    getWorkshops = async () => {
         const baseUrl = process.env.REACT_APP_BACKEND_HOST 
         // console.log('baseUrl:', baseUrl)
 
@@ -49,12 +51,32 @@ class Provider extends Component {
             this.setState({
                 workshops,
                 loading: false
-            }, () => console.log('getData context state: ', this.state))
+            }, () => console.log('getWorkshops context state: ', this.state))
         }
         catch (error) {
             console.log("context: error fetching data", error)
         }
     }
+
+    // getCustomers = async () => {
+    //     const baseUrl = process.env.REACT_APP_BACKEND_HOST 
+    //     // console.log('baseUrl:', baseUrl)
+
+    //     try {
+    //         const req = await fetch(`${baseUrl}/customers`, {
+    //             headers: { "Content-Type": "application/json" } // need?
+    //         })
+    //         const customers = await req.json()
+
+    //         this.setState({
+    //             customers,
+    //             loading: false
+    //         }, () => console.log('getCustomers context state: ', this.state))
+    //     }
+    //     catch (error) {
+    //         console.log("context: error fetching data", error)
+    //     }
+    // }
 
     getItem = id => {
         return this.state.workshops.find(item => item._id === id);
