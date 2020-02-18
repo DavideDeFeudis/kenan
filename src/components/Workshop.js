@@ -58,13 +58,11 @@ export default function Workshop(props) {
         {/* <p className='my-3'>{feedback}</p> */}
     </div>
 
-    let buttons = null
+    let buttons = null // preview
     if (admin) {
         buttons = adminButtons
     } else if (user) {
         buttons = userButtons
-    } else { // preview
-        buttons = null // skip?
     }
 
     return (
