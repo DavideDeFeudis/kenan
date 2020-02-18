@@ -5,8 +5,21 @@ import { Context } from "../context";
 import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
 
-export function Modal({ date, title, isModalOpen, closeModal }) {
+export function Modal({ modalItem, isModalOpen, closeModal }) {
   const [modalMessage, setModalMessage] = useState('')
+  const {
+    title,
+    date,
+    info,
+    priceLabel1,
+    priceLabel2,
+    priceLabel3,
+    priceLabel4,
+    price1,
+    price2,
+    price3,
+    price4
+  } = modalItem
 
   const setFeedback = (feedback) => {
     setModalMessage(feedback) // Warning: Can't perform a React state update on an unmounted component.
@@ -47,16 +60,21 @@ export function Modal({ date, title, isModalOpen, closeModal }) {
               <Link to="/workshops">
                 <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
               </Link>
-              <h2>{title}</h2>
-              <h4>{date}</h4>
-              <div id='underline'></div>
-              <p>
-                Enter your data to sign up.<br />You will receive payment details via email.
-              </p>
-              <SignupForm
-                setFeedback={setFeedback}
-                subjectContent={`Sign up - ${title} ${date}`}
-              />
+              <div id="form-container">
+                <h2>{title}</h2>
+                <p>{date}</p>
+                <div id='underline'></div>
+                <p>{priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
+                  {priceLabel3}{price3}<br />{priceLabel4}{price4}<br />
+                  {/* until 4.4.20: two days €80 / one day: €50<br />
+                  Normal price: two days €100 / one day: €60 */}
+                  {/* Enter your data to sign up.<br />You will receive payment details via email. */}
+                </p>
+                <SignupForm
+                  setFeedback={setFeedback}
+                  subjectContent={`Sign up - ${title} ${date}`}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -66,7 +84,17 @@ export function Modal({ date, title, isModalOpen, closeModal }) {
 }
 
 export default () => {
-  const { modalItem: { date, title }, isModalOpen, closeModal } = useContext(Context)
+  const {
+    modalItem,
+    isModalOpen,
+    closeModal
+  } = useContext(Context)
 
-  return <Modal date={date} title={title} isModalOpen={isModalOpen} closeModal={closeModal} />
+  return <Modal
+    modalItem={modalItem}
+    // date={date}
+    // title={title}
+    isModalOpen={isModalOpen}
+    closeModal={closeModal}
+  />
 }

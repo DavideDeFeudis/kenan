@@ -111,6 +111,7 @@ footer {
     align-items: center;
     justify-content: center;
     #form-modal, #feedback-modal{
+        border-radius: 5px;
         background: #202020;
         position: relative;
         padding: 2.5em;
@@ -194,14 +195,11 @@ footer {
     .form-group {
         margin-bottom: 7px; // between inputs
     }
+    #form-container {
+        transform: scale(0.9);
+    }
     #form-modal {
         width: 100%;
-        padding: 2.2em 0 !important;
-        h2 {
-            font-size: 1.5em;
-        }
-        h4 {
-            font-size: 1em;
-        }
+        padding: 0 !important;
     }
 }

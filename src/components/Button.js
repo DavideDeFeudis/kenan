@@ -12,6 +12,7 @@ export const Button = styled.button`
      color: #C7C7C7;
      background-color: #292929;
      text-align: center;
+    border-radius: 5px;
     //  transition: all 0.15s;
     // &:hover {
     //     color: #DDDDDD;

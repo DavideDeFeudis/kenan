@@ -35,7 +35,7 @@ export default function Workshop(props) {
             type="button"
             className="mt-4"
             onClick={() => openModal(_id)}
-        >Sign up</Button>
+        >Info</Button>
     </Link>
 
     const adminButtons = <div>
@@ -70,7 +70,7 @@ export default function Workshop(props) {
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
-            <p>{date}<br />{address}<br />{info}<br />{priceLabel1}{price1} {priceLabel2}{price2}<br />{priceLabel3}{price3} {priceLabel4}{price4}</p>
+            <p>{date}<br />{address}<br />{info}</p>
             {buttons}
         </div>
     )
