@@ -19,15 +19,15 @@ export default function Workshop(props) {
         date,
         title,
         address,
-        info,
-        priceLabel1,
-        priceLabel2,
-        priceLabel3,
-        priceLabel4,
-        price1,
-        price2,
-        price3,
-        price4
+        info
+        // priceLabel1,
+        // priceLabel2,
+        // priceLabel3,
+        // priceLabel4,
+        // price1,
+        // price2,
+        // price3,
+        // price4
     } = props.workshop
 
     const userButtons = <Link to="/workshops">

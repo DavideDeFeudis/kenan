@@ -10,7 +10,6 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
   const {
     title,
     date,
-    info,
     priceLabel1,
     priceLabel2,
     priceLabel3,
