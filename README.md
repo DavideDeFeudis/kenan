@@ -3,13 +3,7 @@
 Contemporary dance school web app created with React.js, Node.js and MongoDB.  
 This app uses create-react-app and depends on this [backend project](https://github.com/DavideDeFeudis/kenan-backend).  
 
-[View app](https://dev-kenandinkelmanndance.netlify.com/).   
-[Demo admin route](https://dev-kenandinkelmanndance.netlify.com/admin):
-
-```bash
-email: admin@example.com
-password: admin1
-```
+[View app](https://dev-kenandinkelmanndance.netlify.com/).  
 
 ## Installation
 
