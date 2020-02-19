@@ -61,16 +61,16 @@ export default function Workshop(props) {
 
     let customersList = null
     if (customers && customers.length) { // customers is undefined on first render
-        customersList = <div>
+        customersList = <div className='mt-3'>
             <p>Attendees:</p>
             {
                 customers.map(customer => {
-                    return <p key={customer._id}>{customer.email}</p>
+                    return <p key={customer._id}>{customer.firstName} {customer.lastName} - {customer.email}</p>
                 })
             }
         </div>
     } else {
-        customersList = <p>No one signed up yet</p>
+        customersList = <p className='mt-3'>No one signed up yet</p>
     }
 
     return (
