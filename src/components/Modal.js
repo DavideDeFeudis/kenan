@@ -8,6 +8,7 @@ import closeWindowIcon from "../images/close-window.png";
 export function Modal({ modalItem, isModalOpen, closeModal }) {
   const [modalMessage, setModalMessage] = useState('')
   const {
+    _id,
     title,
     date,
     priceLabel1,
@@ -67,6 +68,7 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
                   {priceLabel3}{price3}<br />{priceLabel4}{price4}<br />
                 </p>
                 <SignupForm
+                  workshopId={_id}
                   setFeedback={setFeedback}
                   subjectContent={`Sign up - ${title} ${date}`}
                 />
