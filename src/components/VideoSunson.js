@@ -30,7 +30,7 @@ export default function VideoSunson() {
             <div className="container main-content text-center">
                 <p>
                     Choreography: Kenan Dinkelmann<br />
-                    Dancers Josephine Haas, Asuka J. Riedl, Felipe Fizkal, Carlos Aller<br />
+                    Dancers: Josephine Haas, Asuka J. Riedl, Felipe Fizkal, Carlos Aller<br />
                     Music: Kangding Ray
                 </p>
             </div>
