@@ -104,6 +104,15 @@ footer {
     }
 }
 
+#sunson-img-container {
+    max-width: 1325px;
+    #sunson-img {
+        width: 100%;
+        margin: auto;
+        display: block;
+    }
+}
+
 .modal-container {
     position: fixed;
     top: 0;
