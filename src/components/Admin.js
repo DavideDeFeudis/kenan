@@ -11,17 +11,18 @@ import app from "../base";
 import { Button } from './Button'
 
 export default function Admin() {
+    
+    // VIEW SIGNED UP CUSTOMERS SECTION
+    // const { customers } = useContext(Context)
+
+
+
+    // EDIT WORKSHOPS SECTION
     const { workshops } = useContext(Context)
-    // console.log('workshops:', workshops)
-
     let [tempWorkshops, setTempWorkshops] = useState([])
-    // console.log('tempWorkshops:', tempWorkshops)
-
     useEffect(() => {
-        // console.log('useEffect setTempWorkshops')
         setTempWorkshops([...workshops])
     }, [workshops])
-
     // set preview
     const initialState = {
         title: '',
@@ -38,26 +39,35 @@ export default function Admin() {
         price4: ''
     }
     const [newWorkshop, setNewWorkshop] = useState(initialState)
-
     const addWorkshopToTempWS = () => {
         setTempWorkshops([...tempWorkshops, newWorkshop])
         setNewWorkshop(initialState) // clear preview and inputs
     }
-
     const handleDelete = (secondaryID) => {
-        const deletedWS = tempWorkshops.filter(item => item.secondaryID === secondaryID)
-        console.log('deletedWS:', deletedWS)
-
         setTempWorkshops(tempWorkshops.filter(item => {
             return item.secondaryID !== secondaryID
         }))
 
-        deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`) // use env url
+        deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
     }
 
     return (
         <div className="Admin">
             <Navbar />
+            {/* <div className="container main-content text-center">
+                <section className="published">
+                    <h2>Signed up customers</h2>
+                    {
+                        customers.map(customer => {
+                            const { email, firstName, lastName, subject, text } = customer
+                            return <p key={customer._id}>
+                                {subject}<br />{text}<br />
+                                {firstName} {lastName} - {email}<br /><br />
+                            </p>
+                        })
+                    }
+                </section>
+            </div> */}
             <div className="container main-content text-center">
                 <section className='admin-headline'>
                     <h1>Admin area</h1>
@@ -68,8 +78,6 @@ export default function Admin() {
                     <CreateForm
                         formData={newWorkshop}
                         setFormData={setNewWorkshop}
-                        // loading={loading}
-                        // setLoading={setLoading}
                         addWorkshopToTempWS={addWorkshopToTempWS}
                         secondaryID={uuidv1()}
                     />
@@ -81,7 +89,7 @@ export default function Admin() {
                 <section className="published">
                     <h2>Published</h2>
                     {
-                        tempWorkshops.map((workshop, i) => {
+                        tempWorkshops.map(workshop => {
                             return <Workshop
                                 admin
                                 key={workshop.secondaryID}

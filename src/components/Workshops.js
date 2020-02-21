@@ -1,31 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import '../styles/index.scss';
-import { Context } from "../context";
 // import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 import backgroundLarge from "../images/workshops_1920.jpg";
 import backgroundSmall from "../images/workshops_500.jpg";
 import Background from './Background';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Workshop from './Workshop';
 import Modal from './Modal';
+import WorkshopsList from "./WorkshopsList";
 
 export default function Workshops() {
-    const { workshops } = useContext(Context)
-
-    let workshopSection = <p>There was a problem loading the workshops</p>
-    if (workshops.length === 0) {
-        workshopSection = <p className='my-5'>There are no workshops at the moment</p>
-    } else {
-        workshopSection = workshops.map(workshop => {
-            return <Workshop
-                user
-                key={workshop._id}
-                workshop={workshop}
-            />
-        })
-    }
-
     return (
         <div className='Workshops'>
             <Navbar />
@@ -40,11 +24,7 @@ export default function Workshops() {
                     The main part of the seminar consists of high energy movement phrases based on Kenans choreographic work which is influenced by various backgrounds such as Capoeira, Judo, Release-Technic and Breakdance. Improvisation tasks, either alone or with a partner will be present during the whole workshop in order to explore the movement material from another viewpoint.
                 </p>
             </div>
-            <div className="container text-center">
-                {
-                    workshopSection
-                }
-            </div>
+            <WorkshopsList />
             <Footer />
             <Modal />
         </div>

@@ -3,15 +3,18 @@ import { Button } from './Button'
 import SpinnerModal from './SpinnerModal'
 
 export default function SignupForm(props) {
-    const { setFeedback, subjectContent } = props
-
-    const [message, setMessage] = useState({
+    const { setFeedback, subjectContent, workshopId } = props
+    
+    const initialState = {
+        workshopId,
         firstName: '',
         lastName: '',
         email: '',
         subject: subjectContent,
         text: ''
-    })
+    }
+
+    const [message, setMessage] = useState(initialState)
 
     const [loading, setLoading] = useState(false)
 
