@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Workshop from './Workshop'
+import loadingGif from '../images/load.gif'
 
 export default function WorkshopsList() {
     const [data, setData] = useState({ workshops: [], isFetching: false })
@@ -13,7 +14,6 @@ export default function WorkshopsList() {
                     headers: { "Content-Type": "application/json" } // need?
                 })
                 const res = await req.json()
-                console.log('res:', res)
                 setData({ workshops: res, isFetching: false })
             } catch (e) {
                 console.log(e)
@@ -23,12 +23,18 @@ export default function WorkshopsList() {
         fetchWorkshops();
     }, []);
 
-    console.log('workshops:', data.workshops)
-
-    if (data.workshops) {
+    if (data.isFetching || !data.workshops) { // || !data.workshops redundant?
+        return (
+            <div className="fetching-spinner container text-center">
+                <img src={loadingGif} width='45' height='45' alt="in progress..." />
+            </div>
+        )
+    } else {
         if (data.workshops.length === 0) {
             return (
-                <p className='my-5'>There are no workshops at the moment</p>
+                <div className="container text-center">
+                    <p className='my-5'>There are no workshops at the moment</p>
+                </div>
             )
         }
         return (
@@ -44,8 +50,5 @@ export default function WorkshopsList() {
                 }
             </div>
         )
-    } else {
-        return null
     }
-
 }
