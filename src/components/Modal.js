@@ -61,6 +61,7 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
                 <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
               </Link>
               <h2>{modalMessage}</h2>
+              {/* hide section if err */}
               <div id='line'></div>
               <span>
                 We'll reach back to you shortly with payment details.
