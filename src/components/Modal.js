@@ -6,7 +6,6 @@ import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
 
 export function Modal({ modalItem, isModalOpen, closeModal }) {
-  console.log('modalItem:', modalItem)
   const [modalMessage, setModalMessage] = useState('')
   const {
     _id,
