@@ -14,9 +14,9 @@ class Provider extends Component {
     }
 
     componentDidMount() {
-        // this.getLocalData()
+        this.getLocalData()
         this.getLocalVideos()
-        this.getWorkshops()
+        // this.getWorkshops()
         // this.getCustomers()
     }
 

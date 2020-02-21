@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Workshop from './Workshop'
 import loadingGif from '../images/load.gif'
+import { Context } from "../context";
 
 export default function WorkshopsList() {
+    const { workshops } = useContext(Context)
     // const [data, setData] = useState({ workshops: [], isFetching: false })
 
     // useEffect(() => {
@@ -37,43 +39,6 @@ export default function WorkshopsList() {
     //             </div>
     //         )
     //     }
-
-
-    const workshops = [
-        {
-            _id: 1,
-            title: 'Flow Acrobatics Dresden',
-            date: '18-19.04.2020',
-            address: 'Bautzner Straße 107',
-            info: 'For all levels',
-            priceLabel1: 'One day: €',
-            priceLabel2: 'Both days: €',
-            price1: 60,
-            price2: 95
-        },
-        {
-            _id: 2,
-            title: 'Flow Acrobatics Hamburg',
-            date: '18-19.04.2020',
-            address: 'Valentinskamp 34A',
-            info: 'For all levels',
-            priceLabel1: 'One day: €',
-            priceLabel2: 'Both days: €',
-            price1: 60,
-            price2: 95
-        },
-        {
-            _id: 3,
-            title: 'Flow Acrobatics Brussels',
-            date: '25-26.04.2020',
-            address: 'Menenstraat 29, 1080 Sint-Jans-Molenbeek',
-            info: 'For all levels',
-            priceLabel1: 'One day: €',
-            priceLabel2: 'Both days: €',
-            price1: 60,
-            price2: 95
-        }
-    ]
 
         return (
             <div className="container text-center">
