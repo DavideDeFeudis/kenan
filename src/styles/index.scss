@@ -230,19 +230,24 @@ footer {
 
 @media screen and (max-width: 800px) {
     .About {
-        // #background {
-        //     display: none;
-        // }
-        #profile-pic {
-            float: none;
+        .navbar {
+            position: static;  
+        }
+        #background {
+            display: none;
         }
         #profile-pic {
+            float: none;
             display: block;
-            margin: 2em auto;
+            margin: 0 auto 2em;
         }
         #about-text {
             text-align: center; 
             margin: 0 2em;
+        }
+        #profile-container {
+            margin-top: 0em;
+            margin-bottom: 2em;
         }
     }
 }
