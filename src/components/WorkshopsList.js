@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import Workshop from './Workshop'
 import loadingGif from '../images/load.gif'
 // import { Context } from "../context";

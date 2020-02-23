@@ -4,6 +4,10 @@ import Footer from './Footer';
 import ReactPlayer from 'react-player'
 
 export default function VideoAstral() {
+    // onLoad={() => setLoading(false)}
+    // const [loading, setLoading] = useState(true)
+    // console.log('loading:', loading)
+
     return (
         <div className='Video'>
             <Navbar />

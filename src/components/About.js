@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../styles/index.scss'
 import profilePic from "../images/kenan_profile_300.jpg";
 import backgroundLarge from "../images/about_1920.jpg";
@@ -24,15 +24,4 @@ export default function About() {
             <Footer />
         </div>
     )
-}
-
-function debounce(fn, ms) {
-    let timer;
-    return _ => {
-        clearTimeout(timer);
-        timer = setTimeout(_ => {
-            timer = null;
-            fn.apply(this, arguments);
-        }, ms);
-    };
 }

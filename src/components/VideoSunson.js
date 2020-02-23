@@ -4,7 +4,7 @@ import Footer from './Footer';
 // import ReactPlayer from 'react-player'
 // import backgroundSmall from "../images/sunsonImg.jpg";
 import backgroundLarge from "../images/sunsonImg.jpg";
-import Background from './Background';
+// import Background from './Background';
 
 export default function VideoSunson() {
     return (
