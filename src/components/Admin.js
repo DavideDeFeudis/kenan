@@ -4,14 +4,13 @@ import { Context } from "../context";
 import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
-// import SpinnerModal from './SpinnerModal';
 import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
 import app from "../base";
 import { Button } from './Button'
 
 export default function Admin() {
-    
+
     // VIEW SIGNED UP CUSTOMERS SECTION
     // const { customers } = useContext(Context)
 
@@ -68,39 +67,46 @@ export default function Admin() {
                     }
                 </section>
             </div> */}
-            <div className="container main-content text-center">
-                <section className='admin-headline'>
-                    <h1>Admin area</h1>
+            <div className="container-fluid main-content text-center">
+                {/* <section className='admin-headline'>
                     <Button className='mt-4' onClick={() => app.auth().signOut()}>Sign out</Button>
-                </section>
-                <section className='create-area'>
-                    <h2>Create workshop</h2>
-                    <CreateForm
-                        formData={newWorkshop}
-                        setFormData={setNewWorkshop}
-                        addWorkshopToTempWS={addWorkshopToTempWS}
-                        secondaryID={uuidv1()}
-                    />
-                </section>
-                <section className="preview">
-                    <h2>Preview</h2>
-                    <Workshop preview workshop={newWorkshop} />
-                </section>
-                <section className="published">
-                    <h2>Published</h2>
-                    {
-                        tempWorkshops.map(workshop => {
-                            return <Workshop
-                                admin
-                                key={workshop.secondaryID}
-                                workshop={workshop}
-                                handleDelete={handleDelete}
+                </section> */}
+                <div className="row">
+                    <div className="col-lg">
+                        <section>
+                            <h2>Create workshop</h2>
+                            <CreateForm
+                                formData={newWorkshop}
+                                setFormData={setNewWorkshop}
+                                addWorkshopToTempWS={addWorkshopToTempWS}
+                                secondaryID={uuidv1()}
                             />
-                        })
-                    }
-                </section>
+                        </section>
+                        <section>
+                            <h2>Preview</h2>
+                            <Workshop preview workshop={newWorkshop} />
+                        </section>
+                    </div>
+                    <div className="col-lg">
+                        <section className="published">
+                            <h2>Published</h2>
+                            {
+                                tempWorkshops.map(workshop => {
+                                    return <Workshop
+                                        admin
+                                        key={workshop.secondaryID}
+                                        workshop={workshop}
+                                        handleDelete={handleDelete}
+                                    />
+                                })
+                            }
+                        </section>
+
+                    </div>
+                </div>
+
+
             </div>
-            {/* <SpinnerModal loading={loading} /> */}
         </div>
     )
 }

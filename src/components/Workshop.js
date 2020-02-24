@@ -82,13 +82,13 @@ export default function Workshop(props) {
                     <div>
                         <p>
                             {priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
-                            {priceLabel3}{price3}<br />{priceLabel4}{price4}<br />
+                            {/* {priceLabel3}{price3}<br />{priceLabel4}{price4}<br /> */}
                         </p>
                     </div>
             }
-            {
+            {/* {
                 admin && customersList
-            }
+            } */}
             {buttons}
         </div>
     )
