@@ -1,33 +1,36 @@
 export const localWorkshops = [
     {
         _id: 1,
-        title: 'Default modal item',
-        date: '11-12.04.2020 11:00-15:00',
-        address: 'Dresdener Str. 24, 10445 Dresden',
-        info: 'For professional dancers',
-        priceLabel1: 'Early bird until 04.04.2020: two days €',
-        priceLabel2: '/ one day: €',
-        priceLabel3: 'Normal price: two days €',
-        priceLabel4: '/ one day: €',
-        price1: 80,
-        price2: 50,
-        price3: 100,
-        price4: 60
+        title: 'Flow Acrobatics Dresden',
+        date: '18-19.04.2020',
+        address: 'Bautzner Straße 107',
+        info: 'For all levels',
+        priceLabel1: 'One day: €',
+        priceLabel2: 'Both days: €',
+        price1: 60,
+        price2: 95
     },
     {
         _id: 2,
         title: 'Flow Acrobatics Hamburg',
-        date: '11-12.05.2020 11:00-15:00',
-        address: 'Hamburger Str. 54, 10345 Hamburg',
-        info: 'For acrobats',
-        priceLabel1: 'Early bird until 04.05.2020: two days €',
-        priceLabel2: '/ one day: €',
-        priceLabel3: 'Normal price: two days €',
-        priceLabel4: '/ one day: €',
-        price1: 80,
-        price2: 50,
-        price3: 100,
-        price4: 60
+        date: '18-19.04.2020',
+        address: 'Valentinskamp 34A',
+        info: 'For all levels',
+        priceLabel1: 'One day: €',
+        priceLabel2: 'Both days: €',
+        price1: 60,
+        price2: 95
+    },
+    {
+        _id: 3,
+        title: 'Flow Acrobatics Brussels',
+        date: '25-26.04.2020',
+        address: 'Menenstraat 29, 1080 Sint-Jans-Molenbeek',
+        info: 'For all levels',
+        priceLabel1: 'One day: €',
+        priceLabel2: 'Both days: €',
+        price1: 60,
+        price2: 95
     }
 ]
 

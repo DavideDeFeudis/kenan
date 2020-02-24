@@ -10,12 +10,11 @@ export default function About() {
     return (
         <div className='About'>
             <Navbar />
-            {/* <div id='background'> */}
+            <div id='background'>
                 <Background
-                    // small={backgroundSmall}
                     large={backgroundLarge}
                 />
-            {/* </div> */}
+            </div>
             <div id='profile-container' className="container-fluid">
                 <img id='profile-pic' src={profilePic} alt="Kenan" />
                 <p id='about-text'>

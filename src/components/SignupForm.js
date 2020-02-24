@@ -106,7 +106,7 @@ export default function SignupForm(props) {
                     <Button type="submit" className="mb-2">Sign up</Button>
                 </form>
             </div>
-            <SpinnerModal loading={loading} />
+            <SpinnerModal loading={loading} fullScreen />
         </div>
     )
 }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Workshop from './Workshop'
 import loadingGif from '../images/load.gif'
+// import { Context } from "../context";
 
 export default function WorkshopsList() {
+    // const { workshops } = useContext(Context)
     const [data, setData] = useState({ workshops: [], isFetching: false })
 
     useEffect(() => {
@@ -37,6 +39,7 @@ export default function WorkshopsList() {
                 </div>
             )
         }
+
         return (
             <div className="container text-center">
                 {

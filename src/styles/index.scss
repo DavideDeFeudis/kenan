@@ -29,8 +29,8 @@ p {
     .navbar-brand {
         color: rgb(198, 198, 198) !important;
     }
-    // glow around hamburger menu
-    .navbar-toggler:focus, .navbar-toggler:active {
+    // glow around hamburger menu and dropdown
+    .navbar-toggler:focus, .navbar-toggler:active, #navbarDropdown {
         outline: none;
         box-shadow: none;
     }
@@ -143,14 +143,12 @@ footer {
     }
 }
 
-// use same as .modal-container?
-.spinner-modal {
-    position: fixed;
+.spinner-modal-in-frame {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
     color: #C7C7C7;
     display: flex;
     align-items: center;
@@ -230,19 +228,24 @@ footer {
 
 @media screen and (max-width: 800px) {
     .About {
-        // #background {
-        //     display: none;
-        // }
-        #profile-pic {
-            float: none;
+        .navbar {
+            position: static;  
+        }
+        #background {
+            display: none;
         }
         #profile-pic {
+            float: none;
             display: block;
-            margin: 2em auto;
+            margin: 0 auto 2em;
         }
         #about-text {
             text-align: center; 
             margin: 0 2em;
+        }
+        #profile-container {
+            margin-top: 0em;
+            margin-bottom: 2em;
         }
     }
 }
@@ -253,6 +256,9 @@ footer {
     }
     #form-container {
         transform: scale(0.9);
+        h2 {
+            padding: 0 .7em;
+        }
     }
     #form-modal {
         width: 100%;
@@ -261,5 +267,10 @@ footer {
     .navbar-nav {
         padding: 10px;
         background-color: rgb(21, 21, 21);
+    }
+    .About {
+        #about-text {
+            margin: 0;
+        }
     }
 }

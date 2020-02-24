@@ -26,6 +26,7 @@
     "react-vimeo": "^2.0.0",
     "styled-components": "^5.0.0",
     "uuid": "^3.4.0",
+    "video-react": "^0.14.1",
     "youtube-embed-video": "^1.2.1"
   },
   "devDependencies": {

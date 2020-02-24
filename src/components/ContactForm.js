@@ -48,7 +48,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div className='form py-5'>
+        <div className='form pt-5 pb-3'>
             <div className="container">
                 <form
                     onSubmit={handleSubmit}
@@ -106,7 +106,7 @@ export default function ContactForm() {
                     </div>
                 </form>
             </div>
-            <SpinnerModal loading={loading} />
+            <SpinnerModal loading={loading} fullScreen />
         </div>
     )
 }
