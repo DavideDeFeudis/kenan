@@ -6,17 +6,9 @@ import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
-import app from "../base";
-import { Button } from './Button'
 
 export default function Admin() {
-
-    // VIEW SIGNED UP CUSTOMERS SECTION
-    // const { customers } = useContext(Context)
-
-
-
-    // EDIT WORKSHOPS SECTION
+    // EDIT WORKSHOPS
     const { workshops } = useContext(Context)
     let [tempWorkshops, setTempWorkshops] = useState([])
     useEffect(() => {
@@ -52,7 +44,7 @@ export default function Admin() {
 
     return (
         <div className="Admin">
-            <Navbar />
+            <Navbar admin />
             {/* <div className="container main-content text-center">
                 <section className="published">
                     <h2>Signed up customers</h2>
@@ -68,9 +60,6 @@ export default function Admin() {
                 </section>
             </div> */}
             <div className="container-fluid main-content text-center">
-                {/* <section className='admin-headline'>
-                    <Button className='mt-4' onClick={() => app.auth().signOut()}>Sign out</Button>
-                </section> */}
                 <div className="row">
                     <div className="col-lg">
                         <section>
@@ -101,11 +90,8 @@ export default function Admin() {
                                 })
                             }
                         </section>
-
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

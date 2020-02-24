@@ -2,8 +2,9 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import '../styles/index.scss';
 import { Context } from "../context";
+import app from "../base";
 
-export default function Navbar() {
+export default function Navbar({ admin }) {
     const { videos } = useContext(Context)
 
     return (
@@ -41,6 +42,14 @@ export default function Navbar() {
                             Contact
                         </Link>
                     </li>
+                    {
+                        admin &&
+                        <li className="nav-item">
+                            <Link to="/login" className="nav-link" onClick={() => app.auth().signOut()}>
+                                Sign Out
+                            </Link>
+                        </li>
+                    }
                 </ul>
             </div>
         </nav>
