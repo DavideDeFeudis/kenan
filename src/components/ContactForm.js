@@ -106,7 +106,7 @@ export default function ContactForm() {
                     </div>
                 </form>
             </div>
-            <SpinnerModal loading={loading} />
+            <SpinnerModal loading={loading} fullScreen />
         </div>
     )
 }

@@ -143,14 +143,12 @@ footer {
     }
 }
 
-// use same as .modal-container?
-.spinner-modal {
-    position: fixed;
+.spinner-modal-in-frame {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
     color: #C7C7C7;
     display: flex;
     align-items: center;
