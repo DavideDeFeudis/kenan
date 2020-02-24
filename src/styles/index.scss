@@ -181,9 +181,15 @@ footer {
 }
 
 .Admin {
+    .main-content {
+        padding: 2em;
+
+    }
     section {
         padding: 1.8em 0 0;
         margin: 3em 0;
+        border: 2px solid rgb(2, 7, 159);
+        border-radius: 5px;
     }
     h2 {
         margin-bottom: 1em;
@@ -191,15 +197,6 @@ footer {
     .admin-headline {
         padding: 4em 0em 2em;
         border-bottom: 1px solid rgb(55, 55, 55);
-    }
-    .preview {
-        // background-color: rgb(28, 28, 28);
-        border: 2px solid rgb(160, 141, 0);
-        border-radius: 5px;
-    }
-    .published {
-        border: 2px solid rgb(15, 109, 0);
-        border-radius: 5px;
     }
 }
 
