@@ -4,7 +4,7 @@ import SpinnerModal from './SpinnerModal'
 
 export default function SignupForm(props) {
     const { setFeedback, subjectContent, workshopId } = props
-    
+
     const initialState = {
         workshopId,
         firstName: '',
@@ -26,7 +26,6 @@ export default function SignupForm(props) {
         e.preventDefault()
         setLoading(true)
         sendFormData()
-        // console.log(message)
     }
 
     const sendFormData = () => {
@@ -40,13 +39,12 @@ export default function SignupForm(props) {
             .then(response => response.json())
             .then(json => {
                 setLoading(false)
-                setFeedback(json.message)
-                // console.log(json)
+                setFeedback(json)
             })
             .catch(err => {
                 setLoading(false)
-                setFeedback('Error signing up. Try again later.')
-                console.log(err)
+                setFeedback({})
+                // console.log(err)
             })
     }
 

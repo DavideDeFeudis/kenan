@@ -90,7 +90,7 @@ class Provider extends Component {
         const item = this.getItem(id);
         this.setState(() => {
             return { modalItem: item, isModalOpen: true };
-        }, console.log(this.state));
+        });
     };
 
     closeModal = () => {

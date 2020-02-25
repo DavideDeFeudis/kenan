@@ -7,6 +7,7 @@ import closeWindowIcon from "../images/close-window.png";
 
 export function Modal({ modalItem, isModalOpen, closeModal }) {
   const [modalMessage, setModalMessage] = useState('')
+  const [signupSuccess, setSignupSuccess] = useState(false)
   const {
     _id,
     title,
@@ -22,10 +23,13 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
   } = modalItem
 
   const setFeedback = (feedback) => {
-    setModalMessage(feedback) // Warning: Can't perform a React state update on an unmounted component.
+    setSignupSuccess(feedback.success)
+    setModalMessage(feedback.success ? 'You signed up successfully!' : 'Error signing up. Try again later.')
+    // Warning: Can't perform a React state update on an unmounted component.
   }
 
-  const handleClick = () => {
+  const handleClickCloseModal = () => {
+    setSignupSuccess(false)
     setModalMessage('')
     closeModal()
   }
@@ -58,14 +62,18 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
           <div className="row">
             <div className="mx-auto p-5 text-center" id="feedback-modal">
               <Link to="/workshops">
-                <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                <img id="close-modal-icon" onClick={handleClickCloseModal} src={closeWindowIcon} alt="Close" />
               </Link>
               <h2>{modalMessage}</h2>
-              {/* hide section if err */}
-              <div id='line'></div>
-              <span>
-                We'll reach back to you shortly with payment details.
-              </span>
+              {
+                signupSuccess &&
+                <div>
+                  <div id='line'></div>
+                  <span>
+                    We'll reach back to you shortly with payment details.
+                  </span>
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -78,7 +86,7 @@ export function Modal({ modalItem, isModalOpen, closeModal }) {
           <div className="row">
             <div className="mx-auto text-center" id="form-modal">
               <Link to="/workshops">
-                <img id="close-modal-icon" onClick={handleClick} src={closeWindowIcon} alt="Close" />
+                <img id="close-modal-icon" onClick={handleClickCloseModal} src={closeWindowIcon} alt="Close" />
               </Link>
               <div id="form-container">
                 <h2>{title}</h2>
@@ -112,8 +120,6 @@ export default () => {
 
   return <Modal
     modalItem={modalItem}
-    // date={date}
-    // title={title}
     isModalOpen={isModalOpen}
     closeModal={closeModal}
   />

@@ -26,7 +26,6 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
-        console.log(process.env.REACT_APP_BACKEND_HOST)
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`, {
             method: "POST",
             body: JSON.stringify(message),
@@ -37,13 +36,13 @@ export default function ContactForm() {
             .then(response => response.json())
             .then(json => {
                 setLoading(false)
-                setFeedback(json.message)
+                setFeedback(json.success ? 'Your message has been successfully sent!' : 'Error sending message. Try again later.')
                 setMessage(initialState)
             })
             .catch(err => {
                 setLoading(false)
                 setFeedback('Error sending message. Try again later.')
-                console.log(err)
+                // console.log(err)
             })
     }
 
