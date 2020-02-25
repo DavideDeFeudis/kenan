@@ -27,6 +27,25 @@ export default function Workshop(props) {
         customers
     } = props.workshop
 
+    // generate priceArea with truthy values
+    const priceLabelArray = [
+        priceLabel1,
+        priceLabel2,
+        priceLabel3,
+        priceLabel4
+    ]
+    const priceArray = [
+        price1,
+        price2,
+        price3,
+        price4
+    ]
+    const truthyPriceLabelArray = priceLabelArray.filter(Boolean)
+    const truthyPriceArray = priceArray.filter(Boolean)
+    const priceArea = truthyPriceLabelArray.map((label, i) => {
+        return <span key={i}>{label}{truthyPriceArray[i]}<br /></span>
+    })
+
     const userButtons = <Link to="/workshops">
         <Button
             type="button"
@@ -79,16 +98,21 @@ export default function Workshop(props) {
             <p>{date}<br />{address}<br />{info}</p>
             {
                 (preview || admin) &&
-                    <div>
-                        <p>
-                            {priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
-                            {/* {priceLabel3}{price3}<br />{priceLabel4}{price4}<br /> */}
-                        </p>
-                    </div>
+                <div id='price-area'>
+                  {
+                    priceArea
+                  }
+                </div>
+                // <div>
+                //     <p>
+                //         {priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
+                //         {/* {priceLabel3}{price3}<br />{priceLabel4}{price4}<br /> */}
+                //     </p>
+                // </div>
             }
-            {/* {
+            {
                 admin && customersList
-            } */}
+            }
             {buttons}
         </div>
     )
