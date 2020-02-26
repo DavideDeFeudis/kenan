@@ -46,14 +46,13 @@ export default function Workshop(props) {
         return <span key={i}>{label}{truthyPriceArray[i]}<br /></span>
     })
 
-    const userButtons = null 
-    // <Link to="/workshops">
-    //     <Button
-    //         type="button"
-    //         className="mt-4"
-    //         onClick={() => openModal(_id)}
-    //     >Info</Button>
-    // </Link>
+    const userButtons = <Link to="/workshops">
+        <Button
+            type="button"
+            className="mt-4"
+            onClick={() => openModal(_id)}
+        >Info</Button>
+    </Link>
 
     const adminButtons = <div>
         {/* <Link to="/admin">
