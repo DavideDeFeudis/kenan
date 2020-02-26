@@ -10,7 +10,6 @@ class Provider extends Component {
         videos: [],
         loading: true, // need?
         isModalOpen: false,
-        isUpdateWorkshopModalOpen: false,
         modalItem: {}
     }
 

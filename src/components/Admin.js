@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
-import UpdateWorkshopModal from './UpdateWorkshopModal';
+// import UpdateWorkshopModal from './UpdateWorkshopModal';
 
 export default function Admin() {
     // EDIT WORKSHOPS
@@ -92,11 +92,11 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
-            <UpdateWorkshopModal
+            {/* <UpdateWorkshopModal
                 newWorkshop={newWorkshop}
                 setNewWorkshop={setNewWorkshop}
                 addWorkshopToTempWS={addWorkshopToTempWS}
-            />
+            /> */}
         </div>
     )
 }
