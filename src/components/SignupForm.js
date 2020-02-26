@@ -38,10 +38,12 @@ export default function SignupForm(props) {
         })
             .then(response => response.json())
             .then(json => {
+                console.log('SignupForm json:', json)
                 setLoading(false)
                 setFeedback(json)
             })
             .catch(err => {
+                console.log('SignupForm err:', err)
                 setLoading(false)
                 setFeedback({})
                 // console.log(err)

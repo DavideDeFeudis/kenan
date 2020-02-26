@@ -10,6 +10,7 @@ export default function WorkshopsList() {
     useEffect(() => {
         const fetchWorkshops = async () => {
             const baseUrl = process.env.REACT_APP_BACKEND_HOST
+            console.log('WorkshopsList baseUrl:', baseUrl)
             try {
                 setData({ workshops: data.workshops, isFetching: true })
                 const req = await fetch(`${baseUrl}/workshops`, {
