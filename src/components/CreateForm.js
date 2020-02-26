@@ -6,6 +6,7 @@ import uuidv1 from 'uuid/v1'
 
 export default function CreateForm(props) {
     const { newWorkshop, setNewWorkshop, addWorkshopToTempWS } = props
+    // console.log('CreateForm props:', props)
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
@@ -21,7 +22,6 @@ export default function CreateForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // setLoading(true)
         addWorkshopToTempWS()
         createWorkshop(newWorkshop)
     }
@@ -84,7 +84,6 @@ export default function CreateForm(props) {
             <div className="my-4">
                 <div>
                     <Button type="submit">Publish</Button>
-                    {/* <p className='my-3'>{feedback}</p> */}
                 </div>
             </div>
         </form>

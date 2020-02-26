@@ -5,10 +5,22 @@ import { Context } from "../context";
 import closeWindowIcon from "../images/close-window.png";
 import CreateForm from "./CreateForm";
 
-export function UpdateWorkshopModal(props) {
-  const { modalItem, isModalOpen, closeModal } = props // add props at bottom page
-  // console.log('formData:', formData)
-  console.log('modalItem:', modalItem)
+export default function UpdateWorkshopModal(props) {
+  const {
+    modalItem,
+    isModalOpen,
+    closeModal
+  } = useContext(Context)
+
+  const {
+    newWorkshop, 
+    setNewWorkshop, 
+    addWorkshopToTempWS 
+  } = props // coming from admin
+
+  console.log('newWorkshop:', newWorkshop)
+  // console.log('UpdateWorkshopModal props:', props)
+
   // const [modalMessage, setModalMessage] = useState('')
   // const [signupSuccess, setSignupSuccess] = useState(false)
   const {
@@ -70,6 +82,11 @@ export function UpdateWorkshopModal(props) {
               <div id="form-container">
                 <h2>{title}</h2>
                 <span>{date}</span>
+                <CreateForm
+                  newWorkshop={newWorkshop}
+                  setNewWorkshop={setNewWorkshop}
+                  addWorkshopToTempWS={addWorkshopToTempWS}
+                />
                 {/* <CreateForm
                   formData={modalItem}
                   setFormData={setFormData}
@@ -94,19 +111,4 @@ export function UpdateWorkshopModal(props) {
       </div>
     );
   }
-}
-
-export default () => {
-  const {
-    modalItem,
-    isModalOpen,
-    closeModal
-  } = useContext(Context)
-
-  return <UpdateWorkshopModal
-    modalItem={modalItem}
-    isModalOpen={isModalOpen}
-    closeModal={closeModal}
-    // , formData, setFormData, addWorkshopToTempWS
-  />
 }

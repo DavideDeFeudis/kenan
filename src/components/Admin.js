@@ -92,7 +92,11 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
-            <UpdateWorkshopModal />
+            <UpdateWorkshopModal
+                newWorkshop={newWorkshop}
+                setNewWorkshop={setNewWorkshop}
+                addWorkshopToTempWS={addWorkshopToTempWS}
+            />
         </div>
     )
 }
