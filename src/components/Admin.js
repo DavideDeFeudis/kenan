@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
-import uuidv1 from 'uuid/v1'
 import UpdateWorkshopModal from './UpdateWorkshopModal';
 
 export default function Admin() {
@@ -35,7 +34,7 @@ export default function Admin() {
         setTempWorkshops([...tempWorkshops, newWorkshop])
         setNewWorkshop(initialState) // clear preview and inputs
     }
-    const handleDelete = (secondaryID) => {
+    const handleDelete = secondaryID => {
         setTempWorkshops(tempWorkshops.filter(item => {
             return item.secondaryID !== secondaryID
         }))
@@ -69,7 +68,6 @@ export default function Admin() {
                                 newWorkshop={newWorkshop}
                                 setNewWorkshop={setNewWorkshop}
                                 addWorkshopToTempWS={addWorkshopToTempWS}
-                                secondaryID={uuidv1()} // move id creation to createForm
                             />
                         </section>
                         <section>

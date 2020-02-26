@@ -2,20 +2,20 @@ import React from 'react'
 import { Button } from './Button'
 import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
+import uuidv1 from 'uuid/v1'
 
 export default function CreateForm(props) {
-    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS, secondaryID } = props
+    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS } = props
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 
     const handleChange = (e) => {
-        // rename setNewWorkshop
         setNewWorkshop({
             ...newWorkshop,
             [e.target.name]: e.target.value,
-            secondaryID
+            secondaryID: uuidv1()
         })
     }
 
