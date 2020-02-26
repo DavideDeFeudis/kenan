@@ -4,16 +4,16 @@ import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
 
 export default function CreateForm(props) {
-    const { formData, setFormData, addWorkshopToTempWS, secondaryID } = props
+    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS, secondaryID } = props
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 
     const handleChange = (e) => {
-        // rename setFormData
-        setFormData({
-            ...formData,
+        // rename setNewWorkshop
+        setNewWorkshop({
+            ...newWorkshop,
             [e.target.name]: e.target.value,
             secondaryID
         })
@@ -23,7 +23,7 @@ export default function CreateForm(props) {
         e.preventDefault()
         // setLoading(true)
         addWorkshopToTempWS()
-        createWorkshop(formData)
+        createWorkshop(newWorkshop)
     }
 
     return (
@@ -36,7 +36,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -48,7 +48,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -62,7 +62,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -75,7 +75,7 @@ export default function CreateForm(props) {
                                 name={inputName}
                                 type="number"
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }

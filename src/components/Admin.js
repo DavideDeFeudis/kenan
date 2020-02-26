@@ -66,8 +66,8 @@ export default function Admin() {
                         <section>
                             <h2>Create workshop</h2>
                             <CreateForm
-                                formData={newWorkshop}
-                                setFormData={setNewWorkshop}
+                                newWorkshop={newWorkshop}
+                                setNewWorkshop={setNewWorkshop}
                                 addWorkshopToTempWS={addWorkshopToTempWS}
                                 secondaryID={uuidv1()} // move id creation to createForm
                             />
