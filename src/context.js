@@ -83,7 +83,7 @@ class Provider extends Component {
     // }
 
     getItem = id => {
-        return this.state.workshops.find(item => item._id === id);
+        return this.state.workshops.find(item => item.secondaryID === id);
     };
 
     openModal = id => {

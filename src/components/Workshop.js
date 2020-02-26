@@ -50,7 +50,7 @@ export default function Workshop(props) {
         <Button
             type="button"
             className="mt-4"
-            onClick={() => openModal(_id)}
+            onClick={() => openModal(secondaryID)}
         >Info</Button>
     </Link>
 
