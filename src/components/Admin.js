@@ -6,6 +6,7 @@ import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
+import UpdateWorkshopModal from './UpdateWorkshopModal';
 
 export default function Admin() {
     // EDIT WORKSHOPS
@@ -93,6 +94,7 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
+            <UpdateWorkshopModal />
         </div>
     )
 }

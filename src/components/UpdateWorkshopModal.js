@@ -68,8 +68,8 @@ export function UpdateWorkshopModal(props) {
                 <img id="close-modal-icon" onClick={handleClickCloseModal} src={closeWindowIcon} alt="Close" />
               </Link>
               <div id="form-container">
-                {/* <h2>{title}</h2>
-                <span>{date}</span> */}
+                <h2>{title}</h2>
+                <span>{date}</span>
                 {/* <CreateForm
                   formData={modalItem}
                   setFormData={setFormData}
