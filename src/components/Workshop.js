@@ -55,13 +55,13 @@ export default function Workshop(props) {
     </Link>
 
     const adminButtons = <div>
-        {/* <Link to="/admin">
-                    <Button
-                        type="button"
-                        className="mt-4"
-                        onClick={() => openModal(_id)}
-                    >Edit</Button>
-                </Link> */}
+        <Link to="/admin">
+            <Button
+                type="button"
+                className="mt-4"
+                onClick={() => openModal(secondaryID)}
+            >Edit</Button>
+        </Link>
         <Link to="/admin">
             <Button
                 type="button"
@@ -99,9 +99,9 @@ export default function Workshop(props) {
             {
                 (preview || admin) &&
                 <div id='price-area'>
-                  {
-                    priceArea
-                  }
+                    {
+                        priceArea
+                    }
                 </div>
                 // <div>
                 //     <p>

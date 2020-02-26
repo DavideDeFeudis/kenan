@@ -68,7 +68,7 @@ export default function Admin() {
                                 formData={newWorkshop}
                                 setFormData={setNewWorkshop}
                                 addWorkshopToTempWS={addWorkshopToTempWS}
-                                secondaryID={uuidv1()}
+                                secondaryID={uuidv1()} // move id creation to createForm
                             />
                         </section>
                         <section>
