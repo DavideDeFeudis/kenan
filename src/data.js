@@ -1,7 +1,8 @@
 export const localWorkshops = [
     {
         _id: 1,
-        title: 'Flow Acrobatics Dresden',
+        secondaryID: 11,
+        title: 'Flow Acrobatics - Dresden',
         date: '18-19.04.2020',
         address: 'Bautzner Straße 107',
         info: 'For all levels',
@@ -12,20 +13,10 @@ export const localWorkshops = [
     },
     {
         _id: 2,
-        title: 'Flow Acrobatics Hamburg',
-        date: '18-19.04.2020',
-        address: 'Valentinskamp 34A',
-        info: 'For all levels',
-        priceLabel1: 'One day: €',
-        priceLabel2: 'Both days: €',
-        price1: 60,
-        price2: 95
-    },
-    {
-        _id: 3,
-        title: 'Flow Acrobatics Brussels',
+        secondaryID: 22,
+        title: 'Flow Acrobatics - Hamburg',
         date: '25-26.04.2020',
-        address: 'Menenstraat 29, 1080 Sint-Jans-Molenbeek',
+        address: 'Valentinskamp 34A',
         info: 'For all levels',
         priceLabel1: 'One day: €',
         priceLabel2: 'Both days: €',

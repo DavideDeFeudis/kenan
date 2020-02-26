@@ -2,27 +2,32 @@ import React, { useState, useEffect } from 'react'
 import Workshop from './Workshop'
 import loadingGif from '../images/load.gif'
 // import { Context } from "../context";
+import { localWorkshops } from "../data"
 
 export default function WorkshopsList() {
     // const { workshops } = useContext(Context)
     const [data, setData] = useState({ workshops: [], isFetching: false })
 
     useEffect(() => {
-        const fetchWorkshops = async () => {
-            const baseUrl = process.env.REACT_APP_BACKEND_HOST
-            try {
-                setData({ workshops: data.workshops, isFetching: true })
-                const req = await fetch(`${baseUrl}/workshops`, {
-                    headers: { "Content-Type": "application/json" } // need?
-                })
-                const res = await req.json()
-                setData({ workshops: res, isFetching: false })
-            } catch (e) {
-                console.log(e)
-                setData({ workshops: data.workshops, isFetching: false })
-            }
-        };
-        fetchWorkshops();
+        const getLocalData = () => {
+            setData({ workshops: localWorkshops, isFetching: false })
+        }
+        getLocalData()
+        // const fetchWorkshops = async () => {
+        //     const baseUrl = process.env.REACT_APP_BACKEND_HOST
+        //     try {
+        //         setData({ workshops: data.workshops, isFetching: true })
+        //         const req = await fetch(`${baseUrl}/workshops`, {
+        //             headers: { "Content-Type": "application/json" } // need?
+        //         })
+        //         const res = await req.json()
+        //         setData({ workshops: res, isFetching: false })
+        //     } catch (e) {
+        //         console.log(e)
+        //         setData({ workshops: data.workshops, isFetching: false })
+        //     }
+        // };
+        // fetchWorkshops();
     }, []);
 
     if (data.isFetching || !data.workshops) { // || !data.workshops redundant?
