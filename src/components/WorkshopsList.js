@@ -1,58 +1,39 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Workshop from './Workshop'
 import loadingGif from '../images/load.gif'
-// import { Context } from "../context";
+import { useHttp } from '../hooks/http'
 
 export default function WorkshopsList() {
-    // const { workshops } = useContext(Context)
-    const [data, setData] = useState({ workshops: [], isFetching: false })
+    const url = process.env.REACT_APP_BACKEND_HOST + '/workshops'
+    const [isLoading, fetchedData] = useHttp(url, [])
 
-    useEffect(() => {
-        const fetchWorkshops = async () => {
-            const baseUrl = process.env.REACT_APP_BACKEND_HOST
-            console.log('WorkshopsList baseUrl:', baseUrl)
-            try {
-                setData({ workshops: data.workshops, isFetching: true })
-                const req = await fetch(`${baseUrl}/workshops`, {
-                    headers: { "Content-Type": "application/json" } // need?
-                })
-                const res = await req.json()
-                setData({ workshops: res, isFetching: false })
-            } catch (e) {
-                console.log(e)
-                setData({ workshops: data.workshops, isFetching: false })
-            }
-        };
-        fetchWorkshops();
-    }, []);
-
-    if (data.isFetching || !data.workshops) { // || !data.workshops redundant?
-        return (
-            <div className="fetching-spinner container text-center">
-                <img src={loadingGif} width='45' height='45' alt="in progress..." />
-            </div>
-        )
-    } else {
-        if (data.workshops.length === 0) {
-            return (
-                <div className="container text-center">
-                    <p className='my-5'>There are no workshops at the moment</p>
-                </div>
-            )
-        }
-
-        return (
-            <div className="container text-center">
-                {
-                    data.workshops.map(workshop => {
-                        return <Workshop
-                            user
-                            key={workshop._id}
-                            workshop={workshop}
-                        />
-                    })
-                }
-            </div>
-        )
+    let content = (
+        <div className="fetching-spinner container text-center">
+            <img src={loadingGif} width='40' height='40' alt="loading..." />
+            <p className='mt-3'>Loading workshops...</p>
+        </div>
+    )
+    const workshopsList = (
+        fetchedData ? fetchedData.map(workshop => { // need check because fetchedData is null on first render because useEffect within useHttp runs after the first render
+            return <Workshop
+                user
+                key={workshop._id}
+                workshop={workshop}
+            />
+        }) : []
+    )
+    if (!isLoading && fetchedData && fetchedData.length > 0) {
+        content = workshopsList
+        // } else if (!isLoading && (!fetchedData || fetchedData.length === 0)) {
+        //     content = <p className='my-5'>There are no workshops at the moment</p>
+    } else if (!isLoading && !fetchedData) {
+        content = <p className='my-5'>There was a problem loading workshops</p>
+    } else if (!isLoading && fetchedData.length === 0) {
+        content = <p className='my-5'>There are no workshops at the moment</p>
     }
+    return (
+        <div className="container text-center">
+            {content}
+        </div>
+    )
 }
