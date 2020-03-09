@@ -26,7 +26,6 @@ export default function Workshop(props) {
         price4,
         customers
     } = props.workshop
-
     // generate priceArea with truthy values
     const priceLabelArray = [
         priceLabel1,
@@ -45,39 +44,39 @@ export default function Workshop(props) {
     const priceArea = truthyPriceLabelArray.map((label, i) => {
         return <span key={i}>{label}{truthyPriceArray[i]}<br /></span>
     })
-
-    const userButtons = <Link to="/workshops">
-        <Button
-            type="button"
-            className="mt-4"
-            onClick={() => openModal(secondaryID)}
-        >Info</Button>
-    </Link>
-
-    const adminButtons = <div>
-        <Link to="/admin">
+    const userButtons = (
+        <Link to="/workshops">
             <Button
                 type="button"
                 className="mt-4"
                 onClick={() => openModal(secondaryID)}
-            >Edit</Button>
+            >Info</Button>
         </Link>
-        <Link to="/admin">
-            <Button
-                type="button"
-                className="mt-4"
-                onClick={() => handleDelete(secondaryID)}
-            >Delete</Button>
-        </Link>
-    </div>
-
-    let buttons = null // no buttons in preview
+    )
+    const adminButtons = (
+        <div>
+            <Link to="/admin">
+                <Button
+                    type="button"
+                    className="mt-4"
+                    onClick={() => openModal(secondaryID)}
+                >Edit</Button>
+            </Link>
+            <Link to="/admin">
+                <Button
+                    type="button"
+                    className="mt-4"
+                    onClick={() => handleDelete(secondaryID)}
+                >Delete</Button>
+            </Link>
+        </div>
+    )
+    let buttons = null // for preview
     if (admin) {
         buttons = adminButtons
     } else if (user) {
         buttons = userButtons
     }
-
     let customersList = null
     if (customers && customers.length) { // customers is undefined on first render
         customersList = <div className='mt-3'>
@@ -91,28 +90,12 @@ export default function Workshop(props) {
     } else {
         customersList = <p className='mt-3'>No one signed up yet</p>
     }
-
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
             <p>{date}<br />{address}<br />{info}</p>
-            {
-                (preview || admin) &&
-                <div id='price-area'>
-                    {
-                        priceArea
-                    }
-                </div>
-                // <div>
-                //     <p>
-                //         {priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
-                //         {/* {priceLabel3}{price3}<br />{priceLabel4}{price4}<br /> */}
-                //     </p>
-                // </div>
-            }
-            {
-                admin && customersList
-            }
+            {(preview || admin) && <div id='price-area'>{priceArea}</div>}
+            {admin && customersList}
             {buttons}
         </div>
     )
