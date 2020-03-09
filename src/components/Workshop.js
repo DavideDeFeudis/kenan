@@ -8,7 +8,8 @@ import { Button } from './Button'
 
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
-    const { admin, preview, user, handleDelete } = props
+    const { admin, preview, user, handleDelete, workshop, duplicate } = props
+    // console.log('workshop:', workshop)
     const {
         secondaryID,
         _id,
@@ -25,7 +26,8 @@ export default function Workshop(props) {
         price3,
         price4,
         customers
-    } = props.workshop
+    } = workshop
+    console.log('secondaryID:', title, secondaryID)
     // generate priceArea with truthy values
     const priceLabelArray = [
         priceLabel1,
@@ -55,6 +57,13 @@ export default function Workshop(props) {
     )
     const adminButtons = (
         <div>
+            <Link to="/admin">
+                <Button
+                    type="button"
+                    className="mt-4"
+                    onClick={() => duplicate(workshop)}
+                >Duplicate</Button>
+            </Link>
             <Link to="/admin">
                 <Button
                     type="button"

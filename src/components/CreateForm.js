@@ -2,7 +2,6 @@ import React from 'react'
 import { Button } from './Button'
 import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
-import uuidv1 from 'uuid/v1'
 
 export default function CreateForm(props) {
     const { newWorkshop, setNewWorkshop, addWorkshopToTempWS } = props
@@ -15,8 +14,7 @@ export default function CreateForm(props) {
     const handleChange = (e) => {
         setNewWorkshop({
             ...newWorkshop,
-            [e.target.name]: e.target.value,
-            secondaryID: uuidv1()
+            [e.target.name]: e.target.value
         })
     }
 

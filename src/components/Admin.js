@@ -6,6 +6,7 @@ import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
 // import UpdateWorkshopModal from './UpdateWorkshopModal';
+import uuidv1 from 'uuid/v1'
 
 export default function Admin() {
     // EDIT WORKSHOPS
@@ -16,16 +17,17 @@ export default function Admin() {
     }, [workshops])
     // set preview
     const initialState = {
-        title: '',
-        date: '',
-        address: '',
-        info: '',
-        priceLabel1: '',
-        priceLabel2: '',
+        secondaryID: uuidv1(),
+        title: 'Flow Acrobatics',
+        date: 'dummy data',
+        address: 'dummy data',
+        info: 'dummy data',
+        priceLabel1: 'dummy data ',
+        priceLabel2: 'dummy data ',
         priceLabel3: '',
         priceLabel4: '',
-        price1: '',
-        price2: '',
+        price1: 12,
+        price2: 34,
         price3: '',
         price4: ''
     }
@@ -40,6 +42,11 @@ export default function Admin() {
         }))
 
         deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
+    }
+    const duplicate = (workshop) => {
+        console.log('duplicate')
+        console.log('workshop:', workshop)
+
     }
 
     return (
@@ -85,6 +92,7 @@ export default function Admin() {
                                         key={workshop.secondaryID}
                                         workshop={workshop}
                                         handleDelete={handleDelete}
+                                        duplicate={duplicate}
                                     />
                                 })
                             }
