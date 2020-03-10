@@ -27,7 +27,7 @@ export default function Workshop(props) {
         price4,
         customers
     } = workshop
-    console.log('secondaryID:', title, secondaryID)
+    // console.log('secondaryID:', title, secondaryID)
     // generate priceArea with truthy values
     const priceLabelArray = [
         priceLabel1,
@@ -63,13 +63,6 @@ export default function Workshop(props) {
                     className="mt-4"
                     onClick={() => duplicate(workshop)}
                 >Duplicate</Button>
-            </Link>
-            <Link to="/admin">
-                <Button
-                    type="button"
-                    className="mt-4"
-                    onClick={() => openModal(secondaryID)}
-                >Edit</Button>
             </Link>
             <Link to="/admin">
                 <Button

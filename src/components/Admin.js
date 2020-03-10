@@ -5,7 +5,6 @@ import Navbar from './Navbar';
 import Workshop from './Workshop';
 import CreateForm from './CreateForm';
 import { deleteWorkshop } from '../databaseService'
-// import UpdateWorkshopModal from './UpdateWorkshopModal';
 import uuidv1 from 'uuid/v1'
 
 export default function Admin() {
@@ -18,16 +17,16 @@ export default function Admin() {
     // set preview
     const initialState = {
         secondaryID: uuidv1(),
-        title: 'Flow Acrobatics',
-        date: 'dummy data',
-        address: 'dummy data',
-        info: 'dummy data',
-        priceLabel1: 'dummy data ',
-        priceLabel2: 'dummy data ',
+        title: '',
+        date: '',
+        address: '',
+        info: '',
+        priceLabel1: '',
+        priceLabel2: '',
         priceLabel3: '',
         priceLabel4: '',
-        price1: 12,
-        price2: 34,
+        price1: '',
+        price2: '',
         price3: '',
         price4: ''
     }
@@ -37,35 +36,15 @@ export default function Admin() {
         setNewWorkshop(initialState) // clear preview and inputs
     }
     const handleDelete = secondaryID => {
-        setTempWorkshops(tempWorkshops.filter(item => {
-            return item.secondaryID !== secondaryID
-        }))
-
+        setTempWorkshops(tempWorkshops.filter(item => item.secondaryID !== secondaryID))
         deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
     }
     const duplicate = (workshop) => {
-        console.log('duplicate')
-        console.log('workshop:', workshop)
-
+        setNewWorkshop({ ...workshop, secondaryID: uuidv1() })
     }
-
     return (
         <div className="Admin">
             <Navbar admin />
-            {/* <div className="container main-content text-center">
-                <section className="published">
-                    <h2>Signed up customers</h2>
-                    {
-                        customers.map(customer => {
-                            const { email, firstName, lastName, subject, text } = customer
-                            return <p key={customer._id}>
-                                {subject}<br />{text}<br />
-                                {firstName} {lastName} - {email}<br /><br />
-                            </p>
-                        })
-                    }
-                </section>
-            </div> */}
             <div className="container-fluid main-content text-center">
                 <div className="row">
                     <div className="col-lg">
@@ -100,11 +79,6 @@ export default function Admin() {
                     </div>
                 </div>
             </div>
-            {/* <UpdateWorkshopModal
-                newWorkshop={newWorkshop}
-                setNewWorkshop={setNewWorkshop}
-                addWorkshopToTempWS={addWorkshopToTempWS}
-            /> */}
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default function WorkshopsList() {
         fetchedData ? fetchedData.map(workshop => { // need check because fetchedData is null on first render because useEffect within useHttp runs after the first render
             return <Workshop
                 user
-                key={workshop._id}
+                key={workshop.secondaryID}
                 workshop={workshop}
             />
         }) : []
