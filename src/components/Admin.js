@@ -18,9 +18,12 @@ export default function Admin() {
     const initialState = {
         secondaryID: uuidv1(),
         title: '',
-        date: '',
         address: '',
         info: '',
+        startDate: '',
+        startTime: '',
+        endDate: '',
+        endTime: '',
         priceLabel1: '',
         priceLabel2: '',
         priceLabel3: '',
@@ -41,10 +44,13 @@ export default function Admin() {
     }
     const duplicate = (workshop) => {
         const {
-            date,
             title,
             address,
             info,
+            startDate,
+            startTime,
+            endDate,
+            endTime,
             priceLabel1,
             priceLabel2,
             priceLabel3,
@@ -55,10 +61,13 @@ export default function Admin() {
             price4
         } = workshop
         setNewWorkshop({
-            date,
             title,
             address,
             info,
+            startDate,
+            startTime,
+            endDate,
+            endTime,
             priceLabel1,
             priceLabel2,
             priceLabel3,

@@ -33,7 +33,7 @@ export default function CreateForm(props) {
                     <Input
                         id='start-date'
                         type='date'
-                        name='start-date'
+                        name='startDate'
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />
@@ -41,7 +41,7 @@ export default function CreateForm(props) {
                     <Input
                         id='start-time'
                         type='time'
-                        name='start-time'
+                        name='startTime'
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />
@@ -57,11 +57,11 @@ export default function CreateForm(props) {
                     }
                 </div>
                 <div className="col-sm-6">
-                    <label for="end">Ending date</label>
+                    <label for="end-date">Ending date</label>
                     <Input
-                        id='end'
+                        id='end-date'
                         type='date'
-                        name='end'
+                        name='endDate'
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />
@@ -69,7 +69,7 @@ export default function CreateForm(props) {
                     <Input
                         id='end-time'
                         type='time'
-                        name='end-time'
+                        name='endTime'
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />

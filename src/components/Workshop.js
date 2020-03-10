@@ -13,10 +13,13 @@ export default function Workshop(props) {
     const {
         secondaryID,
         _id,
-        date,
         title,
         address,
         info,
+        startDate,
+        startTime,
+        endDate,
+        endTime,
         priceLabel1,
         priceLabel2,
         priceLabel3,
@@ -96,7 +99,15 @@ export default function Workshop(props) {
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
-            <p>{date}<br />{address}<br />{info}</p>
+            <p>
+                {startDate}<br />
+                {startTime}<br />
+                {endDate}<br />
+                {endTime}<br />
+                {address}<br />
+                {info}
+            </p>
+            {/* <p>{date}<br />{address}<br />{info}</p> */}
             {(preview || admin) && <div id='price-area'>{priceArea}</div>}
             {admin && customersList}
             {buttons}
