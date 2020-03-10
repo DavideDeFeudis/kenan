@@ -8,13 +8,11 @@ import { deleteWorkshop } from '../databaseService'
 import uuidv1 from 'uuid/v1'
 
 export default function Admin() {
-    // EDIT WORKSHOPS
     const { workshops } = useContext(Context)
     let [tempWorkshops, setTempWorkshops] = useState([])
     useEffect(() => {
         setTempWorkshops([...workshops])
     }, [workshops])
-    // set preview
     const initialState = {
         secondaryID: uuidv1(),
         title: '',
@@ -33,7 +31,7 @@ export default function Admin() {
     const [newWorkshop, setNewWorkshop] = useState(initialState)
     const addWorkshopToTempWS = () => {
         setTempWorkshops([...tempWorkshops, newWorkshop])
-        setNewWorkshop(initialState) // clear preview and inputs
+        setNewWorkshop(initialState) // clear inputs
     }
     const handleDelete = secondaryID => {
         setTempWorkshops(tempWorkshops.filter(item => item.secondaryID !== secondaryID))
