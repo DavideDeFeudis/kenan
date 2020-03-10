@@ -29,7 +29,7 @@ export default function CreateForm(props) {
         <form className="form pt-3" onSubmit={handleSubmit}>
             <div className="form-row">
                 <div className="col-sm-6">
-                    <label for="start-date">Starting date</label>
+                    <label htmlFor="start-date">Starting date</label>
                     <Input
                         id='start-date'
                         type='date'
@@ -37,7 +37,7 @@ export default function CreateForm(props) {
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />
-                    <label for="start-time">Starting time</label>
+                    <label htmlFor="start-time">Starting time</label>
                     <Input
                         id='start-time'
                         type='time'
@@ -57,7 +57,7 @@ export default function CreateForm(props) {
                     }
                 </div>
                 <div className="col-sm-6">
-                    <label for="end-date">Ending date</label>
+                    <label htmlFor="end-date">Ending date</label>
                     <Input
                         id='end-date'
                         type='date'
@@ -65,7 +65,7 @@ export default function CreateForm(props) {
                         onChange={handleChange}
                         newWorkshop={newWorkshop}
                     />
-                    <label for="end-time">Ending time</label>
+                    <label htmlFor="end-time">Ending time</label>
                     <Input
                         id='end-time'
                         type='time'
