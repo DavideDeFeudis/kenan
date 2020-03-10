@@ -27,7 +27,7 @@ export default function Workshop(props) {
         price4,
         customers
     } = workshop
-    console.log('workshop _id:', title, workshop._id)
+    // console.log('workshop _id:', title, workshop._id)
     // console.log('secondaryID:', title, secondaryID)
     // generate priceArea with truthy values
     const priceLabelArray = [
@@ -57,18 +57,18 @@ export default function Workshop(props) {
         </Link>
     )
     const adminButtons = (
-        <div>
+        <div className="my-4">
             <Link to="/admin">
                 <Button
                     type="button"
-                    className="mt-4"
+                    className="admin-button"
                     onClick={() => duplicate(workshop)}
                 >Duplicate</Button>
             </Link>
             <Link to="/admin">
                 <Button
                     type="button"
-                    className="mt-4"
+                    className="admin-button"
                     onClick={() => handleDelete(secondaryID)}
                 >Delete</Button>
             </Link>

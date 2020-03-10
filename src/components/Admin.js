@@ -72,6 +72,9 @@ export default function Admin() {
         console.log('duplicate workshop:', workshop)
         console.log('duplicate newWorkshop:', newWorkshop)
     }
+    const clearInputs = () => {
+        setNewWorkshop(initialState)
+    }
     return (
         <div className="Admin">
             <Navbar admin />
@@ -84,6 +87,7 @@ export default function Admin() {
                                 newWorkshop={newWorkshop}
                                 setNewWorkshop={setNewWorkshop}
                                 addWorkshopToTempWS={addWorkshopToTempWS}
+                                clearInputs={clearInputs}
                             />
                         </section>
                         <section>

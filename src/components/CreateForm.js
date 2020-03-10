@@ -4,7 +4,7 @@ import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
 
 export default function CreateForm(props) {
-    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS } = props
+    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS, clearInputs } = props
     // console.log('CreateForm props:', props)
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
@@ -80,9 +80,8 @@ export default function CreateForm(props) {
                 </div>
             </div>
             <div className="my-4">
-                <div>
-                    <Button type="submit">Publish</Button>
-                </div>
+                <Button className='admin-button' type="submit">Publish</Button>
+                <Button onClick={clearInputs} className='admin-button' type="button">Clear Inputs</Button>
             </div>
         </form>
     )
