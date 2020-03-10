@@ -6,7 +6,8 @@ import { createWorkshop } from '../databaseService'
 export default function CreateForm(props) {
     const { newWorkshop, setNewWorkshop, addWorkshopToTempWS, clearInputs } = props
     // console.log('CreateForm props:', props)
-    const inputNamesCol1 = ['title', 'date']
+    const inputNamesCol1 = ['title']
+    // const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
@@ -28,6 +29,22 @@ export default function CreateForm(props) {
         <form className="form pt-3" onSubmit={handleSubmit}>
             <div className="form-row">
                 <div className="col-sm-6">
+                    <label for="start-date">Starting date</label>
+                    <Input
+                        id='start-date'
+                        type='date'
+                        name='start-date'
+                        onChange={handleChange}
+                        newWorkshop={newWorkshop}
+                    />
+                    <label for="start-time">Starting time</label>
+                    <Input
+                        id='start-time'
+                        type='time'
+                        name='start-time'
+                        onChange={handleChange}
+                        newWorkshop={newWorkshop}
+                    />
                     {
                         inputNamesCol1.map((inputName, i) => (
                             <Input
@@ -40,6 +57,22 @@ export default function CreateForm(props) {
                     }
                 </div>
                 <div className="col-sm-6">
+                    <label for="end">Ending date</label>
+                    <Input
+                        id='end'
+                        type='date'
+                        name='end'
+                        onChange={handleChange}
+                        newWorkshop={newWorkshop}
+                    />
+                    <label for="end-time">Ending time</label>
+                    <Input
+                        id='end-time'
+                        type='time'
+                        name='end-time'
+                        onChange={handleChange}
+                        newWorkshop={newWorkshop}
+                    />
                     {
                         inputNamesCol2.map((inputName, i) => (
                             <Input

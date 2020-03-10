@@ -69,8 +69,6 @@ export default function Admin() {
             price4,
             secondaryID: uuidv1()
         })
-        console.log('duplicate workshop:', workshop)
-        console.log('duplicate newWorkshop:', newWorkshop)
     }
     const clearInputs = () => {
         setNewWorkshop(initialState)
