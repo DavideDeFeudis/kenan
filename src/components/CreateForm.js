@@ -4,26 +4,24 @@ import Input from './form/Input'
 import { createWorkshop } from '../databaseService'
 
 export default function CreateForm(props) {
-    const { formData, setFormData, addWorkshopToTempWS, secondaryID } = props
+    const { newWorkshop, setNewWorkshop, addWorkshopToTempWS, clearInputs } = props
+    // console.log('CreateForm props:', props)
     const inputNamesCol1 = ['title', 'date']
     const inputNamesCol2 = ['address', 'info']
     const inputNamesCol3 = ['priceLabel1', 'priceLabel2', 'priceLabel3', 'priceLabel4']
     const inputNamesCol4 = ['price1', 'price2', 'price3', 'price4']
 
     const handleChange = (e) => {
-        // rename setFormData
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-            secondaryID
+        setNewWorkshop({
+            ...newWorkshop,
+            [e.target.name]: e.target.value
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // setLoading(true)
         addWorkshopToTempWS()
-        createWorkshop(formData)
+        createWorkshop(newWorkshop)
     }
 
     return (
@@ -36,7 +34,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -48,7 +46,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -62,7 +60,7 @@ export default function CreateForm(props) {
                                 key={i}
                                 name={inputName}
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
@@ -75,17 +73,15 @@ export default function CreateForm(props) {
                                 name={inputName}
                                 type="number"
                                 onChange={handleChange}
-                                formData={formData}
+                                newWorkshop={newWorkshop}
                             />
                         ))
                     }
                 </div>
             </div>
             <div className="my-4">
-                <div>
-                    <Button type="submit">Publish</Button>
-                    {/* <p className='my-3'>{feedback}</p> */}
-                </div>
+                <Button className='admin-button' type="submit">Publish</Button>
+                <Button onClick={clearInputs} className='admin-button' type="button">Clear Inputs</Button>
             </div>
         </form>
     )

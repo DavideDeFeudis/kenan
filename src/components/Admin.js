@@ -16,6 +16,7 @@ export default function Admin() {
     }, [workshops])
     // set preview
     const initialState = {
+        secondaryID: uuidv1(),
         title: '',
         date: '',
         address: '',
@@ -34,41 +35,59 @@ export default function Admin() {
         setTempWorkshops([...tempWorkshops, newWorkshop])
         setNewWorkshop(initialState) // clear preview and inputs
     }
-    const handleDelete = (secondaryID) => {
-        setTempWorkshops(tempWorkshops.filter(item => {
-            return item.secondaryID !== secondaryID
-        }))
-
+    const handleDelete = secondaryID => {
+        setTempWorkshops(tempWorkshops.filter(item => item.secondaryID !== secondaryID))
         deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
     }
-
+    const duplicate = (workshop) => {
+        const {
+            date,
+            title,
+            address,
+            info,
+            priceLabel1,
+            priceLabel2,
+            priceLabel3,
+            priceLabel4,
+            price1,
+            price2,
+            price3,
+            price4
+        } = workshop
+        setNewWorkshop({
+            date,
+            title,
+            address,
+            info,
+            priceLabel1,
+            priceLabel2,
+            priceLabel3,
+            priceLabel4,
+            price1,
+            price2,
+            price3,
+            price4,
+            secondaryID: uuidv1()
+        })
+        console.log('duplicate workshop:', workshop)
+        console.log('duplicate newWorkshop:', newWorkshop)
+    }
+    const clearInputs = () => {
+        setNewWorkshop(initialState)
+    }
     return (
         <div className="Admin">
             <Navbar admin />
-            {/* <div className="container main-content text-center">
-                <section className="published">
-                    <h2>Signed up customers</h2>
-                    {
-                        customers.map(customer => {
-                            const { email, firstName, lastName, subject, text } = customer
-                            return <p key={customer._id}>
-                                {subject}<br />{text}<br />
-                                {firstName} {lastName} - {email}<br /><br />
-                            </p>
-                        })
-                    }
-                </section>
-            </div> */}
             <div className="container-fluid main-content text-center">
                 <div className="row">
                     <div className="col-lg">
                         <section>
                             <h2>Create workshop</h2>
                             <CreateForm
-                                formData={newWorkshop}
-                                setFormData={setNewWorkshop}
+                                newWorkshop={newWorkshop}
+                                setNewWorkshop={setNewWorkshop}
                                 addWorkshopToTempWS={addWorkshopToTempWS}
-                                secondaryID={uuidv1()}
+                                clearInputs={clearInputs}
                             />
                         </section>
                         <section>
@@ -86,6 +105,7 @@ export default function Admin() {
                                         key={workshop.secondaryID}
                                         workshop={workshop}
                                         handleDelete={handleDelete}
+                                        duplicate={duplicate}
                                     />
                                 })
                             }

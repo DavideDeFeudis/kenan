@@ -6,7 +6,7 @@ export default function SignupForm(props) {
     const { setFeedback, subjectContent, workshopId } = props
 
     const initialState = {
-        workshopId,
+        workshopId, // need this to push customer to workshop.customers array
         firstName: '',
         lastName: '',
         email: '',
@@ -38,10 +38,12 @@ export default function SignupForm(props) {
         })
             .then(response => response.json())
             .then(json => {
+                console.log('SignupForm json:', json)
                 setLoading(false)
                 setFeedback(json)
             })
             .catch(err => {
+                console.log('SignupForm err:', err)
                 setLoading(false)
                 setFeedback({})
                 // console.log(err)

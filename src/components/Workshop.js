@@ -8,7 +8,8 @@ import { Button } from './Button'
 
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
-    const { admin, preview, user, handleDelete } = props
+    const { admin, preview, user, handleDelete, workshop, duplicate } = props
+    // console.log('workshop:', workshop)
     const {
         secondaryID,
         _id,
@@ -25,8 +26,9 @@ export default function Workshop(props) {
         price3,
         price4,
         customers
-    } = props.workshop
-
+    } = workshop
+    // console.log('workshop _id:', title, workshop._id)
+    // console.log('secondaryID:', title, secondaryID)
     // generate priceArea with truthy values
     const priceLabelArray = [
         priceLabel1,
@@ -45,39 +47,39 @@ export default function Workshop(props) {
     const priceArea = truthyPriceLabelArray.map((label, i) => {
         return <span key={i}>{label}{truthyPriceArray[i]}<br /></span>
     })
-
-    const userButtons = <Link to="/workshops">
-        <Button
-            type="button"
-            className="mt-4"
-            onClick={() => openModal(_id)}
-        >Info</Button>
-    </Link>
-
-    const adminButtons = <div>
-        {/* <Link to="/admin">
-                    <Button
-                        type="button"
-                        className="mt-4"
-                        onClick={() => openModal(_id)}
-                    >Edit</Button>
-                </Link> */}
-        <Link to="/admin">
+    const userButtons = (
+        <Link to="/workshops">
             <Button
                 type="button"
                 className="mt-4"
-                onClick={() => handleDelete(secondaryID)}
-            >Delete</Button>
+                onClick={() => openModal(secondaryID)}
+            >Info</Button>
         </Link>
-    </div>
-
-    let buttons = null // no buttons in preview
+    )
+    const adminButtons = (
+        <div className="my-4">
+            <Link to="/admin">
+                <Button
+                    type="button"
+                    className="admin-button"
+                    onClick={() => duplicate(workshop)}
+                >Duplicate</Button>
+            </Link>
+            <Link to="/admin">
+                <Button
+                    type="button"
+                    className="admin-button"
+                    onClick={() => handleDelete(secondaryID)}
+                >Delete</Button>
+            </Link>
+        </div>
+    )
+    let buttons = null // for preview
     if (admin) {
         buttons = adminButtons
     } else if (user) {
         buttons = userButtons
     }
-
     let customersList = null
     if (customers && customers.length) { // customers is undefined on first render
         customersList = <div className='mt-3'>
@@ -91,28 +93,12 @@ export default function Workshop(props) {
     } else {
         customersList = <p className='mt-3'>No one signed up yet</p>
     }
-
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
             <p>{date}<br />{address}<br />{info}</p>
-            {
-                (preview || admin) &&
-                <div id='price-area'>
-                  {
-                    priceArea
-                  }
-                </div>
-                // <div>
-                //     <p>
-                //         {priceLabel1}{price1}<br />{priceLabel2}{price2}<br />
-                //         {/* {priceLabel3}{price3}<br />{priceLabel4}{price4}<br /> */}
-                //     </p>
-                // </div>
-            }
-            {
-                admin && customersList
-            }
+            {(preview || admin) && <div id='price-area'>{priceArea}</div>}
+            {admin && customersList}
             {buttons}
         </div>
     )
