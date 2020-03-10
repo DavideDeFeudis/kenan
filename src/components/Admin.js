@@ -40,7 +40,37 @@ export default function Admin() {
         deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
     }
     const duplicate = (workshop) => {
-        setNewWorkshop({ ...workshop, secondaryID: uuidv1() })
+        const {
+            date,
+            title,
+            address,
+            info,
+            priceLabel1,
+            priceLabel2,
+            priceLabel3,
+            priceLabel4,
+            price1,
+            price2,
+            price3,
+            price4
+        } = workshop
+        setNewWorkshop({
+            date,
+            title,
+            address,
+            info,
+            priceLabel1,
+            priceLabel2,
+            priceLabel3,
+            priceLabel4,
+            price1,
+            price2,
+            price3,
+            price4,
+            secondaryID: uuidv1()
+        })
+        console.log('duplicate workshop:', workshop)
+        console.log('duplicate newWorkshop:', newWorkshop)
     }
     return (
         <div className="Admin">

@@ -27,6 +27,7 @@ export default function Workshop(props) {
         price4,
         customers
     } = workshop
+    console.log('workshop _id:', title, workshop._id)
     // console.log('secondaryID:', title, secondaryID)
     // generate priceArea with truthy values
     const priceLabelArray = [
