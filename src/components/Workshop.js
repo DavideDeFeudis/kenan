@@ -5,6 +5,7 @@ import React, {
 import { Link } from "react-router-dom";
 import { Context } from "../context";
 import { Button } from './Button'
+import { formatDate } from '../utils'
 
 export default function Workshop(props) {
     const { openModal } = useContext(Context)
@@ -96,50 +97,14 @@ export default function Workshop(props) {
     } else {
         customersList = <p className='mt-3'>No one signed up yet</p>
     }
-
-
-
-
-
-    const formatDate = () => {
-        let formattedDate = ''
-        
-            const startYear = startDate.split('-')[0]
-            const startMonth = startDate.split('-')[1]
-            const startDay = startDate.split('-')[2]
-            const endYear = endDate.split('-')[0]
-            const endMonth = endDate.split('-')[1]
-            const endDay = endDate.split('-')[2]
-            if (startYear != endYear) {
-                formattedDate = `${startDay}.${startMonth}.${startYear}-${endDay}.${endMonth}.${endYear}`
-            } else if (startMonth != endMonth) {
-                formattedDate = `${startDay}.${startMonth}-${endDay}.${endMonth}.${endYear}`
-            } else if (startDay != endDay) {
-                formattedDate = `${startDay}-${endDay}.${endMonth}.${endYear}`
-            } else {
-                formattedDate = `${endDay}.${endMonth}.${endYear}`
-            }
-        
-        return formattedDate
-    }
-    
     let date = ''
-    if (startDate && endDate) date = formatDate()
+    if (startDate && endDate) date = formatDate(startDate, endDate)
     let time = ''
     if (startTime && endTime) time = startTime + '-' + endTime
 
     return (
         <div className='Workshop py-5'>
             <h3>{title}</h3>
-            {/* <p>
-                {startDate}<br />
-                {startTime}<br />
-                {endDate}<br />
-                {endTime}<br />
-                {address}<br />
-                {info}
-            </p> */}
-            {/* <p>{address}<br />{info}</p> */}
             <p>{date} {time}<br />{address}<br />{info}</p>
             {(preview || admin) && <div id='price-area'>{priceArea}</div>}
             {admin && customersList}
