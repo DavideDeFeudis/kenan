@@ -40,7 +40,7 @@ export default function Admin() {
     }
     const handleDelete = secondaryID => {
         setTempWorkshops(tempWorkshops.filter(item => item.secondaryID !== secondaryID))
-        deleteWorkshop(secondaryID, `${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`)
+        deleteWorkshop(secondaryID)
     }
     const duplicate = (workshop) => {
         const {
@@ -106,7 +106,11 @@ export default function Admin() {
                         <section className="published">
                             <h2>Published</h2>
                             {
-                                tempWorkshops.map(workshop => {
+                                tempWorkshops.sort((a, b) => {
+                                    const aDate = parseInt(a.startDate.split('-').join(''))
+                                    const bDate = parseInt(b.startDate.split('-').join(''))
+                                    return aDate - bDate
+                                }).map(workshop => {
                                     return <Workshop
                                         admin
                                         key={workshop.secondaryID}

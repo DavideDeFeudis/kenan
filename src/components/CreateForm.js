@@ -26,7 +26,7 @@ export default function CreateForm(props) {
     }
 
     return (
-        <form className="form pt-3" onSubmit={handleSubmit}>
+        <form className="form create-form pt-3" onSubmit={handleSubmit}>
             <div className="form-row">
                 <div className="col-sm-6">
                     <label htmlFor="start-date">Starting date</label>

@@ -6,7 +6,6 @@ import { useHttp } from '../hooks/http'
 export default function WorkshopsList() {
     const url = process.env.REACT_APP_BACKEND_HOST + '/workshops'
     const [isLoading, fetchedData] = useHttp(url, [])
-
     let content = (
         <div className="fetching-spinner container text-center">
             <img src={loadingGif} width='40' height='40' alt="loading..." />
@@ -14,7 +13,11 @@ export default function WorkshopsList() {
         </div>
     )
     const workshopsList = (
-        fetchedData ? fetchedData.map(workshop => { // need check because fetchedData is null on first render because useEffect within useHttp runs after the first render
+        fetchedData ? fetchedData.sort((a, b) => { // need check fetchedData because it is null on first render because useEffect within useHttp runs after the first render
+            const aDate = parseInt(a.startDate.split('-').join(''))
+            const bDate = parseInt(b.startDate.split('-').join(''))
+            return aDate - bDate
+        }).map(workshop => {
             return <Workshop
                 user
                 key={workshop.secondaryID}
