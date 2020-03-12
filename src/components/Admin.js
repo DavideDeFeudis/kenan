@@ -85,7 +85,7 @@ export default function Admin() {
     return (
         <div className="Admin">
             <Navbar admin />
-            <div className="container-fluid main-content text-center">
+            <div className="main container-fluid text-center">
                 <div className="row">
                     <div className="col-lg">
                         <section>
@@ -97,7 +97,7 @@ export default function Admin() {
                                 clearInputs={clearInputs}
                             />
                         </section>
-                        <section>
+                        <section id='preview'>
                             <h2>Preview</h2>
                             <Workshop preview workshop={newWorkshop} />
                         </section>

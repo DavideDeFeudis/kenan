@@ -8,7 +8,7 @@ export default function Navbar({ admin }) {
     const { videos } = useContext(Context)
 
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-light">
+        <nav className="navbar navbar-expand-md navbar-dark bg-light">
             <Link to="/" className="navbar-brand">
                 Kenan Dinkelmann
             </Link>
