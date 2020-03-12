@@ -13,7 +13,8 @@ export default function Input(props) {
             placeholder={placeholder}
             onChange={onChange}
             value={newWorkshop[name] || ''} // || '' avoids Warning: `value` prop on `input` should not be null. Consider using an empty string to clear the component
-            required={required}
+            // required={required}
+            required
             autoComplete='off'
         >
         </input>

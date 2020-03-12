@@ -29,7 +29,7 @@ export default function SignupForm(props) {
     }
 
     const sendFormData = () => {
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/workshops`, {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/signup`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {
