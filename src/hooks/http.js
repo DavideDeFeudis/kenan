@@ -8,10 +8,9 @@ export const useHttp = (url, dependencies) => {
         const fetchData = async () => {
             // setIsLoading(true)
             try {
-                const req = await fetch(url)
-                //     , {
-                //     headers: { "Content-Type": "application/json" } // need?
-                // })
+                const req = await fetch(url, {
+                    headers: { "Content-Type": "application/json" } // need?
+                })
                 const res = await req.json()
                 setIsLoading(false)
                 setFetchedData(res)
