@@ -46,6 +46,7 @@ export default function Admin() {
   const duplicate = workshop => {
     setNewWorkshop({
       ...workshop,
+      customers: [],
       secondaryID: uuidv1()
     });
   };
