@@ -1,5 +1,5 @@
-export const deleteWorkshop = (secondaryID, url) => {
-    return fetch(url + '/' + secondaryID, {
+export const deleteWorkshop = (secondaryID) => {
+    return fetch(`${process.env.REACT_APP_BACKEND_HOST}/admin/workshop/` + secondaryID, {
         method: 'delete'
     })
         .then(response => {
@@ -11,9 +11,7 @@ export const deleteWorkshop = (secondaryID, url) => {
 }
 
 export const createWorkshop = (formData) => {
-    const baseUrl = process.env.REACT_APP_BACKEND_HOST
-
-    fetch(`${baseUrl}/admin/workshop`, {
+    fetch(`${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
