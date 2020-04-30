@@ -44,7 +44,7 @@ class Provider extends Component {
 
     getWorkshops = async () => {
         const baseUrl = process.env.REACT_APP_BACKEND_HOST
-        console.log('context baseUrl:', baseUrl)
+        // console.log('context baseUrl:', baseUrl)
         try {
             const req = await fetch(`${baseUrl}/workshops`, {
                 headers: { "Content-Type": "application/json" } // need?

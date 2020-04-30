@@ -18,7 +18,7 @@ export default function UpdateWorkshopModal(props) {
     addWorkshopToTempWS 
   } = props // coming from admin
 
-  console.log('newWorkshop:', newWorkshop)
+  // console.log('newWorkshop:', newWorkshop)
   // console.log('UpdateWorkshopModal props:', props)
 
   // const [modalMessage, setModalMessage] = useState('')

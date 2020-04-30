@@ -1,7 +1,6 @@
 export const localWorkshops = [
   {
-    _id: 1,
-    secondaryID: 11,
+    secondaryID: '81b0b3681cf6',
     title: "Flow Acrobatics - Dresden",
     address: "Bautzner Straße 107",
     info: "For all levels",
@@ -13,8 +12,7 @@ export const localWorkshops = [
     price2: 95,
   },
   {
-    _id: 2,
-    secondaryID: 22,
+    secondaryID: 'e0a6ebb7d138',
     title: "Flow Acrobatics - Hamburg",
     address: "Bautzner Straße 107",
     info: "For all levels",
@@ -26,8 +24,7 @@ export const localWorkshops = [
     price2: 95,
   },
   {
-    _id: 3,
-    secondaryID: 33,
+    secondaryID: 'b6641c1ed1f1',
     title: "Flow Acrobatics - Barcelona",
     address: "Carrer de Trafalgar 24",
     info: "For all levels",
