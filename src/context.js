@@ -8,15 +8,15 @@ class Provider extends Component {
         workshops: [],
         customers: [],
         videos: [],
-        loading: true, // need?
+        loading: true,
         isModalOpen: false,
         modalItem: {}
     }
 
     componentDidMount() {
-        // this.getLocalData()
+        this.getLocalData()
         this.getLocalVideos()
-        this.getWorkshops()
+        // this.getWorkshops()
         // this.getCustomers()
     }
 
