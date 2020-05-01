@@ -84,8 +84,7 @@ export default function OnlineCoaching() {
         <br />
         <ul>
           <li>
-            First getting to know video call to see if we both can line your
-            expectations
+            First getting to know video call
           </li>
           <li>
             Then I give you a little questionnaire so you can start to think
