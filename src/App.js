@@ -2,16 +2,15 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
-// import AdminLogin from './components/AdminLogin';
 import About from "./components/About";
 import VideoAstral from "./components/VideoAstral";
 import VideoSunson from "./components/VideoSunson";
-// import VideoSection from "./components/VideoSection";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
 import PrivateRoute from "./PrivateRoute";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import OnlineCoaching from "./components/OnlineCoaching";
 
 function App() {
   return (
@@ -23,11 +22,11 @@ function App() {
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route path="/about" component={About} />
-        {/* <Route path="/videoSection" component={VideoSection} /> */}
         <Route path="/astral" component={VideoAstral} />
         <Route path="/sunson" component={VideoSunson} />
-        <Route path="/workshops" component={Workshops} />
+        {/* <Route path="/workshops" component={Workshops} /> */}
         <Route path="/contact" component={Contact} />
+        <Route path="/online-coaching" component={OnlineCoaching} />
         <Route component={Home} />
       </Switch>
     </div>

@@ -12,13 +12,17 @@ body {
   color: rgb(199, 199, 199);
 }
 
+hr {
+  border: 1px solid rgb(65, 65, 65);
+  margin: 3rem 0;
+}
 p {
   margin: 0;
 }
 
 .main-content {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  max-width: 50rem;
+  padding: 3rem 2rem;
 }
 
 .navbar {
@@ -131,6 +135,7 @@ footer {
     background: #202020;
     position: relative;
     padding: 2.5em;
+    // min-width: 28rem;
   }
   #close-modal-icon {
     position: absolute;

@@ -33,10 +33,15 @@ export default function Navbar({ admin }) {
                         </div>
                     </li>
                     <li className="nav-item">
+                        <Link to="/online-coaching" className="nav-link">
+                            Online Coaching
+                        </Link>
+                    </li>
+                    {/* <li className="nav-item">
                         <Link to="/workshops" className="nav-link">
                             Workshops
                         </Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link to="/contact" className="nav-link">
                             Contact

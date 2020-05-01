@@ -27,7 +27,7 @@ export default function VideoSunson() {
             <div id='sunson-img-container' className="container">
                 <img id='sunson-img' src={backgroundLarge} alt="Sunson choreography" />
             </div>
-            <div className="container main-content text-center">
+            <div className="container main-content">
                 <p>
                     Choreography: Kenan Dinkelmann<br />
                     Dancers: Josephine Haas, Asuka J. Riedl, Felipe Fizkal, Carlos Aller<br />

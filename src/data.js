@@ -1,5 +1,11 @@
 export const localWorkshops = [
   {
+    secondaryID: "81b0b3681hr4",
+    title: "Flow Acrobatics - Online Coaching",
+    priceLabel1: "6 weeks - €",
+    price1: 300,
+  },
+  {
     secondaryID: '81b0b3681cf6',
     title: "Flow Acrobatics - Dresden",
     address: "Bautzner Straße 107",
