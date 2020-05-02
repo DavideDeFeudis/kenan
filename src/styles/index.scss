@@ -109,15 +109,6 @@ footer {
   }
 }
 
-#sunson-img-container {
-  max-width: 1325px;
-  #sunson-img {
-    width: 100%;
-    margin: auto;
-    display: block;
-  }
-}
-
 .modal-container {
   position: fixed;
   top: 0;
@@ -196,6 +187,24 @@ footer {
   margin: 0.6em auto;
 }
 
+.Sunson {
+  .navbar {
+    background-image: linear-gradient(
+      to right,
+      transparent 45%,
+      rgba(0, 0, 0, 0.6) 80%
+    ) !important;
+  }
+  // #sunson-img-container {
+  //   max-width: 1325px;
+  //   #sunson-img {
+  //     width: 100%;
+  //     margin: auto;
+  //     display: block;
+  //   }
+  // }
+}
+
 .Admin {
   .navbar {
     position: static; // will also push down content when using hamburger menu
@@ -265,9 +274,23 @@ footer {
       margin-bottom: 2em;
     }
   }
+  .Sunson {
+    .main-content {
+      margin-bottom: 20vh; // push footer to bottom
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .Sunson {
+    .navbar {
+      background-image: linear-gradient(
+        to right,
+        transparent 70%,
+        rgba(0, 0, 0, 0.6) 100%
+      ) !important;
+    }
+  }
   // < bootstrap md breakpoint
   .navbar-nav {
     // when collapsed
