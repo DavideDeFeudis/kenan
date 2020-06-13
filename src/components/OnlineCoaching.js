@@ -14,7 +14,7 @@ export default function OnlineCoaching() {
   const { openModal } = useContext(Context);
 
   return (
-    <div className="Workshops">
+    <div className="OnlineCoaching">
       <Navbar />
       <Background small={backgroundSmall} large={backgroundLarge} />
       <div className="container main-content">
@@ -83,9 +83,7 @@ export default function OnlineCoaching() {
         </p>
         <br />
         <ul>
-          <li>
-            First getting to know video call
-          </li>
+          <li>First getting to know video call</li>
           <li>
             Then I give you a little questionnaire so you can start to think
             what your goals are
@@ -101,13 +99,20 @@ export default function OnlineCoaching() {
           For all levels from beginners to professional dancers/movers/acrobats.
           <br />
           Duration &amp; price: 6 weeks - 300€
-          <br /><br />
+          <br />
+          <br />
         </p>
-        <Link to="/online-coaching">
-          <Button type="button" className="mt-4" onClick={() => openModal('81b0b3681hr4')}>
-            Sign up
-          </Button>
-        </Link>
+        <div className="flex-center">
+          <Link to="/online-coaching">
+            <Button
+              type="button"
+              className="mt-2"
+              onClick={() => openModal("81b0b3681hr4")}
+            >
+              Sign up
+            </Button>
+          </Link>
+        </div>
       </div>
       <Footer />
       <Modal parentPage="/online-coaching" />
