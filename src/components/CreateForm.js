@@ -1,25 +1,69 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
-import { createWorkshop } from "../databaseService";
+// import { createWorkshop } from "../databaseService";
+import { DispatchContext } from "../Context";
+import { SET_NEW_WORKSHOP, CREATE_WORKSHOP } from "../ActionTypes";
+import uuidv1 from "uuid/v1";
 
-export default function CreateForm(props) {
-  const {
-    newWorkshop,
-    setNewWorkshop,
-    addWorkshopToTempWS,
-    clearInputs
-  } = props;
-  const handleChange = e => {
-    setNewWorkshop({
-      ...newWorkshop,
-      [e.target.name]: e.target.value
+const baseUrl = process.env.REACT_APP_BACKEND_HOST;
+
+export default function CreateForm({ newWorkshop }) {
+  const dispatch = useContext(DispatchContext);
+
+  const initialState = {
+    secondaryID: uuidv1(),
+    title: "",
+    address: "",
+    info: "",
+    startDate: "",
+    startTime: "",
+    endDate: "",
+    endTime: "",
+    priceLabel1: "",
+    priceLabel2: "",
+    priceLabel3: "",
+    priceLabel4: "",
+    price1: "",
+    price2: "",
+    price3: "",
+    price4: "",
+  };
+
+  const clearInputs = () => {
+    dispatch({
+      type: SET_NEW_WORKSHOP,
+      payload: initialState,
     });
   };
-  const handleSubmit = e => {
+
+  const handleChange = (e) => {
+    dispatch({
+      type: SET_NEW_WORKSHOP,
+      payload: {
+        ...newWorkshop,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    addWorkshopToTempWS();
-    createWorkshop(newWorkshop);
+
+    fetch(`${baseUrl}/admin/workshop`, {
+      method: "POST",
+      body: JSON.stringify(newWorkshop),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        dispatch({ type: CREATE_WORKSHOP, payload: json });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (

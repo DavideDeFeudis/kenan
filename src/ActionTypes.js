@@ -1,0 +1,6 @@
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";
+export const GET_WORKSHOP = "GET_WORKSHOP";
+export const DELETE_WORKSHOP = "DELETE_WORKSHOP";
+export const CREATE_WORKSHOP = "CREATE_WORKSHOP";
+export const SET_NEW_WORKSHOP = "SET_NEW_WORKSHOP";

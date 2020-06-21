@@ -13,7 +13,7 @@ export default function Workshops() {
   return (
     <div className="Workshops">
       <Navbar />
-      <Background small={backgroundSmall} large={backgroundLarge} />
+      {/* <Background small={backgroundSmall} large={backgroundLarge} />
       <div className="container main-content">
         <p>
           Drawing inspirations from martial arts and yoga, the warm up has the
@@ -39,7 +39,7 @@ export default function Workshops() {
           during the whole workshop in order to explore the movement material
           from another viewpoint.
         </p>
-      </div>
+      </div> */}
       <WorkshopsList />
       <Footer />
       <Modal parentPage="/workshops" />

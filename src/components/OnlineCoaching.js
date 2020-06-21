@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import Modal from "./Modal";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
-import { Context } from "../context";
+import Context from "../Context";
 
 export default function OnlineCoaching() {
   const { openModal } = useContext(Context);

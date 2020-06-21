@@ -7,16 +7,16 @@ import './styles/index.scss';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
-import { Provider } from './context';
+import Context from './Context';
 import { AuthProvider } from "./Auth";
 
 ReactDOM.render(
     <AuthProvider>
-        <Provider>
+        <Context>
             <Router>
                 <App />
             </Router>
-        </Provider>
+        </Context>
     </AuthProvider>,
     document.getElementById('root'));
 

@@ -1,12 +1,15 @@
-export const localWorkshops = [
+export const onlineCourses = [
   {
     secondaryID: "81b0b3681hr4",
     title: "Flow Acrobatics - Online Coaching",
     priceLabel1: "6 weeks - €",
     price1: 300,
   },
+];
+
+export const localWorkshops = [
   {
-    secondaryID: '81b0b3681cf6',
+    secondaryID: "81b0b3681cf6",
     title: "Flow Acrobatics - Dresden",
     address: "Bautzner Straße 107",
     info: "For all levels",
@@ -18,7 +21,7 @@ export const localWorkshops = [
     price2: 95,
   },
   {
-    secondaryID: 'e0a6ebb7d138',
+    secondaryID: "e0a6ebb7d138",
     title: "Flow Acrobatics - Hamburg",
     address: "Bautzner Straße 107",
     info: "For all levels",
@@ -30,7 +33,7 @@ export const localWorkshops = [
     price2: 95,
   },
   {
-    secondaryID: 'b6641c1ed1f1',
+    secondaryID: "b6641c1ed1f1",
     title: "Flow Acrobatics - Barcelona",
     address: "Carrer de Trafalgar 24",
     info: "For all levels",

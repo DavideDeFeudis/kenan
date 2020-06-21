@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
@@ -24,7 +24,7 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/astral" component={VideoAstral} />
         <Route path="/sunson" component={VideoSunson} />
-        {/* <Route path="/workshops" component={Workshops} /> */}
+        <Route path="/workshops" component={Workshops} />
         <Route path="/contact" component={Contact} />
         <Route path="/online-coaching" component={OnlineCoaching} />
         <Route component={Home} />
