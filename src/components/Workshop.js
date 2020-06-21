@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+// import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
-import { StateContext } from "../Context";
+// import { StateContext } from "../Context";
 import { DispatchContext } from "../Context";
 import * as types from "../ActionTypes";
 import uuidv1 from "uuid/v1";
@@ -17,22 +17,17 @@ export default function Workshop(props) {
 
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-  const deleteWorkshop = (secondaryID) => {
+  const deleteWorkshop = async (secondaryID) => {
     // dispatch request
-    return fetch(`${baseUrl}/admin/workshop/${secondaryID}`, {
-      method: "delete",
-    })
-      .then((response) => {
-        response.json();
-      })
-      .then((json) => {
-        console.log("workshop deleted - json:", json);
-        dispatch({ type: types.DELETE_WORKSHOP, payload: secondaryID });
-      })
-      .catch((err) => {
-        console.log(err);
-        // dispatch delete failure
+    try {
+      await fetch(`${baseUrl}/admin/workshop/${secondaryID}`, {
+        method: "delete",
       });
+      dispatch({ type: types.DELETE_WORKSHOP, payload: secondaryID });
+    } catch (err) {
+      console.log(err);
+      // dispatch delete failure
+    }
   };
 
   const {
@@ -91,36 +86,28 @@ export default function Workshop(props) {
     </Link>
   );
 
-  // const duplicate = (workshop) => {
-  //   setNewWorkshop({
-  //     ...workshop,
-  //     customers: [],
-  //     secondaryID: uuidv1(),
-  //   });
-  // };
-
   const adminButtons = (
     <div className="my-4">
       <Link to="/admin">
-        <AnchorLink href="#create-section">
-          <Button
-            type="button"
-            className="admin-button"
-            onClick={() => {
-              dispatch({
-                type: types.SET_NEW_WORKSHOP,
-                payload: {
-                  ...workshop,
-                  _id: undefined,
-                  secondaryID: uuidv1(),
-                  customers: [],
-                },
-              });
-            }}
-          >
-            Duplicate
-          </Button>
-        </AnchorLink>
+        {/* <AnchorLink href="#create-section"> */}
+        <Button
+          type="button"
+          className="admin-button"
+          onClick={() => {
+            dispatch({
+              type: types.SET_NEW_WORKSHOP,
+              payload: {
+                ...workshop,
+                _id: undefined,
+                secondaryID: uuidv1(),
+                customers: [],
+              },
+            });
+          }}
+        >
+          Duplicate
+        </Button>
+        {/* </AnchorLink> */}
       </Link>
       <Link to="/admin">
         <Button
