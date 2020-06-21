@@ -1,11 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Workshop from "./Workshop";
 import loadingGif from "../images/load.gif";
-import { StateContext } from "../Context";
+import { StateContext, DispatchContext } from "../Context";
+import { GET_WORKSHOPS } from "../ActionTypes";
+const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 export default function WorkshopsList() {
   const { workshops, loading } = useContext(StateContext);
-  // console.log("workshops:", workshops);
+  const dispatch = useContext(DispatchContext);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const req = await fetch(baseUrl + "/workshops", {
+          headers: { "Content-Type": "application/json" },
+        });
+        const data = await req.json();
+        dispatch({ type: GET_WORKSHOPS, payload: data });
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
 
   let content = (
     <div className="loading-spinner container text-center">

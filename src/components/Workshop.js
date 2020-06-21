@@ -6,7 +6,7 @@ import { formatDate } from "../utils";
 // import { StateContext } from "../Context";
 import { DispatchContext } from "../Context";
 import * as types from "../ActionTypes";
-import uuidv1 from "uuid/v1";
+// import uuidv1 from "uuid/v1";
 
 export default function Workshop(props) {
   // const {workshops} = useContext(StateContext);
@@ -75,7 +75,7 @@ export default function Workshop(props) {
         className="mt-4"
         onClick={() =>
           dispatch({
-            type: types.OPEN_MODAL,
+            type: types.OPEN_MODAL_WORKSHOP,
             payload: _id,
           })
         }
@@ -98,7 +98,6 @@ export default function Workshop(props) {
               payload: {
                 ...workshop,
                 _id: undefined,
-                _id: uuidv1(),
                 customers: [],
               },
             });

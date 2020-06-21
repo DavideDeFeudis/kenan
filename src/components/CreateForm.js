@@ -4,7 +4,7 @@ import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
 import { DispatchContext } from "../Context";
 import { SET_NEW_WORKSHOP, CREATE_WORKSHOP } from "../ActionTypes";
-import uuidv1 from "uuid/v1";
+// import uuidv1 from "uuid/v1";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
@@ -12,7 +12,6 @@ export default function CreateForm({ newWorkshop }) {
   const dispatch = useContext(DispatchContext);
 
   const initialState = {
-    _id: uuidv1(),
     title: "",
     address: "",
     info: "",
@@ -49,6 +48,7 @@ export default function CreateForm({ newWorkshop }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    clearInputs();
 
     fetch(`${baseUrl}/admin/workshop`, {
       method: "POST",

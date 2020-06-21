@@ -7,7 +7,7 @@ import './styles/index.scss';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
-import Context from './Context';
+import Context from './Context'
 import { AuthProvider } from "./Auth";
 
 ReactDOM.render(

@@ -1,27 +1,15 @@
-import React, { useReducer, useEffect } from "react";
-import { localVideos } from "./data";
-import {
-  OPEN_MODAL,
-  CLOSE_MODAL,
-  GET_WORKSHOP,
-  CREATE_WORKSHOP,
-  DELETE_WORKSHOP,
-  SET_NEW_WORKSHOP,
-} from "./ActionTypes";
+import React, { useReducer } from "react";
+import { videos, onlineCourse } from "./data";
+import * as types from "./ActionTypes";
 
 export const StateContext = React.createContext();
 export const DispatchContext = React.createContext();
 
-// import { useHttp } from './hooks/http'
-// const url = process.env.REACT_APP_BACKEND_HOST + '/workshops'
-// const [loading, fetchedData] = useHttp(url, [])
-// const loading = false;
-// const fetchedData = localWorkshops;
-
 const initialValue = {
-  workshops: [],
   newWorkshop: {},
-  videos: localVideos,
+  workshops: [],
+  onlineCourse,
+  videos,
   loading: false,
   modalItem: {},
   isModalOpen: false,
@@ -29,25 +17,25 @@ const initialValue = {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SET_NEW_WORKSHOP:
+    case types.SET_NEW_WORKSHOP:
       console.log("SET_NEW_WORKSHOP:");
       return {
         ...state,
         newWorkshop: action.payload,
       };
-    case GET_WORKSHOP:
-      console.log("GET_WORKSHOP:");
+    case types.GET_WORKSHOPS:
+      console.log("GET_WORKSHOPS:");
       return {
         ...state,
         workshops: action.payload,
       };
-    case CREATE_WORKSHOP:
+    case types.CREATE_WORKSHOP:
       console.log("CREATE_WORKSHOP:");
       return {
         ...state,
         workshops: [...state.workshops, action.payload],
       };
-    case DELETE_WORKSHOP:
+    case types.DELETE_WORKSHOP:
       console.log("DELETE_WORKSHOP:");
       return {
         ...state,
@@ -55,7 +43,7 @@ const reducer = (state, action) => {
           (item) => item._id !== action.payload
         ),
       };
-    case OPEN_MODAL:
+    case types.OPEN_MODAL_WORKSHOP:
       return {
         ...state,
         modalItem: state.workshops.find(
@@ -63,13 +51,18 @@ const reducer = (state, action) => {
         ),
         isModalOpen: true,
       };
-    case CLOSE_MODAL:
+    case types.OPEN_MODAL_ONLINE_COURSE:
+      return {
+        ...state,
+        modalItem: onlineCourse,
+        isModalOpen: true,
+      };
+    case types.CLOSE_MODAL:
       return {
         ...state,
         modalItem: {},
         isModalOpen: false,
       };
-
     default:
       console.error(`Unhandled action type: ${action.type}`);
       return state;
@@ -78,7 +71,6 @@ const reducer = (state, action) => {
 
 export default ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialValue);
-  // console.log('state:', state)
 
   return (
     <StateContext.Provider value={state}>
@@ -88,125 +80,3 @@ export default ({ children }) => {
     </StateContext.Provider>
   );
 };
-
-// class Provider extends Component {
-//   state = {
-//     workshops: [],
-//     customers: [],
-//     videos: [],
-//     loading: true,
-//     isModalOpen: false,
-//     modalItem: {},
-//   };
-
-//   componentDidMount() {
-//     this.getLocalData();
-//     this.getLocalVideos();
-//     // this.getWorkshops()
-//     // this.getCustomers()
-//   }
-
-//   getLocalVideos = async () => {
-//     this.setState(
-//       {
-//         // workshops: localWorkshops,
-//         // modalItem: localWorkshops[0],
-//         videos: localVideos,
-//         loading: false,
-//       },
-//       () => {
-//         // console.log('getLocalData context state: ', this.state)
-//       }
-//     );
-//   };
-
-//   getLocalData = async () => {
-//     this.setState(
-//       {
-//         workshops: localWorkshops,
-//         // modalItem: localWorkshops[0],
-//         // videos: localVideos,
-//         loading: false,
-//       },
-//       () => {
-//         // console.log('getLocalData context state: ', this.state)
-//       }
-//     );
-//   };
-
-//   getWorkshops = async () => {
-//     const baseUrl = process.env.REACT_APP_BACKEND_HOST;
-//     // console.log('context baseUrl:', baseUrl)
-//     try {
-//       const req = await fetch(`${baseUrl}/workshops`, {
-//         headers: { "Content-Type": "application/json" }, // need?
-//       });
-//       const workshops = await req.json();
-//       this.setState(
-//         {
-//           workshops,
-//           loading: false,
-//         },
-//         () => {
-//           // console.log('getWorkshops context state: ', this.state)
-//         }
-//       );
-//     } catch (error) {
-//       console.log("context: error fetching data", error);
-//     }
-//   };
-
-//   // getCustomers = async () => {
-//   //     const baseUrl = process.env.REACT_APP_BACKEND_HOST
-//   //     // console.log('baseUrl:', baseUrl)
-
-//   //     try {
-//   //         const req = await fetch(`${baseUrl}/customers`, {
-//   //             headers: { "Content-Type": "application/json" } // need?
-//   //         })
-//   //         const customers = await req.json()
-
-//   //         this.setState({
-//   //             customers,
-//   //             loading: false
-//   //         }, () => console.log('getCustomers context state: ', this.state))
-//   //     }
-//   //     catch (error) {
-//   //         console.log("context: error fetching data", error)
-//   //     }
-//   // }
-
-//   getItem = (id) => {
-//     return this.state.workshops.find((item) => item._id === id);
-//   };
-
-//   openModal = (id) => {
-//     const item = this.getItem(id);
-//     this.setState(() => {
-//       return { modalItem: item, isModalOpen: true };
-//     });
-//   };
-
-//   closeModal = () => {
-//     this.setState(() => {
-//       return { isModalOpen: false, modalType: "" };
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <Context.Provider
-//         value={{
-//           ...this.state,
-//           openModal: this.openModal,
-//           closeModal: this.closeModal,
-//         }}
-//       >
-//         {this.props.children}
-//       </Context.Provider>
-//     );
-//   }
-// }
-
-// // const Consumer = Context.Consumer;
-// // export { Context, Provider, Consumer };

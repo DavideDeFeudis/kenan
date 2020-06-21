@@ -1,11 +1,9 @@
-export const onlineCourses = [
-  {
-    _id: "81b0b3681hr4",
-    title: "Flow Acrobatics - Online Coaching",
-    priceLabel1: "6 weeks - €",
-    price1: 300,
-  },
-];
+export const onlineCourse = {
+  _id: "81b0b3681hr4",
+  title: "Flow Acrobatics - Online Coaching",
+  priceLabel1: "6 weeks - €",
+  price1: 300,
+};
 
 export const localWorkshops = [
   {
@@ -46,7 +44,7 @@ export const localWorkshops = [
   },
 ];
 
-export const localVideos = [
+export const videos = [
   {
     id: 1,
     title: "Astral",
