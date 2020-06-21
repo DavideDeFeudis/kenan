@@ -12,7 +12,7 @@ export default function CreateForm({ newWorkshop }) {
   const dispatch = useContext(DispatchContext);
 
   const initialState = {
-    secondaryID: uuidv1(),
+    _id: uuidv1(),
     title: "",
     address: "",
     info: "",

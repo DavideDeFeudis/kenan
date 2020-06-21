@@ -52,14 +52,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         workshops: state.workshops.filter(
-          (item) => item.secondaryID !== action.payload
+          (item) => item._id !== action.payload
         ),
       };
     case OPEN_MODAL:
       return {
         ...state,
         modalItem: state.workshops.find(
-          (workshop) => workshop.secondaryID === action.payload
+          (workshop) => workshop._id === action.payload
         ),
         isModalOpen: true,
       };
@@ -177,7 +177,7 @@ export default ({ children }) => {
 //   // }
 
 //   getItem = (id) => {
-//     return this.state.workshops.find((item) => item.secondaryID === id);
+//     return this.state.workshops.find((item) => item._id === id);
 //   };
 
 //   openModal = (id) => {

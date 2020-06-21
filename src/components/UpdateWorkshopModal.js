@@ -91,7 +91,7 @@ export default function UpdateWorkshopModal(props) {
                   formData={modalItem}
                   setFormData={setFormData}
                   addWorkshopToTempWS={addWorkshopToTempWS}
-                  secondaryID={secondaryID}
+                  _id={_id}
                 /> */}
                 {/* <div id='line'></div>
                 <div id='price-area'>

@@ -17,13 +17,13 @@ export default function Workshop(props) {
 
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-  const deleteWorkshop = async (secondaryID) => {
+  const deleteWorkshop = async (_id) => {
     // dispatch request
     try {
-      await fetch(`${baseUrl}/admin/workshop/${secondaryID}`, {
+      await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
       });
-      dispatch({ type: types.DELETE_WORKSHOP, payload: secondaryID });
+      dispatch({ type: types.DELETE_WORKSHOP, payload: _id });
     } catch (err) {
       console.log(err);
       // dispatch delete failure
@@ -31,7 +31,6 @@ export default function Workshop(props) {
   };
 
   const {
-    secondaryID,
     _id,
     title,
     address,
@@ -77,7 +76,7 @@ export default function Workshop(props) {
         onClick={() =>
           dispatch({
             type: types.OPEN_MODAL,
-            payload: secondaryID,
+            payload: _id,
           })
         }
       >
@@ -99,7 +98,7 @@ export default function Workshop(props) {
               payload: {
                 ...workshop,
                 _id: undefined,
-                secondaryID: uuidv1(),
+                _id: uuidv1(),
                 customers: [],
               },
             });
@@ -113,7 +112,7 @@ export default function Workshop(props) {
         <Button
           type="button"
           className="admin-button"
-          onClick={() => deleteWorkshop(secondaryID)}
+          onClick={() => deleteWorkshop(_id)}
         >
           Delete
         </Button>

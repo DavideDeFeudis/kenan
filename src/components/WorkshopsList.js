@@ -23,7 +23,7 @@ export default function WorkshopsList() {
         return aDate - bDate;
       })
       .map((workshop) => {
-        return <Workshop user key={workshop.secondaryID} workshop={workshop} />;
+        return <Workshop user key={workshop._id} workshop={workshop} />;
       });
 
   if (!loading && workshops && workshops.length > 0) {

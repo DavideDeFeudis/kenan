@@ -40,7 +40,7 @@ export default function Admin() {
 
   // set preview
   const initialState = {
-    secondaryID: uuidv1(),
+    _id: uuidv1(),
     title: "",
     address: "",
     info: "",
@@ -65,18 +65,18 @@ export default function Admin() {
   //   setNewWorkshop(initialState); // clear preview and inputs
   // };
 
-  // const handleDelete = (secondaryID) => {
+  // const handleDelete = (_id) => {
   //   setTempWorkshops(
-  //     tempWorkshops.filter((item) => item.secondaryID !== secondaryID)
+  //     tempWorkshops.filter((item) => item._id !== _id)
   //   );
-  //   deleteWorkshop(secondaryID);
+  //   deleteWorkshop(_id);
   // };
 
   // const duplicate = (workshop) => {
   //   setNewWorkshop({
   //     ...workshop,
   //     customers: [],
-  //     secondaryID: uuidv1(),
+  //     _id: uuidv1(),
   //   });
   // };
 
@@ -85,7 +85,7 @@ export default function Admin() {
   // };
 
   // console.log('workshops:', workshops)
-  
+
   return (
     <div className="Admin">
       <Navbar admin />
@@ -116,7 +116,7 @@ export default function Admin() {
               return (
                 <Workshop
                   admin
-                  key={workshop.secondaryID}
+                  key={workshop._id}
                   workshop={workshop}
                 />
               );

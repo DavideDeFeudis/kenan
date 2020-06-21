@@ -1,7 +1,7 @@
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export const deleteWorkshop = (secondaryID) => {
-  return fetch(`${baseUrl}/admin/workshop/${secondaryID}`, {
+export const deleteWorkshop = (_id) => {
+  return fetch(`${baseUrl}/admin/workshop/${_id}`, {
     method: "delete",
   })
     .then((response) => {
