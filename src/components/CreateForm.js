@@ -9,7 +9,7 @@ import * as types from "../ActionTypes";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 export default function CreateForm() {
-  const { newWorkshop } = useContext(StateContext);
+  const { newWorkshop, requestSuccess, requestFail } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   const initialState = {
@@ -47,25 +47,27 @@ export default function CreateForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     clearInputs();
     dispatch({ type: types.REQUEST });
 
-    fetch(`${baseUrl}/admin/workshop`, {
-      method: "POST",
-      body: JSON.stringify(newWorkshop),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        dispatch({ type: types.CREATE_WORKSHOP, payload: json });
-      })
-      .catch((e) => {
-        console.log(e);
+    try {
+      // throw new Error();
+
+      const res = await fetch(`${baseUrl}/admin/workshop`, {
+        method: "POST",
+        body: JSON.stringify(newWorkshop),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+      const json = await res.json();
+      dispatch({ type: types.CREATE_WORKSHOP, payload: json });
+    } catch (e) {
+      console.log(e);
+      dispatch({ type: types.REQUEST_FAIL });
+    }
   };
 
   return (
@@ -207,6 +209,14 @@ export default function CreateForm() {
           Clear Inputs
         </Button>
       </div>
+
+      {requestSuccess && (
+        <p className="mb-3 text-success">Published successfully</p>
+      )}
+
+      {requestFail && (
+        <p className="mb-3 text-danger">Couldn't publish workshop</p>
+      )}
     </form>
   );
 }

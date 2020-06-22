@@ -13,38 +13,43 @@ const initialValue = {
   loading: false,
   modalItem: {},
   isModalOpen: false,
+  requestSuccess: false,
+  requestFail: false,
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case types.REQUEST:
-      console.log("REQUEST:");
       return {
         ...state,
         loading: true,
+        requestFail: false,
+      };
+    case types.REQUEST_FAIL:
+      return {
+        ...state,
+        loading: false,
+        requestFail: true,
       };
     case types.SET_NEW_WORKSHOP:
-      console.log("SET_NEW_WORKSHOP:");
       return {
         ...state,
         newWorkshop: action.payload,
       };
     case types.GET_WORKSHOPS:
-      console.log("GET_WORKSHOPS:");
       return {
         ...state,
         loading: false,
         workshops: action.payload,
       };
     case types.CREATE_WORKSHOP:
-      console.log("CREATE_WORKSHOP:");
       return {
         ...state,
         loading: false,
+        requestSuccess: true,
         workshops: [...state.workshops, action.payload],
       };
     case types.DELETE_WORKSHOP:
-      console.log("DELETE_WORKSHOP:");
       return {
         ...state,
         loading: false,

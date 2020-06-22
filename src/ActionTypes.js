@@ -6,3 +6,4 @@ export const DELETE_WORKSHOP = "DELETE_WORKSHOP";
 export const CREATE_WORKSHOP = "CREATE_WORKSHOP";
 export const SET_NEW_WORKSHOP = "SET_NEW_WORKSHOP";
 export const REQUEST = "REQUEST";
+export const REQUEST_FAIL = "REQUEST_FAIL";
