@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/index.scss";
-import { StateContext } from "../Context";
+import { StateContext } from "../context";
 import app from "../base";
 
 export default function Navbar({ admin }) {

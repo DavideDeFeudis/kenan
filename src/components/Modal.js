@@ -3,7 +3,7 @@ import "../styles/index.scss";
 import { Link } from "react-router-dom";
 import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
-import { StateContext, DispatchContext } from "../Context";
+import { StateContext, DispatchContext } from "../context";
 import { CLOSE_MODAL } from "../ActionTypes";
 
 export default function Modal({ parentPage }) {

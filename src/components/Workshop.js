@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
-// import { StateContext } from "../Context";
-import { DispatchContext } from "../Context";
+// import { StateContext } from "../context";
+import { DispatchContext } from "../context";
 import * as types from "../ActionTypes";
 // import uuidv1 from "uuid/v1";
 

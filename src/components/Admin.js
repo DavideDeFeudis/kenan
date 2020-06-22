@@ -3,7 +3,7 @@ import "../styles/index.scss";
 import Navbar from "./Navbar";
 import Workshop from "./Workshop";
 import CreateForm from "./CreateForm";
-import { StateContext } from "../Context";
+import { StateContext } from "../context";
 import WorkshopsList from "./WorkshopsList";
 
 export default function Admin() {
@@ -24,7 +24,7 @@ export default function Admin() {
 
         <section className="published">
           <h2>Published</h2>
-          <WorkshopsList />
+          <WorkshopsList admin />
         </section>
       </div>
     </div>

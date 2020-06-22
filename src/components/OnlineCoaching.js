@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import Modal from "./Modal";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
-import { DispatchContext } from "../Context";
+import { DispatchContext } from "../context";
 import { OPEN_MODAL_ONLINE_COURSE } from "../ActionTypes";
 
 export default function OnlineCoaching() {

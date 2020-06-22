@@ -40,7 +40,7 @@ export default function Workshops() {
           from another viewpoint.
         </p>
       </div> */}
-      <WorkshopsList />
+      <WorkshopsList user />
       <Footer />
       <Modal parentPage="/workshops" />
     </div>

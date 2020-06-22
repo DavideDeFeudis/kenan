@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import Workshop from "./Workshop";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../Context";
+import { StateContext, DispatchContext } from "../context";
 import { GET_WORKSHOPS } from "../ActionTypes";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export default function WorkshopsList() {
+export default function WorkshopsList({ admin, user }) {
   const { workshops, loading } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
@@ -39,7 +39,7 @@ export default function WorkshopsList() {
         return aDate - bDate;
       })
       .map((workshop) => {
-        return <Workshop user key={workshop._id} workshop={workshop} />;
+        return <Workshop admin={admin} user={user} key={workshop._id} workshop={workshop} />;
       });
 
   if (!loading && workshops && workshops.length > 0) {
