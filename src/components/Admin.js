@@ -14,7 +14,7 @@ export default function Admin() {
       <Navbar admin />
       <div className="main container-fluid text-center">
         <section id="create-section">
-          <CreateForm newWorkshop={newWorkshop} />
+          <CreateForm />
         </section>
 
         <section id="preview">

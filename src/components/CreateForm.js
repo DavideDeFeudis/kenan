@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
-import { DispatchContext } from "../context";
+import { StateContext, DispatchContext } from "../context";
 import { SET_NEW_WORKSHOP, CREATE_WORKSHOP } from "../ActionTypes";
 // import uuidv1 from "uuid/v1";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export default function CreateForm({ newWorkshop }) {
+export default function CreateForm() {
+  const { newWorkshop } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   const initialState = {

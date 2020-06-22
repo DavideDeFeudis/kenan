@@ -3,17 +3,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
-// import { StateContext } from "../context";
-import { DispatchContext } from "../context";
+import { StateContext, DispatchContext } from "../context";
 import * as types from "../ActionTypes";
-// import uuidv1 from "uuid/v1";
 
-export default function Workshop(props) {
-  // const {workshops} = useContext(StateContext);
+export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);
-
-  const { admin, preview, user, workshop } = props;
-  // console.log('workshop:', workshop)
 
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
