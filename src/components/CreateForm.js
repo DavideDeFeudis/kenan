@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
 import { StateContext, DispatchContext } from "../context";
-import { SET_NEW_WORKSHOP, CREATE_WORKSHOP } from "../ActionTypes";
+import * as types from "../ActionTypes";
 // import uuidv1 from "uuid/v1";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
@@ -32,14 +32,14 @@ export default function CreateForm() {
 
   const clearInputs = () => {
     dispatch({
-      type: SET_NEW_WORKSHOP,
+      type: types.SET_NEW_WORKSHOP,
       payload: initialState,
     });
   };
 
   const handleChange = (e) => {
     dispatch({
-      type: SET_NEW_WORKSHOP,
+      type: types.SET_NEW_WORKSHOP,
       payload: {
         ...newWorkshop,
         [e.target.name]: e.target.value,
@@ -50,6 +50,7 @@ export default function CreateForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     clearInputs();
+    dispatch({ type: types.REQUEST });
 
     fetch(`${baseUrl}/admin/workshop`, {
       method: "POST",
@@ -60,7 +61,7 @@ export default function CreateForm() {
     })
       .then((res) => res.json())
       .then((json) => {
-        dispatch({ type: CREATE_WORKSHOP, payload: json });
+        dispatch({ type: types.CREATE_WORKSHOP, payload: json });
       })
       .catch((e) => {
         console.log(e);

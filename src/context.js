@@ -17,6 +17,12 @@ const initialValue = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case types.REQUEST:
+      console.log("REQUEST:");
+      return {
+        ...state,
+        loading: true,
+      };
     case types.SET_NEW_WORKSHOP:
       console.log("SET_NEW_WORKSHOP:");
       return {
@@ -27,18 +33,21 @@ const reducer = (state, action) => {
       console.log("GET_WORKSHOPS:");
       return {
         ...state,
+        loading: false,
         workshops: action.payload,
       };
     case types.CREATE_WORKSHOP:
       console.log("CREATE_WORKSHOP:");
       return {
         ...state,
+        loading: false,
         workshops: [...state.workshops, action.payload],
       };
     case types.DELETE_WORKSHOP:
       console.log("DELETE_WORKSHOP:");
       return {
         ...state,
+        loading: false,
         workshops: state.workshops.filter(
           (item) => item._id !== action.payload
         ),

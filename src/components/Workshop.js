@@ -3,16 +3,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
-import { StateContext, DispatchContext } from "../context";
+import { DispatchContext } from "../context";
 import * as types from "../ActionTypes";
 
 export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);
-
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
   const deleteWorkshop = async (_id) => {
-    // dispatch request
+    dispatch({ type: types.REQUEST });
     try {
       await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
