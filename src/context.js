@@ -5,16 +5,19 @@ import * as types from "./ActionTypes";
 export const StateContext = React.createContext();
 export const DispatchContext = React.createContext();
 
+const DEFAULT = "DEFAULT";
+const LOADING = "LOADING";
+const SUCCESS = "SUCCESS";
+const FAIL = "FAIL";
+
 const initialValue = {
   newWorkshop: {},
   workshops: [],
   onlineCourse,
   videos,
-  loading: false,
   modalItem: {},
   isModalOpen: false,
-  requestSuccess: false,
-  requestFail: false,
+  status: DEFAULT,
 };
 
 const reducer = (state, action) => {
@@ -22,14 +25,12 @@ const reducer = (state, action) => {
     case types.REQUEST:
       return {
         ...state,
-        loading: true,
-        requestFail: false,
+        status: LOADING,
       };
     case types.REQUEST_FAIL:
       return {
         ...state,
-        loading: false,
-        requestFail: true,
+        status: FAIL,
       };
     case types.SET_NEW_WORKSHOP:
       return {
@@ -39,20 +40,19 @@ const reducer = (state, action) => {
     case types.GET_WORKSHOPS:
       return {
         ...state,
-        loading: false,
+        status: SUCCESS,
         workshops: action.payload,
       };
     case types.CREATE_WORKSHOP:
       return {
         ...state,
-        loading: false,
-        requestSuccess: true,
+        status: SUCCESS,
         workshops: [...state.workshops, action.payload],
       };
     case types.DELETE_WORKSHOP:
       return {
         ...state,
-        loading: false,
+        status: SUCCESS,
         workshops: state.workshops.filter(
           (item) => item._id !== action.payload
         ),
