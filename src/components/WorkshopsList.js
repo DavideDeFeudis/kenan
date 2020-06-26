@@ -5,8 +5,13 @@ import { StateContext, DispatchContext } from "../context";
 import * as types from "../ActionTypes";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
+const DEFAULT = "DEFAULT";
+const LOADING = "LOADING";
+const SUCCESS = "SUCCESS";
+const FAIL = "FAIL";
+
 export default function WorkshopsList({ admin, user }) {
-  const { workshops, loading } = useContext(StateContext);
+  const { workshops, status } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
@@ -43,11 +48,11 @@ export default function WorkshopsList({ admin, user }) {
         return <Workshop admin={admin} user={user} key={workshop._id} workshop={workshop} />;
       });
 
-  if (!loading && workshops && workshops.length > 0) {
+  if (status === SUCCESS && workshops && workshops.length > 0) {
     content = workshopComponents;
-  } else if (!loading && !workshops) {
+  } else if (status === FAIL && !workshops) {
     content = <p className="my-5">There was a problem loading workshops</p>;
-  } else if (!loading && workshops.length === 0) {
+  } else if (status === SUCCESS && workshops.length === 0) {
     content = <p className="my-5">There are no workshops at the moment</p>;
   }
 

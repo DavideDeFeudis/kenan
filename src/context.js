@@ -44,6 +44,11 @@ const reducer = (state, action) => {
         workshops: action.payload,
       };
     case types.CREATE_WORKSHOP:
+      let i = 0;
+      while (i < 300000000) {
+        i++;
+      }
+
       return {
         ...state,
         status: SUCCESS,

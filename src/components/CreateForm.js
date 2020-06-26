@@ -1,15 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
 import { StateContext, DispatchContext } from "../context";
 import * as types from "../ActionTypes";
+import loadingGif from "../images/load.gif";
 // import uuidv1 from "uuid/v1";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
+const DEFAULT = "DEFAULT";
+const LOADING = "LOADING";
+const SUCCESS = "SUCCESS";
+const FAIL = "FAIL";
+
 export default function CreateForm() {
-  const { newWorkshop, requestSuccess, requestFail } = useContext(StateContext);
+  const [createStatus, setCreateStatus] = useState(DEFAULT);
+  const { newWorkshop } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   const initialState = {
@@ -38,6 +45,7 @@ export default function CreateForm() {
   };
 
   const handleChange = (e) => {
+    // setCreateStatus(DEFAULT);
     dispatch({
       type: types.SET_NEW_WORKSHOP,
       payload: {
@@ -50,8 +58,7 @@ export default function CreateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     clearInputs();
-    dispatch({ type: types.REQUEST });
-
+    setCreateStatus(LOADING);
     try {
       // throw new Error();
 
@@ -64,9 +71,11 @@ export default function CreateForm() {
       });
       const json = await res.json();
       dispatch({ type: types.CREATE_WORKSHOP, payload: json });
+      setCreateStatus(SUCCESS);
     } catch (e) {
       console.log(e);
       dispatch({ type: types.REQUEST_FAIL });
+      setCreateStatus(FAIL);
     }
   };
 
@@ -210,11 +219,18 @@ export default function CreateForm() {
         </Button>
       </div>
 
-      {requestSuccess && (
+      {createStatus === LOADING && (
+        <div className="loading-spinner container text-center">
+          <img src={loadingGif} width="40" height="40" alt="In progress..." />
+          <p className="mt-3">In progress...</p>
+        </div>
+      )}
+
+      {createStatus === SUCCESS && (
         <p className="mb-3 text-success">Published successfully</p>
       )}
 
-      {requestFail && (
+      {createStatus === FAIL && (
         <p className="mb-3 text-danger">Couldn't publish workshop</p>
       )}
     </form>
