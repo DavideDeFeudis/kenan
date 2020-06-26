@@ -4,7 +4,7 @@ import Footer from './Footer';
 import ReactPlayer from 'react-player'
 
 export default function VideoSection({ url, info }) {
-    console.log(url, info)
+    // console.log(url, info)
     return (
         <div className='Video'>
             <Navbar />

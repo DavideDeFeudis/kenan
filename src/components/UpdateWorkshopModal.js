@@ -18,7 +18,7 @@ export default function UpdateWorkshopModal(props) {
     addWorkshopToTempWS 
   } = props // coming from admin
 
-  console.log('newWorkshop:', newWorkshop)
+  // console.log('newWorkshop:', newWorkshop)
   // console.log('UpdateWorkshopModal props:', props)
 
   // const [modalMessage, setModalMessage] = useState('')
@@ -91,7 +91,7 @@ export default function UpdateWorkshopModal(props) {
                   formData={modalItem}
                   setFormData={setFormData}
                   addWorkshopToTempWS={addWorkshopToTempWS}
-                  secondaryID={secondaryID}
+                  _id={_id}
                 /> */}
                 {/* <div id='line'></div>
                 <div id='price-area'>

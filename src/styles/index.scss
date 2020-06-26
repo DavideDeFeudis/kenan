@@ -12,13 +12,23 @@ body {
   color: rgb(199, 199, 199);
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  border: 1px solid rgb(65, 65, 65);
+  margin: 3rem 0;
+}
 p {
   margin: 0;
 }
 
 .main-content {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  max-width: 50rem;
+  padding: 3rem 2rem;
 }
 
 .navbar {
@@ -105,15 +115,6 @@ footer {
   }
 }
 
-#sunson-img-container {
-  max-width: 1325px;
-  #sunson-img {
-    width: 100%;
-    margin: auto;
-    display: block;
-  }
-}
-
 .modal-container {
   position: fixed;
   top: 0;
@@ -131,6 +132,7 @@ footer {
     background: #202020;
     position: relative;
     padding: 2.5em;
+    // min-width: 28rem;
   }
   #close-modal-icon {
     position: absolute;
@@ -158,6 +160,8 @@ footer {
 }
 
 .form {
+  max-width: 34rem;
+  margin: 0 auto;
   text-align: center;
   textarea,
   textarea:focus,
@@ -189,6 +193,24 @@ footer {
   border-bottom: 1px solid rgb(55, 55, 55);
   width: 60%;
   margin: 0.6em auto;
+}
+
+.Sunson {
+  .navbar {
+    background-image: linear-gradient(
+      to right,
+      transparent 45%,
+      rgba(0, 0, 0, 0.6) 80%
+    ) !important;
+  }
+  // #sunson-img-container {
+  //   max-width: 1325px;
+  //   #sunson-img {
+  //     width: 100%;
+  //     margin: auto;
+  //     display: block;
+  //   }
+  // }
 }
 
 .Admin {
@@ -234,7 +256,7 @@ footer {
   }
 }
 
-.fetching-spinner {
+.loading-spinner {
   margin: 5em auto;
 }
 
@@ -260,15 +282,32 @@ footer {
       margin-bottom: 2em;
     }
   }
+  .Sunson {
+    .main-content {
+      margin-bottom: 20vh; // push footer to bottom
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .Sunson {
+    .navbar {
+      background-image: linear-gradient(
+        to right,
+        transparent 70%,
+        rgba(0, 0, 0, 0.6) 100%
+      ) !important;
+    }
+  }
   // < bootstrap md breakpoint
   .navbar-nav {
     // when collapsed
     padding: 10px;
     background-color: rgb(21, 21, 21);
   }
+}
+
+.OnlineCoaching {
 }
 
 @media screen and (max-width: 574px) {

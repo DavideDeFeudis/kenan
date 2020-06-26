@@ -1,28 +1,30 @@
-export const deleteWorkshop = (secondaryID) => {
-    return fetch(`${process.env.REACT_APP_BACKEND_HOST}/admin/workshop/` + secondaryID, {
-        method: 'delete'
+const baseUrl = process.env.REACT_APP_BACKEND_HOST;
+
+export const deleteWorkshop = (_id) => {
+  return fetch(`${baseUrl}/admin/workshop/${_id}`, {
+    method: "delete",
+  })
+    .then((response) => {
+      response.json();
     })
-        .then(response => {
-            response.json()
-        })
-        .catch(err => {
-            console.log(err)
-        })
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 export const createWorkshop = (formData) => {
-    fetch(`${process.env.REACT_APP_BACKEND_HOST}/admin/workshop`, {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-            "Content-Type": "application/json"
-        }
+  fetch(`${baseUrl}/admin/workshop`, {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log("json:", json);
     })
-        .then(response => response.json())
-        .then(json => {
-            console.log('json:', json)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-}
+    .catch((err) => {
+      console.log(err);
+    });
+};

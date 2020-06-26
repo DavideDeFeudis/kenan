@@ -2,13 +2,13 @@ import React from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 // import ReactPlayer from 'react-player'
-// import backgroundSmall from "../images/sunsonImg.jpg";
-import backgroundLarge from "../images/sunsonImg.jpg";
-// import Background from './Background';
+import backgroundSmall from "../images/sunsonImg_500.jpg";
+import backgroundLarge from "../images/sunsonImg_1920.jpg";
+import Background from './Background';
 
 export default function VideoSunson() {
     return (
-        <div className='Video'>
+        <div className='Sunson'>
             <Navbar />
             {/* <div className="wrap">
                 <div className='player-wrapper'>
@@ -20,14 +20,14 @@ export default function VideoSunson() {
                     />
                 </div>
             </div> */}
-            {/* <Background
+            <Background
                 small={backgroundSmall}
                 large={backgroundLarge}
-            /> */}
-            <div id='sunson-img-container' className="container">
+            />
+            {/* <div id='sunson-img-container' className="container">
                 <img id='sunson-img' src={backgroundLarge} alt="Sunson choreography" />
-            </div>
-            <div className="container main-content text-center">
+            </div> */}
+            <div className="container main-content">
                 <p>
                     Choreography: Kenan Dinkelmann<br />
                     Dancers: Josephine Haas, Asuka J. Riedl, Felipe Fizkal, Carlos Aller<br />

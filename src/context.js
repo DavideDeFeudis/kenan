@@ -1,116 +1,101 @@
-import React, { Component } from 'react'
-import { localWorkshops, localVideos } from "./data"
+import React, { useReducer } from "react";
+import { videos, onlineCourse } from "./data";
+import * as types from "./ActionTypes";
 
-const Context = React.createContext()
+export const StateContext = React.createContext();
+export const DispatchContext = React.createContext();
 
-class Provider extends Component {
-    state = {
-        workshops: [],
-        customers: [],
-        videos: [],
-        loading: true, // need?
+const DEFAULT = "DEFAULT";
+const LOADING = "LOADING";
+const SUCCESS = "SUCCESS";
+const FAIL = "FAIL";
+
+const initialValue = {
+  newWorkshop: {},
+  workshops: [],
+  onlineCourse,
+  videos,
+  modalItem: {},
+  isModalOpen: false,
+  status: DEFAULT,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case types.REQUEST:
+      return {
+        ...state,
+        status: LOADING,
+      };
+    case types.REQUEST_FAIL:
+      return {
+        ...state,
+        status: FAIL,
+      };
+    case types.SET_NEW_WORKSHOP:
+      return {
+        ...state,
+        newWorkshop: action.payload,
+      };
+    case types.GET_WORKSHOPS:
+      return {
+        ...state,
+        status: SUCCESS,
+        workshops: action.payload,
+      };
+    case types.CREATE_WORKSHOP:
+      let i = 0;
+      while (i < 300000000) {
+        i++;
+      }
+
+      return {
+        ...state,
+        status: SUCCESS,
+        workshops: [...state.workshops, action.payload],
+      };
+    case types.DELETE_WORKSHOP:
+      return {
+        ...state,
+        status: SUCCESS,
+        workshops: state.workshops.filter(
+          (item) => item._id !== action.payload
+        ),
+      };
+    case types.OPEN_MODAL_WORKSHOP:
+      return {
+        ...state,
+        modalItem: state.workshops.find(
+          (workshop) => workshop._id === action.payload
+        ),
+        isModalOpen: true,
+      };
+    case types.OPEN_MODAL_ONLINE_COURSE:
+      return {
+        ...state,
+        modalItem: onlineCourse,
+        isModalOpen: true,
+      };
+    case types.CLOSE_MODAL:
+      return {
+        ...state,
+        modalItem: {},
         isModalOpen: false,
-        modalItem: {}
-    }
+      };
+    default:
+      console.error(`Unhandled action type: ${action.type}`);
+      return state;
+  }
+};
 
-    componentDidMount() {
-        // this.getLocalData()
-        this.getLocalVideos()
-        this.getWorkshops()
-        // this.getCustomers()
-    }
+export default ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialValue);
 
-    getLocalVideos = async () => {
-        this.setState({
-            // workshops: localWorkshops,
-            // modalItem: localWorkshops[0],
-            videos: localVideos,
-            loading: false
-        }, () => {
-            // console.log('getLocalData context state: ', this.state)
-        })
-    }
-
-    getLocalData = async () => {
-        this.setState({
-            workshops: localWorkshops,
-            // modalItem: localWorkshops[0],
-            // videos: localVideos,
-            loading: false
-        }, () => {
-            // console.log('getLocalData context state: ', this.state)
-        })
-    }
-
-    getWorkshops = async () => {
-        const baseUrl = process.env.REACT_APP_BACKEND_HOST
-        console.log('context baseUrl:', baseUrl)
-        try {
-            const req = await fetch(`${baseUrl}/workshops`, {
-                headers: { "Content-Type": "application/json" } // need?
-            })
-            const workshops = await req.json()
-            this.setState({
-                workshops,
-                loading: false
-            }, () => {
-                // console.log('getWorkshops context state: ', this.state)
-            })
-        }
-        catch (error) {
-            console.log("context: error fetching data", error)
-        }
-    }
-
-    // getCustomers = async () => {
-    //     const baseUrl = process.env.REACT_APP_BACKEND_HOST 
-    //     // console.log('baseUrl:', baseUrl)
-
-    //     try {
-    //         const req = await fetch(`${baseUrl}/customers`, {
-    //             headers: { "Content-Type": "application/json" } // need?
-    //         })
-    //         const customers = await req.json()
-
-    //         this.setState({
-    //             customers,
-    //             loading: false
-    //         }, () => console.log('getCustomers context state: ', this.state))
-    //     }
-    //     catch (error) {
-    //         console.log("context: error fetching data", error)
-    //     }
-    // }
-
-    getItem = id => {
-        return this.state.workshops.find(item => item.secondaryID === id);
-    };
-
-    openModal = id => {
-        const item = this.getItem(id);
-        this.setState(() => {
-            return { modalItem: item, isModalOpen: true };
-        });
-    };
-
-    closeModal = () => {
-        this.setState(() => {
-            return { isModalOpen: false, modalType: '' };
-        });
-    };
-
-    render() {
-        return (
-            <Context.Provider value={{
-                ...this.state,
-                openModal: this.openModal,
-                closeModal: this.closeModal
-            }}>
-                {this.props.children}
-            </Context.Provider>
-        )
-    }
-}
-
-const Consumer = Context.Consumer
-export { Context, Provider, Consumer }
+  return (
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
+    </StateContext.Provider>
+  );
+};

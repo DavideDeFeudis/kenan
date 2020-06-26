@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export const useHttp = (url, dependencies) => {
-    const [isLoading, setIsLoading] = useState(true)
+    const [loading, setIsLoading] = useState(true)
     const [fetchedData, setFetchedData] = useState(null)
 
     useEffect(() => {
@@ -24,5 +24,5 @@ export const useHttp = (url, dependencies) => {
         // setTimeout(fetchData, 5000);
 
     }, dependencies)
-    return [isLoading, fetchedData]
+    return [loading, fetchedData]
 }

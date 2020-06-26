@@ -1,19 +1,29 @@
-import React, {
-  // useState,
-  useContext
-} from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import React, { useContext } from "react";
+// import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
-import { Context } from "../context";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
+import { DispatchContext } from "../context";
+import * as types from "../ActionTypes";
 
-export default function Workshop(props) {
-  const { openModal } = useContext(Context);
-  const { admin, preview, user, handleDelete, workshop, duplicate } = props;
-  // console.log('workshop:', workshop)
+export default function Workshop({ admin, preview, user, workshop }) {
+  const dispatch = useContext(DispatchContext);
+  const baseUrl = process.env.REACT_APP_BACKEND_HOST;
+
+  const deleteWorkshop = async (_id) => {
+    dispatch({ type: types.REQUEST });
+    try {
+      await fetch(`${baseUrl}/admin/workshop/${_id}`, {
+        method: "delete",
+      });
+      dispatch({ type: types.DELETE_WORKSHOP, payload: _id });
+    } catch (err) {
+      console.log(err);
+      // dispatch delete failure
+    }
+  };
+
   const {
-    secondaryID,
     _id,
     title,
     address,
@@ -30,59 +40,78 @@ export default function Workshop(props) {
     price2,
     price3,
     price4,
-    customers
+    customers,
   } = workshop;
-  // console.log('workshop _id:', title, workshop._id)
-  // console.log('secondaryID:', title, secondaryID)
+
   // generate priceArea with truthy values
-  const priceLabelArray = [priceLabel1, priceLabel2, priceLabel3, priceLabel4];
-  const priceArray = [price1, price2, price3, price4];
-  const truthyPriceLabelArray = priceLabelArray.filter(Boolean);
-  const truthyPriceArray = priceArray.filter(Boolean);
-  const priceArea = truthyPriceLabelArray.map((label, i) => {
+  const priceLabels = [
+    priceLabel1,
+    priceLabel2,
+    priceLabel3,
+    priceLabel4,
+  ].filter(Boolean);
+  const prices = [price1, price2, price3, price4].filter(Boolean);
+  const priceArea = priceLabels.map((label, i) => {
     return (
       <span key={i}>
         {label}
-        {truthyPriceArray[i]}
+        {prices[i]}
         <br />
       </span>
     );
   });
+
   const userButtons = (
     <Link to="/workshops">
       <Button
         type="button"
         className="mt-4"
-        onClick={() => openModal(secondaryID)}
+        onClick={() =>
+          dispatch({
+            type: types.OPEN_MODAL_WORKSHOP,
+            payload: _id,
+          })
+        }
       >
         Info
       </Button>
     </Link>
   );
+
   const adminButtons = (
     <div className="my-4">
       <Link to="/admin">
-        <AnchorLink href="#create-section">
-          <Button
-            type="button"
-            className="admin-button"
-            onClick={() => duplicate(workshop)}
-          >
-            Duplicate
-          </Button>
-        </AnchorLink>
+        {/* <AnchorLink href="#create-section"> */}
+        <Button
+          type="button"
+          className="admin-button"
+          onClick={() => {
+            dispatch({
+              type: types.SET_NEW_WORKSHOP,
+              payload: {
+                ...workshop,
+                _id: undefined,
+                customers: [],
+              },
+            });
+          }}
+        >
+          Duplicate
+        </Button>
+        {/* </AnchorLink> */}
       </Link>
       <Link to="/admin">
         <Button
           type="button"
           className="admin-button"
-          onClick={() => handleDelete(secondaryID)}
+          onClick={() => deleteWorkshop(_id)}
         >
           Delete
         </Button>
       </Link>
     </div>
   );
+
   let buttons = null; // for preview
   if (admin) {
     buttons = adminButtons;
@@ -90,12 +119,13 @@ export default function Workshop(props) {
     buttons = userButtons;
   }
   let customersList = null;
+
   if (customers && customers.length) {
     // customers is undefined on first render
     customersList = (
       <div className="mt-3">
         <p>Attendees:</p>
-        {customers.map(customer => {
+        {customers.map((customer) => {
           return (
             <p key={customer._id}>
               {customer.firstName} {customer.lastName} - {customer.email}
@@ -107,8 +137,10 @@ export default function Workshop(props) {
   } else {
     customersList = <p className="mt-3">No one signed up yet</p>;
   }
+
   let date = "";
   if (startDate && endDate) date = formatDate(startDate, endDate);
+
   let time = "";
   if (startTime && endTime) time = startTime + "-" + endTime;
 
