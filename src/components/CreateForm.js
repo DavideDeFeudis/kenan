@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
@@ -19,33 +19,19 @@ export default function CreateForm() {
   const { newWorkshop } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
-  const initialState = {
-    title: "",
-    address: "",
-    info: "",
-    startDate: "",
-    startTime: "",
-    endDate: "",
-    endTime: "",
-    priceLabel1: "",
-    priceLabel2: "",
-    priceLabel3: "",
-    priceLabel4: "",
-    price1: "",
-    price2: "",
-    price3: "",
-    price4: "",
-  };
+  // removes success/fail message when starting to create next workshop (onChange or by duplicating)
+  useEffect(() => {
+    setCreateStatus(newWorkshop !== {} && DEFAULT);
+  }, [newWorkshop]);
 
   const clearInputs = () => {
     dispatch({
       type: types.SET_NEW_WORKSHOP,
-      payload: initialState,
+      payload: {},
     });
   };
 
   const handleChange = (e) => {
-    // setCreateStatus(DEFAULT);
     dispatch({
       type: types.SET_NEW_WORKSHOP,
       payload: {
