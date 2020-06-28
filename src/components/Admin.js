@@ -7,7 +7,7 @@ import { StateContext } from "../context";
 import WorkshopsList from "./WorkshopsList";
 
 export default function Admin() {
-  const { newWorkshop } = useContext(StateContext);
+  const { workshopDraft } = useContext(StateContext);
 
   return (
     <div className="Admin">
@@ -19,7 +19,7 @@ export default function Admin() {
 
         <section id="preview">
           <h2>Preview</h2>
-          <Workshop preview workshop={newWorkshop} />
+          <Workshop preview workshop={workshopDraft} />
         </section>
 
         <section className="published">

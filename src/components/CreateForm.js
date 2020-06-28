@@ -1,41 +1,34 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
-import { StateContext, DispatchContext } from "../context";
-import * as types from "../ActionTypes";
 import loadingGif from "../images/load.gif";
-// import uuidv1 from "uuid/v1";
+import { StateContext, DispatchContext } from "../context";
+import {
+  SET_PREVIEW,
+  CREATE_REQUEST,
+  CREATE_SUCCESS,
+  CREATE_ERROR,
+} from "../ActionTypes";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-const DEFAULT = "DEFAULT";
-const LOADING = "LOADING";
-const SUCCESS = "SUCCESS";
-const FAIL = "FAIL";
-
 export default function CreateForm() {
-  const [createStatus, setCreateStatus] = useState(DEFAULT);
-  const { newWorkshop } = useContext(StateContext);
+  const { workshopDraft, createStatus } = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
-
-  // removes success/fail message when starting to create next workshop (onChange or by duplicating)
-  useEffect(() => {
-    setCreateStatus(newWorkshop !== {} && DEFAULT);
-  }, [newWorkshop]);
 
   const clearInputs = () => {
     dispatch({
-      type: types.SET_NEW_WORKSHOP,
+      type: SET_PREVIEW,
       payload: {},
     });
   };
 
   const handleChange = (e) => {
     dispatch({
-      type: types.SET_NEW_WORKSHOP,
+      type: SET_PREVIEW,
       payload: {
-        ...newWorkshop,
+        ...workshopDraft,
         [e.target.name]: e.target.value,
       },
     });
@@ -44,24 +37,22 @@ export default function CreateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     clearInputs();
-    setCreateStatus(LOADING);
+    dispatch({ type: CREATE_REQUEST });
     try {
       // throw new Error();
 
       const res = await fetch(`${baseUrl}/admin/workshop`, {
         method: "POST",
-        body: JSON.stringify(newWorkshop),
+        body: JSON.stringify(workshopDraft),
         headers: {
           "Content-Type": "application/json",
         },
       });
       const json = await res.json();
-      dispatch({ type: types.CREATE_WORKSHOP, payload: json });
-      setCreateStatus(SUCCESS);
+      dispatch({ type: CREATE_SUCCESS, payload: json });
     } catch (e) {
-      console.log(e);
-      dispatch({ type: types.REQUEST_FAIL });
-      setCreateStatus(FAIL);
+      // console.log(e);
+      dispatch({ type: CREATE_ERROR });
     }
   };
 
@@ -74,7 +65,7 @@ export default function CreateForm() {
             id="title"
             name="title"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="address">Address*</label>
@@ -82,7 +73,7 @@ export default function CreateForm() {
             id="address"
             name="address"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="info">Info</label>
@@ -90,7 +81,7 @@ export default function CreateForm() {
             id="info"
             name="info"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
         </div>
         <div className="col-sm-6 col-lg">
@@ -100,7 +91,7 @@ export default function CreateForm() {
             type="date"
             name="startDate"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="end-date">End date*</label>
@@ -109,7 +100,7 @@ export default function CreateForm() {
             type="date"
             name="endDate"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="start-time">Start time</label>
@@ -118,7 +109,7 @@ export default function CreateForm() {
             type="time"
             name="startTime"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
           <label htmlFor="end-time">End time</label>
           <Input
@@ -126,7 +117,7 @@ export default function CreateForm() {
             type="time"
             name="endTime"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
         </div>
         <div className="col-sm-6 col-lg">
@@ -135,7 +126,7 @@ export default function CreateForm() {
             id="priceLabel1"
             name="priceLabel1"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="priceLabel2">Price label 2</label>
@@ -143,21 +134,21 @@ export default function CreateForm() {
             id="priceLabel2"
             name="priceLabel2"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
           <label htmlFor="priceLabel3">Price label 3</label>
           <Input
             id="priceLabel3"
             name="priceLabel3"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
           <label htmlFor="priceLabel4">Price label 4</label>
           <Input
             id="priceLabel4"
             name="priceLabel4"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
         </div>
         <div className="col-sm-6 col-lg">
@@ -167,7 +158,7 @@ export default function CreateForm() {
             name="price1"
             type="number"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
             required
           />
           <label htmlFor="price2">Price 2</label>
@@ -176,7 +167,7 @@ export default function CreateForm() {
             name="price2"
             type="number"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
           <label htmlFor="price3">Price 3</label>
           <Input
@@ -184,7 +175,7 @@ export default function CreateForm() {
             name="price3"
             type="number"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
           <label htmlFor="price4">Price 4</label>
           <Input
@@ -192,7 +183,7 @@ export default function CreateForm() {
             name="price4"
             type="number"
             onChange={handleChange}
-            newWorkshop={newWorkshop}
+            workshopDraft={workshopDraft}
           />
         </div>
       </div>
@@ -205,18 +196,18 @@ export default function CreateForm() {
         </Button>
       </div>
 
-      {createStatus === LOADING && (
+      {createStatus === CREATE_REQUEST && (
         <div className="loading-spinner container text-center">
           <img src={loadingGif} width="40" height="40" alt="In progress..." />
           <p className="mt-3">In progress...</p>
         </div>
       )}
 
-      {createStatus === SUCCESS && (
+      {createStatus === CREATE_SUCCESS && (
         <p className="mb-3 text-success">Published successfully</p>
       )}
 
-      {createStatus === FAIL && (
+      {createStatus === CREATE_ERROR && (
         <p className="mb-3 text-danger">Couldn't publish workshop</p>
       )}
     </form>

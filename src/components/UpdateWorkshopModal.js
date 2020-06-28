@@ -13,12 +13,12 @@ export default function UpdateWorkshopModal(props) {
   } = useContext(Context)
 
   const {
-    newWorkshop, 
-    setNewWorkshop, 
+    workshopDraft, 
+    setworkshopDraft, 
     addWorkshopToTempWS 
   } = props // coming from admin
 
-  // console.log('newWorkshop:', newWorkshop)
+  // console.log('workshopDraft:', workshopDraft)
   // console.log('UpdateWorkshopModal props:', props)
 
   // const [modalMessage, setModalMessage] = useState('')
@@ -83,8 +83,8 @@ export default function UpdateWorkshopModal(props) {
                 <h2>{title}</h2>
                 <span>{date}</span>
                 <CreateForm
-                  newWorkshop={newWorkshop}
-                  setNewWorkshop={setNewWorkshop}
+                  workshopDraft={workshopDraft}
+                  setworkshopDraft={setworkshopDraft}
                   addWorkshopToTempWS={addWorkshopToTempWS}
                 />
                 {/* <CreateForm

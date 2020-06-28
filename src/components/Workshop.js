@@ -4,22 +4,28 @@ import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
 import { DispatchContext } from "../context";
-import * as types from "../ActionTypes";
+import {
+  SET_PREVIEW,
+  // DELETE_REQUEST,
+  DELETE_SUCCESS,
+  // DELETE_ERROR,
+  OPEN_MODAL_WORKSHOP,
+} from "../ActionTypes";
 
 export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
   const deleteWorkshop = async (_id) => {
-    dispatch({ type: types.REQUEST });
+    // dispatch({ type: DELETE_REQUEST });
     try {
       await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
       });
-      dispatch({ type: types.DELETE_WORKSHOP, payload: _id });
+      dispatch({ type: DELETE_SUCCESS, payload: _id });
     } catch (err) {
       console.log(err);
-      // dispatch delete failure
+      // dispatch({ type: DELETE_ERROR });
     }
   };
 
@@ -68,7 +74,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
         className="mt-4"
         onClick={() =>
           dispatch({
-            type: types.OPEN_MODAL_WORKSHOP,
+            type: OPEN_MODAL_WORKSHOP,
             payload: _id,
           })
         }
@@ -87,7 +93,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
           className="admin-button"
           onClick={() => {
             dispatch({
-              type: types.SET_NEW_WORKSHOP,
+              type: SET_PREVIEW,
               payload: {
                 ...workshop,
                 _id: undefined,
