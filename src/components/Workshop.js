@@ -118,7 +118,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
     </div>
   );
 
-  let buttons = null; // for preview
+  let buttons = null;
   if (admin) {
     buttons = adminButtons;
   } else if (user) {
@@ -127,7 +127,6 @@ export default function Workshop({ admin, preview, user, workshop }) {
   let customersList = null;
 
   if (customers && customers.length) {
-    // customers is undefined on first render
     customersList = (
       <div className="mt-3">
         <p>Attendees:</p>

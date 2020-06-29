@@ -51,7 +51,7 @@ export default function CreateForm() {
       const json = await res.json();
       dispatch({ type: CREATE_SUCCESS, payload: json });
     } catch (e) {
-      // console.log(e);
+      console.log(e);
       dispatch({ type: CREATE_ERROR });
     }
   };

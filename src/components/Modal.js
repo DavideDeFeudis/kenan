@@ -43,15 +43,18 @@ export default function Modal({ parentPage }) {
   };
 
   // generate priceArea with truthy values
-  const priceLabelArray = [priceLabel1, priceLabel2, priceLabel3, priceLabel4];
-  const priceArray = [price1, price2, price3, price4];
-  const truthyPriceLabelArray = priceLabelArray.filter(Boolean);
-  const truthyPriceArray = priceArray.filter(Boolean);
-  const priceArea = truthyPriceLabelArray.map((label, i) => {
+  const priceLabels = [
+    priceLabel1,
+    priceLabel2,
+    priceLabel3,
+    priceLabel4,
+  ].filter(Boolean);
+  const prices = [price1, price2, price3, price4].filter(Boolean);
+  const priceArea = priceLabels.map((label, i) => {
     return (
       <span key={i}>
         {label}
-        {truthyPriceArray[i]}
+        {prices[i]}
         <br />
       </span>
     );
