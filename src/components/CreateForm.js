@@ -4,12 +4,8 @@ import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
 import loadingGif from "../images/load.gif";
 import { StateContext, DispatchContext } from "../context";
-import {
-  SET_PREVIEW,
-  CREATE_REQUEST,
-  CREATE_SUCCESS,
-  CREATE_ERROR,
-} from "../ActionTypes";
+import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_ERROR } from "../ActionTypes";
+import { setPreview } from "../ActionCreators";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
@@ -18,20 +14,16 @@ export default function CreateForm() {
   const dispatch = useContext(DispatchContext);
 
   const clearInputs = () => {
-    dispatch({
-      type: SET_PREVIEW,
-      payload: {},
-    });
+    dispatch(setPreview({}));
   };
 
   const handleChange = (e) => {
-    dispatch({
-      type: SET_PREVIEW,
-      payload: {
+    dispatch(
+      setPreview({
         ...workshopDraft,
         [e.target.name]: e.target.value,
-      },
-    });
+      })
+    );
   };
 
   const handleSubmit = async (e) => {

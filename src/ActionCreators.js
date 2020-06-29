@@ -27,3 +27,7 @@ export const getError = () => ({
   type: GET_ERROR,
 });
 
+export const setPreview = (payload) => ({
+  type: SET_PREVIEW,
+  payload,
+});

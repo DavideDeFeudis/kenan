@@ -5,12 +5,12 @@ import { Button } from "./Button";
 import { formatDate } from "../utils";
 import { DispatchContext } from "../context";
 import {
-  SET_PREVIEW,
   // DELETE_REQUEST,
   DELETE_SUCCESS,
   // DELETE_ERROR,
   OPEN_MODAL_WORKSHOP,
 } from "../ActionTypes";
+import { setPreview } from "../ActionCreators";
 
 export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);
@@ -92,14 +92,13 @@ export default function Workshop({ admin, preview, user, workshop }) {
           type="button"
           className="admin-button"
           onClick={() => {
-            dispatch({
-              type: SET_PREVIEW,
-              payload: {
+            dispatch(
+              setPreview({
                 ...workshop,
                 _id: undefined,
                 customers: [],
-              },
-            });
+              })
+            );
           }}
         >
           Duplicate
