@@ -31,3 +31,16 @@ export const setPreview = (payload) => ({
   type: SET_PREVIEW,
   payload,
 });
+
+export const createRequest = () => ({
+  type: CREATE_REQUEST,
+});
+
+export const createSuccess = (payload) => ({
+  type: CREATE_SUCCESS,
+  payload,
+});
+
+export const createError = () => ({
+  type: CREATE_ERROR,
+});

@@ -5,7 +5,7 @@ import Input from "./form/Input";
 import loadingGif from "../images/load.gif";
 import { StateContext, DispatchContext } from "../context";
 import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_ERROR } from "../ActionTypes";
-import { setPreview } from "../ActionCreators";
+import { setPreview, createRequest, createSuccess, createError } from "../ActionCreators";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
@@ -29,7 +29,7 @@ export default function CreateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     clearInputs();
-    dispatch({ type: CREATE_REQUEST });
+    dispatch(createRequest());
     try {
       // throw new Error();
 
@@ -41,10 +41,10 @@ export default function CreateForm() {
         },
       });
       const json = await res.json();
-      dispatch({ type: CREATE_SUCCESS, payload: json });
+      dispatch(createSuccess(json));
     } catch (e) {
       console.log(e);
-      dispatch({ type: CREATE_ERROR });
+      dispatch(createError());
     }
   };
 
