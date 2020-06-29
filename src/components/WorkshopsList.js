@@ -3,6 +3,7 @@ import Workshop from "./Workshop";
 import loadingGif from "../images/load.gif";
 import { StateContext, DispatchContext } from "../context";
 import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../ActionTypes";
+import { getRequest, getSuccess, getError } from "../ActionCreators";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 export default function WorkshopsList({ admin, user }) {
@@ -11,7 +12,7 @@ export default function WorkshopsList({ admin, user }) {
 
   useEffect(() => {
     (async () => {
-      dispatch({ type: GET_REQUEST });
+      dispatch(getRequest());
       try {
         // throw new Error();
 
@@ -19,10 +20,10 @@ export default function WorkshopsList({ admin, user }) {
           headers: { "Content-Type": "application/json" },
         });
         const data = await req.json();
-        dispatch({ type: GET_SUCCESS, payload: data });
+        dispatch(getSuccess(data));
       } catch (e) {
         console.log(e);
-        dispatch({ type: GET_ERROR });
+        dispatch(getError());
       }
     })();
   }, []);
