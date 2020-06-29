@@ -44,3 +44,21 @@ export const createSuccess = (payload) => ({
 export const createError = () => ({
   type: CREATE_ERROR,
 });
+
+export const deleteSuccess = (payload) => ({
+  type: DELETE_SUCCESS,
+  payload,
+});
+
+export const openModalWorkshop = (payload) => ({
+  type: OPEN_MODAL_WORKSHOP,
+  payload,
+});
+
+export const openModalOnlineCourse = () => ({
+  type: OPEN_MODAL_ONLINE_COURSE,
+});
+
+export const closeModal = () => ({
+  type: CLOSE_MODAL,
+});

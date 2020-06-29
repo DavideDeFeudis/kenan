@@ -9,7 +9,7 @@ import Modal from "./Modal";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import { DispatchContext } from "../context";
-import { OPEN_MODAL_ONLINE_COURSE } from "../ActionTypes";
+import { openModalOnlineCourse } from "../ActionCreators";
 
 export default function OnlineCoaching() {
   const dispatch = useContext(DispatchContext);
@@ -108,7 +108,7 @@ export default function OnlineCoaching() {
             <Button
               type="button"
               className="mt-2"
-              onClick={() => dispatch({ type: OPEN_MODAL_ONLINE_COURSE })}
+              onClick={() => dispatch(openModalOnlineCourse())}
             >
               Sign up
             </Button>

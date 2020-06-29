@@ -5,27 +5,25 @@ import { Button } from "./Button";
 import { formatDate } from "../utils";
 import { DispatchContext } from "../context";
 import {
-  // DELETE_REQUEST,
-  DELETE_SUCCESS,
-  // DELETE_ERROR,
-  OPEN_MODAL_WORKSHOP,
-} from "../ActionTypes";
-import { setPreview } from "../ActionCreators";
+  setPreview,
+  deleteSuccess,
+  openModalWorkshop,
+} from "../ActionCreators";
 
 export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
   const deleteWorkshop = async (_id) => {
-    // dispatch({ type: DELETE_REQUEST });
+    // dispatch(deleteRequest());
     try {
       await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
       });
-      dispatch({ type: DELETE_SUCCESS, payload: _id });
+      dispatch(deleteSuccess(_id));
     } catch (err) {
       console.log(err);
-      // dispatch({ type: DELETE_ERROR });
+      // dispatch(deleteError());
     }
   };
 
@@ -72,12 +70,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
       <Button
         type="button"
         className="mt-4"
-        onClick={() =>
-          dispatch({
-            type: OPEN_MODAL_WORKSHOP,
-            payload: _id,
-          })
-        }
+        onClick={() => dispatch(openModalWorkshop(_id))}
       >
         Info
       </Button>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
 import { StateContext, DispatchContext } from "../context";
-import { CLOSE_MODAL } from "../ActionTypes";
+import { closeModal } from "../ActionCreators";
 
 export default function Modal({ parentPage }) {
   const { isModalOpen, modalItem } = useContext(StateContext);
@@ -39,7 +39,7 @@ export default function Modal({ parentPage }) {
   const handleClickCloseModal = () => {
     setSignupSuccess(false);
     setModalMessage("");
-    dispatch({ type: CLOSE_MODAL });
+    dispatch(closeModal());
   };
 
   // generate priceArea with truthy values
