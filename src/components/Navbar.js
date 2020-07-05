@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/index.scss";
-import { StateContext } from "../context";
 import app from "../base";
+import { connect } from "react-redux";
 
-export default function Navbar({ admin }) {
-  const { videos } = useContext(StateContext);
-
+function Navbar({ admin, videos }) {
   return (
     <nav className="navbar navbar-expand-md navbar-dark bg-light">
       <Link to="/" className="navbar-brand">
@@ -87,3 +85,9 @@ export default function Navbar({ admin }) {
     </nav>
   );
 }
+
+const mapStateToProps = (state) => ({
+  videos: state.videos,
+});
+
+export default connect(mapStateToProps)(Navbar);

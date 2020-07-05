@@ -1,5 +1,4 @@
-import React, { useReducer } from "react";
-import { videos, onlineCourse } from "./data";
+import { videos, onlineCourse } from "../data";
 import {
   GET_REQUEST,
   GET_SUCCESS,
@@ -14,10 +13,7 @@ import {
   OPEN_MODAL_WORKSHOP,
   OPEN_MODAL_ONLINE_COURSE,
   CLOSE_MODAL,
-} from "./ActionTypes";
-
-export const StateContext = React.createContext();
-export const DispatchContext = React.createContext();
+} from "../ActionTypes.js";
 
 const initialState = {
   workshopDraft: {},
@@ -30,7 +26,7 @@ const initialState = {
   createStatus: "",
 };
 
-const reducer = (state, { type, payload }) => {
+const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_REQUEST:
       return {
@@ -101,15 +97,4 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export default ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  console.log("state:", state);
-
-  return (
-    <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {children}
-      </DispatchContext.Provider>
-    </StateContext.Provider>
-  );
-};
+export default reducer;

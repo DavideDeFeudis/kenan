@@ -1,35 +1,38 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "./Button";
 import Input from "./form/Input";
 // import { createWorkshop } from "../databaseService";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../context";
+import { connect } from "react-redux";
 import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_ERROR } from "../ActionTypes";
-import { setPreview, createRequest, createSuccess, createError } from "../ActionCreators";
+import {
+  setPreview,
+  createRequest,
+  createSuccess,
+  createError,
+} from "../ActionCreators";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export default function CreateForm() {
-  const { workshopDraft, createStatus } = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
+function CreateForm(props) {
+  // console.log("props:", props);
+  const { workshopDraft, createStatus, dispatch } = props;
 
   const clearInputs = () => {
-    dispatch(setPreview({}));
+    dispatch.setPreview({});
   };
 
   const handleChange = (e) => {
-    dispatch(
-      setPreview({
-        ...workshopDraft,
-        [e.target.name]: e.target.value,
-      })
-    );
+    dispatch.setPreview({
+      ...workshopDraft,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     clearInputs();
-    dispatch(createRequest());
+    dispatch.createRequest();
     try {
       // throw new Error();
 
@@ -41,10 +44,10 @@ export default function CreateForm() {
         },
       });
       const json = await res.json();
-      dispatch(createSuccess(json));
+      dispatch.createSuccess(json);
     } catch (e) {
       console.log(e);
-      dispatch(createError());
+      dispatch.createError();
     }
   };
 
@@ -205,3 +208,19 @@ export default function CreateForm() {
     </form>
   );
 }
+
+const mapStateToProps = (state) => ({
+  workshopDraft: state.workshopDraft,
+  createStatus: state.createStatus,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: {
+    setPreview: (payload) => dispatch(setPreview(payload)),
+    createRequest: () => dispatch(createRequest()),
+    createSuccess: (payload) => dispatch(createSuccess(payload)),
+    createError: (payload) => dispatch(createError(payload)),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);

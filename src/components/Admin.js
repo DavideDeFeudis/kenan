@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/index.scss";
 import Navbar from "./Navbar";
 import Workshop from "./Workshop";
 import CreateForm from "./CreateForm";
-import { StateContext } from "../context";
 import WorkshopsList from "./WorkshopsList";
+import { connect } from "react-redux";
 
-export default function Admin() {
-  const { workshopDraft } = useContext(StateContext);
-
+function Admin({ workshopDraft }) {
   return (
     <div className="Admin">
       <Navbar admin />
@@ -30,3 +28,10 @@ export default function Admin() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  workshopDraft: state.workshopDraft,
+});
+
+export default connect(mapStateToProps)(Admin);
+

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../styles/index.scss";
 import backgroundLarge from "../images/onlineCoaching_1920.jpg";
 import backgroundSmall from "../images/onlineCoaching_500.jpg";
@@ -8,12 +8,10 @@ import Footer from "./Footer";
 import Modal from "./Modal";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
-import { DispatchContext } from "../context";
+import { connect } from "react-redux";
 import { openModalOnlineCourse } from "../ActionCreators";
 
-export default function OnlineCoaching() {
-  const dispatch = useContext(DispatchContext);
-
+function OnlineCoaching({ dispatch }) {
   return (
     <div className="OnlineCoaching">
       <Navbar />
@@ -108,7 +106,7 @@ export default function OnlineCoaching() {
             <Button
               type="button"
               className="mt-2"
-              onClick={() => dispatch(openModalOnlineCourse())}
+              onClick={() => dispatch.openModalOnlineCourse()}
             >
               Sign up
             </Button>
@@ -120,3 +118,11 @@ export default function OnlineCoaching() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: {
+    openModalOnlineCourse: () => dispatch(openModalOnlineCourse()),
+  },
+});
+
+export default connect(null, mapDispatchToProps)(OnlineCoaching);

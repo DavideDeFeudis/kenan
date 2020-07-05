@@ -1,18 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import Workshop from "./Workshop";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../context";
+import { connect } from "react-redux";
 import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../ActionTypes";
 import { getRequest, getSuccess, getError } from "../ActionCreators";
+
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export default function WorkshopsList({ admin, user }) {
-  const { workshops, getStatus } = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
-
+function WorkshopsList(props) {
+  // console.log("props:", props);
+  const { admin, user, workshops, getStatus, dispatch } = props;
+  
   useEffect(() => {
     (async () => {
-      dispatch(getRequest());
+      dispatch.getRequest();
       try {
         // throw new Error();
 
@@ -20,10 +21,10 @@ export default function WorkshopsList({ admin, user }) {
           headers: { "Content-Type": "application/json" },
         });
         const data = await req.json();
-        dispatch(getSuccess(data));
+        dispatch.getSuccess(data);
       } catch (e) {
         console.log(e);
-        dispatch(getError());
+        dispatch.getError();
       }
     })();
   }, []);
@@ -61,3 +62,18 @@ export default function WorkshopsList({ admin, user }) {
 
   return <div className="container text-center">{content}</div>;
 }
+
+const mapStateToProps = (state) => ({
+  workshops: state.workshops,
+  getStatus: state.getStatus,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: {
+    getRequest: () => dispatch(getRequest()),
+    getSuccess: (payload) => dispatch(getSuccess(payload)),
+    getError: () => dispatch(getError()),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkshopsList);

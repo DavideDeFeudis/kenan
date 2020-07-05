@@ -1,29 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 // import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { formatDate } from "../utils";
-import { DispatchContext } from "../context";
+import { connect } from "react-redux";
 import {
   setPreview,
   deleteSuccess,
   openModalWorkshop,
 } from "../ActionCreators";
 
-export default function Workshop({ admin, preview, user, workshop }) {
-  const dispatch = useContext(DispatchContext);
+function Workshop({ admin, preview, user, workshop, dispatch }) {
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
   const deleteWorkshop = async (_id) => {
-    // dispatch(deleteRequest());
     try {
       await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
       });
-      dispatch(deleteSuccess(_id));
+      dispatch.deleteSuccess(_id);
     } catch (err) {
       console.log(err);
-      // dispatch(deleteError());
     }
   };
 
@@ -70,7 +67,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
       <Button
         type="button"
         className="mt-4"
-        onClick={() => dispatch(openModalWorkshop(_id))}
+        onClick={() => dispatch.openModalWorkshop(_id)}
       >
         Info
       </Button>
@@ -85,13 +82,11 @@ export default function Workshop({ admin, preview, user, workshop }) {
           type="button"
           className="admin-button"
           onClick={() => {
-            dispatch(
-              setPreview({
-                ...workshop,
-                _id: undefined,
-                customers: [],
-              })
-            );
+            dispatch.setPreview({
+              ...workshop,
+              _id: undefined,
+              customers: [],
+            });
           }}
         >
           Duplicate
@@ -157,3 +152,13 @@ export default function Workshop({ admin, preview, user, workshop }) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: {
+    deleteSuccess: (payload) => dispatch(deleteSuccess(payload)),
+    setPreview: (payload) => dispatch(setPreview(payload)),
+    openModalWorkshop: (payload) => dispatch(openModalWorkshop(payload)),
+  },
+});
+
+export default connect(null, mapDispatchToProps)(Workshop);

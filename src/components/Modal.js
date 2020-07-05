@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "../styles/index.scss";
 import { Link } from "react-router-dom";
 import SignupForm from "./SignupForm";
 import closeWindowIcon from "../images/close-window.png";
-import { StateContext, DispatchContext } from "../context";
+import { connect } from "react-redux";
 import { closeModal } from "../ActionCreators";
 
-export default function Modal({ parentPage }) {
-  const { isModalOpen, modalItem } = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
+function Modal(props) {
+  // console.log("props:", props);
+  const { parentPage, isModalOpen, modalItem, dispatch } = props;
 
   const [modalMessage, setModalMessage] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
@@ -39,7 +39,7 @@ export default function Modal({ parentPage }) {
   const handleClickCloseModal = () => {
     setSignupSuccess(false);
     setModalMessage("");
-    dispatch(closeModal());
+    dispatch.closeModal();
   };
 
   // generate priceArea with truthy values
@@ -122,3 +122,16 @@ export default function Modal({ parentPage }) {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  isModalOpen: state.isModalOpen,
+  modalItem: state.modalItem,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  dispatch: {
+    closeModal: () => dispatch(closeModal()),
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
