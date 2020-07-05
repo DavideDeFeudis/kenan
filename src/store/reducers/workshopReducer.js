@@ -1,4 +1,4 @@
-import { videos, onlineCourse } from "../data";
+import { videos, onlineCourse } from "../../data";
 import {
   GET_REQUEST,
   GET_SUCCESS,
@@ -7,21 +7,14 @@ import {
   CREATE_REQUEST,
   CREATE_SUCCESS,
   CREATE_ERROR,
-  // DELETE_REQUEST,
   DELETE_SUCCESS,
-  // DELETE_ERROR,
-  OPEN_MODAL_WORKSHOP,
-  OPEN_MODAL_ONLINE_COURSE,
-  CLOSE_MODAL,
-} from "../ActionTypes.js";
+} from "../../ActionTypes";
 
 const initialState = {
   workshopDraft: {},
   workshops: [],
   onlineCourse,
   videos,
-  modalItem: {},
-  isModalOpen: false,
   getStatus: "",
   createStatus: "",
 };
@@ -73,26 +66,8 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         workshops: state.workshops.filter((item) => item._id !== payload),
       };
-    case OPEN_MODAL_WORKSHOP:
-      return {
-        ...state,
-        modalItem: state.workshops.find((workshop) => workshop._id === payload),
-        isModalOpen: true,
-      };
-    case OPEN_MODAL_ONLINE_COURSE:
-      return {
-        ...state,
-        modalItem: onlineCourse,
-        isModalOpen: true,
-      };
-    case CLOSE_MODAL:
-      return {
-        ...state,
-        modalItem: {},
-        isModalOpen: false,
-      };
     default:
-      console.error(`Unhandled action type: ${type}`);
+      console.error(`workshopReducer - Unhandled action type: ${type}`);
       return state;
   }
 };

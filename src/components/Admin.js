@@ -30,7 +30,7 @@ function Admin({ workshopDraft }) {
 }
 
 const mapStateToProps = (state) => ({
-  workshopDraft: state.workshopDraft,
+  workshopDraft: state.workshopReducer.workshopDraft,
 });
 
 export default connect(mapStateToProps)(Admin);

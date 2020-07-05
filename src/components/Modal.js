@@ -124,8 +124,8 @@ function Modal(props) {
 }
 
 const mapStateToProps = (state) => ({
-  isModalOpen: state.isModalOpen,
-  modalItem: state.modalItem,
+  isModalOpen: state.modalReducer.isModalOpen,
+  modalItem: state.modalReducer.modalItem,
 });
 
 const mapDispatchToProps = (dispatch) => ({

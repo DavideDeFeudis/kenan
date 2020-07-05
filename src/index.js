@@ -8,11 +8,17 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { AuthProvider } from "./Auth";
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./store/reducer";
+import workshopReducer from "./store/reducers/workshopReducer";
+import modalReducer from "./store/reducers/modalReducer";
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  workshopReducer,
+  modalReducer,
+});
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>

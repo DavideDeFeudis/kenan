@@ -67,7 +67,7 @@ function Workshop({ admin, preview, user, workshop, dispatch }) {
       <Button
         type="button"
         className="mt-4"
-        onClick={() => dispatch.openModalWorkshop(_id)}
+        onClick={() => dispatch.openModalWorkshop(workshop)}
       >
         Info
       </Button>

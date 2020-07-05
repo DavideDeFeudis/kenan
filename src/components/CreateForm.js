@@ -210,8 +210,8 @@ function CreateForm(props) {
 }
 
 const mapStateToProps = (state) => ({
-  workshopDraft: state.workshopDraft,
-  createStatus: state.createStatus,
+  workshopDraft: state.workshopReducer.workshopDraft,
+  createStatus: state.workshopReducer.createStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({

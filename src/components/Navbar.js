@@ -87,7 +87,7 @@ function Navbar({ admin, videos }) {
 }
 
 const mapStateToProps = (state) => ({
-  videos: state.videos,
+  videos: state.workshopReducer.videos,
 });
 
 export default connect(mapStateToProps)(Navbar);

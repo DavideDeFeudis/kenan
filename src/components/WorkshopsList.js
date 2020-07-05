@@ -8,9 +8,8 @@ import { getRequest, getSuccess, getError } from "../ActionCreators";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 function WorkshopsList(props) {
-  // console.log("props:", props);
   const { admin, user, workshops, getStatus, dispatch } = props;
-  
+
   useEffect(() => {
     (async () => {
       dispatch.getRequest();
@@ -64,8 +63,8 @@ function WorkshopsList(props) {
 }
 
 const mapStateToProps = (state) => ({
-  workshops: state.workshops,
-  getStatus: state.getStatus,
+  workshops: state.workshopReducer.workshops,
+  getStatus: state.workshopReducer.getStatus,
 });
 
 const mapDispatchToProps = (dispatch) => ({
