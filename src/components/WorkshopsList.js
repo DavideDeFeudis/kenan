@@ -1,32 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import Workshop from "./Workshop";
+import withFetch from "../hoc/withFetch";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../context";
+import { StateContext } from "../context";
 import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../ActionTypes";
-import { getRequest, getSuccess, getError } from "../ActionCreators";
-const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
-export default function WorkshopsList({ admin, user }) {
+function WorkshopsList({ admin, user }) {
   const { workshops, getStatus } = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
-
-  useEffect(() => {
-    (async () => {
-      dispatch(getRequest());
-      try {
-        // throw new Error();
-
-        const req = await fetch(baseUrl + "/workshops", {
-          headers: { "Content-Type": "application/json" },
-        });
-        const data = await req.json();
-        dispatch(getSuccess(data));
-      } catch (e) {
-        console.log(e);
-        dispatch(getError());
-      }
-    })();
-  }, []);
 
   let content;
   if (getStatus === GET_REQUEST) {
@@ -61,3 +41,5 @@ export default function WorkshopsList({ admin, user }) {
 
   return <div className="container text-center">{content}</div>;
 }
+
+export default withFetch(WorkshopsList);
