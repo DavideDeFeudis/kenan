@@ -7,7 +7,7 @@ import Background from "./Background";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Modal from "./Modal";
-import WorkshopsList from "./WorkshopsList";
+import WorkshopsListContainer from "./WorkshopsListContainer";
 
 export default function Workshops() {
   return (
@@ -40,7 +40,7 @@ export default function Workshops() {
           from another viewpoint.
         </p>
       </div>
-      <WorkshopsList user />
+      <WorkshopsListContainer user />
       <Footer />
       <Modal parentPage="/workshops" />
     </div>

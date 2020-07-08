@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Workshop from "./Workshop";
 import CreateForm from "./CreateForm";
 import { StateContext } from "../context";
-import WorkshopsList from "./WorkshopsList";
+import WorkshopsListContainer from "./WorkshopsListContainer";
 
 export default function Admin() {
   const { workshopDraft } = useContext(StateContext);
@@ -24,7 +24,7 @@ export default function Admin() {
 
         <section className="published">
           <h2>Published</h2>
-          <WorkshopsList admin />
+          <WorkshopsListContainer admin />
         </section>
       </div>
     </div>
