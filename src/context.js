@@ -19,7 +19,7 @@ import {
 export const StateContext = React.createContext();
 export const DispatchContext = React.createContext();
 
-const initialState = {
+export const initialState = {
   workshopDraft: {},
   workshops: [],
   onlineCourse,
@@ -30,7 +30,7 @@ const initialState = {
   createStatus: "",
 };
 
-const reducer = (state, { type, payload }) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case GET_REQUEST:
       return {
@@ -97,7 +97,7 @@ const reducer = (state, { type, payload }) => {
       };
     default:
       console.error(`Unhandled action type: ${type}`);
-      return state;
+      return initialState;
   }
 };
 

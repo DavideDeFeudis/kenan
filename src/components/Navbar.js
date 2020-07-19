@@ -75,6 +75,7 @@ export default function Navbar({ admin }) {
             <li className="nav-item">
               <Link
                 to="/login"
+                data-test="admin-nav-link"
                 className="nav-link"
                 onClick={() => app.auth().signOut()}
               >

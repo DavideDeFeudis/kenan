@@ -14,7 +14,7 @@ import OnlineCoaching from "./components/OnlineCoaching";
 
 function App() {
   return (
-    <div className="App">
+    <div data-test="app">
       <Switch>
         <PrivateRoute exact path="/admin" component={Admin} />
         {/* <Route exact path="/admin" component={Admin} /> */}

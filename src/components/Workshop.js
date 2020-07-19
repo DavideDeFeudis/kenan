@@ -69,6 +69,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
     <Link to="/workshops">
       <Button
         type="button"
+        data-test="user-button"
         className="mt-4"
         onClick={() => dispatch(openModalWorkshop(_id))}
       >
@@ -83,6 +84,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
         {/* <AnchorLink href="#create-section"> */}
         <Button
           type="button"
+          data-test="admin-button"
           className="admin-button"
           onClick={() => {
             dispatch(
@@ -101,6 +103,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
       <Link to="/admin">
         <Button
           type="button"
+          data-test="admin-button"
           className="admin-button"
           onClick={() => deleteWorkshop(_id)}
         >
