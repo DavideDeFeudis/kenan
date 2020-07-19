@@ -1,46 +1,33 @@
 import React from "react";
-import { configure, shallow } from "enzyme";
-import { findByTestAttr } from "../test/testUtils.js";
-import Adapter from "enzyme-adapter-react-16";
+import { shallow } from "enzyme";
+import { findByTestAttr, checkProps } from "../test/testUtils.js";
 import Background from "./Background";
-configure({ adapter: new Adapter() });
 
-const setup = () => shallow(<Background />);
+const defaultProps = { large: "../images/home_full_1920.jpg" };
 
-describe("about", () => {
-  it("renders about", () => {
+/**
+ * Factory function to create a ShallowWrapper for the Background component.
+ * @function setup
+ * @param {object} props - Component props specific to this setup.
+ * @returns {ShallowWrapper}
+ */
+const setup = (props = {}) => {
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<Background {...setupProps} />);
+};
+
+describe("background", () => {
+  it("renders blank-loading-placeholder", () => {
     const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'about');
+    const el = findByTestAttr(wrapper, "blank-loading-placeholder");
     expect(el.length).toBe(1);
   });
-  it("renders navbar", () => {
+  it("renders bg-image", () => {
     const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'navbar');
+    const el = findByTestAttr(wrapper, "bg-image");
     expect(el.length).toBe(1);
   });
-  it("renders background", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'background');
-    expect(el.length).toBe(1);
-  });
-  it("renders profile-container", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'profile-container');
-    expect(el.length).toBe(1);
-  });
-  it("renders profile-pic", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'profile-pic');
-    expect(el.length).toBe(1);
-  });
-  it("renders about-text", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'about-text');
-    expect(el.length).toBe(1);
-  });
-  it("renders footer", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, 'footer');
-    expect(el.length).toBe(1);
+  test('does not throw warning with expected props', () => {
+    checkProps(Background, defaultProps);
   });
 });
