@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Button } from "./Button";
-import Input from "./form/Input";
+import Input from "./Input";
 // import { createWorkshop } from "../databaseService";
 import loadingGif from "../images/load.gif";
 import { StateContext, DispatchContext } from "../context";

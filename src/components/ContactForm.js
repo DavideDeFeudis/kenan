@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
-import SpinnerModal from './SpinnerModal'
+import Spinner from './Spinner'
 
 export default function ContactForm() {
     const initialState = {
@@ -105,7 +105,7 @@ export default function ContactForm() {
                     </div>
                 </form>
             </div>
-            <SpinnerModal loading={loading} fullScreen />
+            <Spinner loading={loading} fullScreen />
         </div>
     )
 }

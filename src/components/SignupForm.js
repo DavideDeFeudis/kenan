@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
-import SpinnerModal from './SpinnerModal'
+import Spinner from './Spinner'
 
 export default function SignupForm(props) {
     const { setFeedback, subjectContent, workshopId } = props
@@ -106,7 +106,7 @@ export default function SignupForm(props) {
                     <Button type="submit" className="mb-2">Sign up</Button>
                 </form>
             </div>
-            <SpinnerModal loading={loading} fullScreen />
+            <Spinner loading={loading} fullScreen />
         </div>
     )
 }

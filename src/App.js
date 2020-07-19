@@ -8,7 +8,7 @@ import VideoSunson from "./components/VideoSunson";
 import Workshops from "./components/Workshops";
 import Contact from "./components/Contact";
 import PrivateRoute from "./PrivateRoute";
-import SignUp from "./components/SignUp";
+// import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import OnlineCoaching from "./components/OnlineCoaching";
 
@@ -19,7 +19,7 @@ function App() {
         <PrivateRoute exact path="/admin" component={Admin} />
         {/* <Route exact path="/admin" component={Admin} /> */}
         {/* <Route path="/admin/login" component={AdminLogin} /> */}
-        <Route exact path="/signup" component={SignUp} />
+        {/* <Route exact path="/signup" component={SignUp} /> */}
         <Route exact path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route path="/astral" component={VideoAstral} />

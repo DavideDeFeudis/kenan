@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import ReactPlayer from 'react-player'
-import SpinnerModal from './SpinnerModal'
+import Spinner from './Spinner'
 
 export default function VideoAstral() {
     const [loading, setLoading] = useState(true)
@@ -12,7 +12,7 @@ export default function VideoAstral() {
             <Navbar />
             <div className="wrap">
                 <div className='player-wrapper'>
-                    <SpinnerModal loading={loading} />
+                    <Spinner loading={loading} />
                     <ReactPlayer
                         onReady={() => setLoading(false)}
                         className='react-player'

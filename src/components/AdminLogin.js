@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from './Button'
 import loadingGif from '../images/load.gif'
-import Input from './form/Input'
+import Input from './Input'
 
 export default function AdminLogin() {
     const initialState = {
