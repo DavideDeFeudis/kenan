@@ -1,0 +1,15 @@
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  background-color: rgb(12, 12, 12);
+}
+
+.socialIcon {
+  margin: 0 0.2rem;
+  opacity: 0.55;
+  transition: 0.4s;
+}
+
+.socialIcon:hover {
+  opacity: 1;
+}

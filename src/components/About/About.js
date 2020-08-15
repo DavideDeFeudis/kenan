@@ -1,21 +1,26 @@
 import React from "react";
-import "../styles/index.scss";
-import profilePic from "../images/kenan_profile_300.jpg";
-import backgroundLarge from "../images/about_1920.jpg";
-import Navbar from "../Navbar";
+import classes from "./About.module.css";
+import profilePic from "../../images/kenan_profile_300.jpg";
+import backgroundLarge from "../../images/about_1920.jpg";
+import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Background from "../Background/Background";
 
 export default function About() {
   return (
-    <div data-test="about" className="About">
-      <Navbar data-test="navbar" />
-      <div id="background">
+    <div data-test="about">
+      <Navbar data-test="navbar" className={classes.navbar} />
+      <div className={classes.bgWrapper}>
         <Background data-test="background" large={backgroundLarge} />
       </div>
-      <div data-test="profile-container"  id="profile-container" className="container-fluid">
-        <img data-test="profile-pic"  id="profile-pic" src={profilePic} alt="Kenan" />
-        <p data-test="about-text"  id="about-text">
+      <div data-test="profile-container" className={classes.profileContainer}>
+        <img
+          data-test="profile-pic"
+          className={classes.profilePic}
+          src={profilePic}
+          alt="Kenan"
+        />
+        <p data-test="about-text" className={classes.aboutText}>
           Kenan Dinkelmann grew up in Passau, Germany and graduated from Artez,
           School of Dance, Arnhem with a BA of performing arts and completed the
           SEAD postgraduate program Bodhi Project directed by Susan Quinn where

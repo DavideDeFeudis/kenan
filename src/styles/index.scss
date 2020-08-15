@@ -30,66 +30,9 @@ p {
   padding: 3rem 2rem;
 }
 
-.navbar {
-  position: absolute;
-  width: 100%;
-  background: rgba(0, 0, 0, 0) !important;
-  .navbar-brand {
-    color: rgb(198, 198, 198) !important;
-  }
-  // glow around hamburger menu and dropdown
-  .navbar-toggler:focus,
-  .navbar-toggler:active,
-  #navbarDropdown {
-    outline: none;
-    box-shadow: none;
-  }
-  .nav-link {
-    transition: 0.3s;
-  }
-  .dropdown {
-    .dropdown-menu {
-      background-color: rgb(21, 21, 21);
-      color: rgb(226, 226, 226);
-      padding: 0;
-      border: none;
-    }
-    .dropdown-item {
-      background-color: transparent;
-      color: rgb(116, 116, 116);
-      &:hover {
-        background-color: rgb(41, 41, 41);
-      }
-    }
-    .dropdown .dropdown-menu {
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s;
 
-      max-height: 0;
-      display: block;
-      overflow: hidden;
-      opacity: 0;
-    }
-    .dropdown.show .dropdown-menu {
-      max-height: 300px;
-      opacity: 1;
-    }
-  }
-}
 
-footer {
-  background-color: rgb(12, 12, 12);
-  .social-icon {
-    opacity: 0.55;
-    transition: 0.4s;
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
+
 
 .Workshop {
   border-top: 1px solid rgb(55, 55, 55);
@@ -242,45 +185,13 @@ footer {
   box-shadow: none;
 }
 
-.About {
-  #profile-pic {
-    float: left;
-    margin-right: 2em;
-    margin-bottom: 1em;
-  }
-  #profile-container {
-    max-width: 47em;
-    margin-top: 4em;
-    margin-bottom: 4em;
-  }
-}
 
 .loading-spinner {
   margin: 5em auto;
 }
 
 @media screen and (max-width: 800px) {
-  .About {
-    .navbar {
-      position: static; // will also push down content when using hamburger menu
-    }
-    #background {
-      display: none;
-    }
-    #profile-pic {
-      float: none;
-      display: block;
-      margin: 0 auto 2em;
-    }
-    #about-text {
-      text-align: center;
-      margin: 0 2em;
-    }
-    #profile-container {
-      margin-top: 0em;
-      margin-bottom: 2em;
-    }
-  }
+  
   .Sunson {
     .main-content {
       margin-bottom: 20vh; // push footer to bottom
@@ -323,13 +234,5 @@ footer {
     width: 100%;
     padding: 0 !important;
   }
-  // .navbar-nav {
-  //     padding: 10px;
-  //     background-color: rgb(21, 21, 21);
-  // }
-  .About {
-    #about-text {
-      margin: 0;
-    }
-  }
+  
 }

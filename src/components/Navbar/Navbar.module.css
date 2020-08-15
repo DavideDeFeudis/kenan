@@ -1,0 +1,55 @@
+.navbar {
+  position: absolute;
+  width: 100%;
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+.navbarBrand {
+  color: rgb(198, 198, 198) !important;
+}
+
+/* remove glow around hamburger menu and dropdown */
+.navbarToggler:focus,
+.navbarToggler:active,
+.navbarDropdown {
+  outline: none;
+  box-shadow: none;
+}
+
+.navLink {
+  transition: 0.3s;
+}
+
+.dropdownMenu {
+  background-color: rgb(21, 21, 21);
+  color: rgb(226, 226, 226);
+  padding: 0;
+  border: none;
+}
+
+.dropdownItem {
+  background-color: transparent;
+  color: rgb(116, 116, 116);
+}
+
+.dropdownItem:hover {
+  background-color: rgb(41, 41, 41);
+}
+
+.dropdown .dropdownMenu {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.dropdown.show .dropdownMenu {
+  max-height: 300px;
+  opacity: 1;
+}
