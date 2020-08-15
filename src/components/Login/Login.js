@@ -1,9 +1,9 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "../base.js";
-import { AuthContext } from "../Auth.js";
-import { Button } from './Button'
-import Navbar from "./Navbar.js";
+import app from "../../base.js";
+import { AuthContext } from "../../Auth.js";
+import { Button } from '../Button'
+import Navbar from "../Navbar/Navbar.js";
 
 const Login = ({ history }) => {
     const handleLogin = useCallback(

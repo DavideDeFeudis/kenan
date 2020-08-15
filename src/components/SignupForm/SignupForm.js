@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
-import { Button } from './Button'
-import Spinner from './Spinner'
+import { Button } from '../Button'
+import Spinner from '../Spinner/Spinner'
 
-export default function ContactForm() {
+export default function SignupForm(props) {
+    const { setFeedback, subjectContent, workshopId } = props
+
     const initialState = {
-        name: '',
+        workshopId, // need this to push customer to workshop.customers array
+        firstName: '',
+        lastName: '',
         email: '',
-        subject: '',
+        subject: subjectContent,
         text: ''
     }
+
     const [message, setMessage] = useState(initialState)
 
-    const [feedback, setFeedback] = useState('')
     const [loading, setLoading] = useState(false)
 
     const handleChange = (e) => {
         setMessage({ ...message, [e.target.name]: e.target.value })
-        if (feedback) setFeedback('')
     }
 
     const handleSubmit = (e) => {
@@ -26,7 +29,7 @@ export default function ContactForm() {
     }
 
     const sendFormData = () => {
-        fetch(`${process.env.REACT_APP_BACKEND_HOST}/contact`, {
+        fetch(`${process.env.REACT_APP_BACKEND_HOST}/signup`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {
@@ -35,31 +38,44 @@ export default function ContactForm() {
         })
             .then(response => response.json())
             .then(json => {
+                console.log('SignupForm json:', json)
                 setLoading(false)
-                setFeedback(json.success ? 'Your message has been successfully sent!' : 'Error sending message. Try again later.')
-                setMessage(initialState)
+                setFeedback(json)
             })
             .catch(err => {
+                console.log('SignupForm err:', err)
                 setLoading(false)
-                setFeedback('Error sending message. Try again later.')
+                setFeedback({})
                 // console.log(err)
             })
     }
 
     return (
-        <div className='form pt-5 pb-3'>
+        <div className='form'>
             <div className="container">
                 <form
                     onSubmit={handleSubmit}
                 >
                     <div className="form-group">
                         <input
-                            name="name"
+                            name="firstName"
                             type="text"
                             className="form-control"
-                            placeholder="Name"
+                            placeholder="First name"
                             onChange={handleChange}
-                            value={message.name}
+                            value={message.firstName}
+                            required
+                        >
+                        </input>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            name="lastName"
+                            type="text"
+                            className="form-control"
+                            placeholder="Last name"
+                            onChange={handleChange}
+                            value={message.lastName}
                             required
                         >
                         </input>
@@ -77,32 +93,17 @@ export default function ContactForm() {
                         </input>
                     </div>
                     <div className="form-group">
-                        <input
-                            name="subject"
-                            type="text"
-                            className="form-control"
-                            placeholder="Subject"
-                            onChange={handleChange}
-                            value={message.subject}
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
                         <textarea
                             name="text"
                             className="form-control"
                             rows="3"
-                            placeholder="Message"
+                            placeholder="Anything else you want to tell us?"
                             onChange={handleChange}
                             value={message.text}
-                            required
                         >
                         </textarea>
                     </div>
-                    <div>
-                        <Button type="submit">Send</Button>
-                        <p className='my-3'>{feedback}</p>
-                    </div>
+                    <Button type="submit" className="mb-2">Sign up</Button>
                 </form>
             </div>
             <Spinner loading={loading} fullScreen />

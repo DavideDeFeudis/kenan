@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 // import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
-import { Button } from "./Button";
-import { formatDate } from "../utils";
-import { DispatchContext } from "../context";
+import { Button } from "../Button";
+import { formatDate } from "../../utils";
+import { DispatchContext } from "../../context";
 import {
   setPreview,
   deleteSuccess,
   openModalWorkshop,
-} from "../ActionCreators";
+} from "../../ActionCreators";
 
 export default function Workshop({ admin, preview, user, workshop }) {
   const dispatch = useContext(DispatchContext);

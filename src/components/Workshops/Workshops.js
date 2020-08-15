@@ -1,13 +1,12 @@
 import React from "react";
 import "../styles/index.scss";
-// import backgroundLarge from "../images/flow_acrobatics_1920.jpg";
 import backgroundLarge from "../images/workshops_1920.jpg";
 import backgroundSmall from "../images/workshops_500.jpg";
-import Background from "./Background";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Modal from "./Modal";
-import WorkshopsList from "./WorkshopsList";
+import Background from "../Background/Background";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import Modal from "../Modal/Modal";
+import WorkshopsList from "../WorkshopsList/WorkshopsList";
 
 export default function Workshops() {
   return (

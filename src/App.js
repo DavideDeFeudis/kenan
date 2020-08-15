@@ -1,16 +1,15 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Admin from "./components/Admin";
 import About from "./components/About";
-import VideoAstral from "./components/VideoAstral";
-import VideoSunson from "./components/VideoSunson";
-import Workshops from "./components/Workshops";
-import Contact from "./components/Contact";
+import VideoAstral from "./components/VideoAstral/VideoAstral";
+import VideoSunson from "./components/VideoSunson/VideoSunson";
+import Workshops from "./components/Workshops/Workshops";
+import Contact from "./components/Contact/Contact";
 import PrivateRoute from "./PrivateRoute";
-// import SignUp from "./components/SignUp";
-import Login from "./components/Login";
-import OnlineCoaching from "./components/OnlineCoaching";
+import Login from "./components/Login/Login";
+import OnlineCoaching from "./components/OnlineCoaching/OnlineCoaching";
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
         <PrivateRoute exact path="/admin" component={Admin} />
         {/* <Route exact path="/admin" component={Admin} /> */}
         {/* <Route path="/admin/login" component={AdminLogin} /> */}
-        {/* <Route exact path="/signup" component={SignUp} /> */}
         <Route exact path="/login" component={Login} />
         <Route path="/about" component={About} />
         <Route path="/astral" component={VideoAstral} />

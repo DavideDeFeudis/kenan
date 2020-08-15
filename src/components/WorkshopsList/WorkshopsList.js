@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import Workshop from "./Workshop";
+import Workshop from "../Workshop/Workshop";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../context";
-import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../ActionTypes";
-import { getRequest, getSuccess, getError } from "../ActionCreators";
+import { StateContext, DispatchContext } from "../../context";
+import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../../ActionTypes";
+import { getRequest, getSuccess, getError } from "../../ActionCreators";
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 export default function WorkshopsList({ admin, user }) {

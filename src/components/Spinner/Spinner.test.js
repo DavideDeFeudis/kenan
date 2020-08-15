@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { findByTestAttr, checkProps } from "../test/testUtils.js";
+import { findByTestAttr, checkProps } from "../../test/testUtils.js";
 import Spinner from "./Spinner";
 
 const defaultProps = { loading: false, fullScreen: false };

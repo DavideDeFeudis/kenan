@@ -3,8 +3,8 @@ import "../styles/index.scss";
 import profilePic from "../images/kenan_profile_300.jpg";
 import backgroundLarge from "../images/about_1920.jpg";
 import Navbar from "../Navbar";
-import Footer from "../Footer";
-import Background from "../Background";
+import Footer from "../Footer/Footer";
+import Background from "../Background/Background";
 
 export default function About() {
   return (

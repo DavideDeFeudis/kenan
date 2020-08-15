@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Button } from "./Button";
-import Input from "./Input";
+import { Button } from "../Button";
+import Input from "../Input/Input";
 // import { createWorkshop } from "../databaseService";
 import loadingGif from "../images/load.gif";
-import { StateContext, DispatchContext } from "../context";
-import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_ERROR } from "../ActionTypes";
-import { setPreview, createRequest, createSuccess, createError } from "../ActionCreators";
+import { StateContext, DispatchContext } from "../../context";
+import { CREATE_REQUEST, CREATE_SUCCESS, CREATE_ERROR } from "../../ActionTypes";
+import { setPreview, createRequest, createSuccess, createError } from "../../ActionCreators";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 

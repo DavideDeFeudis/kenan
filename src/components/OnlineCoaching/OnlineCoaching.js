@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import "../styles/index.scss";
 import backgroundLarge from "../images/onlineCoaching_1920.jpg";
 import backgroundSmall from "../images/onlineCoaching_500.jpg";
-import Background from "./Background";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Modal from "./Modal";
-import { Button } from "./Button";
+import Background from "../Background/Background";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import Modal from "../Modal/Modal";
+import { Button } from "../Button";
 import { Link } from "react-router-dom";
-import { DispatchContext } from "../context";
-import { openModalOnlineCourse } from "../ActionCreators";
+import { DispatchContext } from "../../context";
+import { openModalOnlineCourse } from "../../ActionCreators";
 
 export default function OnlineCoaching() {
   const dispatch = useContext(DispatchContext);

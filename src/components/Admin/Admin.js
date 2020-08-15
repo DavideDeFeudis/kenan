@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import "../styles/index.scss";
-import Navbar from "./Navbar";
-import Workshop from "./Workshop";
-import CreateForm from "./CreateForm";
-import { StateContext } from "../context";
-import WorkshopsList from "./WorkshopsList";
+import Navbar from "../Navbar/Navbar";
+import Workshop from "../Workshop/Workshop";
+import CreateForm from "../CreateForm/CreateForm";
+import { StateContext } from "../../context";
+import WorkshopsList from "../WorkshopsList/WorkshopsList";
 
 export default function Admin() {
   const { workshopDraft } = useContext(StateContext);

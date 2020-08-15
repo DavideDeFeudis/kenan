@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 import ReactPlayer from 'react-player'
-import Spinner from './Spinner'
+import Spinner from '../Spinner/Spinner'
 
 export default function VideoAstral() {
     const [loading, setLoading] = useState(true)

@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from './Navbar';
-import Footer from './Footer';
+import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 // import ReactPlayer from 'react-player'
 import backgroundSmall from "../images/sunsonImg_500.jpg";
 import backgroundLarge from "../images/sunsonImg_1920.jpg";
-import Background from './Background';
+import Background from '../Background/Background';
 
 export default function VideoSunson() {
     return (

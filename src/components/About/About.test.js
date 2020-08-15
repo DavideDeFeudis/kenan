@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { findByTestAttr } from "../test/testUtils.js";
+import { findByTestAttr } from "../../test/testUtils.js";
 import About from "./About";
 
 const setup = () => shallow(<About />);
