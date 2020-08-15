@@ -30,10 +30,6 @@ p {
   padding: 3rem 2rem;
 }
 
-
-
-
-
 .Workshop {
   border-top: 1px solid rgb(55, 55, 55);
 }
@@ -185,13 +181,11 @@ p {
   box-shadow: none;
 }
 
-
 .loading-spinner {
   margin: 5em auto;
 }
 
 @media screen and (max-width: 800px) {
-  
   .Sunson {
     .main-content {
       margin-bottom: 20vh; // push footer to bottom
@@ -234,5 +228,4 @@ p {
     width: 100%;
     padding: 0 !important;
   }
-  
 }

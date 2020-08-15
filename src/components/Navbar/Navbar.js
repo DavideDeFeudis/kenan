@@ -18,12 +18,10 @@ export default function Navbar({ admin }) {
         </li>
         <li className={classes.menuItem}>
           <Link to="/choreography">Choreography</Link>
-
           <ol className={classes.subMenu}>
             {videos.map((video) => (
-              <li className={classes.menuItem}>
+              <li className={classes.menuItem} key={video.id}>
                 <Link
-                  key={video.id}
                   url={video.url}
                   info={video.info}
                   className="dropdown-item"

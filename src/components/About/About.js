@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/index.css'
 import classes from "./About.module.css";
 import profilePic from "../../images/kenan_profile_300.jpg";
 import backgroundLarge from "../../images/about_1920.jpg";

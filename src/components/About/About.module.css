@@ -1,5 +1,5 @@
-/* used to be container fluid */
 .profileContainer {
+  margin: 0 auto;
   max-width: 47em;
   margin-top: 4em;
   margin-bottom: 4em;
@@ -12,11 +12,6 @@
 }
 
 @media screen and (max-width: 800px) {
-  .navbar {
-    /* also pushes down content when using hamburger menu */
-    position: static;
-  }
-
   .bgWrapper {
     display: none;
   }
