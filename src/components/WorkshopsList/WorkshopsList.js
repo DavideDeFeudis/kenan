@@ -14,8 +14,6 @@ export default function WorkshopsList({ admin, user }) {
     (async () => {
       dispatch(getRequest());
       try {
-        // throw new Error();
-
         const req = await fetch(baseUrl + "/workshops", {
           headers: { "Content-Type": "application/json" },
         });

@@ -36,7 +36,6 @@ p {
   margin: 0.6em auto;
 }
 
-/* // glow around input fields */
 .form-control:focus {
   border-color: black;
   box-shadow: none;

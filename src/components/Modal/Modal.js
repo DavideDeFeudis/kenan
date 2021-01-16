@@ -33,7 +33,6 @@ export default function Modal({ parentPage }) {
         ? "You signed up successfully!"
         : "Error signing up. Try again later."
     );
-    // Warning: Can't perform a React state update on an unmounted component.
   };
 
   const handleClickCloseModal = () => {

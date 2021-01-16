@@ -1,5 +1,4 @@
 body {
-  // min-width: 320px;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -36,7 +35,7 @@ p {
 
 .Video {
   .navbar {
-    position: static; // will also push down content when using hamburger menu
+    position: static;
   }
   .wrap {
     width: 90%;
@@ -44,7 +43,7 @@ p {
   }
   .player-wrapper {
     position: relative;
-    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+    padding-top: 56.25%;
   }
   .react-player {
     position: absolute;
@@ -70,7 +69,6 @@ p {
     background: #202020;
     position: relative;
     padding: 2.5em;
-    // min-width: 28rem;
   }
   #close-modal-icon {
     position: absolute;
@@ -81,7 +79,7 @@ p {
     margin-bottom: 0.6em;
   }
   .form-group {
-    margin-bottom: 10px; // between inputs
+    margin-bottom: 10px;
   }
 }
 
@@ -110,7 +108,6 @@ p {
     color: #fff;
   }
 }
-// background input turns white when using autofill
 
 .login-form {
   max-width: 400px;
@@ -141,19 +138,11 @@ p {
       rgba(0, 0, 0, 0.6) 80%
     ) !important;
   }
-  // #sunson-img-container {
-  //   max-width: 1325px;
-  //   #sunson-img {
-  //     width: 100%;
-  //     margin: auto;
-  //     display: block;
-  //   }
-  // }
 }
 
 .Admin {
   .navbar {
-    position: static; // will also push down content when using hamburger menu
+    position: static;
   }
   .main {
     section {
@@ -175,7 +164,6 @@ p {
   }
 }
 
-// glow around input fields
 .form-control:focus {
   border-color: black;
   box-shadow: none;
@@ -188,7 +176,7 @@ p {
 @media screen and (max-width: 800px) {
   .Sunson {
     .main-content {
-      margin-bottom: 20vh; // push footer to bottom
+      margin-bottom: 20vh;
     }
   }
 }
@@ -203,20 +191,15 @@ p {
       ) !important;
     }
   }
-  // < bootstrap md breakpoint
   .navbar-nav {
-    // when collapsed
     padding: 10px;
     background-color: rgb(21, 21, 21);
   }
 }
 
-.OnlineCoaching {
-}
-
 @media screen and (max-width: 574px) {
   .form-group {
-    margin-bottom: 7px; // between inputs
+    margin-bottom: 7px;
   }
   #form-container {
     transform: scale(0.9);

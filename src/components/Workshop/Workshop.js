@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import { formatDate } from "../../utils";
@@ -15,7 +14,6 @@ export default function Workshop({ admin, preview, user, workshop }) {
   const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
   const deleteWorkshop = async (_id) => {
-    // dispatch(deleteRequest());
     try {
       await fetch(`${baseUrl}/admin/workshop/${_id}`, {
         method: "delete",
@@ -23,7 +21,6 @@ export default function Workshop({ admin, preview, user, workshop }) {
       dispatch(deleteSuccess(_id));
     } catch (err) {
       console.log(err);
-      // dispatch(deleteError());
     }
   };
 
@@ -81,7 +78,6 @@ export default function Workshop({ admin, preview, user, workshop }) {
   const adminButtons = (
     <div className="my-4">
       <Link to="/admin">
-        {/* <AnchorLink href="#create-section"> */}
         <Button
           type="button"
           data-test="admin-button"
@@ -98,7 +94,6 @@ export default function Workshop({ admin, preview, user, workshop }) {
         >
           Duplicate
         </Button>
-        {/* </AnchorLink> */}
       </Link>
       <Link to="/admin">
         <Button

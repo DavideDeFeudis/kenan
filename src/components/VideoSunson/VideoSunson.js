@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-// import ReactPlayer from 'react-player'
 import backgroundSmall from "../images/sunsonImg_500.jpg";
 import backgroundLarge from "../images/sunsonImg_1920.jpg";
 import Background from '../Background/Background';
@@ -10,23 +9,10 @@ export default function VideoSunson() {
     return (
         <div className='Sunson'>
             <Navbar />
-            {/* <div className="wrap">
-                <div className='player-wrapper'>
-                    <ReactPlayer
-                        className='react-player'
-                        url='https://www.youtube.com/watch?v=FenzrFVlvx4'
-                        width='100%'
-                        height='100%'
-                    />
-                </div>
-            </div> */}
             <Background
                 small={backgroundSmall}
                 large={backgroundLarge}
             />
-            {/* <div id='sunson-img-container' className="container">
-                <img id='sunson-img' src={backgroundLarge} alt="Sunson choreography" />
-            </div> */}
             <div className="container main-content">
                 <p>
                     Choreography: Kenan Dinkelmann<br />

@@ -6,7 +6,7 @@ export default function SignupForm(props) {
     const { setFeedback, subjectContent, workshopId } = props
 
     const initialState = {
-        workshopId, // need this to push customer to workshop.customers array
+        workshopId,
         firstName: '',
         lastName: '',
         email: '',
@@ -46,7 +46,6 @@ export default function SignupForm(props) {
                 console.log('SignupForm err:', err)
                 setLoading(false)
                 setFeedback({})
-                // console.log(err)
             })
     }
 
