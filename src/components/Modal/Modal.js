@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import "../styles/index.scss";
+import "../../styles/index.scss";
 import { Link } from "react-router-dom";
 import SignupForm from "../SignupForm/SignupForm";
-import closeWindowIcon from "../images/close-window.png";
+import closeWindowIcon from "../../images/close-window.png";
 import { StateContext, DispatchContext } from "../../context";
 import { closeModal } from "../../ActionCreators";
 

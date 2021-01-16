@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import "../styles/index.scss";
-import backgroundLarge from "../images/onlineCoaching_1920.jpg";
-import backgroundSmall from "../images/onlineCoaching_500.jpg";
+import "../../styles/index.scss";
+import backgroundLarge from "../../images/onlineCoaching_1920.jpg";
+import backgroundSmall from "../../images/onlineCoaching_500.jpg";
 import Background from "../Background/Background";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";

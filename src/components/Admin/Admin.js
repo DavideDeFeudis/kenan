@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../styles/index.scss";
+import "../../styles/index.scss";
 import Navbar from "../Navbar/Navbar";
 import Workshop from "../Workshop/Workshop";
 import CreateForm from "../CreateForm/CreateForm";

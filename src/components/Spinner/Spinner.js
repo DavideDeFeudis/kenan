@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/index.scss";
-import loadingGif from "../images/load.gif";
+import "../../styles/index.scss";
+import loadingGif from "../../images/load.gif";
 import PropTypes from "prop-types";
 
 export default function Spinner({ loading, fullScreen }) {
