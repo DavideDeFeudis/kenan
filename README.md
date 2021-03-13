@@ -1,12 +1,9 @@
-![](src/images/about_1920.jpg)
-
 <h1 align="center">Kenan Dinkelmann Dance</h1>
 
 ## Basic Overview
 
 Contemporary dance school web app created with React.js, Node.js and MongoDB.  
-This app uses create-react-app and depends on this [backend project](https://github.com/DavideDeFeudis/kenan-backend).  
-[View app](https://kenandinkelmann.netlify.app/).
+This app uses create-react-app and depends on this [backend project](https://github.com/DavideDeFeudis/kenan-backend).
 
 ## Admin dashboard
 
@@ -40,4 +37,5 @@ REACT_APP_FIREBASE_SENDER_ID=<VALUE>
 ```
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)
