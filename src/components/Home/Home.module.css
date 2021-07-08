@@ -1,40 +1,41 @@
 .profileContainer {
-  margin: 0 auto;
-  max-width: 47em;
-  margin-top: 4em;
-  margin-bottom: 4em;
+    margin: 0 auto;
+    max-width: 47em;
+    margin-top: 4em;
+    margin-bottom: 4em;
 }
 
 .profilePic {
-  float: left;
-  margin-right: 2em;
-  margin-bottom: 1em;
+    float: left;
+    margin-right: 2em;
+    margin-bottom: 1em;
 }
 
 @media screen and (max-width: 800px) {
-  .bgWrapper {
-    display: none;
-  }
+    .bgWrapper {
+        display: none;
+    }
 
-  .profilePic {
-    float: none;
-    display: block;
-    margin: 0 auto 2em;
-  }
+    .profilePic {
+        float: none;
+        display: block;
+        margin: 0 auto 2em;
+    }
 
-  .aboutText {
-    text-align: center;
-    margin: 0 2em;
-  }
+    .aboutText {
+        text-align: center;
+        margin: 0 2em;
+        line-height: 1.5rem;
+    }
 
-  .profileContainer {
-    margin-top: 0em;
-    margin-bottom: 2em;
-  }
+    .profileContainer {
+        margin-top: 0em;
+        margin-bottom: 2em;
+    }
 }
 
 @media screen and (max-width: 574px) {
-  .aboutText {
-    margin: 0;
-  }
+    .aboutText {
+        margin: 1rem;
+    }
 }
