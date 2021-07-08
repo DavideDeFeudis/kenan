@@ -7,7 +7,7 @@ import Admin from "./components/Admin/Admin";
 // import VideoSunson from "./components/VideoSunson/VideoSunson";
 import Workshops from "./components/Workshops/Workshops";
 import Contact from "./components/Contact/Contact";
-import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
 import Login from "./components/Login/Login";
 // import OnlineCoaching from "./components/OnlineCoaching/OnlineCoaching";
 
@@ -15,7 +15,7 @@ function App() {
     return (
         <div data-test="app">
             <Switch>
-                <PrivateRoute exact path="/admin" component={Admin} />
+                {/* <PrivateRoute exact path="/admin" component={Admin} /> */}
                 <Route exact path="/admin" component={Admin} />
                 <Route exact path="/login" component={Login} />
                 {/* <Route path="/about" component={About} /> */}
