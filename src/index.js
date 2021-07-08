@@ -9,17 +9,17 @@ import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import Context from "./context";
-import { AuthProvider } from "./Auth";
+// import { AuthProvider } from "./Auth";
 
 ReactDOM.render(
-  <AuthProvider>
+    // <AuthProvider>
     <Context>
-      <Router>
-        <App />
-      </Router>
-    </Context>
-  </AuthProvider>,
-  document.getElementById("root")
+        <Router>
+            <App />
+        </Router>
+    </Context>,
+    // </AuthProvider>,
+    document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
