@@ -2,21 +2,19 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../../base.js";
 import { AuthContext } from "../../Auth.js";
-import { Button } from '../Button'
+import { Button } from "../Button";
 import Navbar from "../Navbar/Navbar.js";
 
 const Login = ({ history }) => {
     const handleLogin = useCallback(
-        async event => {
+        async (event) => {
             event.preventDefault();
             const { email, password } = event.target.elements;
             try {
-                await app
-                    .auth()
-                    .signInWithEmailAndPassword(email.value, password.value);
+                await app.auth().signInWithEmailAndPassword(email.value, password.value);
                 history.push("/admin");
             } catch (error) {
-                console.log('admin login error:', error)
+                console.log("admin login error:", error);
                 alert(error);
             }
         },
@@ -32,16 +30,12 @@ const Login = ({ history }) => {
     return (
         <>
             <Navbar />
-            <div className='form login-form'>
+            <div className="form login-form">
                 <div className="container">
-                    <h2 className='mb-3'>Log in to the admin area</h2>
+                    <h2 className="mb-3">Log in to the admin area</h2>
                     <form onSubmit={handleLogin}>
-                        <div className="form-group">
-                            <input className="form-control" name="email" type="email" placeholder="Email" />
-                        </div>
-                        <div className="form-group">
-                            <input className="form-control" name="password" type="password" placeholder="Password" />
-                        </div>
+                        <input name="email" type="email" placeholder="Email" />
+                        <input name="password" type="password" placeholder="Password" />
                         <Button type="submit">Log in</Button>
                     </form>
                 </div>

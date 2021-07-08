@@ -1,46 +1,40 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  line-height: 1.62;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(21, 21, 21);
-  color: rgb(199, 199, 199);
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(21, 21, 21);
+    color: rgb(199, 199, 199);
 }
 
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 hr {
-  border: 1px solid rgb(65, 65, 65);
-  margin: 3rem 0;
+    border: 1px solid rgb(65, 65, 65);
+    margin: 3rem 0;
 }
 
 p {
-  margin: 0;
+    margin: 0;
 }
 
 .main-content {
-  max-width: 50rem;
-  padding: 3rem 2rem;
+    max-width: 50rem;
+    padding: 3rem 2rem;
 }
 
 #line {
-  border-bottom: 1px solid rgb(55, 55, 55);
-  width: 60%;
-  margin: 0.6em auto;
-}
-
-.form-control:focus {
-  border-color: black;
-  box-shadow: none;
+    border-bottom: 1px solid rgb(55, 55, 55);
+    width: 60%;
+    margin: 0.6em auto;
 }
 
 .loading-spinner {
-  margin: 5em auto;
+    margin: 5em auto;
 }

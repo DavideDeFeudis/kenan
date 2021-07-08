@@ -1,111 +1,88 @@
-import React, { useState } from 'react'
-import { Button } from '../Button'
-import Spinner from '../Spinner/Spinner'
+import React, { useState } from "react";
+import { Button } from "../Button";
+import Spinner from "../Spinner/Spinner";
 
 export default function SignupForm(props) {
-    const { setFeedback, subjectContent, workshopId } = props
+    const { setFeedback, subjectContent, workshopId } = props;
 
     const initialState = {
         workshopId,
-        firstName: '',
-        lastName: '',
-        email: '',
+        firstName: "",
+        lastName: "",
+        email: "",
         subject: subjectContent,
-        text: ''
-    }
+        text: "",
+    };
 
-    const [message, setMessage] = useState(initialState)
+    const [message, setMessage] = useState(initialState);
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
-        setMessage({ ...message, [e.target.name]: e.target.value })
-    }
+        setMessage({ ...message, [e.target.name]: e.target.value });
+    };
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        setLoading(true)
-        sendFormData()
-    }
+        e.preventDefault();
+        setLoading(true);
+        sendFormData();
+    };
 
     const sendFormData = () => {
         fetch(`${process.env.REACT_APP_BACKEND_HOST}/signup`, {
             method: "POST",
             body: JSON.stringify(message),
             headers: {
-                "Content-Type": "application/json"
-            }
+                "Content-Type": "application/json",
+            },
         })
-            .then(response => response.json())
-            .then(json => {
-                console.log('SignupForm json:', json)
-                setLoading(false)
-                setFeedback(json)
+            .then((response) => response.json())
+            .then((json) => {
+                console.log("SignupForm json:", json);
+                setLoading(false);
+                setFeedback(json);
             })
-            .catch(err => {
-                console.log('SignupForm err:', err)
-                setLoading(false)
-                setFeedback({})
-            })
-    }
+            .catch((err) => {
+                console.log("SignupForm err:", err);
+                setLoading(false);
+                setFeedback({});
+            });
+    };
 
     return (
-        <div className='form'>
+        <div className="form">
             <div className="container">
-                <form
-                    onSubmit={handleSubmit}
-                >
-                    <div className="form-group">
-                        <input
-                            name="firstName"
-                            type="text"
-                            className="form-control"
-                            placeholder="First name"
-                            onChange={handleChange}
-                            value={message.firstName}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="lastName"
-                            type="text"
-                            className="form-control"
-                            placeholder="Last name"
-                            onChange={handleChange}
-                            value={message.lastName}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <input
-                            name="email"
-                            type="email"
-                            className="form-control"
-                            placeholder="Email"
-                            onChange={handleChange}
-                            value={message.email}
-                            required
-                        >
-                        </input>
-                    </div>
-                    <div className="form-group">
-                        <textarea
-                            name="text"
-                            className="form-control"
-                            rows="3"
-                            placeholder="Anything else you want to tell us?"
-                            onChange={handleChange}
-                            value={message.text}
-                        >
-                        </textarea>
-                    </div>
-                    <Button type="submit" className="mb-2">Sign up</Button>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        name="firstName"
+                        type="text"
+                        placeholder="First name"
+                        onChange={handleChange}
+                        value={message.firstName}
+                        required
+                    ></input>
+                    <input
+                        name="lastName"
+                        type="text"
+                        placeholder="Last name"
+                        onChange={handleChange}
+                        value={message.lastName}
+                        required
+                    ></input>
+                    <input name="email" type="email" placeholder="Email" onChange={handleChange} value={message.email} required></input>
+                    <textarea
+                        name="text"
+                        rows="3"
+                        placeholder="Anything else you want to tell us?"
+                        onChange={handleChange}
+                        value={message.text}
+                    ></textarea>
+                    <Button type="submit" className="mb-2">
+                        Sign up
+                    </Button>
                 </form>
             </div>
             <Spinner loading={loading} fullScreen />
         </div>
-    )
+    );
 }
