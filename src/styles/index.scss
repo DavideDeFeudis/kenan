@@ -16,7 +16,7 @@ html {
 // To enable sticky footer at the bottom of the page
 body,
 #root,
-[data-test="app"],
+.App,
 .Home,
 .Contact {
     min-height: 100vh;

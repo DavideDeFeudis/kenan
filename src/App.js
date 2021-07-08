@@ -13,7 +13,7 @@ import Login from "./components/Login/Login";
 
 function App() {
     return (
-        <div data-test="app">
+        <div data-test="app" className="App">
             <Switch>
                 {/* <PrivateRoute exact path="/admin" component={Admin} /> */}
                 <Route exact path="/admin" component={Admin} />

@@ -37,13 +37,16 @@ export default function Navbar({ admin }) {
                 <li className={classes.menuItem}>
                     <Link to="/contact">Contact</Link>
                 </li>
-                {admin && (
+                <li className={classes.menuItem}>
+                    <Link to="/admin">Admin</Link>
+                </li>
+                {/* {admin && (
                     <li className={classes.menuItem}>
                         <Link to="/login" data-test="admin-nav-link" onClick={() => app.auth().signOut()}>
                             Sign Out
                         </Link>
                     </li>
-                )}
+                )} */}
             </ol>
         </nav>
     );
