@@ -166,6 +166,9 @@ p {
         position: static;
     }
     .main {
+        max-width: 1000px;
+        margin: auto;
+
         section {
             padding: 1.7em 1em 0;
             border: 2px solid rgb(101, 146, 3);
