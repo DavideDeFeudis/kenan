@@ -1,9 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap";
-// import $ from 'jquery'
-// import Popper from 'popper.js'
 import "./styles/index.scss";
 import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
