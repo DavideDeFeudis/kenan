@@ -4,10 +4,10 @@ import loadingGif from "../../images/load.gif";
 import { StateContext, DispatchContext } from "../../context";
 import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../../ActionTypes";
 import { getRequest, getSuccess, getError } from "../../ActionCreators";
-// const baseUrl = process.env.REACT_APP_BACKEND_HOST;
+const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
 // Use local data
-import { localWorkshops } from "../../data.js";
+// import { localWorkshops } from "../../data.js";
 
 export default function WorkshopsList({ admin, user }) {
     const { workshops, getStatus } = useContext(StateContext);
@@ -18,13 +18,13 @@ export default function WorkshopsList({ admin, user }) {
             dispatch(getRequest());
             try {
                 // Load data from database
-                // const req = await fetch(baseUrl + "/workshops", {
-                //     headers: { "Content-Type": "application/json" },
-                // });
-                // const data = await req.json();
+                const req = await fetch(baseUrl + "/workshops", {
+                    headers: { "Content-Type": "application/json" },
+                });
+                const data = await req.json();
 
                 // Use local data
-                const data = localWorkshops;
+                // const data = localWorkshops;
                 dispatch(getSuccess(data));
             } catch (e) {
                 console.warn(`Could not load workshops: ${e}`);
