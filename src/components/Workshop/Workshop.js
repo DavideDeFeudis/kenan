@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { formatDate } from "../../utils";
 import { DispatchContext } from "../../context";
 import { setPreview, deleteSuccess, openModalWorkshop } from "../../ActionCreators";
+import "./Workshop.scss";
 
 export default function Workshop({ admin, preview, user, workshop }) {
     const dispatch = useContext(DispatchContext);
@@ -121,8 +122,8 @@ export default function Workshop({ admin, preview, user, workshop }) {
     if (startTime && endTime) time = startTime + "-" + endTime;
 
     return (
-        <div className="Workshop py-12">
-            <h3>{title}</h3>
+        <div className="workshop-container py-12">
+            <h3 className="mb-4">{title}</h3>
             <p className="mb-4">
                 {date} {time}
                 <br />

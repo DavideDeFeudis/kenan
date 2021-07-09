@@ -11,7 +11,7 @@ export default function VideoSunson() {
         <div className="Sunson">
             <Navbar />
             <Background small={backgroundSmall} large={backgroundLarge} />
-            <div className="container max-w-140 px-12 py-12">
+            <div className="container w-144 px-12 py-12">
                 <p>
                     Choreography: Kenan Dinkelmann
                     <br />

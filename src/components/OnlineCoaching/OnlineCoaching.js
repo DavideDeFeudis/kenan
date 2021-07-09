@@ -18,7 +18,7 @@ export default function OnlineCoaching() {
         <div className="OnlineCoaching">
             <Navbar />
             <Background small={backgroundSmall} large={backgroundLarge} />
-            <div className="container max-w-140 px-12 py-12">
+            <div className="container w-144 px-12 py-12">
                 <p>
                     I decided to start the Flow Acrobatics Online Coaching because it is great way for me to connect with people all over
                     the world despite the current situation with COVID -19.

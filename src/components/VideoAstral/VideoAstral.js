@@ -24,7 +24,7 @@ export default function VideoAstral() {
                 </div>
             </div>
 
-            <div className="container max-w-140 px-12 py-12">
+            <div className="container w-144 px-12 py-12">
                 <p>
                     ASTRAL is set in a fictional world where humankind, through its behavior, has made survival on planet Earth impossible.
                     Climate change has progressed so drastically that no human being can survive on Earth in 10 years. Scientists travel to
