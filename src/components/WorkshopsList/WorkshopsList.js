@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import "./WorkshopsList.scss";
 import Workshop from "../Workshop/Workshop";
 import loadingGif from "../../images/load.gif";
 import { StateContext, DispatchContext } from "../../context";
