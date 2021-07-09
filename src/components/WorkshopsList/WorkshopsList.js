@@ -39,7 +39,7 @@ export default function WorkshopsList({ admin, user }) {
         content = (
             <div className="loading-spinner container text-center">
                 <img src={loadingGif} width="40" height="40" alt="loading..." />
-                <p className="mt-3">Loading workshops...</p>
+                <p className="mt-4">Loading workshops...</p>
             </div>
         );
     } else if (getStatus === GET_SUCCESS && workshops.length > 0) {

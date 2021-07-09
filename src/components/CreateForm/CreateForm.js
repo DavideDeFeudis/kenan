@@ -88,7 +88,7 @@ export default function CreateForm() {
                     <Input id="price4" name="price4" type="number" onChange={handleChange} workshopDraft={workshopDraft} />
                 </div>
             </div>
-            <div className="mt-3">
+            <div className="mt-4">
                 <Button className="admin-button" type="submit">
                     Publish
                 </Button>
@@ -100,13 +100,13 @@ export default function CreateForm() {
             {createStatus === CREATE_REQUEST && (
                 <div className="loading-spinner container text-center">
                     <img src={loadingGif} width="40" height="40" alt="In progress..." />
-                    <p className="mt-3">In progress...</p>
+                    <p className="mt-4">In progress...</p>
                 </div>
             )}
 
-            {createStatus === CREATE_SUCCESS && <p className="mb-3 text-success">Published successfully</p>}
+            {createStatus === CREATE_SUCCESS && <p className="mb-4 text-success">Published successfully</p>}
 
-            {createStatus === CREATE_ERROR && <p className="mb-3 text-danger">Couldn't publish workshop</p>}
+            {createStatus === CREATE_ERROR && <p className="mb-4 text-danger">Couldn't publish workshop</p>}
         </form>
     );
 }

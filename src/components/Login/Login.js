@@ -32,7 +32,7 @@ const Login = ({ history }) => {
             <Navbar />
             <div className="form login-form">
                 <div className="container">
-                    <h2 className="mb-3">Log in to the admin area</h2>
+                    <h2 className="mb-4">Log in to the admin area</h2>
                     <form onSubmit={handleLogin}>
                         <input name="email" type="email" placeholder="Email" />
                         <input name="password" type="password" placeholder="Password" />

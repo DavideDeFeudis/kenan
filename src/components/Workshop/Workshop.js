@@ -62,7 +62,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
     );
 
     const adminButtons = (
-        <div className="mt-3">
+        <div className="mt-4">
             <Link to="/admin">
                 <Button
                     type="button"
@@ -99,7 +99,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
 
     if (customers && customers.length) {
         customersList = (
-            <div className="mt-3">
+            <div className="mt-4">
                 <p>Attendees:</p>
                 {customers.map((customer) => {
                     return (
@@ -111,7 +111,7 @@ export default function Workshop({ admin, preview, user, workshop }) {
             </div>
         );
     } else {
-        customersList = <p className="my-3">No one signed up yet</p>;
+        customersList = <p className="my-4">No one signed up yet</p>;
     }
 
     let date = "";
@@ -121,16 +121,16 @@ export default function Workshop({ admin, preview, user, workshop }) {
     if (startTime && endTime) time = startTime + "-" + endTime;
 
     return (
-        <div className="Workshop py-5">
+        <div className="Workshop py-12">
             <h3>{title}</h3>
-            <p className="mb-3">
+            <p className="mb-4">
                 {date} {time}
                 <br />
                 {address}
                 <br />
                 {info}
             </p>
-            {(preview || admin) && <div className="mb-3">{priceArea}</div>}
+            {(preview || admin) && <div className="mb-4">{priceArea}</div>}
             {admin && customersList}
             {buttons}
         </div>

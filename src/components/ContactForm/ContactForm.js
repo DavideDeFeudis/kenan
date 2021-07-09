@@ -46,43 +46,16 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="form pt-5 pb-3">
+        <div className="form pt-12 pb-4">
             <div className="container">
                 <form onSubmit={handleSubmit}>
-                    <input
-                        name="name"
-                        type="text"
-                        placeholder="Name"
-                        onChange={handleChange}
-                        value={message.name}
-                        required
-                    ></input>
-                    <input
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        onChange={handleChange}
-                        value={message.email}
-                        required
-                    ></input>
-                    <input
-                        name="subject"
-                        type="text"
-                        placeholder="Subject"
-                        onChange={handleChange}
-                        value={message.subject}
-                    ></input>
-                    <textarea
-                        name="text"
-                        rows="3"
-                        placeholder="Message"
-                        onChange={handleChange}
-                        value={message.text}
-                        required
-                    ></textarea>
+                    <input name="name" type="text" placeholder="Name" onChange={handleChange} value={message.name} required></input>
+                    <input name="email" type="email" placeholder="Email" onChange={handleChange} value={message.email} required></input>
+                    <input name="subject" type="text" placeholder="Subject" onChange={handleChange} value={message.subject}></input>
+                    <textarea name="text" rows="3" placeholder="Message" onChange={handleChange} value={message.text} required></textarea>
                     <div>
                         <Button type="submit">Send</Button>
-                        <p className="my-3">{feedback}</p>
+                        <p className="my-4">{feedback}</p>
                     </div>
                 </form>
             </div>

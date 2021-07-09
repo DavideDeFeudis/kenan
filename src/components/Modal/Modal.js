@@ -74,7 +74,7 @@ export default function Modal({ parentPage }) {
                                 <h2>{title}</h2>
                                 <span>{date}</span>
                                 <div id="line"></div>
-                                <div className="mb-3">{priceArea}</div>
+                                <div className="mb-4">{priceArea}</div>
                                 <SignupForm
                                     workshopId={_id}
                                     setFeedback={setFeedback}
