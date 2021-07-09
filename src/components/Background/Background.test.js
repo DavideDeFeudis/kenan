@@ -12,22 +12,22 @@ const defaultProps = { large: "../images/home_full_1920.jpg" };
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}) => {
-  const setupProps = { ...defaultProps, ...props };
-  return shallow(<Background {...setupProps} />);
+    const setupProps = { ...defaultProps, ...props };
+    return shallow(<Background {...setupProps} />);
 };
 
 describe("background", () => {
-  it("renders blank-loading-placeholder", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, "blank-loading-placeholder");
-    expect(el.length).toBe(1);
-  });
-  it("renders bg-image", () => {
-    const wrapper = setup();
-    const el = findByTestAttr(wrapper, "bg-image");
-    expect(el.length).toBe(1);
-  });
-  test('does not throw warning with expected props', () => {
-    checkProps(Background, defaultProps);
-  });
+    it("renders image-placeholder", () => {
+        const wrapper = setup();
+        const el = findByTestAttr(wrapper, "image-placeholder");
+        expect(el.length).toBe(1);
+    });
+    it("renders bg-image", () => {
+        const wrapper = setup();
+        const el = findByTestAttr(wrapper, "bg-image");
+        expect(el.length).toBe(1);
+    });
+    test("does not throw warning with expected props", () => {
+        checkProps(Background, defaultProps);
+    });
 });

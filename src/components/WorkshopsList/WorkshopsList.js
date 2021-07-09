@@ -58,5 +58,5 @@ export default function WorkshopsList({ admin, user }) {
         content = <p className="my-5">There was a problem loading workshops</p>;
     }
 
-    return <div className="container text-center">{content}</div>;
+    return <div className="container w-144 text-center">{content}</div>;
 }
