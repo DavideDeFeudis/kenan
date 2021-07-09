@@ -9,7 +9,7 @@ import profilePic from "../../images/kenan_profile_300.jpg";
 
 export default function Home() {
     return (
-        <div data-test="about" className="Home">
+        <div data-test="about" className="home">
             <Navbar data-test="navbar" className={classes.navbar} />
             <div className={classes.bgWrapper}>
                 <Background data-test="background" large={backgroundLarge} />

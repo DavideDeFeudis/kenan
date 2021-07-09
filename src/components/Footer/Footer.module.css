@@ -1,15 +1,17 @@
 .footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  background-color: rgb(12, 12, 12);
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: rgb(12, 12, 12);
+    /* Avoid footer raising from the bottom of the page */
+    margin-top: auto;
 }
 
 .socialIcon {
-  margin: 0 0.2rem;
-  opacity: 0.55;
-  transition: 0.4s;
+    margin: 0 0.2rem;
+    opacity: 0.55;
+    transition: 0.4s;
 }
 
 .socialIcon:hover {
-  opacity: 1;
+    opacity: 1;
 }

@@ -1,0 +1,15 @@
+.navbar {
+    background-image: linear-gradient(to right, transparent 45%, rgba(0, 0, 0, 0.6) 80%) !important;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        margin-bottom: 20vh;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navbar {
+        background-image: linear-gradient(to right, transparent 70%, rgba(0, 0, 0, 0.6) 100%) !important;
+    }
+}
