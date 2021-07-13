@@ -6,7 +6,7 @@ import { StateContext, DispatchContext } from "../../context";
 import { GET_REQUEST, GET_SUCCESS, GET_ERROR } from "../../ActionTypes";
 import { getRequest, getSuccess, getError } from "../../ActionCreators";
 // Use local data
-import { localWorkshops } from "../../data.js";
+// import { localWorkshops } from "../../data.js";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
@@ -19,13 +19,13 @@ export default function WorkshopsList({ admin, user }) {
             dispatch(getRequest());
             try {
                 // Load data from database
-                // const req = await fetch(baseUrl + "/workshops", {
-                //     headers: { "Content-Type": "application/json" },
-                // });
-                // const data = await req.json();
+                const req = await fetch(baseUrl + "/workshops", {
+                    headers: { "Content-Type": "application/json" },
+                });
+                const data = await req.json();
 
                 // Use local data
-                const data = localWorkshops;
+                // const data = localWorkshops;
                 dispatch(getSuccess(data));
             } catch (e) {
                 console.warn(`Could not load workshops: ${e}`);
@@ -53,9 +53,9 @@ export default function WorkshopsList({ admin, user }) {
                 return <Workshop admin={admin} user={user} key={workshop._id} workshop={workshop} />;
             });
     } else if (getStatus === GET_SUCCESS && workshops.length === 0) {
-        content = <p className="my-5">There are no workshops at the moment</p>;
+        content = <p className="my-4">There are no workshops at the moment</p>;
     } else if (getStatus === GET_ERROR) {
-        content = <p className="my-5">There was a problem loading workshops</p>;
+        content = <p className="my-4">There was a problem loading workshops</p>;
     }
 
     return <div className="container w-144 text-center">{content}</div>;
