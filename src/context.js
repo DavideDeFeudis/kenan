@@ -8,9 +8,7 @@ import {
     CREATE_REQUEST,
     CREATE_SUCCESS,
     CREATE_ERROR,
-    // DELETE_REQUEST,
     DELETE_SUCCESS,
-    // DELETE_ERROR,
     OPEN_MODAL_WORKSHOP,
     OPEN_MODAL_ONLINE_COURSE,
     CLOSE_MODAL,
@@ -60,8 +58,6 @@ export const reducer = (state = initialState, { type, payload }) => {
                 createStatus: CREATE_REQUEST,
             };
         case CREATE_SUCCESS:
-            // let i = 0;
-            // while (i < 300000000) i++;
             return {
                 ...state,
                 createStatus: CREATE_SUCCESS,
