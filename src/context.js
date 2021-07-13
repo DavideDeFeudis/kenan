@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { videos, onlineCourse } from "./data";
 import {
     GET_REQUEST,
     GET_SUCCESS,
@@ -10,7 +9,6 @@ import {
     CREATE_ERROR,
     DELETE_SUCCESS,
     OPEN_MODAL_WORKSHOP,
-    OPEN_MODAL_ONLINE_COURSE,
     CLOSE_MODAL,
 } from "./ActionTypes";
 
@@ -20,8 +18,6 @@ export const DispatchContext = React.createContext();
 export const initialState = {
     workshopDraft: {},
     workshops: [],
-    onlineCourse,
-    videos,
     modalItem: {},
     isModalOpen: false,
     getStatus: "",
@@ -77,12 +73,6 @@ export const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 modalItem: state.workshops.find((workshop) => workshop._id === payload),
-                isModalOpen: true,
-            };
-        case OPEN_MODAL_ONLINE_COURSE:
-            return {
-                ...state,
-                modalItem: onlineCourse,
                 isModalOpen: true,
             };
         case CLOSE_MODAL:

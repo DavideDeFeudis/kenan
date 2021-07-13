@@ -9,7 +9,6 @@ import Workshops from "./components/Workshops/Workshops";
 import Contact from "./components/Contact/Contact";
 // import PrivateRoute from "./PrivateRoute";
 import Login from "./components/Login/Login";
-// import OnlineCoaching from "./components/OnlineCoaching/OnlineCoaching";
 
 function App() {
     return (
@@ -23,7 +22,6 @@ function App() {
                 {/* <Route path="/sunson" component={VideoSunson} /> */}
                 <Route path="/workshops" component={Workshops} />
                 <Route path="/contact" component={Contact} />
-                {/* <Route path="/online-coaching" component={OnlineCoaching} /> */}
                 <Route component={Home} />
             </Switch>
         </div>
