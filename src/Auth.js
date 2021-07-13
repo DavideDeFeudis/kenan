@@ -4,23 +4,23 @@ import app from "./base.js";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-	const [currentUser, setCurrentUser] = useState([], () => {
-		const localData = localStorage.getItem('userData');
-		return localData ? JSON.parse(localData) : [];
-	});
+    const [currentUser, setCurrentUser] = useState([], () => {
+        const localData = localStorage.getItem("userData");
+        return localData ? JSON.parse(localData) : [];
+    });
 
-	useEffect(() => {
-		app.auth().onAuthStateChanged(setCurrentUser);
-		localStorage.setItem('userData', JSON.stringify(currentUser));
-	}, []);
+    useEffect(() => {
+        app.auth().onAuthStateChanged(setCurrentUser);
+        localStorage.setItem("userData", JSON.stringify(currentUser));
+    }, [currentUser]);
 
-	return (
-		<AuthContext.Provider
-			value={{
-				currentUser
-			}}
-		>
-			{children}
-		</AuthContext.Provider>
-	);
+    return (
+        <AuthContext.Provider
+            value={{
+                currentUser,
+            }}
+        >
+            {children}
+        </AuthContext.Provider>
+    );
 };
