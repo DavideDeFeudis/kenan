@@ -72,7 +72,7 @@ export default function Modal({ parentPage }) {
                                 <img id="close-modal-icon" onClick={handleClickCloseModal} src={closeWindowIcon} alt="Close" />
                             </Link>
                             <div id="form-container">
-                                <h2>{title}</h2>
+                                <h2 className="mb-4">{title}</h2>
                                 <span>{date}</span>
                                 <div id="line"></div>
                                 <div className="mb-4">{priceArea}</div>
