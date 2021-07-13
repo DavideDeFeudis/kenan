@@ -1,6 +1,6 @@
 ![](src/images/about_1920.jpg)
 
-<h1 align="center">Kenan Dinkelmann Dance</h1>
+<h1 align="center">Kenan Dance</h1>
 
 ## Basic Overview
 

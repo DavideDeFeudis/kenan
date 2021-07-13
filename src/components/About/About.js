@@ -22,7 +22,7 @@ export default function About() {
           alt="Kenan"
         />
         <p data-test="about-text" className={classes.aboutText}>
-          Kenan Dinkelmann grew up in Passau, Germany and graduated from Artez,
+          Kenan grew up in Passau, Germany and graduated from Artez,
           School of Dance, Arnhem with a BA of performing arts and completed the
           SEAD postgraduate program Bodhi Project directed by Susan Quinn where
           he toured works by Jozef Frucek & Linda Kapetanea, Martin Nachbar and
