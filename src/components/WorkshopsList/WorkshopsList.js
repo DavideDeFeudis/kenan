@@ -32,7 +32,7 @@ export default function WorkshopsList({ admin, user }) {
                 dispatch(getError());
             }
         })();
-    }, []);
+    }, [dispatch]);
 
     let content;
     if (getStatus === GET_REQUEST) {
