@@ -7,10 +7,6 @@
 Contemporary dance school web app created with React.js, Node.js and MongoDB.  
 This app uses create-react-app and depends on this [backend project](https://github.com/DavideDeFeudis/kenan-backend).
 
-## Admin dashboard
-
-![](src/images/admin_screenshot.jpg)
-
 ## Installation
 
 ```bash
