@@ -7,6 +7,9 @@ import Background from "../Background/Background";
 import classes from "./Home.module.css";
 import profilePic from "../../images/kenan_profile_300.jpg";
 
+/**
+ * The home page. Displays a background image, an image and text.
+ */
 export default function Home() {
     return (
         <div data-test="about" className="home">

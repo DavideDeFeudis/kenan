@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "../Button";
 import Spinner from "../Spinner/Spinner";
 
+/**
+ * A form used to sign up for a workshop.
+ */
 export default function SignupForm(props) {
     const { setFeedback, subjectContent, workshopId } = props;
 
@@ -15,7 +18,6 @@ export default function SignupForm(props) {
     };
 
     const [message, setMessage] = useState(initialState);
-
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {

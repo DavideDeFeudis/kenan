@@ -7,6 +7,9 @@ import CreateForm from "../CreateForm/CreateForm";
 import { StateContext } from "../../context";
 import WorkshopsList from "../WorkshopsList/WorkshopsList";
 
+/**
+ * The page where the admin can create and delete workshops.
+ */
 export default function Admin() {
     const { workshopDraft } = useContext(StateContext);
 

@@ -7,6 +7,9 @@ import Footer from "../Footer/Footer";
 import Background from "../Background/Background";
 import ContactForm from "../ContactForm/ContactForm";
 
+/**
+ * The contact page. Displays a background image and a contact form.
+ */
 export default function Contact() {
     return (
         <div className="contact">

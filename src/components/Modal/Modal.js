@@ -7,6 +7,9 @@ import closeWindowIcon from "../../images/close-window.png";
 import { StateContext, DispatchContext } from "../../context";
 import { closeModal } from "../../ActionCreators";
 
+/**
+ * A modal component used to display workshops info and feedback messages when a user signs up for a workshop.
+ */
 export default function Modal({ parentPage }) {
     const { isModalOpen, modalItem } = useContext(StateContext);
     const dispatch = useContext(DispatchContext);

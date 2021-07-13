@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * An input component.
+ */
 export default function Input(props) {
     let { name, type, onChange, required, workshopDraft } = props;
     if (!type) type = "text";

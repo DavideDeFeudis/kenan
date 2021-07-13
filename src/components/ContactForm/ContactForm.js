@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button } from "../Button";
 import Spinner from "../Spinner/Spinner";
 
+/**
+ * A contact form used to send messages.
+ */
 export default function ContactForm() {
     const initialState = {
         name: "",

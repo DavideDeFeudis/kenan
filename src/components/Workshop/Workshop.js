@@ -6,6 +6,9 @@ import { DispatchContext } from "../../context";
 import { setPreview, deleteSuccess, openModalWorkshop } from "../../ActionCreators";
 import "./Workshop.scss";
 
+/**
+ * Displays a workshop instance with title, info and buttons.
+ */
 export default function Workshop({ admin, preview, user, workshop }) {
     const dispatch = useContext(DispatchContext);
     const baseUrl = process.env.REACT_APP_BACKEND_HOST;
@@ -96,8 +99,8 @@ export default function Workshop({ admin, preview, user, workshop }) {
     } else if (user) {
         buttons = userButtons;
     }
-    let customersList = null;
 
+    let customersList = <p className="my-4">No one signed up yet</p>;
     if (customers && customers.length) {
         customersList = (
             <div className="mt-4">
@@ -111,15 +114,17 @@ export default function Workshop({ admin, preview, user, workshop }) {
                 })}
             </div>
         );
-    } else {
-        customersList = <p className="my-4">No one signed up yet</p>;
     }
 
     let date = "";
-    if (startDate && endDate) date = formatDate(startDate, endDate);
+    if (startDate && endDate) {
+        date = formatDate(startDate, endDate);
+    }
 
     let time = "";
-    if (startTime && endTime) time = startTime + "-" + endTime;
+    if (startTime && endTime) {
+        time = startTime + "-" + endTime;
+    }
 
     return (
         <div className="workshop-container py-12">

@@ -4,6 +4,9 @@ import "./Spinner.scss";
 import loadingGif from "../../images/load.gif";
 import PropTypes from "prop-types";
 
+/**
+ * A loading spinner capable of displaying inline or fullscreen on semi-transparent background.
+ */
 export default function Spinner({ loading, fullScreen }) {
     if (!loading) {
         return null;

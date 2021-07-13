@@ -8,6 +8,9 @@ import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
 import WorkshopsList from "../WorkshopsList/WorkshopsList";
 
+/**
+ * The workshops page. Displays a background image, text and the workshop list.
+ */
 export default function Workshops() {
     return (
         <div className="Workshops">

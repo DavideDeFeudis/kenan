@@ -10,6 +10,9 @@ import { getRequest, getSuccess, getError } from "../../ActionCreators";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
+/**
+ * Fetches and displays a list of workshops sorted by starting date. Displays an alternate text in case of error or missing workshops.
+ */
 export default function WorkshopsList({ admin, user }) {
     const { workshops, getStatus } = useContext(StateContext);
     const dispatch = useContext(DispatchContext);

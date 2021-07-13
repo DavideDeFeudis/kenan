@@ -9,6 +9,9 @@ import "./CreateForm.scss";
 
 const baseUrl = process.env.REACT_APP_BACKEND_HOST;
 
+/**
+ * A form used by the admin to create a new workshop.
+ */
 export default function CreateForm() {
     const { workshopDraft, createStatus } = useContext(StateContext);
     const dispatch = useContext(DispatchContext);

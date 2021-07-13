@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./Background.scss";
 
+/**
+ * Displays images of two different size depending on viewport width.
+ */
 export default function Background({ small, large }) {
     const [loading, setLoading] = useState(true);
 

@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 
+/**
+ * A top navigation bar with appearance modes for mobile and desktop.
+ */
 export default function Navbar() {
     return (
         <nav className={classes.menu}>
