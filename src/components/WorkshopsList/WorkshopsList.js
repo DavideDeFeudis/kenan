@@ -37,7 +37,7 @@ export default function WorkshopsList({ admin, user }) {
     let content;
     if (getStatus === GET_REQUEST) {
         content = (
-            <div className="loading-spinner container text-center">
+            <div className="my-20 mx-auto container text-center">
                 <img src={loadingGif} width="40" height="40" alt="loading..." />
                 <p className="mt-4">Loading workshops...</p>
             </div>

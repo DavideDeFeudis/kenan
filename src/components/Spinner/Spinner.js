@@ -9,7 +9,7 @@ export default function Spinner({ loading, fullScreen }) {
         return null;
     } else {
         return (
-            <div data-test="spinner-wrapper" className={fullScreen ? "modal-container" : "spinner-in-frame"}>
+            <div data-test="spinner-wrapper" className={fullScreen ? "backdrop flex-center" : "spinner-in-frame"}>
                 <img data-test="spinner-img" src={loadingGif} width="45" height="45" alt="in progress..." />
             </div>
         );

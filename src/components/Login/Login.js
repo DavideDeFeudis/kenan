@@ -4,6 +4,7 @@ import app from "../../base.js";
 import { AuthContext } from "../../Auth.js";
 import { Button } from "../Button";
 import Navbar from "../Navbar/Navbar.js";
+import "./Login.scss";
 
 const Login = ({ history }) => {
     const handleLogin = useCallback(

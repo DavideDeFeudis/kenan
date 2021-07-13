@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import "../../styles/index.scss";
+import "./Modal.scss";
 import { Link } from "react-router-dom";
 import SignupForm from "../SignupForm/SignupForm";
 import closeWindowIcon from "../../images/close-window.png";
@@ -42,7 +43,7 @@ export default function Modal({ parentPage }) {
         return null;
     } else if (modalMessage) {
         return (
-            <div className="modal-container">
+            <div className="backdrop flex-center">
                 <div className="container">
                     <div className="row">
                         <div className="mx-auto p-5 text-center" id="feedback-modal">
@@ -52,7 +53,7 @@ export default function Modal({ parentPage }) {
                             <h2>{modalMessage}</h2>
                             {signupSuccess && (
                                 <div>
-                                    <div id="line"></div>
+                                    <hr />
                                     <span>We'll reach back to you shortly with payment details.</span>
                                 </div>
                             )}
@@ -63,7 +64,7 @@ export default function Modal({ parentPage }) {
         );
     } else {
         return (
-            <div className="modal-container">
+            <div className="backdrop flex-center">
                 <div className="container">
                     <div className="row">
                         <div className="mx-auto text-center" id="form-modal">

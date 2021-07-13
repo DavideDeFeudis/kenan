@@ -98,7 +98,7 @@ export default function CreateForm() {
             </div>
 
             {createStatus === CREATE_REQUEST && (
-                <div className="loading-spinner container text-center">
+                <div className="my-20 mx-auto container text-center">
                     <img src={loadingGif} width="40" height="40" alt="In progress..." />
                     <p className="mt-4">In progress...</p>
                 </div>
